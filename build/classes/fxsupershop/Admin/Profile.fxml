@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1035.0" style="-fx-background-color: #e4f4df;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxsupershop.Admin.ProfileController">
+   <children>
+      <Pane fx:id="Panel2" layoutX="389.0" layoutY="262.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="218.0" prefWidth="277.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <FontAwesomeIconView fill="#00b596" glyphName="INFO" layoutX="35.0" layoutY="53.0" size="35" />
+            <Label layoutX="65.0" layoutY="30.0" text="Update Panel" textFill="#514f4f">
+               <font>
+                  <Font size="14.5" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="info_Text2" layoutX="32.0" layoutY="119.0" prefHeight="35.0" prefWidth="227.0" promptText="Enter Your Info">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton cancelButton="true" layoutX="90.0" layoutY="168.0" onAction="#CancelAction" prefHeight="36.0" prefWidth="85.0" ripplerFill="#004ad3" style="-fx-background-radius: 20; -fx-border-color: #9d9a9a; -fx-border-radius: 20; -fx-border-width: 2;" text="CANCEL" textFill="#807f7f">
+               <font>
+                  <Font name="SansSerif Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="182.0" layoutY="168.0" onAction="#OkAction" prefHeight="36.0" prefWidth="59.0" style="-fx-background-color: #1D79E4; -fx-background-radius: 20;" text="OK" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="13.5" />
+               </font>
+            </JFXButton>
+            <JFXPasswordField fx:id="info_pass" layoutX="32.0" layoutY="72.0" prefHeight="35.0" prefWidth="227.0" promptText="Enter Your Password">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXPasswordField>
+         </children>
+      </Pane>
+      <Pane fx:id="Panel3" layoutX="389.0" layoutY="262.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="171.0" prefWidth="277.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <FontAwesomeIconView fill="#00b596" glyphName="INFO" layoutX="35.0" layoutY="53.0" size="35" />
+            <Label layoutX="65.0" layoutY="30.0" text="Update Panel" textFill="#514f4f">
+               <font>
+                  <Font size="14.5" />
+               </font>
+            </Label>
+            <JFXButton cancelButton="true" layoutX="168.0" layoutY="121.0" onAction="#CancelAction" prefHeight="36.0" prefWidth="85.0" ripplerFill="#004ad3" style="-fx-background-radius: 20; -fx-border-color: #9d9a9a; -fx-border-radius: 20; -fx-border-width: 2;" text="CANCEL" textFill="#807f7f">
+               <font>
+                  <Font name="SansSerif Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="66.0" layoutY="121.0" onAction="#DeactiveAction" prefHeight="36.0" prefWidth="93.0" style="-fx-background-color: #1D79E4; -fx-background-radius: 20;" text="Deactive" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="13.5" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Pane fx:id="Panel4" layoutX="389.0" layoutY="239.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="218.0" prefWidth="277.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <FontAwesomeIconView fill="#00b596" glyphName="INFO" layoutX="35.0" layoutY="53.0" size="35" />
+            <Label layoutX="65.0" layoutY="30.0" text="Update Panel" textFill="#514f4f">
+               <font>
+                  <Font size="14.5" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="info_Text3" layoutX="32.0" layoutY="119.0" prefHeight="35.0" prefWidth="227.0" promptText="Enter Your Info">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton cancelButton="true" layoutX="90.0" layoutY="168.0" onAction="#CancelAction" prefHeight="36.0" prefWidth="85.0" ripplerFill="#004ad3" style="-fx-background-radius: 20; -fx-border-color: #9d9a9a; -fx-border-radius: 20; -fx-border-width: 2;" text="CANCEL" textFill="#807f7f">
+               <font>
+                  <Font name="SansSerif Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="182.0" layoutY="168.0" onAction="#OkAction" prefHeight="36.0" prefWidth="59.0" style="-fx-background-color: #1D79E4; -fx-background-radius: 20;" text="OK" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="13.5" />
+               </font>
+            </JFXButton>
+            <JFXComboBox fx:id="info_combo" layoutX="32.0" layoutY="72.0" prefHeight="35.0" prefWidth="227.0" promptText="Select One" style="-fx-font-size: 13;" />
+         </children>
+      </Pane>
+      <Pane fx:id="Panel1" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="171.0" prefWidth="277.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <FontAwesomeIconView fill="#00b596" glyphName="INFO" layoutX="35.0" layoutY="53.0" size="35" />
+            <Label layoutX="65.0" layoutY="30.0" text="Update Panel" textFill="#514f4f">
+               <font>
+                  <Font size="14.5" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="info_Text1" layoutX="32.0" layoutY="73.0" prefHeight="35.0" prefWidth="227.0" promptText="Enter Your Info">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton cancelButton="true" layoutX="90.0" layoutY="121.0" onAction="#CancelAction" prefHeight="36.0" prefWidth="85.0" ripplerFill="#004ad3" style="-fx-background-radius: 20; -fx-border-color: #9d9a9a; -fx-border-radius: 20; -fx-border-width: 2;" text="CANCEL" textFill="#807f7f">
+               <font>
+                  <Font name="SansSerif Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="182.0" layoutY="121.0" onAction="#OkAction" prefHeight="36.0" prefWidth="59.0" style="-fx-background-color: #1D79E4; -fx-background-radius: 20;" text="OK" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="13.5" />
+               </font>
+            </JFXButton>
+            <JFXRadioButton fx:id="male" layoutX="63.0" layoutY="82.0" selected="true" text="Male" visible="false">
+               <toggleGroup>
+                  <ToggleGroup fx:id="gendre" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="female" layoutX="138.0" layoutY="82.0" text="Female" toggleGroup="$gendre" visible="false" />
+         </children>
+      </Pane>
+      <AnchorPane fx:id="stage_pane" prefHeight="672.0" prefWidth="1032.0" style="-fx-background-color: #e4f4df;">
+         <children>
+            <AnchorPane fx:id="main_pane" layoutX="38.0" layoutY="35.0" prefHeight="603.0" prefWidth="957.0" style="-fx-background-color: white; -fx-background-radius: 8;" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="35.0">
+               <effect>
+                  <DropShadow color="#979797" height="12.1" radius="5.55" width="12.1" />
+               </effect>
+               <children>
+                  <Label fx:id="name_lavel" layoutX="70.0" layoutY="224.0" prefHeight="23.0" prefWidth="290.0" textFill="#434343">
+                     <font>
+                        <Font name="Elephant" size="22.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="profile_img" fitHeight="35.0" fitWidth="146.0" layoutX="293.0" layoutY="14.0" onMouseClicked="#ImgClick" pickOnBounds="true" preserveRatio="true" visible="false" />
+                  <Circle fx:id="c" fill="WHITE" layoutX="133.0" layoutY="117.0" radius="73.0" stroke="#5e5c5c" strokeType="INSIDE" strokeWidth="1.5" />
+                  <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="169.0" layoutY="125.0" onAction="#imgUpload" prefHeight="49.0" prefWidth="49.0" style="-fx-background-color: white; -fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: GRAY;">
+                     <graphic>
+                        <FontAwesomeIconView fill="#00b596" glyphName="IMAGE" size="25" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Upload Image" />
+                     </tooltip>
+                  </JFXButton>
+                  <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="368.0" layoutY="217.0" onAction="#UpdateFullName" prefHeight="41.0" prefWidth="22.0" style="-fx-background-color: #dad6d6; -fx-background-radius: 25;">
+                     <graphic>
+                        <FontAwesomeIconView fill="#00b596" glyphName="EDIT" size="25" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Edit" />
+                     </tooltip>
+                  </JFXButton>
+                  <Pane layoutX="60.0" layoutY="271.0" prefHeight="35.0" prefWidth="349.0" style="-fx-background-color: lightblue; -fx-background-radius: 20;">
+                     <children>
+                        <Label layoutX="19.0" layoutY="8.0" text="User Name" textFill="#5e5b5b">
+                           <font>
+                              <Font name="Tahoma Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Label fx:id="user_name" layoutX="70.0" layoutY="327.0" prefHeight="23.0" prefWidth="290.0" textFill="#434343">
+                     <font>
+                        <Font name="Serif Regular" size="15.5" />
+                     </font>
+                  </Label>
+                  <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="368.0" layoutY="320.0" onAction="#UpdateUserName" prefHeight="41.0" prefWidth="22.0" style="-fx-background-color: #dad6d6; -fx-background-radius: 25;">
+                     <graphic>
+                        <FontAwesomeIconView fill="#00b596" glyphName="EDIT" size="25" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Edit" />
+                     </tooltip>
+                  </JFXButton>
+                  <Pane layoutX="60.0" layoutY="373.0" prefHeight="35.0" prefWidth="349.0" style="-fx-background-color: lightblue; -fx-background-radius: 20;">
+                     <children>
+                        <Label layoutX="19.0" layoutY="8.0" text="Email Address" textFill="#5e5b5b">
+                           <font>
+                              <Font name="Tahoma Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Label fx:id="email" layoutX="70.0" layoutY="428.0" prefHeight="23.0" prefWidth="290.0" textFill="#434343">
+                     <font>
+                        <Font name="Serif Regular" size="15.5" />
+                     </font>
+                  </Label>
+                  <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="368.0" layoutY="421.0" onAction="#UpdateEmail" prefHeight="41.0" prefWidth="22.0" style="-fx-background-color: #dad6d6; -fx-background-radius: 25;">
+                     <graphic>
+                        <FontAwesomeIconView fill="#00b596" glyphName="EDIT" size="25" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Edit" />
+                     </tooltip>
+                  </JFXButton>
+                  <Pane layoutX="60.0" layoutY="473.0" prefHeight="35.0" prefWidth="349.0" style="-fx-background-color: lightblue; -fx-background-radius: 20;">
+                     <children>
+                        <Label layoutX="19.0" layoutY="8.0" text="Phone Number" textFill="#5e5b5b">
+                           <font>
+                              <Font name="Tahoma Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Label fx:id="phone" layoutX="70.0" layoutY="528.0" prefHeight="23.0" prefWidth="290.0" textFill="#434343">
+                     <font>
+                        <Font name="Serif Regular" size="15.5" />
+                     </font>
+                  </Label>
+                  <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="368.0" layoutY="521.0" onAction="#UpdatePhone" prefHeight="41.0" prefWidth="22.0" style="-fx-background-color: #dad6d6; -fx-background-radius: 25;">
+                     <graphic>
+                        <FontAwesomeIconView fill="#00b596" glyphName="EDIT" size="25" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Edit" />
+                     </tooltip>
+                  </JFXButton>
+                  <Separator layoutX="478.0" layoutY="51.0" orientation="VERTICAL" prefHeight="521.0" prefWidth="3.0" AnchorPane.leftAnchor="478.0" />
+                  <Pane layoutX="545.0" layoutY="271.0" prefHeight="35.0" prefWidth="349.0" style="-fx-background-color: lightblue; -fx-background-radius: 20;" AnchorPane.leftAnchor="545.0" AnchorPane.rightAnchor="63.0">
+                     <children>
+                        <Label layoutX="19.0" layoutY="8.0" text="Address" textFill="#5e5b5b">
+                           <font>
+                              <Font name="Tahoma Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Label fx:id="address" layoutX="555.0" layoutY="327.0" prefHeight="23.0" prefWidth="290.0" textFill="#434343" AnchorPane.leftAnchor="555.0" AnchorPane.rightAnchor="112.0">
+                     <font>
+                        <Font name="Serif Regular" size="15.5" />
+                     </font>
+                  </Label>
+                  <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="853.0" layoutY="320.0" onAction="#UpdateAddress" prefHeight="41.0" prefWidth="22.0" style="-fx-background-color: #dad6d6; -fx-background-radius: 25;" AnchorPane.rightAnchor="63.0">
+                     <graphic>
+                        <FontAwesomeIconView fill="#00b596" glyphName="EDIT" size="25" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Edit" />
+                     </tooltip>
+                  </JFXButton>
+                  <Pane layoutX="545.0" layoutY="373.0" prefHeight="35.0" prefWidth="349.0" style="-fx-background-color: lightblue; -fx-background-radius: 20;" AnchorPane.leftAnchor="545.0" AnchorPane.rightAnchor="63.0">
+                     <children>
+                        <Label layoutX="19.0" layoutY="8.0" text="Security Question and Answer" textFill="#5e5b5b">
+                           <font>
+                              <Font name="Tahoma Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Label fx:id="ques_ans" layoutX="555.0" layoutY="428.0" prefHeight="23.0" prefWidth="290.0" text="Change Remember Token" textFill="#434343" AnchorPane.leftAnchor="555.0" AnchorPane.rightAnchor="112.0">
+                     <font>
+                        <Font name="Serif Regular" size="15.5" />
+                     </font>
+                  </Label>
+                  <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="853.0" layoutY="421.0" onAction="#UpdateQuesAns" prefHeight="41.0" prefWidth="22.0" style="-fx-background-color: #dad6d6; -fx-background-radius: 25;" AnchorPane.rightAnchor="63.0">
+                     <graphic>
+                        <FontAwesomeIconView fill="#00b596" glyphName="EDIT" size="25" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Edit" />
+                     </tooltip>
+                  </JFXButton>
+                  <Pane layoutX="545.0" layoutY="473.0" prefHeight="35.0" prefWidth="349.0" style="-fx-background-color: lightblue; -fx-background-radius: 20;" AnchorPane.leftAnchor="545.0" AnchorPane.rightAnchor="63.0">
+                     <children>
+                        <Label layoutX="19.0" layoutY="8.0" text="Gender" textFill="#5e5b5b">
+                           <font>
+                              <Font name="Tahoma Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Label fx:id="gender" layoutX="555.0" layoutY="528.0" prefHeight="23.0" prefWidth="290.0" textFill="#434343" AnchorPane.leftAnchor="555.0" AnchorPane.rightAnchor="112.0">
+                     <font>
+                        <Font name="Serif Regular" size="15.5" />
+                     </font>
+                  </Label>
+                  <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="853.0" layoutY="521.0" onAction="#UpdateGender" prefHeight="41.0" prefWidth="22.0" style="-fx-background-color: #dad6d6; -fx-background-radius: 25;" AnchorPane.rightAnchor="63.0">
+                     <graphic>
+                        <FontAwesomeIconView fill="#00b596" glyphName="EDIT" size="25" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Edit" />
+                     </tooltip>
+                  </JFXButton>
+                  <Pane layoutX="545.0" layoutY="169.0" prefHeight="35.0" prefWidth="349.0" style="-fx-background-color: lightblue; -fx-background-radius: 20;" AnchorPane.leftAnchor="545.0" AnchorPane.rightAnchor="63.0">
+                     <children>
+                        <Label layoutX="19.0" layoutY="8.0" text="Password" textFill="#5e5b5b">
+                           <font>
+                              <Font name="Tahoma Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Label fx:id="password" layoutX="555.0" layoutY="224.0" prefHeight="23.0" prefWidth="290.0" text="Change Password" textFill="#434343" AnchorPane.leftAnchor="555.0" AnchorPane.rightAnchor="112.0">
+                     <font>
+                        <Font name="Serif Regular" size="15.5" />
+                     </font>
+                  </Label>
+                  <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="853.0" layoutY="217.0" onAction="#UpdatePassword" prefHeight="41.0" prefWidth="22.0" style="-fx-background-color: #dad6d6; -fx-background-radius: 25;" AnchorPane.rightAnchor="63.0">
+                     <graphic>
+                        <FontAwesomeIconView fill="#00b596" glyphName="EDIT" size="25" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Edit" />
+                     </tooltip>
+                  </JFXButton>
+                  <Pane layoutX="545.0" layoutY="68.0" prefHeight="35.0" prefWidth="349.0" style="-fx-background-color: lightblue; -fx-background-radius: 20;" AnchorPane.leftAnchor="545.0" AnchorPane.rightAnchor="63.0">
+                     <children>
+                        <Label layoutX="19.0" layoutY="8.0" text="Account Status" textFill="#5e5b5b">
+                           <font>
+                              <Font name="Tahoma Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Label fx:id="status" layoutX="555.0" layoutY="123.0" prefHeight="23.0" prefWidth="290.0" textFill="#434343" AnchorPane.leftAnchor="555.0" AnchorPane.rightAnchor="112.0">
+                     <font>
+                        <Font name="Serif Regular" size="15.5" />
+                     </font>
+                  </Label>
+                  <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="853.0" layoutY="116.0" onAction="#UpdateStatus" prefHeight="41.0" prefWidth="22.0" style="-fx-background-color: #dad6d6; -fx-background-radius: 25;" AnchorPane.rightAnchor="63.0">
+                     <graphic>
+                        <FontAwesomeIconView fill="#00b596" glyphName="EDIT" size="25" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Edit" />
+                     </tooltip>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

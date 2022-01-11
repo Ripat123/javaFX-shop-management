@@ -1,0 +1,59 @@
+
+
+.mainFxmlClass {
+
+}
+.textfield{
+  -fx-prompt-text-fill: #d3d0d0;
+  -fx-text-fill: white;
+}
+.textfield1{
+  -fx-prompt-text-fill: #939393;
+  -fx-text-fill: black;
+}
+.textfield1 > .input-line{
+    -fx-pref-height: 1.8px;
+}
+.pane{
+    -fx-background-radius: 10 10 0 0;
+}
+.scroll-pane {
+    -fx-background-color: white;
+}
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+/*    -fx-background-radius: 0em;*/
+}
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: steelblue;
+    -fx-background-radius: 5em;
+    -fx-opacity: 0.5;
+    
+}
+.scroll-pane > .corner {
+    -fx-background-color: transparent;
+    
+}
+.combobox{
+    -fx-prompt-text-fill: #939393;
+    -fx-font-size: 13;
+    -fx-font-weight: bold;
+}
+.jfx-date-picker{
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+}
+.table-view .table-cell {
+    
+    -fx-alignment: center;
+}

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="3ef0ad3f-f707-4253-ac37-3098129ee375">
+	<property name="ireport.zoom" value="3.4522712143931114"/>
+	<property name="ireport.x" value="1308"/>
+	<property name="ireport.y" value="112"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     company_info.`id` AS id,
+     company_info.`company_name` AS company_name,
+     company_info.`status` AS status
+FROM
+     `company_info` company_info]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="101" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="575" height="101" backcolor="#FFFFFF" uuid="ae4458e4-fe72-4c67-9bec-bef606add219"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="56" y="53" width="492" height="20" forecolor="#000000" uuid="fb56046d-6f57-4d88-89bf-6b37288814cd"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Mobile : 01840-241895,  01676-363680   E-mail :  moreinfo.sbit@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="6" width="556" height="33" forecolor="#000000" uuid="2d86c74f-71c7-4d1f-b95d-a14cafc0dfa9"/>
+				<textElement>
+					<font fontName="Serif" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[                             Digital Shop's Software Demo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="34" width="512" height="20" forecolor="#000000" uuid="6921f8e2-ca68-473e-9b23-f0346328f012"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Hazi Fazal Master Lane, Yusuf Tower, 1st Floor, Mizan Road, Feni Sadar, Feni.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="189" y="73" width="217" height="18" forecolor="#000000" uuid="bbb19672-3ea4-4508-9ea8-c9b3a4633ead"/>
+				<textElement>
+					<font size="14" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[         Company Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="3" width="100" height="20" uuid="d34f5346-bb36-4fec-bdaf-c2ffe71a2c4d"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[                 ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="3" width="350" height="20" uuid="2c23ad02-46cd-460b-8d8e-2df2547c543e"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[                                               Company Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="3" width="125" height="20" uuid="27275bf2-db50-4234-a079-526ee3546060"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[              Status]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="20286fb8-9690-4c9c-8be6-839398c263cf"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="350" height="20" uuid="1381e584-4536-4a12-afc1-35e28bcfd6ac"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{company_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="125" height="20" uuid="9cbd8610-4d30-4f82-b1bf-c9da213c884d"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="28" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="575" height="28" backcolor="#FFFFFF" uuid="d0cb18a0-9482-425a-9dd3-a453ffc18d6f"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="230" y="5" width="121" height="18" forecolor="#000000" uuid="4a79991c-a9b1-45e6-8063-2b16df9d51c5"/>
+				<textElement>
+					<font size="14" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[www.sbit.com.bd]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

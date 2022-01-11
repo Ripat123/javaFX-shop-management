@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="2d04b42e-5dc5-4b8d-9cb5-6810ea79f54d">
+	<property name="ireport.zoom" value="1.1000000000000028"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     branceinfo.`id` AS id,
+     branceinfo.`company_name` AS company_name,
+     branceinfo.`name` AS name,
+     branceinfo.`mobileNo` AS mobileNo,
+     branceinfo.`branceAdd` AS branceAdd,
+     branceinfo.`email` AS email,
+     branceinfo.`officialNo` AS officialNo,
+     branceinfo.`status` AS status
+FROM
+     `branceinfo` branceinfo]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="mobileNo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="branceAdd" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="officialNo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="97" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="575" height="97" backcolor="#FFFFFF" uuid="2c85a704-4710-43d0-9f99-ad85c2cacef7"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="9" y="6" width="556" height="33" forecolor="#000000" uuid="01046e8c-7664-4ad4-a9c8-03df7bac1ffc"/>
+				<textElement>
+					<font fontName="Serif" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[                             Digital Shop's Software Demo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="73" width="192" height="18" forecolor="#000000" uuid="0ef0934c-53c9-4d01-b846-efdacb7b417d"/>
+				<textElement>
+					<font size="14" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Brance Report]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="57" y="53" width="492" height="20" forecolor="#000000" uuid="6df67a29-dd48-4cd2-aa85-c88d46c51bc1"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Mobile : 01840-241895,  01676-363680   E-mail :  moreinfo.sbit@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="34" width="512" height="20" forecolor="#000000" uuid="82cf286b-9931-44d1-a0b8-2c17bb6013cb"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Hazi Fazal Master Lane, Yusuf Tower, 1st Floor, Mizan Road, Feni Sadar, Feni.]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="36" height="20" uuid="6416cc13-a74e-41ac-baf6-31ea912c19a7"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[    ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="1" width="80" height="20" uuid="a47e6e6b-74e4-4958-8702-64b281b88dbf"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Company Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="116" y="1" width="74" height="20" uuid="b8ac96fb-670b-484f-9aeb-df6712896366"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[        Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="1" width="69" height="20" uuid="9a413a84-a2b2-4db0-a371-9884d66816de"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[   Mobile No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="259" y="1" width="75" height="20" uuid="976955d1-1678-4748-8294-ca9c1a247e30"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[     Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="1" width="114" height="20" uuid="8046dc78-e41f-4fc5-b7af-e4e4939865be"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[       Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="448" y="1" width="71" height="20" uuid="a18bf4a1-c7bd-443e-9322-5a81549eb31a"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[   Official Mo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="519" y="1" width="56" height="20" uuid="bb8c4e2d-789e-4d6e-b4cb-ebaaab3f5a2d"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[   Status]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="36" height="20" uuid="cd06ddf4-835b-4dcd-9f35-8fa2b9f6d92f"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="0" width="80" height="20" uuid="09c08fe0-7b55-45ad-a775-e6b4f0c442da"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="116" y="0" width="74" height="20" uuid="57f9ca66-c67a-4505-8345-7ad6e94ace89"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="69" height="20" uuid="18cc0cbc-b90b-458c-8eb5-b3ee558c85a1"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mobileNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="259" y="0" width="75" height="20" uuid="00acc32a-d769-401e-a412-071f76b09c12"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{branceAdd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="0" width="114" height="20" uuid="a06988a1-a7ed-4c6f-a621-580865d4b66d"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="448" y="0" width="71" height="20" uuid="681fade3-da8b-4fcb-85b0-c2b3139ee8ce"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{officialNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="519" y="0" width="56" height="20" uuid="943ea12d-49bb-41d2-90ac-26f63936ee23"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="575" height="22" backcolor="#FFFFFF" uuid="ed83157c-d49f-4406-b5d3-652bc9f91c25"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="190" y="1" width="176" height="20" forecolor="#000000" uuid="17115094-b694-406d-91ed-2f805e2bc690"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[website : www.sbit.com.bd]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

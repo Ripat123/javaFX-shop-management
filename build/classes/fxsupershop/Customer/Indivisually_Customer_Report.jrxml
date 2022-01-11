@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="280" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="651ff491-9c00-4792-aea6-6337a879bad7">
+	<property name="ireport.zoom" value="1.1000000000000012"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     customer_info.`id` AS id,
+     customer_info.`customer_name` AS customer_name,
+     customer_info.`customer_name_bangla` AS customer_name_bangla,
+     customer_info.`customer_email` AS customer_email,
+     customer_info.`customer_phone` AS customer_phone,
+     customer_info.`customer_address` AS customer_address,
+     customer_info.`root_manager_id` AS root_manager_id,
+     customer_info.`admin_id` AS admin_id,
+     customer_info.`branch_id` AS branch_id
+FROM
+     `customer_info` customer_info]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customer_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customer_name_bangla" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customer_email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customer_phone" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customer_address" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="root_manager_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="admin_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="branch_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="84" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="575" height="84" backcolor="#FFFFFF" uuid="07ecfc7a-c149-4ea2-90e9-c334e8194e31"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="187" y="65" width="225" height="18" forecolor="#000000" uuid="9846e52a-e0c0-4bb6-9e2d-2b7a6fa127fc"/>
+				<textElement>
+					<font size="14" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[ Indivisually Customer Report]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="58" y="45" width="492" height="20" forecolor="#000000" uuid="6a7a6bdb-3ded-4bdf-be94-bef79877040c"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Mobile : 01840-241895,  01676-363680   E-mail :  moreinfo.sbit@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="26" width="512" height="20" forecolor="#000000" uuid="9563cd40-679d-4e7b-9396-17ca60df3707"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Hazi Fazal Master Lane, Yusuf Tower, 1st Floor, Mizan Road, Feni Sadar, Feni.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="-2" width="556" height="33" forecolor="#000000" uuid="bca647b2-a0be-41ed-ac4c-ffd030985527"/>
+				<textElement>
+					<font fontName="Serif" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[                             Digital Shop's Software Demo]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="158" splitType="Stretch">
+			<staticText>
+				<reportElement x="21" y="54" width="112" height="20" uuid="d7c702d7-6f4c-470e-b934-3222adf2d5b4"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer Name  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="20" width="112" height="20" uuid="ce93fe60-ce42-4a48-9129-7cafb8f6f0ba"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer ID        :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="87" width="112" height="20" uuid="7d4a2687-432e-4212-b2f9-9a4540ee99fe"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[C. Bangla Name  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="54" width="73" height="20" uuid="a502910b-b428-4a30-bc7b-3db17bab3c20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Phone     :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="20" width="73" height="20" uuid="de8c5f42-3975-4595-ae01-76e63ab38955"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Email      :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="87" width="73" height="20" uuid="1d852a0e-411d-4c9a-a1f2-1cb52cff71f9"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Address  :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="137" y="20" width="164" height="20" uuid="1dcc5316-ca61-41f5-b12e-2f21465aebc2"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="137" y="54" width="164" height="20" uuid="91e750a0-19fa-4f51-b8f5-4ced210ead76"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customer_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="137" y="87" width="164" height="20" uuid="351c65f9-049d-4f1f-a29a-e587420521c2"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customer_name_bangla}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="387" y="20" width="170" height="20" uuid="da498d52-eafc-4df8-bb19-9deead8280b7"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customer_email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="387" y="54" width="170" height="20" uuid="b90965c1-8e46-4b94-b145-485ba53ff7c1"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customer_phone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="387" y="87" width="170" height="20" uuid="c5ea2cb6-583c-4d49-a74f-11d50f78b208"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customer_address}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="18" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="575" height="18" backcolor="#FFFFFF" uuid="64f18a87-d36f-4de0-8893-be4ad1b6aff7"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="243" y="0" width="121" height="18" forecolor="#000000" uuid="79a664eb-e7e9-4777-bcf1-327018caae23"/>
+				<textElement>
+					<font size="14" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[www.sbit.com.bd]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

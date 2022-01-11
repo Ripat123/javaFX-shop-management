@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7673e4b9-182c-4b11-bd44-35a78ae6fbca">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     bank_info.`id`,
+     bank_info.`brance_name`,
+     bank_info.`date`,
+     bank_info.`bank_name`,
+     bank_info.`ac_no`,
+     bank_info.`type`,
+     bank_info.`add`,
+     bank_info.`mbl_no`,
+     bank_info.`fk_brance_id`,
+     bank_info.`fk_user_id`
+FROM
+     `bank_info` bank_info]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="brance_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bank_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ac_no" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="add" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="mbl_no" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fk_brance_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fk_user_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="118" splitType="Stretch">
+			<staticText>
+				<reportElement x="-1" y="45" width="555" height="33" forecolor="#000000" uuid="e02bc388-bc28-46ae-8851-ceadac6c19a1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Digital Shop's Software Demo]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="63" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="4" width="553" height="1" uuid="854eb00a-a0c9-459f-a254-0f985e4ff6f7"/>
+			</line>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="113" y="19" width="137" height="20" uuid="c1f1453f-8d31-457b-9b99-bbe4efd51513"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="19" width="100" height="20" uuid="2624dee5-aec1-47cc-a13f-402f5ecb45a7"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="28" width="553" height="1" uuid="8f8716da-dd14-4b59-a121-7a1f101f0994"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="6" y="2" width="58" height="20" uuid="5a36c209-772d-490a-a96f-f1b59abe57f9"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="68" y="3" width="87" height="20" uuid="b64c3dbb-ec6e-4bff-8c4c-4558d204eebe"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Account Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="2" width="100" height="20" uuid="e85c3558-09f0-4f70-9175-c870e806df70"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Account No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="369" y="3" width="83" height="20" uuid="72ea74d3-e092-4cff-94e1-0d0295155400"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Branch Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="452" y="3" width="102" height="20" uuid="c6fba094-4b37-4bbb-a32c-20aeab636ff4"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="268" y="2" width="100" height="20" uuid="fdbeb745-856e-4c4a-85e2-ff86f26a156b"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bank Name]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="6" y="8" width="58" height="20" uuid="e4fa89f7-4d71-4eca-978a-f09d21791b2e"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="68" y="9" width="87" height="20" uuid="04c4d0e8-9673-4831-92eb-cd4eb1439b43"/>
+				<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="7" width="100" height="20" uuid="c41a863c-4baf-4747-a1bc-c077777eea3a"/>
+				<textFieldExpression><![CDATA[$F{ac_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="8" width="83" height="20" uuid="12abde66-117a-4e6f-9d9a-ce3731a9598e"/>
+				<textFieldExpression><![CDATA[$F{brance_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="452" y="7" width="102" height="37" uuid="6479e381-e710-47fc-a5ee-10aa8de8d233"/>
+				<textFieldExpression><![CDATA[$F{add}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="268" y="7" width="95" height="20" uuid="d6ae1166-47ec-47c7-859e-ab99a10eec22"/>
+				<textFieldExpression><![CDATA[$F{bank_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="241.0" prefWidth="356.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #BFBFBF; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxsupershop.Report.Page_setupController">
+   <children>
+      <Label layoutX="23.0" layoutY="14.0" text="Page Setup" textFill="#464444">
+         <font>
+            <Font name="SansSerif Regular" size="15.0" />
+         </font>
+      </Label>
+      <Separator layoutX="121.0" layoutY="26.0" prefHeight="0.0" prefWidth="113.0" />
+      <JFXComboBox fx:id="p_size" labelFloat="true" layoutX="23.0" layoutY="64.0" prefHeight="25.0" prefWidth="124.0" promptText="Paper Size" stylesheets="@../Product/category_info.css" />
+      <JFXComboBox fx:id="p_orien" labelFloat="true" layoutX="23.0" layoutY="120.0" prefHeight="25.0" prefWidth="124.0" promptText="Page Orientation" stylesheets="@../Product/category_info.css" />
+      <JFXTextField fx:id="M_left" labelFloat="true" layoutX="164.0" layoutY="68.0" prefHeight="25.0" prefWidth="65.0" promptText="Left" styleClass="textfield1" stylesheets="@../Product/category_info.css" />
+      <JFXTextField fx:id="M_top" labelFloat="true" layoutX="164.0" layoutY="124.0" prefHeight="25.0" prefWidth="65.0" promptText="Top" styleClass="textfield1" stylesheets="@../Product/category_info.css" />
+      <Separator layoutX="153.0" layoutY="64.0" orientation="VERTICAL" prefHeight="107.0" prefWidth="0.0" />
+      <Label layoutX="256.0" layoutY="14.0" text="Margins" textFill="#464444">
+         <font>
+            <Font name="SansSerif Regular" size="15.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="M_right" labelFloat="true" layoutX="242.0" layoutY="68.0" prefHeight="25.0" prefWidth="65.0" promptText="Right" styleClass="textfield1" stylesheets="@../Product/category_info.css" />
+      <JFXTextField fx:id="M_bottom" labelFloat="true" layoutX="242.0" layoutY="124.0" prefHeight="25.0" prefWidth="65.0" promptText="Bottom" styleClass="textfield1" stylesheets="@../Product/category_info.css" />
+      <Label layoutX="316.0" layoutY="73.0" text="inch" />
+      <Label layoutX="316.0" layoutY="129.0" text="inch" />
+      <JFXButton buttonType="RAISED" contentDisplay="TEXT_ONLY" layoutX="155.0" layoutY="181.0" onAction="#okAction" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #1D79E4; -fx-background-radius: 20; -fx-border-color: #005abb; -fx-border-radius: 20; -fx-border-width: 2px;" text="OK" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Bold" size="12.5" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" contentDisplay="TEXT_ONLY" layoutX="247.0" layoutY="181.0" onAction="#cancelAction" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #adcef1; -fx-background-radius: 20; -fx-border-color: #005abb; -fx-border-radius: 20; -fx-border-width: 2px;" text="Cancel" textFill="#3c3c3c">
+         <font>
+            <Font name="SansSerif Bold" size="12.5" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

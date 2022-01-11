@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.14.0.final using JasperReports Library version 6.14.0-2ab0d8625be255bf609c78e1181801213e51db8f  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Category Format with Data" pageWidth="500" pageHeight="800" columnWidth="500" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f627347f-16fe-4f15-85b8-6535d3ed2cfd">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Pharmachy"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[select 
+product_category.item_id,
+product_category.category_name
+from 
+product_category]]>
+	</queryString>
+	<field name="item_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="item_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="item_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_category"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="category_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="category_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="category_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_category"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="39">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<staticText>
+				<reportElement x="0" y="0" width="250" height="39" uuid="519874bb-44b5-45ed-a36e-4a1e621bc01d"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="html">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Item ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="0" width="250" height="39" uuid="26458819-dfe4-4736-9d44-cf6be2e8dedd"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Category Name]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="35">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="250" height="35" uuid="67bf1d17-938f-4bea-b30a-3e71085fec71"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{item_id}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="250" y="0" width="250" height="35" uuid="310ff373-e710-413e-a975-3900c113b0b3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{category_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

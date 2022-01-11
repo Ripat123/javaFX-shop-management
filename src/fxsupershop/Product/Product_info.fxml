@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXDialogLayout?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="main_stack" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1035.0" style="-fx-background-color: #e4f4df;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxsupershop.Product.Product_infoController">
+   <children>
+      <Pane fx:id="imagePane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="318.0" prefWidth="483.0" style="-fx-background-color: white; -fx-background-radius: 15;">
+         <children>
+            <ImageView fx:id="fullimage" fitHeight="306.0" fitWidth="457.0" layoutX="13.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <Pane fx:id="search_pane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+         <children>
+            <JFXComboBox fx:id="search_combo" editable="true" layoutX="21.0" layoutY="3.0" onAction="#SearchAction" onKeyReleased="#searchReleased" prefHeight="35.0" prefWidth="259.0" promptText="Search" styleClass="combo-box-popup" stylesheets="@category_info.css" />
+         </children>
+      </Pane>
+      <Pane fx:id="report_popPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="83.0" prefWidth="389.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-color: #b5b0b0; -fx-border-radius: 15;">
+         <children>
+            <JFXButton fx:id="Exbtn" alignment="BASELINE_CENTER" buttonType="RAISED" layoutX="115.0" layoutY="22.0" onAction="#Exportpro" prefHeight="40.0" prefWidth="129.0" style="-fx-background-color: #00a2e7; -fx-background-radius: 10;" text="Export Another" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Export to Another File" />
+               </tooltip>
+            </JFXButton>
+            <JFXButton fx:id="Repbtn" alignment="BASELINE_CENTER" buttonType="RAISED" layoutX="17.0" layoutY="22.0" onAction="#prolistbtn" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: #00a2e7; -fx-background-radius: 10;" text="Report" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Get Product Report" />
+               </tooltip>
+            </JFXButton>
+            <JFXButton fx:id="barbtn" alignment="BASELINE_CENTER" buttonType="RAISED" layoutX="256.0" layoutY="22.0" onAction="#BarcodeGenarate" prefHeight="40.0" prefWidth="117.0" style="-fx-background-color: #00a2e7; -fx-background-radius: 10;" text="Barcode" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Export to Another File" />
+               </tooltip>
+            </JFXButton>
+            <JFXButton fx:id="setPbtn" alignment="BASELINE_CENTER" buttonType="RAISED" layoutX="21.0" layoutY="22.0" onAction="#SetPath" prefHeight="40.0" prefWidth="129.0" style="-fx-background-color: #00a2e7; -fx-background-radius: 10;" text="Set Folder" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Export to Another File" />
+               </tooltip>
+            </JFXButton>
+            <JFXButton fx:id="setPNbtn" alignment="BASELINE_CENTER" buttonType="RAISED" layoutX="172.0" layoutY="22.0" onAction="#SetPathNew" prefHeight="40.0" prefWidth="194.0" style="-fx-background-color: #00a2e7; -fx-background-radius: 10;" text="Set Path with new folder" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Export to Another File" />
+               </tooltip>
+            </JFXButton>
+            <JFXButton fx:id="format_btn" alignment="BASELINE_CENTER" buttonType="RAISED" layoutX="9.0" layoutY="22.0" onAction="#formatAction" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #00a2e7; -fx-background-radius: 10;" text="Format" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Export to Another File" />
+               </tooltip>
+            </JFXButton>
+            <JFXButton fx:id="format_data_btn" alignment="BASELINE_CENTER" buttonType="RAISED" layoutX="127.0" layoutY="22.0" onAction="#formatDataAction" prefHeight="40.0" prefWidth="136.0" style="-fx-background-color: #00a2e7; -fx-background-radius: 10;" text="Format with Data" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Export to Another File" />
+               </tooltip>
+            </JFXButton>
+            <JFXButton fx:id="import_btn" alignment="BASELINE_CENTER" buttonType="RAISED" layoutX="270.0" layoutY="22.0" onAction="#ImportAction" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #00a2e7; -fx-background-radius: 10;" text="Import" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Export to Another File" />
+               </tooltip>
+            </JFXButton>
+         </children>
+      </Pane>
+      <ScrollPane fx:id="scroll" fitToWidth="true" hbarPolicy="NEVER" prefHeight="670.0" prefWidth="1035.0" style="-fx-background-color: #e4f4df;">
+         <content>
+            <AnchorPane id="AnchorPane" fx:id="itempane" maxHeight="-Infinity" prefHeight="894.0" prefWidth="1021.0" style="-fx-background-color: #e4f4df;" styleClass="mainFxmlClass" stylesheets="@category_info.css">
+               <children>
+                  <AnchorPane fx:id="impane" layoutX="515.0" layoutY="60.0" prefHeight="603.0" prefWidth="425.0" style="-fx-background-color: white; -fx-background-radius: 8;" AnchorPane.leftAnchor="515.0" AnchorPane.rightAnchor="81.0">
+                     <children>
+                        <JFXTextField fx:id="proName" focusColor="#3672ff" labelFloat="true" layoutX="49.0" layoutY="158.0" prefHeight="33.0" prefWidth="325.0" promptText="Product Name" styleClass="textfield1" stylesheets="@category_info.css" unFocusColor="#939393" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="51.0">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="purches_price" focusColor="#3672ff" labelFloat="true" layoutX="49.0" layoutY="220.0" prefHeight="33.0" prefWidth="325.0" promptText="Purches Price" styleClass="textfield1" stylesheets="@category_info.css" unFocusColor="#939393" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="51.0">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="Sale_price" focusColor="#3672ff" labelFloat="true" layoutX="49.0" layoutY="284.0" prefHeight="33.0" prefWidth="325.0" promptText="Sale Price" styleClass="textfield1" stylesheets="@category_info.css" unFocusColor="#939393" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="51.0">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextArea fx:id="details" labelFloat="true" layoutX="49.0" layoutY="351.0" prefHeight="72.0" prefWidth="327.0" promptText="Product Details" styleClass="textfield1" stylesheets="@category_info.css" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </JFXTextArea>
+                        <JFXTextField fx:id="barcode" focusColor="#3672ff" labelFloat="true" layoutX="49.0" layoutY="97.0" prefHeight="33.0" prefWidth="325.0" promptText="Barcode" styleClass="textfield1" stylesheets="@category_info.css" unFocusColor="#939393" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="51.0">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="5.0" layoutX="57.0" layoutY="481.0" onAction="#uploadbtn" prefHeight="33.0" prefWidth="119.0" style="-fx-background-color: #11a7f1;" text="Select Image" textFill="WHITE" AnchorPane.leftAnchor="57.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_upload_30px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="5.0" layoutX="57.0" layoutY="527.0" onAction="#CleanImage" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: #11a7f1;" text="Clean Image" textFill="WHITE" AnchorPane.leftAnchor="57.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_erase_30px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Rectangle fx:id="img_shape" arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="81.0" layoutX="205.0" layoutY="482.0" onMouseClicked="#OpenPopupImage" stroke="#7c7b7b" width="112.0" AnchorPane.leftAnchor="204.5" />
+                        <JFXButton fx:id="search_btn" alignment="BASELINE_CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="49.0" layoutY="12.0" onAction="#SearchbtnAction" prefHeight="40.0" prefWidth="40.0" ripplerFill="WHITE" style="-fx-background-color: #23AEC9; -fx-background-radius: 30;" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="12.0">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_search_20px_1.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Insert New Item" />
+                           </tooltip>
+                        </JFXButton>
+                     </children>
+                     <effect>
+                        <DropShadow color="#979797" height="12.1" radius="5.55" width="12.1" />
+                     </effect>
+                  </AnchorPane>
+                  <AnchorPane layoutX="68.0" layoutY="60.0" prefHeight="603.0" prefWidth="425.0" style="-fx-background-color: white; -fx-background-radius: 8;" AnchorPane.leftAnchor="68.0">
+                     <effect>
+                        <DropShadow color="#979797" height="12.1" radius="5.55" width="12.1" />
+                     </effect>
+                     <children>
+                        <AnchorPane layoutX="37.0" layoutY="-31.0" opacity="0.71" prefHeight="63.0" prefWidth="187.0" style="-fx-background-color: #3672ff; -fx-background-radius: 8;">
+                           <children>
+                              <Label layoutX="22.0" layoutY="23.0" opacity="0.91" text="Product Information" textFill="WHITE">
+                                 <font>
+                                    <Font name="SansSerif Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <JFXComboBox fx:id="textitemcomboname" editable="true" labelFloat="true" layoutX="37.0" layoutY="74.0" onAction="#itemaction" onKeyReleased="#ItemKeyReleased" prefHeight="33.0" prefWidth="299.0" promptText="Item Name" styleClass="combobox" stylesheets="@category_info.css" />
+                        <JFXComboBox fx:id="textcategorycomboname" editable="true" labelFloat="true" layoutX="37.0" layoutY="133.0" onAction="#categoryaction" onKeyReleased="#CategoryKeyReleased" prefHeight="33.0" prefWidth="299.0" promptText="Category Name" styleClass="combobox" stylesheets="@category_info.css" />
+                        <JFXComboBox fx:id="textbrandcomboname" editable="true" labelFloat="true" layoutX="37.0" layoutY="194.0" onAction="#brandaction" onKeyReleased="#BrandKeyReleased" prefHeight="33.0" prefWidth="299.0" promptText="Brand Name" styleClass="combobox" stylesheets="@category_info.css" />
+                        <JFXComboBox fx:id="textcombomeasurment" editable="true" labelFloat="true" layoutX="37.0" layoutY="260.0" onAction="#measurementaction" onKeyReleased="#MeasurementKeyReleased" prefHeight="33.0" prefWidth="299.0" promptText="Measurment Unit" styleClass="combobox" stylesheets="@category_info.css" />
+                        <JFXTextField fx:id="shelf" focusColor="#3672ff" labelFloat="true" layoutX="37.0" layoutY="328.0" prefHeight="33.0" prefWidth="299.0" promptText="Shelf No" styleClass="textfield1" stylesheets="@category_info.css" unFocusColor="#939393">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="shortage" focusColor="#3672ff" labelFloat="true" layoutX="37.0" layoutY="391.0" prefHeight="33.0" prefWidth="299.0" promptText="Shortage List" styleClass="textfield1" stylesheets="@category_info.css" unFocusColor="#939393">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="over" focusColor="#3672ff" labelFloat="true" layoutX="37.0" layoutY="455.0" prefHeight="33.0" prefWidth="299.0" promptText="Over Stock" styleClass="textfield1" stylesheets="@category_info.css" unFocusColor="#939393">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXButton fx:id="new_item_btn" alignment="BASELINE_CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="348.0" layoutY="71.0" onAction="#newItemAction" prefHeight="40.0" prefWidth="40.0" ripplerFill="WHITE" style="-fx-background-color: #23AEC9; -fx-background-radius: 30;">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_plus_math_50px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Insert New Item" />
+                           </tooltip>
+                        </JFXButton>
+                        <JFXButton fx:id="new_category_btn" alignment="BASELINE_CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="348.0" layoutY="130.0" onAction="#newIcategoryAction" prefHeight="40.0" prefWidth="40.0" ripplerFill="WHITE" style="-fx-background-color: #23AEC9; -fx-background-radius: 30;">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_plus_math_50px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Insert New Category" />
+                           </tooltip>
+                        </JFXButton>
+                        <JFXButton fx:id="new_brand_btn" alignment="BASELINE_CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="348.0" layoutY="191.0" onAction="#newbrandAction" prefHeight="40.0" prefWidth="40.0" ripplerFill="WHITE" style="-fx-background-color: #23AEC9; -fx-background-radius: 30;">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_plus_math_50px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Insert New Brand" />
+                           </tooltip>
+                        </JFXButton>
+                        <JFXButton fx:id="new_measurement_btn" alignment="BASELINE_CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="348.0" layoutY="257.0" onAction="#newmeasurementAction" prefHeight="40.0" prefWidth="40.0" ripplerFill="WHITE" style="-fx-background-color: #23AEC9; -fx-background-radius: 30;">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_plus_math_50px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Insert New Measurement" />
+                           </tooltip>
+                        </JFXButton>
+                        <JFXComboBox fx:id="suspension" editable="true" labelFloat="true" layoutX="37.0" layoutY="520.0" onAction="#Suspension" onKeyReleased="#susKeyReleased" onMouseClicked="#refresh_sus" prefHeight="33.0" prefWidth="299.0" promptText="Suspension" styleClass="combobox" stylesheets="@category_info.css" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="89.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="view_pane" layoutY="-178.0" prefHeight="90.0" prefWidth="520.0" style="-fx-background-color: #0083ff;" styleClass="pane" stylesheets="@item_info.css">
+                     <effect>
+                        <DropShadow color="#726c6c" height="15.06" radius="7.03" width="15.06" />
+                     </effect>
+                     <children>
+                        <Label layoutX="185.0" layoutY="11.0" opacity="0.91" text="Filter by :" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <JFXRadioButton fx:id="id_filter" layoutX="185.0" layoutY="44.0" selected="true" style="-jfx-unselected-color: white; -jfx-selected-color: yellow;" text="ID" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="search" />
+                           </toggleGroup>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="name_filter" layoutX="253.0" layoutY="44.0" style="-jfx-unselected-color: white; -jfx-selected-color: yellow;" text="Name" textFill="WHITE" toggleGroup="$search">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </JFXRadioButton>
+                        <JFXTextField fx:id="search_filed" focusColor="YELLOW" labelFloat="true" layoutX="344.0" layoutY="31.0" onKeyReleased="#TableSearch" prefHeight="29.0" prefWidth="209.0" promptText="Search" styleClass="textfield" stylesheets="@item_info.css" unFocusColor="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="68.0" layoutY="682.0" prefHeight="161.0" prefWidth="872.0" style="-fx-background-color: white; -fx-background-radius: 8;" stylesheets="@product_info.css" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="81.0">
+                     <children>
+                        <JFXButton alignment="BASELINE_CENTER" buttonType="RAISED" graphicTextGap="10.0" layoutX="597.0" layoutY="31.0" onAction="#Deletebtn" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #ff4343;" styleClass="operation_btn" stylesheets="@category_info.css" text="Delete" textFill="WHITE" AnchorPane.rightAnchor="155.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_trash_30px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_CENTER" buttonType="RAISED" graphicTextGap="10.0" layoutX="465.0" layoutY="31.0" onAction="#Updatebtn" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #00cc44;" styleClass="operation_btn" stylesheets="@category_info.css" text="Edit" textFill="WHITE" AnchorPane.rightAnchor="287.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_edit_30px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_CENTER" buttonType="RAISED" graphicTextGap="10.0" layoutX="332.0" layoutY="31.0" onAction="#Addbtn" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #00cc44;" styleClass="operation_btn" stylesheets="@category_info.css" text="Add" textFill="WHITE" AnchorPane.rightAnchor="420.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_add_30px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_CENTER" buttonType="RAISED" graphicTextGap="10.0" layoutX="332.0" layoutY="91.0" onAction="#Cleanbtn" prefHeight="40.0" prefWidth="253.0" style="-fx-background-color: #00cc44;" styleClass="operation_btn" stylesheets="@category_info.css" text="Clean Field" textFill="WHITE" AnchorPane.rightAnchor="287.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_erase_30px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_CENTER" buttonType="RAISED" graphicTextGap="10.0" layoutX="597.0" layoutY="91.0" onAction="#Viiewbtn" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #00cc44;" styleClass="operation_btn" stylesheets="@category_info.css" text="View" textFill="WHITE" AnchorPane.rightAnchor="155.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_view_details_30px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="probtnid" alignment="BASELINE_CENTER" buttonType="RAISED" layoutX="158.0" layoutY="31.0" onAction="#OpenProPop" prefHeight="40.0" prefWidth="134.0" style="-fx-background-color: #00cc44;" styleClass="operation_btn" stylesheets="@category_info.css" text="Report" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="Spath" alignment="CENTER" buttonType="RAISED" graphicTextGap="5.0" layoutX="158.0" layoutY="91.0" onAction="#PathSelection" prefHeight="40.0" prefWidth="134.0" style="-fx-background-color: #11a7f1;" styleClass="operation_btn" stylesheets="@category_info.css" text="Select Folder" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="setting_btn" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" graphicTextGap="5.0" layoutX="63.0" layoutY="56.0" onAction="#SettingAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #11a7f1; -fx-background-radius: 30;" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="COG" size="25" />
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                     <effect>
+                        <DropShadow color="#979797" height="12.1" radius="5.55" width="12.1" />
+                     </effect>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <JFXDialogLayout fx:id="dialogpane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="622.0" prefWidth="693.0" style="-fx-background-color: white; -fx-background-radius: 20;" visible="false" StackPane.alignment="CENTER_RIGHT">
+         <children>
+            <TableView fx:id="tableview" onMouseClicked="#tableClick" prefHeight="453.0" prefWidth="639.0" style="-fx-background-color: white;" stylesheets="@product_info.css" tableMenuButtonVisible="true">
+               <columns>
+                  <TableColumn fx:id="proid" prefWidth="73.0" text="ID" />
+                  <TableColumn fx:id="proname" prefWidth="175.0" text="Product Name" />
+                  <TableColumn fx:id="PurchesPrice" prefWidth="124.0" text="Purchase Price" />
+                  <TableColumn fx:id="sale_price" prefWidth="124.0" text="Sale Price" />
+                  <TableColumn fx:id="image_col" prefWidth="128.0" text="Image" />
+               </columns>
+            </TableView>
+            <JFXButton fx:id="closedialog" buttonType="RAISED" prefHeight="33.0" prefWidth="93.0" style="-fx-background-color: red;" text="Close" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXDialog fx:id="dialog" prefWidth="510.0" style="-fx-background-radius: 20;" transitionType="LEFT" />
+         </children>
+      </JFXDialogLayout>
+   </children>
+</StackPane>

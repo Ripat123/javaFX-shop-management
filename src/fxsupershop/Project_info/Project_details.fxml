@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1035.0" style="-fx-background-color: #e4f4df;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxsupershop.Project_info.Project_detailsController">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="itempane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="675.0" prefWidth="1021.0" style="-fx-background-color: #e4f4df;" styleClass="mainFxmlClass">
+         <stylesheets>
+            <URL value="@../Product/brand_info.css" />
+         </stylesheets>
+         <children>
+            <AnchorPane layoutX="85.0" layoutY="80.0" prefHeight="540.0" prefWidth="410.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+               <children>
+                  <AnchorPane layoutX="24.0" layoutY="-31.0" opacity="0.71" prefHeight="63.0" prefWidth="187.0" style="-fx-background-color: #3672ff; -fx-background-radius: 8;">
+                     <children>
+                        <Label layoutX="41.0" layoutY="23.0" opacity="0.91" text="Project Details" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <JFXTextField fx:id="shop_n" focusColor="#3672ff" labelFloat="true" layoutX="40.0" layoutY="61.0" prefHeight="44.0" prefWidth="330.0" promptText="Shop Name" styleClass="textfield1" stylesheets="@../Product/category_info.css" unFocusColor="#939393">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextArea fx:id="add" layoutX="40.0" layoutY="127.0" prefHeight="63.0" prefWidth="330.0" promptText="Address" styleClass="textfield1" stylesheets="@../Product/category_info.css" />
+                  <JFXTextField fx:id="phone" focusColor="#3672ff" labelFloat="true" layoutX="40.0" layoutY="220.0" prefHeight="44.0" prefWidth="330.0" promptText="Phone Number" styleClass="textfield1" stylesheets="@../Product/category_info.css" unFocusColor="#939393">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="email" focusColor="#3672ff" labelFloat="true" layoutX="40.0" layoutY="298.0" prefHeight="44.0" prefWidth="330.0" promptText="Email Address" styleClass="textfield1" stylesheets="@../Product/category_info.css" unFocusColor="#939393">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="owner" focusColor="#3672ff" labelFloat="true" layoutX="40.0" layoutY="374.0" prefHeight="44.0" prefWidth="330.0" promptText="Owner Name" styleClass="textfield1" stylesheets="@../Product/category_info.css" unFocusColor="#939393">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="ow_phone" focusColor="#3672ff" labelFloat="true" layoutX="40.0" layoutY="452.0" prefHeight="44.0" prefWidth="330.0" promptText="Owner Phone" styleClass="textfield1" stylesheets="@../Product/category_info.css" unFocusColor="#939393">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+               </children>
+               <effect>
+                  <DropShadow color="#979797" height="12.1" radius="5.55" width="12.1" />
+               </effect>
+            </AnchorPane>
+            <AnchorPane layoutX="526.0" layoutY="80.0" prefHeight="540.0" prefWidth="410.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+               <children>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="10.0" layoutX="257.0" layoutY="404.0" onAction="#Deletebtn" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: #ff4343;" styleClass="operation_btn" stylesheets="@../Product/category_info.css" text="Delete" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_trash_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="10.0" layoutX="158.0" layoutY="404.0" onAction="#Updatebtn" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: #78c200;" styleClass="operation_btn" stylesheets="@../Product/category_info.css" text="Edit" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_edit_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="addbtn" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="10.0" layoutX="59.0" layoutY="404.0" onAction="#valueAdd" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: #00cc44;" styleClass="operation_btn" stylesheets="@../Product/category_info.css" text="Add" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_add_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="159.0" layoutY="458.0" onAction="#Cleanbtn" prefHeight="40.0" prefWidth="192.0" style="-fx-background-color: #78c200;" styleClass="operation_btn" stylesheets="@../Product/category_info.css" text="Clean" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_erase_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="10.0" layoutX="60.0" layoutY="458.0" onAction="#onViiew" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: #00cc44;" styleClass="operation_btn" stylesheets="@../Product/category_info.css" text="View" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_view_details_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXDatePicker fx:id="delivery_date" layoutX="40.0" layoutY="61.0" prefHeight="44.0" prefWidth="330.0" promptText="Delivery Date" styleClass="textfield1" stylesheets="@../Product/category_info.css" />
+                  <JFXTextField fx:id="service" focusColor="#3672ff" labelFloat="true" layoutX="41.0" layoutY="145.0" prefHeight="44.0" prefWidth="330.0" promptText="Monthly Service Charge" styleClass="textfield1" stylesheets="@../Product/category_info.css" unFocusColor="#939393">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXDatePicker fx:id="expired_date" layoutX="41.0" layoutY="221.0" prefHeight="44.0" prefWidth="330.0" promptText="Expired Date" styleClass="textfield1" stylesheets="@../Product/category_info.css" />
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="5.0" layoutX="40.0" layoutY="309.0" onAction="#uploadbtn" prefHeight="33.0" prefWidth="113.0" style="-fx-background-color: #11a7f1; -fx-background-radius: 8;" text="Select Logo" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_upload_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Rectangle fx:id="img_shape" arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="81.0" layoutX="176.0" layoutY="285.0" onMouseClicked="#OpenPopupImage" stroke="#7c7b7b" width="112.0" />
+               </children>
+               <effect>
+                  <DropShadow color="#979797" height="12.1" radius="5.55" width="12.1" />
+               </effect>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

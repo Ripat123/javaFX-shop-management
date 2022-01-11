@@ -1,0 +1,93 @@
+
+.mainFxmlClass {
+
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+  }
+
+  .scroll-pane {
+	-fx-background-color:transparent;
+  }
+  
+  .corner {    
+    -fx-background-color: transparent;
+  }
+  
+  /* The main scrollbar CSS class of ListView */
+ .scroll-bar:horizontal ,
+  .scroll-bar:vertical{
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+	
+}
+
+/* The increment and decrement button CSS class of scrollbar */
+ .increment-button , .decrement-button {
+    -fx-background-color:transparent;
+	-fx-background-radius: 2.0em;	
+	-fx-border-radius: 2.0em;	
+	-fx-border-width:1.0px;
+}
+
+
+
+.increment-arrow , .decrement-arrow{
+	-fx-background-color:lightblue;
+	-fx-border-color:white;
+	-fx-background-radius: 2.0em;	
+}
+
+/* The main scrollbar **track** CSS class  */
+ .scroll-bar:horizontal .track,
+ .scroll-bar:vertical .track{
+	-fx-background-color: transparent;
+	-fx-border-color: transparent;
+	-fx-opacity:0.9;
+	-fx-background-radius: 2.0em;
+	-fx-border-radius:2.0em;
+}
+
+
+
+/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
+ .scroll-bar:horizontal .thumb,
+ .scroll-bar:vertical .thumb {
+    -fx-background-color: lightseagreen;
+	/*-fx-background-insets: 2.0, 0.0, 0.0;*/
+	-fx-background-radius: 2.0em;
+
+	
+	
+}
+
+
+
+/* The main scrollbar **track** CSS class on event of "hover" and "pressed" */
+
+ .scroll-bar:horizontal:hover .track ,
+ .scroll-bar:horizontal:pressed .track ,
+ .scroll-bar:vertical:hover .track,
+ .scroll-bar:vertical:pressed .track{
+     -fx-background-color: lightblue;
+	 -fx-opacity: 0.9;
+	/*  -fx-background-radius: 0.0em; */
+    
+}
+
+/* The main scrollbar **thumb** CSS class on event of "hover" and "pressed" */
+ .scroll-bar .thumb:hover,
+ .scroll-bar .thumb:pressed{
+    -fx-background-color: #0076f0;
+    
+}
+
+.increment-button:hover , .decrement-button:hover {
+	-fx-background-color:lightblue;
+	-fx-border-color:white;
+	-fx-padding:8.0px;
+    /*  -fx-background-color:derive(#202020,100.0%);
+	-fx-border-color:derive(#202020,80.0%);	
+	-fx-padding:10.0px;*/
+} 

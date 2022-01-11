@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXScrollPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1035.0" style="-fx-background-color: #e4f4df;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxsupershop.AdminPriority.Priority_listController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="584.0" prefWidth="655.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+         <effect>
+            <DropShadow color="#979797" height="12.1" radius="5.55" width="12.1" />
+         </effect>
+         <children>
+            <Pane layoutX="43.0" layoutY="-33.0" opacity="0.57" prefHeight="66.0" prefWidth="200.0" style="-fx-background-color: #039aff; -fx-background-radius: 10;">
+               <children>
+                  <Label layoutX="60.0" layoutY="25.0" text="Priority Set" textFill="WHITE">
+                     <font>
+                        <Font name="SansSerif Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <JFXListView fx:id="list" layoutX="117.0" layoutY="46.0" prefHeight="521.0" prefWidth="421.0" stylesheets="@priority_list.css" />
+            <Pane fx:id="prio_pane" layoutX="47.0" layoutY="42.0" prefHeight="529.0" prefWidth="561.0" style="-fx-background-color: white; -fx-background-radius: 20;" visible="false">
+               <effect>
+                  <DropShadow color="#4d4c4c" height="68.44" offsetX="1.8" offsetY="4.5" radius="24.11" width="30.0" />
+               </effect>
+               <children>
+                  <JFXScrollPane fx:id="scroll" layoutX="27.0" layoutY="31.0" prefHeight="471.0" prefWidth="508.0" stylesheets="@priority_list.css">
+                     <children>
+                        <TableView fx:id="table" prefHeight="400.0" prefWidth="200.0" stylesheets="@priority_list.css">
+                          <columns>
+                            <TableColumn fx:id="name_id" prefWidth="401.0" sortable="false" text="Form Name" />
+                            <TableColumn fx:id="action_id" minWidth="0.0" prefWidth="105.0" sortable="false" text="Action" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </JFXScrollPane>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1035.0" style="-fx-background-color: #e4f4df;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxsupershop.Notification.NotificationController">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="itempane" prefHeight="634.0" prefWidth="1003.0" style="-fx-background-color: #e4f4df;" styleClass="mainFxmlClass">
+         <stylesheets>
+            <URL value="@../Admin/user_admin.css" />
+         </stylesheets>
+         <children>
+            <BorderPane fx:id="mainID" layoutX="84.0" layoutY="50.0" prefHeight="559.0" prefWidth="867.0" style="-fx-background-color: white; -fx-background-radius: 10;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+               <effect>
+                  <DropShadow color="#908e8e" />
+               </effect>
+               <top>
+                  <AnchorPane opacity="0.71" prefHeight="63.0" prefWidth="187.0" style="-fx-background-color: #00b596; -fx-background-radius: 8;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="46.0" layoutY="23.0" opacity="0.91" text="NOTIFICATION PANEL" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <center>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="180.0" left="200.0" right="200.0" top="180.0" />
+                     </BorderPane.margin>
+                     <children>
+                        <JFXButton fx:id="shortID" onAction="#ShortAction" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #00b596; -fx-background-radius: 30 0 0 30;" styleClass="noti_btn" stylesheets="@../Purchase_Report/Puchase_invoice.css" text="SHORT STOCK" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="19.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="overID" layoutX="10.0" layoutY="10.0" onAction="#OverAction" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #00b596; -fx-background-radius: 0 30 30 0;" styleClass="noti_btn" stylesheets="@../Purchase_Report/Puchase_invoice.css" text="OVER STOCK" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="19.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </center>
+            </BorderPane>
+            <AnchorPane fx:id="short_card" prefHeight="559.0" prefWidth="867.0" style="-fx-background-color: white; -fx-background-radius: 10;" styleClass="pane" visible="false" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+               <children>
+                  <TableView fx:id="tableview" fixedCellSize="-8.0" layoutX="21.0" layoutY="141.0" onMouseClicked="#Clicked" prefHeight="398.0" prefWidth="893.0" stylesheets="@../Purchase_Report/Puchase_invoice.css" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="141.0">
+                     <columns>
+                        <TableColumn fx:id="PRO_COL" prefWidth="245.0" text="PRODUCT NAME" />
+                        <TableColumn fx:id="QUAN_COL" maxWidth="3500.0" prefWidth="127.0" text="QUANTITY" />
+                        <TableColumn fx:id="SH_QUAN_COL2" maxWidth="3500.0" prefWidth="127.0" text="SHORTAGE QUANTITY" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <JFXButton fx:id="refbtn" contentDisplay="GRAPHIC_ONLY" layoutX="111.0" layoutY="84.0" onAction="#Refresh" prefHeight="37.0" prefWidth="46.0" ripplerFill="BLACK" style="-fx-background-color: WHITE; -fx-background-radius: 5; -fx-border-color: #BFBFBF; -fx-border-radius: 5; -fx-border-width: 2;" text="Refresh">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="#0062da" glyphName="REFRESH" size="20" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="printbtn" contentDisplay="GRAPHIC_ONLY" layoutX="169.0" layoutY="84.0" onAction="#Print" prefHeight="37.0" prefWidth="46.0" ripplerFill="WHITE" style="-fx-background-color: #4397f1; -fx-background-radius: 8;" text="Refresh">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="PRINT" size="20" />
+                     </graphic>
+                  </JFXButton>
+                  <AnchorPane opacity="0.71" prefHeight="63.0" prefWidth="187.0" style="-fx-background-color: #00b596; -fx-background-radius: 8;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="46.0" layoutY="23.0" opacity="0.91" text="SHORTAGE PANEL" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <JFXButton fx:id="back_short_btn" contentDisplay="GRAPHIC_ONLY" layoutX="51.0" layoutY="84.0" onAction="#BackShortAction" prefHeight="37.0" prefWidth="46.0" ripplerFill="BLACK" style="-fx-background-color: WHITE; -fx-background-radius: 5; -fx-border-color: #BFBFBF; -fx-border-radius: 5; -fx-border-width: 2;" text="Refresh">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="#0062da" glyphName="ARROW_LEFT" size="20" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+               <effect>
+                  <DropShadow blurType="TWO_PASS_BOX" color="#949494" />
+               </effect>
+            </AnchorPane>
+            <AnchorPane fx:id="over_card" prefHeight="559.0" prefWidth="867.0" style="-fx-background-color: white; -fx-background-radius: 10;" styleClass="pane" visible="false" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+               <children>
+                  <TableView fx:id="tableview1" fixedCellSize="-8.0" layoutX="21.0" layoutY="141.0" onMouseClicked="#Clicked" prefHeight="398.0" prefWidth="893.0" stylesheets="@../Purchase_Report/Puchase_invoice.css" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="141.0">
+                     <columns>
+                        <TableColumn fx:id="PRO_COL1" prefWidth="245.0" text="PRODUCT NAME" />
+                        <TableColumn fx:id="QUAN_COL1" maxWidth="3500.0" prefWidth="127.0" text="QUANTITY" />
+                        <TableColumn fx:id="OV_QUAN_COL" maxWidth="3500.0" prefWidth="127.0" text="OVER QUANTITY" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <JFXButton fx:id="refbtn1" contentDisplay="GRAPHIC_ONLY" layoutX="109.0" layoutY="84.0" onAction="#RefreshOver" prefHeight="37.0" prefWidth="46.0" ripplerFill="BLACK" style="-fx-background-color: WHITE; -fx-background-radius: 5; -fx-border-color: #BFBFBF; -fx-border-radius: 5; -fx-border-width: 2;" text="Refresh">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="#0062da" glyphName="REFRESH" size="20" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="printbtn1" contentDisplay="GRAPHIC_ONLY" layoutX="167.0" layoutY="84.0" onAction="#PrintOver" prefHeight="37.0" prefWidth="46.0" ripplerFill="WHITE" style="-fx-background-color: #4397f1; -fx-background-radius: 8;" text="Refresh">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="PRINT" size="20" />
+                     </graphic>
+                  </JFXButton>
+                  <AnchorPane opacity="0.71" prefHeight="63.0" prefWidth="187.0" style="-fx-background-color: #00b596; -fx-background-radius: 8;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="46.0" layoutY="23.0" opacity="0.91" text="OVER STOCK PANEL" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <JFXButton fx:id="back_over_btn" contentDisplay="GRAPHIC_ONLY" layoutX="49.0" layoutY="84.0" onAction="#BackOverAction" prefHeight="37.0" prefWidth="46.0" ripplerFill="BLACK" style="-fx-background-color: WHITE; -fx-background-radius: 5; -fx-border-color: #BFBFBF; -fx-border-radius: 5; -fx-border-width: 2;" text="Refresh">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="#0062da" glyphName="ARROW_LEFT" size="20" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+               <effect>
+                  <DropShadow blurType="TWO_PASS_BOX" color="#949494" />
+               </effect>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

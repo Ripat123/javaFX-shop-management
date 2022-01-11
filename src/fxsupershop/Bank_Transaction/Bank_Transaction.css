@@ -1,0 +1,14 @@
+
+.mainFxmlClass {
+
+}
+.date-picker-popup{
+    -fx-background-radius: 10;
+}
+.date .text-field{
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
+}
+.date .input-line{
+    -fx-background-color: white;
+}

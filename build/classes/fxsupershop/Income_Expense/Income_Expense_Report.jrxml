@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="149bb31e-5d8f-4b02-9d28-57cf89ad4a07">
+	<property name="ireport.zoom" value="9.849732675807644"/>
+	<property name="ireport.x" value="665"/>
+	<property name="ireport.y" value="950"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     expenseinfo.`id` AS id,
+     expenseinfo.`source_type` AS source_type,
+     expenseinfo.`source_title` AS source_title,
+     expenseinfo.`date` AS date,
+     expenseinfo.`fk_title_id` AS fk_title_id,
+     expenseinfo.`ammount` AS ammount,
+     expenseinfo.`comments` AS comments,
+     expenseinfo.`fk_user_id` AS fk_user_id,
+     expenseinfo.`fk_brance_id` AS fk_brance_id
+FROM
+     `expenseinfo` expenseinfo]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="source_type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="source_title" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fk_title_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ammount" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="comments" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fk_user_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fk_brance_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="98" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="575" height="97" backcolor="#FFFFFF" uuid="76a16da2-42e8-437c-84a9-ca46f4855b51"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="9" y="8" width="556" height="33" forecolor="#000000" uuid="29a82bf8-84a5-44f3-af2e-5a967b54e3b8"/>
+				<textElement>
+					<font fontName="Serif" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[                             Digital Shop's Software Demo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="36" width="512" height="20" forecolor="#000000" uuid="1ed0cccd-b0c5-42db-b84b-9e0eabfcf579"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Hazi Fazal Master Lane, Yusuf Tower, 1st Floor, Mizan Road, Feni Sadar, Feni.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="75" width="192" height="18" forecolor="#000000" uuid="d13f6688-9f3f-4211-ba51-723e53d4f11b"/>
+				<textElement>
+					<font size="14" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Income Expense Report]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="57" y="55" width="492" height="20" forecolor="#000000" uuid="bd2901c3-7647-42a8-81fc-0c0d440c3477"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Mobile : 01840-241895,  01676-363680   E-mail :  moreinfo.sbit@gmail.com]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="3" width="57" height="20" uuid="0d7160e1-a9f3-4406-b939-f9b544e0b64e"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[    ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="57" y="3" width="121" height="20" uuid="57924658-03e1-4974-9946-3546bfe31641"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[  Source Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="3" width="98" height="20" uuid="a7188200-a1ba-489e-bbfd-7d52be7d9838"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[  Source Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="3" width="91" height="20" uuid="344595e4-7ccf-4e04-b34f-5e1892afe1a9"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[   Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="367" y="3" width="63" height="20" uuid="5646e130-25b6-43cf-b0aa-18294758961c"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[   Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="3" width="145" height="20" uuid="f6482df7-ffd2-4f64-81b5-53845f5b6ba6"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[   Comments]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="57" height="20" uuid="61dab8dc-f46f-4c6a-9f98-4b59fc6c1b00"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="57" y="0" width="121" height="20" uuid="7387a54b-4a6e-466a-b72e-4ae008651dda"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{source_type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="178" y="0" width="98" height="20" uuid="60f5dce2-0ae5-4c7c-8351-bbab0b5dda5e"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{source_title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="0" width="91" height="20" uuid="cae45045-45b9-42eb-b8db-722b34ac245f"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="367" y="0" width="63" height="20" uuid="8ddb861e-2569-4923-af86-897945a4bab6"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{ammount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="145" height="20" uuid="e7b45e57-b16e-4179-b048-b92d92dfcf4b"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{comments}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="575" height="22" backcolor="#FFFFFF" uuid="89819909-d875-4f31-b32f-00b83fa7f1ef"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="195" y="2" width="176" height="20" forecolor="#000000" uuid="9bfa46e2-de07-452b-a075-14be06bdc49d"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[website : www.sbit.com.bd]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

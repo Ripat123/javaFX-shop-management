@@ -1,0 +1,47 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+.jfx-scroll-pane .main-header{
+    -fx-background-color: #219cf5;
+    -fx-alignment: CENTER_LEFT;
+}
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb{
+    -fx-background-color: transparent;
+    -fx-background-radius: 5em;
+    -fx-opacity: 0.8;
+}
+.table-view .table-cell{
+    -fx-alignment: center;
+    -fx-font-size: 13.5;
+    -fx-border-color: transparent;
+}
+.jfx-list-view{
+    -fx-background-color:#ffffff;	
+}
+
+.jfx-list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: linear-gradient(#96E0D4 0.0%, #58DCB6 25.0%, #00B596 75.0%, #00A286 100.0%);
+    
+}
+
+.jfx-list-cell{
+	-fx-font-weight:bold;
+        -fx-text-fill: #262626;
+	-fx-background-color: #ffffff;
+}
+
+.jfx-list-cell:even { /* <=== changed to even */
+    -fx-background-color: #c8faf1;
+}
+
+.jfx-list-cell:filled:hover {
+    -fx-background-color: #00B596;
+    -fx-text-fill: white;
+}
+.jfx-list-cell .jfx-rippler { 
+    -fx-background-color: red; }

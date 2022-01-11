@@ -1,0 +1,73 @@
+
+/* 
+    Created on : 27-Aug-2020, 11:26:48
+    Author     : Rifat Rabbi
+*/
+
+.mainFxmlClass{
+    
+}
+.textfield{
+    -fx-padding: 0 25 0 12;
+}
+.textfield > .input-line{
+    -fx-background-color: transparent;
+    -jfx-focus-color:transparent;
+}
+.jfx-text-field > .input-focused-line,
+.jfx-combo-box > .input-focused-line {
+    -fx-background-color: transparent;
+    -fx-pref-height: 0px;
+}
+.text-field > .input-line{
+     -fx-background-color: transparent;
+}
+.combobox{
+    -fx-border-color:  #BFBFBF;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-border-width: 2;
+}
+.combobox > .input-line{
+    -fx-background-color: transparent;
+}
+.table-view{
+    -fx-border-color: white;
+}
+.table-view .column-header {
+    -fx-background-color: lightblue;
+    -fx-border-color: #BFBFBF;
+    -fx-background-insets: 0;
+    -fx-border-width: 2 0 2 0;
+    -fx-size: 35;
+}
+.table-view > .column-header-background > .show-hide-columns-button{
+    -fx-background-color: lightblue;
+    -fx-padding: 15;
+}
+.table-view .column-header-background .filler{
+    -fx-background-color: lightblue;
+    -fx-border-color: #adadad;
+    -fx-border-width: 0 0.6 0.6 0;
+    
+}
+.table-row-cell:odd{ /* <=== changed to even */
+    -fx-border-color: #BFBFBF;
+    -fx-border-width: 2 0 2 0;
+    -fx-background-color: white;
+}
+.table-row-cell:selected{
+    -fx-background-color: #00B596;
+    
+}
+.table-view .table-cell{
+    -fx-font-size: 13.5;
+    -fx-border-color: transparent;
+    -fx-padding: 7 0 7 0;
+}
+.table-view .column-header-background .label{
+    -fx-alignment: center-left;
+}
+.noti_btn:hover{
+    -fx-background-color: #2BC1A7;
+}

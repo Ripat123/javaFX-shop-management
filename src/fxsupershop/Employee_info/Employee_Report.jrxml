@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="1896e062-fb48-4cf5-8ed0-e78932fb2ea2">
+	<property name="ireport.zoom" value="1.3310000000000026"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     employee_info.`id` AS id,
+     employee_info.`name` AS name,
+     employee_info.`designation` AS designation,
+     employee_info.`joining_date` AS joining_date,
+     employee_info.`phone` AS phone,
+     employee_info.`email` AS email,
+     employee_info.`education` AS education,
+     employee_info.`address` AS address,
+     employee_info.`status` AS status
+FROM
+     `employee_info` employee_info]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="designation" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="joining_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="phone" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="education" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="address" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="97" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="575" height="97" backcolor="#FFFFFF" uuid="df90af86-39a1-4b33-9b19-5171820ba375"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="244" y="73" width="192" height="18" forecolor="#000000" uuid="009562ad-1fa0-40d7-8a5e-cfeabfc35bcf"/>
+				<textElement>
+					<font size="14" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Employee Report]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="34" width="512" height="20" forecolor="#000000" uuid="d0a14ca9-a3d3-41a9-b08c-12eef13f6b5f"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Hazi Fazal Master Lane, Yusuf Tower, 1st Floor, Mizan Road, Feni Sadar, Feni.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="6" width="556" height="33" forecolor="#000000" uuid="f590305f-4d15-4f02-b224-1b10000afc57"/>
+				<textElement>
+					<font fontName="Serif" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[                             Digital Shop's Software Demo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="58" y="53" width="492" height="20" forecolor="#000000" uuid="8e0bb9d5-5024-4f4a-b0ad-01f28d6c9469"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Mobile : 01840-241895,  01676-363680   E-mail :  moreinfo.sbit@gmail.com]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="26" height="20" uuid="87e41394-136c-4098-bd19-f30a5e5847dd"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<text><![CDATA[  ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="26" y="0" width="83" height="20" uuid="6d1a0efb-4272-417e-8121-4833cb167ff1"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<text><![CDATA[     Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="109" y="0" width="57" height="20" uuid="c3c89c02-3326-4f81-a827-3b48bb6fb025"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<text><![CDATA[Designation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="166" y="0" width="54" height="20" uuid="79caeaf3-a25e-42c3-8d7c-80deadbdd2c5"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<text><![CDATA[Join Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="0" width="72" height="20" uuid="c2a2d8fe-036f-4f3a-8726-c8720dc60a34"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<text><![CDATA[     Phone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="292" y="0" width="109" height="20" uuid="1d14871c-e28d-4837-bc05-5516fb541ebc"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<text><![CDATA[         Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="401" y="0" width="47" height="20" uuid="5b2e808e-4866-44a2-846b-c349c861e636"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<text><![CDATA[Education]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="447" y="0" width="83" height="20" uuid="edf85f6b-e691-4f0d-b698-e2cd07d012ee"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<text><![CDATA[    Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="530" y="0" width="45" height="20" uuid="185774d5-954b-4e36-a00b-f2390bfba0c9"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<text><![CDATA[ Status]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="26" height="20" uuid="37d86aeb-0d0e-4878-9fef-5baf64c5f4cd"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="26" y="0" width="83" height="20" uuid="aefa3dc0-dc10-477e-ae40-e53443a0e09b"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="109" y="0" width="57" height="20" uuid="561d6009-cb53-4c00-808e-ce4d4a9d9e5e"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{designation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="166" y="0" width="54" height="20" uuid="d0d23ade-5abc-42a5-80b8-d83552af9b09"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{joining_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="0" width="72" height="20" uuid="dc34764b-49b0-49a7-b314-2ab209fa9ebb"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{phone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="292" y="0" width="109" height="20" uuid="4b07c7ae-765b-4129-9fa7-858662045ea9"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="0" width="47" height="20" uuid="cb5a3c96-df1b-4cca-98db-9450429c77d8"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{education}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="447" y="0" width="83" height="20" uuid="dba1e4ee-9c87-4c3e-be00-ebcdfe1940b8"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="530" y="0" width="45" height="20" uuid="2ce879c5-a9c0-4d36-a794-5fd6e65c5cba"/>
+				<box>
+					<pen lineWidth="0.3"/>
+					<topPen lineWidth="0.3"/>
+					<leftPen lineWidth="0.3"/>
+					<bottomPen lineWidth="0.3"/>
+					<rightPen lineWidth="0.3"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="575" height="20" backcolor="#FFFFFF" uuid="cd2f2f64-2a85-452e-b90a-a627493f4a2e"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="209" y="0" width="176" height="20" forecolor="#000000" uuid="2b6ec4e8-8eff-49ae-a417-4947e8e6204d"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[website : www.sbit.com.bd]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.14.0.final using JasperReports Library version 6.14.0-2ab0d8625be255bf609c78e1181801213e51db8f  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Product Format" pageWidth="842" pageHeight="120" orientation="Landscape" columnWidth="842" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f627347f-16fe-4f15-85b8-6535d3ed2cfd">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<pageHeader>
+		<band height="50">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="0" y="0" width="72" height="50" uuid="549645d9-888c-4a08-8eb6-08ff140227c0"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Item ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="0" width="70" height="50" uuid="b335a178-b576-41c2-859f-3838ab1b8d63"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Category ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="142" y="0" width="70" height="50" uuid="79e0eeb4-b439-4339-87ae-d560c2cc7193"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Brand ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="212" y="0" width="70" height="50" uuid="c93a48e7-ccf0-4ed2-9b23-c4cd8c57aec8"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Shortage list]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="0" width="70" height="50" uuid="017cce08-62f5-42f9-aa44-afc9577c28d0"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Product Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="0" width="70" height="50" uuid="96743063-a000-4f75-b4ac-b5f42b7d0eb4"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Suspension]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="0" width="70" height="50" uuid="bff39cc2-364e-4c39-951c-bf6407045e64"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Measurement]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="492" y="0" width="70" height="50" uuid="8672bb65-4959-4751-bbc4-8a90441023c7"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Purchase]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="562" y="0" width="70" height="50" uuid="8a651c12-3bce-421e-9f60-39c43bf8092c"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="632" y="0" width="70" height="50" uuid="a0d524f0-7266-462f-9f50-0011e10de2b5"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Barcode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="702" y="0" width="70" height="50" uuid="719fbf59-0c87-4e44-97f6-8acf19291ac0"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Shelf NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="772" y="0" width="70" height="50" uuid="170c15cd-c00a-4c36-9cee-8bff1bbafd7a"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Over Stock]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="72" height="34" uuid="633a247c-847c-4619-b821-5f7eab93f6be"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="72" y="0" width="70" height="34" uuid="0cc57f99-6079-4a3d-9abc-c6bae8ffb0f0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="142" y="0" width="70" height="34" uuid="d9abe3c6-7e58-4cc7-8858-458af18cf634"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="212" y="0" width="70" height="34" uuid="0c7ae757-234b-485e-a942-448a6c05512a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="282" y="0" width="70" height="34" uuid="782a18cd-127a-4ef5-8a69-8265ff7723a9"/>
+				<textElement verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="352" y="0" width="70" height="34" uuid="318840dc-0cf9-47e1-ba7a-f6176001e7e5"/>
+				<textElement verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="422" y="0" width="70" height="34" uuid="31c823d2-5036-4c17-950f-7d5e058e51dd"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="492" y="0" width="70" height="34" uuid="97150579-3f7a-4fe9-a13e-ec9fa073d39b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="562" y="0" width="70" height="34" uuid="8ef3b92c-b172-4a43-9cf4-c5eb9ecd50bf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="632" y="0" width="70" height="34" uuid="3ad87684-45ac-438e-925c-d270a06ec3a5"/>
+				<textElement verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="702" y="0" width="70" height="34" uuid="72cfa0c2-3e75-4de8-a35e-061773127a90"/>
+				<textElement verticalAlignment="Middle"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="772" y="0" width="70" height="34" uuid="ad4a79ab-5dba-4c7e-a030-3c86dc13ea82"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+			</textField>
+		</band>
+	</columnHeader>
+</jasperReport>

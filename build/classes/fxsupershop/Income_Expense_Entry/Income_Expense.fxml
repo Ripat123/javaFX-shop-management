@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1035.0" style="-fx-background-color: #e4f4df;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxsupershop.Income_Expense_Entry.Income_EntryController">
+   <children>
+      <ScrollPane fx:id="scrollpane" fitToWidth="true" prefHeight="646.0" prefWidth="991.0" style="-fx-background-color: #e4f4df;" StackPane.alignment="CENTER">
+         <content>
+            <HBox alignment="CENTER" prefHeight="683.0" prefWidth="1020.0" spacing="15.0">
+               <children>
+                  <BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                     <bottom>
+                        <AnchorPane prefHeight="115.0" prefWidth="459.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER" layoutX="98.0" layoutY="50.0" prefHeight="98.0" prefWidth="459.0" spacing="5.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="10.0" onAction="#valueAdd" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: #00cc44;" styleClass="operation_btn" stylesheets="@../Product/category_info.css" text="Add" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Image/icons8_add_30px.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="10.0" onAction="#Updatebtn" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: #78c200;" styleClass="operation_btn" stylesheets="@../Product/category_info.css" text="Edit" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Image/icons8_edit_30px.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="10.0" onAction="#Deletebtn" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: #ff4343;" styleClass="operation_btn" stylesheets="@../Product/category_info.css" text="Delete" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Image/icons8_trash_30px.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="3.0" layoutY="50.0" prefHeight="58.0" prefWidth="451.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="57.0">
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                                 <children>
+                                    <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="10.0" onAction="#onViiew" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: #00cc44;" styleClass="operation_btn" stylesheets="@../Product/category_info.css" text="View" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Image/icons8_view_details_30px.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton buttonType="RAISED" onAction="#Cleanbtn" prefHeight="40.0" prefWidth="192.0" style="-fx-background-color: #78c200;" styleClass="operation_btn" stylesheets="@../Product/category_info.css" text="Clean" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Image/icons8_erase_30px.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <BorderPane.margin>
+                              <Insets bottom="30.0" />
+                           </BorderPane.margin>
+                        </AnchorPane>
+                     </bottom>
+                     <effect>
+                        <DropShadow color="#908e8e" />
+                     </effect>
+                     <top>
+                        <AnchorPane opacity="0.71" prefHeight="63.0" prefWidth="187.0" style="-fx-background-color: #3672ff; -fx-background-radius: 8;" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="46.0" layoutY="23.0" opacity="0.91" text="Transaction Entry" textFill="WHITE">
+                                 <font>
+                                    <Font name="SansSerif Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </top>
+                     <center>
+                        <AnchorPane prefHeight="317.0" prefWidth="459.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <JFXDatePicker fx:id="date" layoutX="50.0" layoutY="33.0" prefHeight="40.0" prefWidth="300.0" promptText="Date" styleClass="textfield1" stylesheets="@../Product/category_info.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+                              <JFXComboBox fx:id="transaction" labelFloat="true" layoutX="50.0" layoutY="97.0" onAction="#TransactionAction" prefHeight="40.0" prefWidth="300.0" promptText="Transaction Type" styleClass="combo-box-popup" stylesheets="@../Product/category_info.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+                              <JFXComboBox fx:id="type" labelFloat="true" layoutX="50.0" layoutY="158.0" onAction="#TypeAction" prefHeight="40.0" prefWidth="300.0" promptText="Source" styleClass="combo-box-popup" stylesheets="@../Product/category_info.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+                              <JFXTextField fx:id="amount" focusColor="#3672ff" labelFloat="true" layoutX="50.0" layoutY="224.0" prefHeight="40.0" prefWidth="300.0" promptText="Amount" styleClass="textfield1" stylesheets="@../Product/category_info.css" unFocusColor="#939393" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextArea fx:id="desc" labelFloat="true" layoutX="50.0" layoutY="293.0" prefHeight="63.0" prefWidth="300.0" promptText="Description" styleClass="textfield1" stylesheets="@../Product/category_info.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+                           </children>
+                           <BorderPane.margin>
+                              <Insets top="10.0" />
+                           </BorderPane.margin>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+                  <AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                     <children>
+                        <AnchorPane prefHeight="63.0" prefWidth="485.0" style="-fx-background-color: #0083ff;" styleClass="pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <effect>
+                              <DropShadow color="#726c6c" height="15.06" radius="7.03" width="15.06" />
+                           </effect>
+                           <children>
+                              <JFXRadioButton fx:id="id_filter" layoutX="138.0" layoutY="34.0" selected="true" style="-jfx-unselected-color: white; -jfx-selected-color: yellow;" text="ID" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="search" />
+                                 </toggleGroup>
+                              </JFXRadioButton>
+                              <JFXRadioButton fx:id="name_filter" layoutX="212.0" layoutY="34.0" style="-jfx-unselected-color: white; -jfx-selected-color: yellow;" text="Name" textFill="WHITE" toggleGroup="$search">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </JFXRadioButton>
+                              <JFXTextField fx:id="search_filed" focusColor="YELLOW" labelFloat="true" layoutX="305.0" layoutY="18.0" onKeyReleased="#Search" promptText="Search" styleClass="textfield" stylesheets="@../Product/category_info.css" unFocusColor="WHITE" AnchorPane.leftAnchor="305.0" AnchorPane.rightAnchor="26.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXButton fx:id="reportbtn" layoutX="14.0" layoutY="16.0" onAction="#Report" prefHeight="33.0" prefWidth="102.0" style="-fx-background-color: #23AEC9; -fx-background-radius: 15; -fx-border-color: white; -fx-border-radius: 15;" text="Report" textFill="WHITE" AnchorPane.leftAnchor="14.0">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXRadioButton fx:id="income_id" layoutX="138.0" layoutY="8.0" onAction="#incomeViewAction" selected="true" style="-jfx-unselected-color: white; -jfx-selected-color: yellow;" text="Income" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="view" />
+                                 </toggleGroup>
+                              </JFXRadioButton>
+                              <JFXRadioButton fx:id="expense_id" layoutX="212.0" layoutY="8.0" onAction="#ExpenseViewAction" style="-jfx-unselected-color: white; -jfx-selected-color: yellow;" text="Expense" textFill="WHITE" toggleGroup="$view">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </JFXRadioButton>
+                           </children>
+                           <stylesheets>
+                              <URL value="@../Product/category_info.css" />
+                              <URL value="@../Product/brand_info.css" />
+                           </stylesheets>
+                        </AnchorPane>
+                        <TableView fx:id="tableview" layoutY="63.0" onMouseClicked="#TableView" prefHeight="510.0" prefWidth="485.0" stylesheets="@../Product/category_info.css" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
+                           <columns>
+                              <TableColumn fx:id="col_id" prefWidth="66.0" text="ID" />
+                              <TableColumn fx:id="col_date" prefWidth="121.0" text="Date" />
+                              <TableColumn fx:id="col_type" prefWidth="153.0" text="Type" />
+                              <TableColumn fx:id="col_amount" prefWidth="119.0" text="Amount" />
+                           </columns>
+                           <styleClass>
+                              <String fx:value="scroll-pane" />
+                              <String fx:value="scroll-bar" />
+                              <String fx:value="thumb" />
+                              <String fx:value="decrement-button" />
+                              <String fx:value="increment-button" />
+                              <String fx:value="track" />
+                           </styleClass>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                     <effect>
+                        <DropShadow color="#908e8e" />
+                     </effect>
+                  </AnchorPane>
+               </children>
+               <padding>
+                  <Insets bottom="45.0" left="25.0" right="25.0" top="30.0" />
+               </padding>
+            </HBox>
+         </content>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
+      </ScrollPane>
+   </children>
+</StackPane>

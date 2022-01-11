@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="75d20c05-5570-4172-b94e-1968fdcbabf0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     product_brand.`id`,
+     product_brand.`brand_name`,
+     project_info.`Shop_name`,
+     project_info.`address`,
+     project_info.`phone`,
+     project_info.`email`,
+     project_info.`logo_path`
+FROM
+     `product_brand` product_brand,
+     `project_info` project_info]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="brand_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Shop_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="address" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="phone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="logo_path" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="109" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="86" width="575" height="23" forecolor="#000000" uuid="9ea35c2e-eb61-40d0-9749-605e04f969d9"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#666666"/>
+					<topPen lineWidth="0.5" lineColor="#666666"/>
+					<leftPen lineWidth="0.5" lineColor="#666666"/>
+					<bottomPen lineWidth="0.5" lineColor="#666666"/>
+					<rightPen lineWidth="0.5" lineColor="#666666"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Brand Report]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="151" y="0" width="424" height="30" uuid="c28d39e2-8c74-404c-a054-a0fcec5ef219"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Shop_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="30" width="424" height="20" uuid="4bea92dc-96bb-4b11-bf57-9a4c4be4bc0c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="50" width="255" height="20" uuid="44bd2d03-a780-4c5d-8748-cbc3f73f0197"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+					<paragraph leftIndent="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="283" y="50" width="37" height="20" uuid="9ff8db9c-38ee-4894-b6e9-13f023cf2725"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Email :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="195" y="50" width="88" height="20" uuid="dd1238d1-007d-4462-a3ca-ee76d5c69464"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+					<paragraph leftIndent="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{phone}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="151" y="50" width="44" height="20" uuid="a9c70b4d-a415-4a94-954f-be2a79b07054"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mobile :]]></text>
+			</staticText>
+			<elementGroup/>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="2" width="140" height="70" uuid="0e46248a-af77-480b-b2f1-a5bc5ebcaa43"/>
+				<imageExpression><![CDATA[$F{logo_path}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="76" width="575" height="1" uuid="26779160-66cf-48e8-92cb-bd679c2ddf93"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="127" height="23" uuid="3f26bb42-d62e-43f0-8978-2dbedaea3200"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#666666"/>
+					<topPen lineWidth="0.5" lineColor="#666666"/>
+					<leftPen lineWidth="0.5" lineColor="#666666"/>
+					<bottomPen lineWidth="0.5" lineColor="#666666"/>
+					<rightPen lineWidth="0.5" lineColor="#666666"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="0" width="448" height="23" uuid="89d1a383-94ec-46c2-a925-8bd9ff193032"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#666666"/>
+					<topPen lineWidth="0.5" lineColor="#666666"/>
+					<leftPen lineWidth="0.5" lineColor="#666666"/>
+					<bottomPen lineWidth="0.5" lineColor="#666666"/>
+					<rightPen lineWidth="0.5" lineColor="#666666"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Brand Name]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="127" height="30" uuid="b073c542-f7f4-4427-b319-00bfde3ffaee"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#666666"/>
+					<topPen lineWidth="0.5" lineColor="#666666"/>
+					<leftPen lineWidth="0.5" lineColor="#666666"/>
+					<bottomPen lineWidth="0.5" lineColor="#666666"/>
+					<rightPen lineWidth="0.5" lineColor="#666666"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="0" width="448" height="30" uuid="6ba082ae-4526-4c92-b0b3-a69c1e390e38"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#666666"/>
+					<topPen lineWidth="0.5" lineColor="#666666"/>
+					<leftPen lineWidth="0.5" lineColor="#666666"/>
+					<bottomPen lineWidth="0.5" lineColor="#666666"/>
+					<rightPen lineWidth="0.5" lineColor="#666666"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{brand_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="45" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="575" height="22" backcolor="#FFFFFF" uuid="a49a5062-7e1e-47ab-a128-5cae514239ab"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="200" y="2" width="176" height="20" forecolor="#000000" uuid="64638323-71d2-4b60-9a9d-1c7e29a9a39c"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[website : www.sbit.com.bd]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

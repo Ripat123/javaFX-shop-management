@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1035.0" style="-fx-background-color: #e4f4df;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxsupershop.Company.CompanyController">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="itempane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="675.0" prefWidth="1021.0" style="-fx-background-color: #e4f4df;" styleClass="mainFxmlClass">
+         <stylesheets>
+            <URL value="@../Company/company.css" />
+         </stylesheets>
+         <children>
+            <AnchorPane layoutX="75.0" layoutY="82.0" prefHeight="512.0" prefWidth="364.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+               <children>
+                  <AnchorPane layoutX="24.0" layoutY="-31.0" opacity="0.71" prefHeight="63.0" prefWidth="187.0" style="-fx-background-color: #3672ff; -fx-background-radius: 8;">
+                     <children>
+                        <Label layoutX="33.0" layoutY="23.0" opacity="0.91" text="Company Details" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <JFXTextField fx:id="text_company_id" focusColor="#3672ff" labelFloat="true" layoutX="42.0" layoutY="93.0" prefHeight="33.0" prefWidth="281.0" promptText="Company ID" styleClass="textfield1" stylesheets="@../Product/category_info.css" unFocusColor="#939393">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="text_company_name" focusColor="#3672ff" labelFloat="true" layoutX="42.0" layoutY="170.0" prefHeight="33.0" prefWidth="281.0" promptText="Company Name" styleClass="textfield1" stylesheets="@../Product/category_info.css" unFocusColor="#939393">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="8.0" layoutX="238.0" layoutY="344.0" onAction="#Deletebtn" prefHeight="33.0" prefWidth="85.0" style="-fx-background-color: #ff4343;" text="Delete" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_trash_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="10.0" layoutX="140.0" layoutY="344.0" onAction="#Updatebtn" prefHeight="33.0" prefWidth="85.0" style="-fx-background-color: #78c200;" text="Edit" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_edit_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="10.0" layoutX="42.0" layoutY="344.0" onAction="#valueAdd" prefHeight="33.0" prefWidth="85.0" style="-fx-background-color: #00cc44;" text="Add" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_add_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_CENTER" buttonType="RAISED" graphicTextGap="10.0" layoutX="140.0" layoutY="398.0" onAction="#Cleanbtn" prefHeight="33.0" prefWidth="182.0" style="-fx-background-color: #78c200;" text="Clean" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_erase_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="9.0" layoutX="42.0" layoutY="398.0" onAction="#onViiew" prefHeight="33.0" prefWidth="85.0" style="-fx-background-color: #00cc44;" text="View" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_view_details_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXComboBox fx:id="text_status" editable="true" layoutX="42.0" layoutY="236.0" prefHeight="33.0" prefWidth="281.0" promptText="Status" styleClass="combobox" stylesheets="@../Product/category_info.css" />
+               </children>
+               <effect>
+                  <DropShadow color="#979797" height="12.1" radius="5.55" width="12.1" />
+               </effect>
+            </AnchorPane>
+            <AnchorPane layoutX="481.0" layoutY="186.0" prefHeight="81.0" prefWidth="475.0" style="-fx-background-color: #0083ff;" styleClass="pane" stylesheets="@../Product/category_info.css">
+               <effect>
+                  <DropShadow color="#726c6c" height="15.06" radius="7.03" width="15.06" />
+               </effect>
+               <children>
+                  <Label layoutX="146.0" layoutY="11.0" opacity="0.91" text="Filter by :" textFill="WHITE">
+                     <font>
+                        <Font name="SansSerif Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXRadioButton fx:id="id_filter" layoutX="146.0" layoutY="44.0" selected="true" style="-jfx-unselected-color: white; -jfx-selected-color: yellow;" text="ID" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="search" />
+                     </toggleGroup>
+                  </JFXRadioButton>
+                  <JFXRadioButton fx:id="name_filter" layoutX="214.0" layoutY="44.0" style="-jfx-unselected-color: white; -jfx-selected-color: yellow;" text="Name" textFill="WHITE" toggleGroup="$search">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXRadioButton>
+                  <JFXTextField fx:id="search_filed" focusColor="YELLOW" labelFloat="true" layoutX="305.0" layoutY="31.0" onKeyPressed="#Table_Search" onKeyReleased="#Table_Search" promptText="Search" styleClass="textfield" stylesheets="@company.css" unFocusColor="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </JFXTextField>
+               </children>
+            </AnchorPane>
+            <TableView fx:id="tableview" layoutX="481.0" layoutY="267.0" onMouseClicked="#tableClick" prefHeight="327.0" prefWidth="475.0" style="-fx-background-color: white;" tableMenuButtonVisible="true">
+               <columns>
+                  <TableColumn fx:id="T_company_id" prefWidth="117.0" text="Company ID" />
+                  <TableColumn fx:id="T_company_Name" prefWidth="199.0" text="Company Name" />
+                  <TableColumn fx:id="T_Status" prefWidth="148.0" text="Status" />
+               </columns>
+            </TableView>
+            <Pane layoutX="481.0" layoutY="82.0" prefHeight="89.0" prefWidth="475.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+               <effect>
+                  <DropShadow color="#726c6c" height="12.1" radius="5.55" width="12.1" />
+               </effect>
+               <children>
+                  <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="23.0" onAction="#Report_Button" prefHeight="29.0" prefWidth="110.0" style="-fx-background-color: orange;" text="Full Report" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="307.0" layoutY="23.0" onAction="#Indivisually_Report_Button" prefHeight="29.0" prefWidth="146.0" style="-fx-background-color: orange;" text="Indivisually Report" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXComboBox fx:id="selectReport" layoutX="139.0" layoutY="21.0" prefHeight="29.0" prefWidth="161.0" promptText="Select a Report" />
+               </children>
+            </Pane>
+            <AnchorPane layoutX="515.0" layoutY="143.0" prefHeight="72.0" prefWidth="96.0" style="-fx-background-color: #1fbfff; -fx-background-radius: 8;">
+               <children>
+                  <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="32.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/icons8_overview_pages_3_55px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="main_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="785.0" style="-fx-background-color: rgba(0,100,100,0);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxsupershop.Login.LoginMultiFormController">
+   <children>
+      <Pane fx:id="login_form" layoutX="26.0" layoutY="28.0" onMouseDragged="#setmove" onMousePressed="#getmove" prefHeight="441.0" prefWidth="723.0" style="-fx-background-color: white; -fx-background-radius: 30;" stylesheets="@loginmultiform.css">
+         <children>
+            <TextField fx:id="user1" layoutX="418.0" layoutY="130.0" onKeyReleased="#enterPass" prefHeight="38.0" prefWidth="239.0" promptText="Enter User Name..." styleClass="jfx-textfield" stylesheets="@loginmultiform.css">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="pass1" layoutX="419.0" layoutY="224.0" onKeyReleased="#enterLogin" onMouseClicked="#PasswordFieldClicked" prefHeight="38.0" prefWidth="239.0" promptText="Enter Password..." styleClass="jfx-textfield" stylesheets="@loginmultiform.css">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="8.0" right="22.0" />
+               </padding>
+            </PasswordField>
+            <CheckBox fx:id="show_pass1" layoutX="634.0" layoutY="233.0" mnemonicParsing="false" onAction="#ShowPassword" prefHeight="17.0" prefWidth="0.0">
+               <tooltip>
+                  <Tooltip text="Show Password" />
+               </tooltip></CheckBox>
+            <Hyperlink fx:id="forgot_pass" layoutX="428.0" layoutY="358.0" onAction="#ForgotPassword" text="Forgot your Password?" textFill="#686868">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Regain your Password">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Hyperlink>
+            <Hyperlink fx:id="sign_up1" disable="true" layoutX="611.0" layoutY="395.0" onAction="#SignUp" text="Not signed up?" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Create new Account">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Hyperlink>
+            <Label layoutX="466.0" layoutY="105.0" text="User Name" textFill="#6f6e6e">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="467.0" layoutY="198.0" text="Password" textFill="#6f6e6e">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="close1" alignment="CENTER" layoutX="682.0" layoutY="14.0" onMouseClicked="#CloseOp" prefHeight="27.0" prefWidth="27.0" text="X" textFill="#686868">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Close">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Label>
+            <JFXButton fx:id="Login" layoutX="480.0" layoutY="293.0" onAction="#LogintoHome" prefHeight="38.0" prefWidth="116.0" styleClass="button1" stylesheets="@loginmultiform.css" text="Login" textFill="#cdcccc">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
+            <FontAwesomeIconView fill="#5e5c5c" glyphName="USER" layoutX="440.0" layoutY="120.0" size="20" />
+            <FontAwesomeIconView fill="#5e5c5c" glyphName="LOCK" layoutX="440.0" layoutY="213.0" size="20" />
+            <Label layoutX="441.0" layoutY="47.0" text="Login as Admin User" textFill="#808080">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="get_pass_form" layoutX="26.0" layoutY="28.0" prefHeight="441.0" prefWidth="723.0" style="-fx-background-color: white; -fx-background-radius: 30;" stylesheets="@loginmultiform.css" visible="false">
+         <children>
+            <Label layoutX="469.0" layoutY="54.0" text="Get Password to Login" textFill="#6f6e6e">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="user2" layoutX="442.0" layoutY="121.0" prefHeight="38.0" prefWidth="228.0" promptText="Enter User Name..." styleClass="jfx-textfield" stylesheets="@loginmultiform.css">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Hyperlink fx:id="sign_up2" disable="true" layoutX="601.0" layoutY="395.0" onAction="#SignUp" text="Not signed up?" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Create new Account">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Hyperlink>
+            <Label layoutX="465.0" layoutY="101.0" text="User Name" textFill="#6f6e6e">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="464.0" layoutY="300.0" text="Password" textFill="#6f6e6e">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="email_or_phone1" layoutX="442.0" layoutY="188.0" prefHeight="38.0" prefWidth="228.0" promptText="Enter Email or Phone..." styleClass="jfx-textfield" stylesheets="@loginmultiform.css">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="464.0" layoutY="168.0" text="Email or Phone" textFill="#6f6e6e">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="pass2" editable="false" layoutX="445.0" layoutY="321.0" onMouseClicked="#GetPasswordFieldClicked" prefHeight="38.0" prefWidth="228.0" promptText="Get Password..." styleClass="jfx-textfield" stylesheets="@loginmultiform.css">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="8.0" right="20.0" />
+               </padding>
+            </PasswordField>
+            <CheckBox fx:id="show_pass" layoutX="649.0" layoutY="331.0" mnemonicParsing="false" onAction="#ShowGetPassword" prefHeight="17.0" prefWidth="0.0" />
+            <ImageView fx:id="submit1" layoutX="640.0" layoutY="126.0" onMouseClicked="#Entered1">
+               <image>
+                  <Image url="@../Image/icons8_enter_2_27px.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="submit2" layoutX="640.0" layoutY="193.0" onMouseClicked="#Entered2">
+               <image>
+                  <Image url="@../Image/icons8_enter_2_27px.png" />
+               </image>
+            </ImageView>
+            <Hyperlink fx:id="go_login" layoutX="451.0" layoutY="395.0" onAction="#GotoLogin" text="Go to Login" textFill="#686868">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Go to Login to Continue Access">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Hyperlink>
+            <Label fx:id="close2" alignment="CENTER" layoutX="682.0" layoutY="14.0" onMouseClicked="#CloseOp" prefHeight="27.0" prefWidth="27.0" text="X" textFill="#686868">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Close">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Label>
+            <JFXButton fx:id="get_pass" layoutX="498.0" layoutY="252.0" onAction="#GetPassword" prefHeight="38.0" prefWidth="116.0" styleClass="button1" stylesheets="@loginmultiform.css" text="Get Password" textFill="#cdcccc">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Pane fx:id="create_form" layoutX="26.0" layoutY="28.0" onMouseDragged="#setmove" onMousePressed="#getmove" prefHeight="441.0" prefWidth="431.0" style="-fx-background-color: #0090e4; -fx-background-radius: 30;" styleClass="tooltip" stylesheets="@loginmultiform.css" visible="false">
+         <children>
+            <ScrollPane hbarPolicy="NEVER" layoutX="3.0" layoutY="57.0" prefHeight="333.0" prefWidth="424.0" style="-fx-background-color: transparent;" stylesheets="@loginmultiform.css">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="632.0" prefWidth="424.0" style="-fx-background-color: #791E8C;">
+                     <children>
+                        <TextField fx:id="create_fullname" layoutX="98.0" layoutY="106.0" prefHeight="38.0" prefWidth="228.0" promptText="Enter Full Name..." style="-fx-background-radius: 20;">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="122.0" layoutY="85.0" text="Full Name" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="signup_btn" layoutX="163.0" layoutY="563.0" mnemonicParsing="false" onAction="#SignUpAction" prefHeight="38.0" prefWidth="98.0" style="-fx-background-radius: 20;" text="Sign Up" textFill="#0099ff">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <TextArea fx:id="create_address" layoutX="98.0" layoutY="479.0" prefHeight="63.0" prefWidth="228.0" promptText="Enter your Address..." style="-fx-background-radius: 20; -fx-border-insets: 5; -fx-border-radius: 20; -fx-border-color: white; -fx-background-color: white;">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </TextArea>
+                        <Label layoutX="122.0" layoutY="459.0" text="Address" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="124.0" layoutY="405.0" text="Gender" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="male" layoutX="115.0" layoutY="432.0" mnemonicParsing="false" onAction="#RadioMale" text="Male" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="gender" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="female" layoutX="179.0" layoutY="432.0" mnemonicParsing="false" onAction="#RadioFemale" text="Female" textFill="WHITE" toggleGroup="$gender">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </RadioButton>
+                        <PasswordField fx:id="create_con_pass" layoutX="98.0" layoutY="362.0" prefHeight="38.0" prefWidth="228.0" promptText="Enter Confirm Password..." style="-fx-background-radius: 20;">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="8.0" right="22.0" />
+                           </padding>
+                        </PasswordField>
+                        <CheckBox fx:id="show_pass_con" layoutX="302.0" layoutY="372.0" mnemonicParsing="false" onAction="#ShowPassword" prefHeight="17.0" prefWidth="0.0" />
+                        <Label layoutX="123.0" layoutY="341.0" text="Confirm Password" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="create_phon" layoutX="96.0" layoutY="235.0" prefHeight="38.0" prefWidth="228.0" promptText="Enter Number..." style="-fx-background-radius: 20;">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="122.0" layoutY="214.0" text="Phone Number" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="create_email" layoutX="98.0" layoutY="170.0" prefHeight="38.0" prefWidth="228.0" promptText="Enter Email Address..." style="-fx-background-radius: 20;">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="122.0" layoutY="149.0" text="Email" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="97.0" layoutY="454.0" prefHeight="4.0" prefWidth="228.0" />
+                        <TextField fx:id="create_user" layoutX="97.0" layoutY="43.0" prefHeight="38.0" prefWidth="228.0" promptText="Enter User Name..." style="-fx-background-radius: 20;">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="122.0" layoutY="22.0" text="User Name" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <PasswordField fx:id="create_pass" layoutX="98.0" layoutY="299.0" prefHeight="38.0" prefWidth="228.0" promptText="Enter Password..." style="-fx-background-radius: 20;">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="8.0" right="22.0" />
+                           </padding>
+                        </PasswordField>
+                        <CheckBox fx:id="show_pass11" layoutX="302.0" layoutY="309.0" mnemonicParsing="false" onAction="#ShowPassword" prefHeight="17.0" prefWidth="0.0" />
+                        <Label layoutX="124.0" layoutY="278.0" text="Password" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            <Label layoutX="28.0" layoutY="20.0" text="Create Account to Login" textFill="#ff6bb0">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="close11" alignment="CENTER" layoutX="392.0" layoutY="11.0" onMouseClicked="#CloseOp" prefHeight="27.0" prefWidth="27.0" text="X" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Close">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Label>
+            <Hyperlink fx:id="go_login1" layoutX="28.0" layoutY="395.0" onAction="#GotoLogin" text="Go to Login" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Go to Login to Continue Access">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Hyperlink>
+         </children>
+      </Pane>
+      <Pane fx:id="questionPane" layoutX="677.0" layoutY="-213.0" prefHeight="167.0" prefWidth="311.0" style="-fx-background-color: white; -fx-background-radius: 20;" stylesheets="@../Home/homepage.css">
+         <children>
+            <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="12.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/icons8_help_90px.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="ques_level" layoutX="59.0" layoutY="34.0" textFill="#4d4b4b" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="ans_field" layoutX="59.0" layoutY="71.0" prefHeight="25.0" prefWidth="214.0" promptText="Enter Your valid Answer..." unFocusColor="#7c7979">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton buttonType="RAISED" layoutX="199.0" layoutY="115.0" onAction="#OKbtn" prefHeight="38.0" prefWidth="74.0" style="-fx-background-color: #23AEC9; -fx-background-radius: 20;" text="OK" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="106.0" layoutY="115.0" onAction="#cancelbtn" prefHeight="38.0" prefWidth="85.0" style="-fx-border-color: #787676; -fx-border-radius: 20; -fx-background-radius: 20;" text="CANCEL" textFill="#615f5f">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <ImageView fx:id="image_back" fitHeight="441.0" fitWidth="518.0" layoutX="26.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/Edited%20login%20page.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="desc" layoutX="57.0" layoutY="131.0" prefHeight="38.0" prefWidth="228.0" text="Skill Based Information Technology&#10;...lead to the way of IT&#10;" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="logo" fitHeight="50.0" fitWidth="123.0" layoutX="57.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/sbit.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="proccessing" layoutX="26.0" layoutY="28.0" onMouseDragged="#setmove" onMousePressed="#getmove" prefHeight="441.0" prefWidth="723.0" style="-fx-background-color: white; -fx-background-radius: 30;" stylesheets="@loginmultiform.css" visible="false">
+         <children>
+            <Label fx:id="close12" alignment="CENTER" layoutX="682.0" layoutY="14.0" onMouseClicked="#CloseOp" prefHeight="27.0" prefWidth="27.0" text="X" textFill="#686868">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Close">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Label>
+            <JFXSpinner layoutX="337.0" layoutY="196.0" />
+         </children>
+      </Pane>
+   </children>
+   <effect>
+      <DropShadow color="#2f2e2e" height="107.74" offsetX="2.5" offsetY="7.0" radius="38.3575" width="47.69" />
+   </effect>
+</AnchorPane>

@@ -1,0 +1,76 @@
+
+
+.mainFxmlClass {
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 1.0px;
+}
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 5em;
+    -fx-opacity: 0.8;
+    
+}
+.scroll-pane > .corner {
+    -fx-background-color: transparent;
+    
+}
+.tooltip{
+  -fx-background-color: white;
+  -fx-text-fill:black;
+  -fx-font-size:11.0;
+  -fx-wrap-text:true;
+  -fx-opacity: 0.75;
+}
+.jfx-popup-container { 
+    -fx-background-color: white; 
+    -fx-background-radius: 20;
+}
+
+.check-box .box {
+    -fx-background-color: #8400f1;
+    -fx-background-insets: 0.0 0.0 -1.0 0.0, 0.0, 1.0, 2.0;
+    -fx-background-radius: 10;
+    -fx-padding: 3.5;
+}
+.check-box:selected .mark{
+    -fx-background-color: white;
+}
+.check-box:selected .box{
+    -fx-background-color: #791E8C;
+}
+.check-box:hover .box{
+    -fx-background-color: #4D1F81;
+    -fx-border-color: gray;
+    -fx-border-radius: 10;
+}
+.button1{
+     -fx-background-color: linear-gradient(#B73EDE 25.0%, #4D1F81 75.0%, #4D1F81 100.0%);
+     -fx-background-radius: 20;
+     -fx-border-radius: 20;
+     -fx-border-color: gray;
+}
+.jfx-textfield{
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-width: 2;
+    -fx-border-color:  #b1b1b1;
+    -fx-text-fill: gray;
+    -fx-background-color: #dad9d8;
+}

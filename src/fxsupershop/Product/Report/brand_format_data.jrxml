@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.14.0.final using JasperReports Library version 6.14.0-2ab0d8625be255bf609c78e1181801213e51db8f  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="item_format" pageWidth="350" pageHeight="800" columnWidth="350" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f627347f-16fe-4f15-85b8-6535d3ed2cfd">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Pharmachy"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[select
+ product_brand.brand_name 
+ from
+ product_brand]]>
+	</queryString>
+	<field name="brand_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="brand_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="brand_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_brand"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="37">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<staticText>
+				<reportElement x="0" y="0" width="350" height="37" uuid="f437e84f-2a65-4b9d-92c7-d7b426b8f897"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Brand Name]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="38">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="350" height="38" uuid="15ad97f4-1375-4413-b429-494a67e23e35"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{brand_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

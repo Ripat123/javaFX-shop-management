@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.14.0.final using JasperReports Library version 6.14.0-2ab0d8625be255bf609c78e1181801213e51db8f  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Product Format" pageWidth="842" pageHeight="120" orientation="Landscape" columnWidth="842" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f627347f-16fe-4f15-85b8-6535d3ed2cfd">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DigitalShop"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[Select 
+product_productinfo.id ,
+product_productinfo.item_id ,
+product_productinfo.category_id ,
+product_productinfo.brand_id ,
+product_productinfo.shortage_list ,
+product_productinfo.product_name ,
+product_productinfo.suspension ,
+product_productinfo.measurement_type ,
+product_productinfo.purchase_price ,
+product_productinfo.sale_price ,
+product_productinfo.barcode ,
+product_productinfo.shelf_no ,
+product_productinfo.over_stock 
+from
+product_productinfo]]>
+	</queryString>
+	<field name="id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_productinfo"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="item_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="item_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="item_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_productinfo"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="category_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="category_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="category_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_productinfo"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="brand_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="brand_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="brand_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_productinfo"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="shortage_list" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="shortage_list"/>
+		<property name="com.jaspersoft.studio.field.label" value="shortage_list"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_productinfo"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="product_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="product_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="product_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_productinfo"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="suspension" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="suspension"/>
+		<property name="com.jaspersoft.studio.field.label" value="suspension"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_productinfo"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="measurement_type" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="measurement_type"/>
+		<property name="com.jaspersoft.studio.field.label" value="measurement_type"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_productinfo"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="purchase_price" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="purchase_price"/>
+		<property name="com.jaspersoft.studio.field.label" value="purchase_price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_productinfo"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sale_price" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="sale_price"/>
+		<property name="com.jaspersoft.studio.field.label" value="sale_price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_productinfo"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="barcode" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="barcode"/>
+		<property name="com.jaspersoft.studio.field.label" value="barcode"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_productinfo"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="shelf_no" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="shelf_no"/>
+		<property name="com.jaspersoft.studio.field.label" value="shelf_no"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_productinfo"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="over_stock" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="over_stock"/>
+		<property name="com.jaspersoft.studio.field.label" value="over_stock"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_productinfo"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="50">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="0" y="0" width="72" height="50" uuid="e5f96a7a-6975-49a3-be18-806dfd229b4b"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Item ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="0" width="70" height="50" uuid="7e2d6962-10f4-4e30-a10b-790b9d3f6141"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Category ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="142" y="0" width="70" height="50" uuid="b5975280-293f-491b-990b-314cb3d3d876"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Brand ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="212" y="0" width="70" height="50" uuid="039f46b2-1550-47e3-8f33-e38879dfdc34"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Shortage list]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="0" width="70" height="50" uuid="c55cdc69-314f-4539-9273-ef94614cc3e4"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Product Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="0" width="70" height="50" uuid="79b4d357-3c5a-4cdb-abc3-2c4d9f836c38"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Suspension]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="0" width="70" height="50" uuid="d2851e3e-82da-408e-9bb3-ef721ab8eef8"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Measurement]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="492" y="0" width="70" height="50" uuid="b65483f3-534d-426a-935a-f5d539d63541"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Purchase]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="562" y="0" width="70" height="50" uuid="6b405eb0-f2ee-477a-995c-ee9ddaff8d81"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="632" y="0" width="70" height="50" uuid="17cafb80-c980-4a46-8490-d250e417ce61"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Barcode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="702" y="0" width="70" height="50" uuid="4d83e71c-2458-4045-b6bc-8c6f9d0e1526"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Shelf NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="772" y="0" width="70" height="50" uuid="23fb6b4a-9a4c-477f-9e9d-8cac1f1d11c8"/>
+				<box>
+					<pen lineColor="#757575"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#757575"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Over Stock]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="36">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="72" height="36" uuid="e84500a0-9d2a-46ba-8c7b-4780cd746347"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{item_id}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="72" y="0" width="70" height="36" uuid="d7f14517-99c8-4de5-a993-4a7aa0b9db5e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{category_id}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="142" y="0" width="70" height="36" uuid="4e6327e9-751b-4ca4-8067-3c8441cf14f3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{brand_id}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="212" y="0" width="70" height="36" uuid="330cfcf7-cdcc-48b5-b52e-665afaca2b05"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{shortage_list}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="282" y="0" width="70" height="36" uuid="1b92abbc-5ff3-4af9-9e2b-c5490f69d5b9"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{product_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="352" y="0" width="70" height="36" uuid="402f6ccf-c48a-40d9-8561-8bb35420786e"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{suspension}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="422" y="0" width="70" height="36" uuid="4c95c95b-4c40-4c43-a5c3-43ee3ae62ae0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{measurement_type}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="492" y="0" width="70" height="36" uuid="08c5d119-c2fa-4bda-bbaf-52db81bf981c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{purchase_price}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="562" y="0" width="70" height="36" uuid="e3d049af-22c1-403f-b706-11604bce5be3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{sale_price}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="632" y="0" width="70" height="36" uuid="93df548a-91e8-48ac-bbbc-a7b6fdbe034d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{barcode}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="702" y="0" width="70" height="36" uuid="cc3fa378-42e5-450c-b210-e3fb11413db1"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{shelf_no}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="772" y="0" width="70" height="36" uuid="c6f516f8-76c0-4a4f-b23e-81ceba322f4b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{over_stock}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="stagePane" minWidth="1200.0" prefHeight="702.0" prefWidth="1279.0" style="-fx-background-color: #e4f4df;" styleClass="mainFxmlClass" stylesheets="@homepage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxsupershop.Home.HomePageController">
+   <children>
+      <MenuBar onSwipeDown="#quickMenuAction" prefHeight="26.0" prefWidth="1265.0" styleClass="base" stylesheets="@homepage.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="home_menu" mnemonicParsing="false" onAction="#HomeAction" text="Home">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="H" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_warehouse_45px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#Profile" text="Profile">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_male_user_50px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="admin_bar_id" mnemonicParsing="false" onAction="#Admininfo" text="Create New User Admin">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_registration_50px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="customer_bar_id" mnemonicParsing="false" onAction="#customer_btn" text="Customer Information">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_user_40px_2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="CAPS" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem fx:id="branch_bar_id" mnemonicParsing="false" onAction="#Brance_info" text="Branch Information">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_laurel_wreath_40px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <MenuItem fx:id="company_bar_id" mnemonicParsing="false" onAction="#companyinfo_btn" text="Company Information">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_company_40px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <Menu fx:id="income_ex_bar_id" mnemonicParsing="false" text="Income-Expense">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_user_manual_50px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#income_expense_btn" text="Income/Expense Source">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_combo_chart_40px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="BACK_SLASH" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#ExpenseEntry" text="Transaction Entry">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_card_payment_50px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="MINUS" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#IncomeInvoice" text="Income Invoice">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_view_40px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#ExpenseInovice" text="Expense Invoice">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_card_payment_50px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                     </items>
+                  </Menu>
+                  <Menu fx:id="measurement_bar_id" mnemonicParsing="false" text="Measurement Information">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#Measurment_btn" text="Measurement Unit Data">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_scales_45px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="M" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                      <MenuItem mnemonicParsing="false" onAction="#SubunitAction" text="Measurement Subunit Data">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_speed_40px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="M" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                           </accelerator></MenuItem>
+                    </items>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_industrial_scales_connected_45px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Employee Information">
+                    <items>
+                      <MenuItem fx:id="employee_bar_id" mnemonicParsing="false" onAction="#EmployeeInfo" text="Add Employee">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_add_user_group_woman_man_50px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="Ssetup_bar_id" mnemonicParsing="false" onAction="#SalarySetup" text="Employee Salary Setup">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_user_settings_50px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="salary_bar_id" mnemonicParsing="false" onAction="#EmployeeSalaryinfo" text="Employee Salary">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/icons8_payroll_50px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                    </items>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_worker_50px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Menu>
+                  <MenuItem fx:id="vat_bar_id" mnemonicParsing="false" onAction="#Vat" text="Vat Information">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_tax_50px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="report_bar_id" mnemonicParsing="false" onAction="#WebReport" text="Report View">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="R" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_view_40px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#LogOutFire" text="LogOut">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_sign_out_40px_1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="L" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+              <MenuItem mnemonicParsing="false" onAction="#ClosePlatform" text="Quit">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="X" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_close_window_40px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Product">
+              <items>
+                  <MenuItem fx:id="product_bar_id" mnemonicParsing="false" onAction="#ProductInfo" text="Product Information">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_new_product_45px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                <MenuItem fx:id="item_bar_id" mnemonicParsing="false" onAction="#ItemInfo" text="Item Information">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_similar_items_45px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="I" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem fx:id="brand_bar_id" mnemonicParsing="false" onAction="#BrandInfo" text="Brand Information">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_branding_iron_50px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="B" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem fx:id="category_bar_id" mnemonicParsing="false" onAction="#CategoryInfo" text="Category Information">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_category_45px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="C" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem fx:id="damage_bar_id" mnemonicParsing="false" onAction="#damage_stock" text="Damage Stock Porduct">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_trash_45px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="D" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="suspension_bar_id" mnemonicParsing="false" onAction="#Suspension" text="Suspension" />
+                  <MenuItem fx:id="merchandised_bar_id" mnemonicParsing="false" onAction="#MerchandisedAction" text="Most Merchandised Product">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_new_product_45px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Sales">
+            <items>
+                  <MenuItem fx:id="sales_bar_id" disable="true" mnemonicParsing="false" onAction="#Sales_Info" text="Sales Information">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_sale_35px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="Qsales_bar_id" mnemonicParsing="false" onAction="#QuickSales" text="Quick Sales">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_sale_35px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="Q" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+              <MenuItem fx:id="Sreturn_bar_id" mnemonicParsing="false" onAction="#SalesReturnAction" text="Sales Return">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_return_45px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem fx:id="Spayment_bar_id" mnemonicParsing="false" onAction="#sales_payment" text="Invoice Wise Sales Payment">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_receive_cash_45px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="S" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="Spayment_bar_idCus" mnemonicParsing="false" onAction="#sales_CUSpayment" text="Customer Wise Sales Payment">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_receive_cash_45px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="Spayment_bar_id1" disable="true" mnemonicParsing="false" onAction="#sales_ladger" text="Sales Ladger">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_general_ledger_40px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="L" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="Sinvoice_list" mnemonicParsing="false" onAction="#SalesInvoice" text="Sales Invoice List">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_user_manual_50px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="L" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Purchase">
+              <items>
+                  <MenuItem fx:id="purchase_bar_id" mnemonicParsing="false" onAction="#PurchaseInfo" text="Purchase Information">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_shopping_bag_32px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="Preturn_bar_id" mnemonicParsing="false" onAction="#PurchaseReturnAction" text="Purchase Return">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_return_purchase_45px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="Ppayment_bar_id" mnemonicParsing="false" onAction="#purchase_payment" text="Invoice wise Purchase Payment">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_cash_in_hand_45px_1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="P" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem fx:id="Ppayment_bar_id_sup" mnemonicParsing="false" onAction="#purchase_payment_supplier" text="Supplier wise Purchase Payment">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_cash_in_hand_45px_1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="Preturn_bar_id1" disable="true" mnemonicParsing="false" onAction="#purchaseLadger" text="Purchase Ladger">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_general_ledger_40px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="L" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="Pinvoice_bar_id" mnemonicParsing="false" onAction="#purchase_invoice" text="Purchase Invoice List">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_user_manual_50px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Sattings">
+              <items>
+                  <MenuItem fx:id="backup_bar_id" mnemonicParsing="false" onAction="#BackUp" text="Data Base BackUp">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_data_backup_45px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="B" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem fx:id="restore_bar_id" mnemonicParsing="false" onAction="#Restore" text="Data Base Restore">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_database_restore_45px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="R" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="priority_bar_id" mnemonicParsing="false" onAction="#priorityAction" text="Admin Priority">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="P" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+                     </accelerator>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_admin_settings_male_50px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="webmenu" mnemonicParsing="false" onAction="#webbtn" text="Web Browse">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="W" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_website_50px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#CalculatorAction" text="Calculator">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="C" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                     </accelerator>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_calculator_50px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#EditorAction" text="Editor">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_edit_file_40px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="E" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="project_bar_id" mnemonicParsing="false" onAction="#Project_info" text="Project Information">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic></MenuItem>
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <StackPane prefHeight="150.0" prefWidth="228.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="243.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+         <children>
+            <VBox fx:id="home_stack" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" StackPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="300.0" prefWidth="200.0" spacing="50.0">
+                     <children>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="143.0" prefWidth="438.0">
+                           <children>
+                              <AnchorPane layoutX="12.0" layoutY="41.0" prefHeight="80.0" prefWidth="174.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+                                 <children>
+                                    <AnchorPane layoutX="55.0" layoutY="-20.0" prefHeight="66.0" prefWidth="64.0" style="-fx-background-color: #00B596; -fx-background-radius: 8;">
+                                       <children>
+                                          <Circle fx:id="circle" fill="WHITE" layoutX="32.0" layoutY="33.0" radius="28.0" stroke="#b2aeae" strokeType="INSIDE" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Separator layoutX="9.0" layoutY="49.0" prefHeight="2.0" prefWidth="157.0" style="-fx-background-color: #00B596;" />
+                                    <Label layoutX="51.0" layoutY="58.0" text="View Profile" textFill="#636363">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <effect>
+                                    <DropShadow color="#828282" height="35.0" offsetX="1.0" offsetY="3.0" radius="15.75" width="30.0" />
+                                 </effect>
+                              </AnchorPane>
+                              <AnchorPane layoutX="253.0" layoutY="41.0" prefHeight="80.0" prefWidth="174.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+                                 <children>
+                                    <AnchorPane layoutX="55.0" layoutY="-20.0" prefHeight="66.0" prefWidth="64.0" style="-fx-background-color: #ff8f00; -fx-background-radius: 8;">
+                                       <children>
+                                          <ImageView fitHeight="34.0" fitWidth="35.0" layoutX="15.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Image/icons8_check_in_desk_40px.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </AnchorPane>
+                                    <Separator layoutX="9.0" layoutY="49.0" prefHeight="2.0" prefWidth="157.0" style="-fx-background-color: #ff8f00;" />
+                                    <Label alignment="CENTER" layoutX="8.0" layoutY="56.0" prefHeight="16.0" prefWidth="157.0" text="Customer Information" textFill="#636363">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <effect>
+                                    <DropShadow color="#828282" height="35.0" offsetX="1.0" offsetY="3.0" radius="15.75" width="30.0" />
+                                 </effect>
+                              </AnchorPane>
+                              <JFXButton fx:id="profile_btn" contentDisplay="GRAPHIC_ONLY" layoutX="4.0" layoutY="14.0" onAction="#ProfilebtnAction" prefHeight="115.0" prefWidth="190.0" ripplerFill="#00b596" style="-fx-background-radius: 10;" />
+                              <JFXButton fx:id="customer_btn_id" contentDisplay="GRAPHIC_ONLY" layoutX="245.0" layoutY="14.0" onAction="#customer_btn" prefHeight="115.0" prefWidth="190.0" ripplerFill="#ff8f00" style="-fx-background-radius: 10;" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="143.0" prefWidth="438.0">
+                           <children>
+                              <AnchorPane layoutX="252.0" layoutY="41.0" prefHeight="80.0" prefWidth="174.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+                                 <children>
+                                    <AnchorPane layoutX="55.0" layoutY="-20.0" prefHeight="66.0" prefWidth="64.0" style="-fx-background-color: #ff4b4b; -fx-background-radius: 8;">
+                                       <children>
+                                          <ImageView fitHeight="34.0" fitWidth="35.0" layoutX="15.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Image/icons8_logout_rounded_up_40px.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </AnchorPane>
+                                    <Separator layoutX="9.0" layoutY="49.0" prefHeight="2.0" prefWidth="157.0" style="-fx-background-color: #ff4b4b;" />
+                                    <Label layoutX="62.0" layoutY="57.0" text="Log Out" textFill="#656565">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <effect>
+                                    <DropShadow color="#828282" height="35.0" offsetX="1.0" offsetY="3.0" radius="15.75" width="30.0" />
+                                 </effect>
+                              </AnchorPane>
+                              <JFXButton fx:id="log_out_btn_id" contentDisplay="GRAPHIC_ONLY" layoutX="244.0" layoutY="14.0" onAction="#Logoutbtn" prefHeight="115.0" prefWidth="190.0" ripplerFill="#ff3434" style="-fx-background-radius: 10;" />
+                              <AnchorPane layoutX="12.0" layoutY="41.0" prefHeight="80.0" prefWidth="174.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+                                 <children>
+                                    <AnchorPane layoutX="55.0" layoutY="-20.0" prefHeight="66.0" prefWidth="64.0" style="-fx-background-color: #2d81ff; -fx-background-radius: 8;">
+                                       <children>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="BELL" layoutX="16.0" layoutY="44.0" size="30" wrappingWidth="33.999994933605194" />
+                                          <Circle fx:id="noti_shape" fill="RED" layoutX="40.0" layoutY="20.0" radius="11.0" stroke="#8d8b8b" strokeType="INSIDE" strokeWidth="0.0" />
+                                          <Label fx:id="noti_lavel" alignment="CENTER" ellipsisString="+" layoutX="33.0" layoutY="9.0" prefHeight="22.0" prefWidth="14.0" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <Separator layoutX="9.0" layoutY="49.0" prefHeight="2.0" prefWidth="157.0" style="-fx-background-color: #2d81ff;" />
+                                    <Label alignment="CENTER" layoutX="9.0" layoutY="56.0" prefHeight="16.0" prefWidth="157.0" text="Notifications" textFill="#616161">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <effect>
+                                    <DropShadow color="#828282" height="35.0" offsetX="1.0" offsetY="3.0" radius="15.75" width="30.0" />
+                                 </effect>
+                              </AnchorPane>
+                              <JFXButton fx:id="notification_btn" contentDisplay="GRAPHIC_ONLY" layoutX="4.0" layoutY="14.0" onAction="#notification" prefHeight="115.0" prefWidth="190.0" ripplerFill="#2d81ff" style="-fx-background-radius: 10;" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="700.0" prefWidth="200.0" spacing="50.0">
+                     <children>
+                        <AnchorPane prefHeight="607.0" prefWidth="600.0">
+                           <children>
+                              <TableView fx:id="tableview" fixedCellSize="-2.0" focusTraversable="false" layoutY="66.0" onMouseClicked="#getData" prefHeight="370.0" prefWidth="431.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
+                                 <columns>
+                                    <TableColumn fx:id="proname_col" prefWidth="217.0" text="Product Name" />
+                                    <TableColumn fx:id="quanName_col" maxWidth="4000.0" prefWidth="83.0" text="Quantity" />
+                                    <TableColumn fx:id="purchesPrice_col" maxWidth="4500.0" prefWidth="117.0" text="Unit" />
+                                 </columns>
+                                 <effect>
+                                    <DropShadow blurType="TWO_PASS_BOX" color="#7f7d7d" height="18.03" offsetX="1.0" offsetY="3.0" radius="9.254999999999999" width="20.99" />
+                                 </effect>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Copy" />
+                                       </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <AnchorPane fx:id="current_stock_pane" prefHeight="66.0" prefWidth="429.0" style="-fx-background-color: #00b596;" styleClass="pane" stylesheets="@homepage.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="66.0" layoutY="21.0" text="Current Stock" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold Italic" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXButton buttonType="RAISED" layoutX="320.0" layoutY="17.0" onAction="#Search" prefHeight="34.0" prefWidth="95.0" style="-fx-background-color: #00ab8b; -fx-background-radius: 10;" text="Search" textFill="WHITE" AnchorPane.rightAnchor="16.0">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Image/icons8_search_20px_1.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <tooltip>
+                                          <Tooltip text="Search Current Stock">
+                                             <font>
+                                                <Font size="11.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                    </JFXButton>
+                                    <ImageView fitHeight="34.0" fitWidth="35.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Image/icons8_stocks_40px.png" />
+                                       </image>
+                                       <effect>
+                                          <DropShadow height="9.14" radius="4.07" width="9.14" />
+                                       </effect>
+                                    </ImageView>
+                                    <JFXButton buttonType="RAISED" layoutX="215.0" layoutY="17.0" onAction="#viewallbtn" onMouseEntered="#ref_hover" prefHeight="34.0" prefWidth="95.0" style="-fx-background-color: #00ab8b; -fx-background-radius: 10;" text="Refresh" textFill="WHITE" AnchorPane.rightAnchor="121.0">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fx:id="ref_img" fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Image/icons8_synchronize_26px.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                                 <effect>
+                                    <DropShadow blurType="TWO_PASS_BOX" color="#7f7d7d" height="12.1" radius="5.55" width="12.1" />
+                                 </effect>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="607.0" prefWidth="600.0">
+                           <children>
+                              <TableView fx:id="today_sales_view" focusTraversable="false" layoutY="66.0" prefHeight="370.0" prefWidth="431.0" styleClass="table" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
+                                 <columns>
+                                    <TableColumn fx:id="customer_col" prefWidth="75.0" text="Customer Name" />
+                                    <TableColumn fx:id="item_col" maxWidth="3500.0" prefWidth="75.0" text="Item" />
+                                    <TableColumn fx:id="paid_col" maxWidth="4500.0" prefWidth="75.0" text="Paid" />
+                                    <TableColumn fx:id="due_col" maxWidth="4000.0" prefWidth="75.0" text="Due" />
+                                 </columns>
+                                 <effect>
+                                    <DropShadow blurType="TWO_PASS_BOX" color="#7f7d7d" height="18.0" offsetX="1.0" offsetY="3.0" radius="9.25" />
+                                 </effect>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Copy" />
+                                       </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <AnchorPane prefHeight="66.0" prefWidth="429.0" style="-fx-background-color: #00b596;" styleClass="pane" stylesheets="@homepage.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="75.0" layoutY="21.0" text="Today Sales" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold Italic" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="34.0" fitWidth="35.0" layoutX="20.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Image/icons8_today_40px.png" />
+                                       </image>
+                                       <effect>
+                                          <DropShadow height="9.14" radius="4.07" width="9.14" />
+                                       </effect>
+                                    </ImageView>
+                                 </children>
+                                 <effect>
+                                    <DropShadow blurType="TWO_PASS_BOX" color="#615b5b" height="12.1" radius="5.55" width="12.1" />
+                                 </effect>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="50.0" right="50.0" top="8.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+            <JFXTabPane fx:id="tb11" prefHeight="675.0" prefWidth="1021.0" styleClass="jfx-tab-pane" stylesheets="@homepage.css" visible="false" />
+            <HBox fx:id="sc_menu_vox" alignment="CENTER" maxHeight="-Infinity" prefHeight="56.0" prefWidth="1036.0" spacing="2.0" style="-fx-background-color: E6F8FF;" visible="false" StackPane.alignment="TOP_CENTER">
+               <effect>
+                  <DropShadow color="#a4a1a1" height="45.96" offsetY="8.0" radius="10.99" width="0.0" />
+               </effect>
+               <children>
+                  <JFXButton fx:id="BTN1" onAction="#QuickSales" prefHeight="150.0" prefWidth="150.0" styleClass="menu_btn" stylesheets="@homepage.css" text="Quick Sales" textFill="#726f6f">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="BTN2" layoutX="453.0" layoutY="10.0" onAction="#sales_payment" prefHeight="150.0" prefWidth="150.0" styleClass="menu_btn" stylesheets="@homepage.css" text="Sales Payment" textFill="#726f6f">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="BTN3" layoutX="528.0" layoutY="10.0" onAction="#IncomeEntry" prefHeight="150.0" prefWidth="150.0" styleClass="menu_btn" stylesheets="@homepage.css" text="Income Entry" textFill="#726f6f">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="BTN4" layoutX="603.0" layoutY="10.0" onAction="#SubunitAction" prefHeight="150.0" prefWidth="150.0" styleClass="menu_btn" stylesheets="@homepage.css" text="Measurement Subunit" textFill="#726f6f">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="BTN5" layoutX="228.0" layoutY="10.0" onAction="#BrandInfo" prefHeight="150.0" prefWidth="150.0" styleClass="menu_btn" stylesheets="@homepage.css" text="Brand" textFill="#726f6f">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="BTN6" layoutX="603.0" layoutY="10.0" onAction="#PurchaseReturnAction" prefHeight="150.0" prefWidth="150.0" styleClass="menu_btn" stylesheets="@homepage.css" text="Purchase Return" textFill="#726f6f">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="BTN7" layoutX="678.0" layoutY="10.0" onAction="#SalesReturnAction" prefHeight="150.0" prefWidth="150.0" styleClass="menu_btn" stylesheets="@homepage.css" text="Sales Return" textFill="#726f6f">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <Pane fx:id="backup_pane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="512.0" prefWidth="771.0" style="-fx-background-color: white; -fx-background-radius: 20;" visible="false">
+               <effect>
+                  <DropShadow color="#545151" height="62.27" offsetY="5.0" radius="24.025" width="35.83" />
+               </effect>
+               <children>
+                  <JFXTabPane fx:id="backup_tab_pane" layoutY="67.0" prefHeight="421.0" prefWidth="771.0">
+                     <tabs>
+                        <Tab fx:id="backupID" text="Backup Database">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="272.0">
+                                 <children>
+                                    <Pane layoutX="80.0" layoutY="68.0" prefHeight="200.0" prefWidth="624.0">
+                                       <children>
+                                          <TextField fx:id="path_textfield" layoutX="82.0" layoutY="67.0" prefHeight="31.0" prefWidth="281.0" promptText="Give me to your backup file location" />
+                                          <Label fx:id="pathlabel" layoutX="82.0" layoutY="38.0" text="DataBase Path :" textFill="#7c7676">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXButton fx:id="pathbtn" buttonType="RAISED" layoutX="388.0" layoutY="67.0" onAction="#PathSelectionbtn" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: #2d81ff;" text="Browse Path" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton fx:id="backupbtn" buttonType="RAISED" layoutX="388.0" layoutY="136.0" onAction="#Backupbtn" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: green;" text="Back Up" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <Label fx:id="pathselection_msg_print" layoutX="82.0" layoutY="136.0" prefHeight="25.0" prefWidth="255.0">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <Separator layoutX="82.0" layoutY="166.0" prefHeight="3.0" prefWidth="281.0" />
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="restoreID" text="Restore Database">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Pane layoutX="76.0" layoutY="64.0" prefHeight="200.0" prefWidth="624.0">
+                                       <children>
+                                          <TextField fx:id="path_textfield1" layoutX="82.0" layoutY="67.0" prefHeight="31.0" prefWidth="281.0" promptText="Give me to your backup file location" />
+                                          <Label fx:id="pathlabel1" layoutX="82.0" layoutY="38.0" text="DataBase Path :" textFill="#7c7676">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXButton fx:id="pathbtn1" buttonType="RAISED" layoutX="388.0" layoutY="67.0" onAction="#PathSelectionRbtn" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: #2d81ff;" text="Browse Path" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton fx:id="rstorebtn" buttonType="RAISED" layoutX="388.0" layoutY="136.0" onAction="#Restoreaction" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: green;" text="Restore" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <Label fx:id="pathselection_msg_print1" layoutX="82.0" layoutY="136.0" prefHeight="25.0" prefWidth="255.0">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <Separator layoutX="82.0" layoutY="166.0" prefHeight="3.0" prefWidth="281.0" />
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </JFXTabPane>
+                  <JFXButton layoutX="707.0" layoutY="14.0" onAction="#backupPaneClose" prefHeight="42.0" prefWidth="50.0" style="-fx-background-radius: 32;" text="X">
+                     <font>
+                        <Font name="Eras Bold ITC" size="18.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Close" wrapText="true">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </JFXButton>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+      <VBox layoutY="27.0" prefHeight="675.0" prefWidth="240.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="27.0">
+         <children>
+            <AnchorPane fx:id="manubtnpane" prefHeight="877.0" prefWidth="240.0" style="-fx-background-color: E6F8FF;">
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" color="#6b6a6a" height="0.0" offsetY="3.0" radius="8.25" width="35.0" />
+               </effect>
+               <children>
+                  <JFXButton fx:id="admin_btn_id" alignment="BASELINE_LEFT" graphicTextGap="26.0" layoutY="25.0" onAction="#Admininfo" prefHeight="50.0" prefWidth="240.0" styleClass="button1" stylesheets="@homepage.css" text="New Admin">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_add_user_group_man_man_26px_2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="sales_btn_id" alignment="BASELINE_LEFT" graphicTextGap="26.0" layoutY="75.0" onAction="#QuickSales" prefHeight="50.0" prefWidth="240.0" styleClass="button1" stylesheets="@homepage.css" text="Sales">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_sale_35px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="purchase_btn_id" alignment="BASELINE_LEFT" graphicTextGap="26.0" layoutY="125.0" onAction="#PurchaseInfo" prefHeight="50.0" prefWidth="240.0" styleClass="button1" stylesheets="@homepage.css" text="Purchase">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_shopping_bag_32px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="product_btn_id" alignment="BASELINE_LEFT" graphicTextGap="26.0" layoutY="175.0" onAction="#ProductInfo" prefHeight="50.0" prefWidth="240.0" styleClass="button1" stylesheets="@homepage.css" text="Product Information">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_product_35px_1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="stock_btn_id" alignment="BASELINE_LEFT" graphicTextGap="26.0" layoutY="225.0" onAction="#StockInfo" prefHeight="50.0" prefWidth="240.0" styleClass="button1" stylesheets="@homepage.css" text="Stock">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_positive_dynamic_35px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="company_btn_id" alignment="BASELINE_LEFT" graphicTextGap="26.0" layoutY="275.0" onAction="#companyinfo_btn" prefHeight="50.0" prefWidth="240.0" styleClass="button1" stylesheets="@homepage.css" text="Company Information">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_customer_insight_35px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="employee_btn_id" alignment="BASELINE_LEFT" graphicTextGap="26.0" layoutY="325.0" onAction="#EmployeeInfo" prefHeight="50.0" prefWidth="240.0" styleClass="button1" stylesheets="@homepage.css" text="Employee Information">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_employee_card_35px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="salary_btn_id" alignment="BASELINE_LEFT" graphicTextGap="26.0" layoutY="375.0" onAction="#EmployeeSalaryinfo" prefHeight="50.0" prefWidth="240.0" styleClass="button1" stylesheets="@homepage.css" text="Employee Salary">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_get_cash_filled_35px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="supplier_btn_id" alignment="BASELINE_LEFT" graphicTextGap="26.0" layoutY="425.0" onAction="#SupplierInfo" prefHeight="50.0" prefWidth="240.0" styleClass="button1" stylesheets="@homepage.css" text="Supplier Information">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_truck_35px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="bank_btn_id" alignment="BASELINE_LEFT" graphicTextGap="26.0" layoutY="475.0" onAction="#BankInfo" prefHeight="50.0" prefWidth="240.0" styleClass="button1" stylesheets="@homepage.css" text="Bank Information">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_bank_building_38px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="transaction_btn_id" alignment="BASELINE_LEFT" graphicTextGap="26.0" layoutY="525.0" onAction="#Banktransaction" prefHeight="50.0" prefWidth="240.0" styleClass="button1" stylesheets="@homepage.css" text="Bank Transaction">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_transaction_38px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="daily_btn_id" alignment="BASELINE_LEFT" graphicTextGap="26.0" layoutY="575.0" onAction="#ExpenseEntry" prefHeight="50.0" prefWidth="240.0" styleClass="button1" stylesheets="@homepage.css" text="Daily Transaction">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_estimate_filled_38px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <JFXButton layoutX="328.0" onAction="#close_tab" prefWidth="85.0" style="-fx-background-radius: 15;" styleClass="button2" stylesheets="@homepage.css" text="Close All Tab" AnchorPane.leftAnchor="328.0" AnchorPane.topAnchor="0.0" />
+      <JFXButton fx:id="tabopenID" layoutX="418.0" onAction="#TabOpen" prefHeight="25.0" prefWidth="78.0" style="-fx-background-radius: 15;" styleClass="button2" stylesheets="@homepage.css" text="Expand Tab" AnchorPane.leftAnchor="418.0" AnchorPane.topAnchor="0.0">
+         <tooltip>
+            <Tooltip text="Show Hidden Tab" />
+         </tooltip></JFXButton>
+      <Pane fx:id="popup_node" layoutX="240.0" layoutY="-65.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <Label fx:id="pop_level" layoutX="14.0" layoutY="17.0" textFill="#4952ff" visible="false">
+               <font>
+                  <Font name="SansSerif Bold" size="13.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="searchfield_id" layoutX="13.0" layoutY="10.0" onKeyReleased="#SearchKeyR" prefHeight="31.0" prefWidth="174.0" promptText="Search Here..." visible="false" />
+         </children>
+      </Pane>
+      <Pane fx:id="quit_pane" layoutX="467.0" layoutY="-192.0" prefHeight="186.0" prefWidth="328.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <ImageView fitHeight="59.0" fitWidth="59.0" layoutX="14.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/icons8_help_90px.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="request_label" layoutX="84.0" layoutY="57.0" text="Are you sure you want to Quit?" textFill="#656363">
+               <font>
+                  <Font name="SansSerif Regular" size="15.0" />
+               </font>
+            </Label>
+            <JFXButton cancelButton="true" layoutX="134.0" layoutY="122.0" onAction="#QuitNoAction" prefHeight="36.0" prefWidth="85.0" ripplerFill="#004ad3" style="-fx-background-radius: 20; -fx-border-color: #9d9a9a; -fx-border-radius: 20; -fx-border-width: 2;" text="CANCEL" textFill="#807f7f">
+               <font>
+                  <Font name="SansSerif Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="224.0" layoutY="122.0" onAction="#QuitYesAction" prefHeight="36.0" prefWidth="59.0" style="-fx-background-color: #1D79E4; -fx-background-radius: 20;" text="YES" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="13.5" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="1073.0" onAction="#sc_menu" prefHeight="16.0" prefWidth="78.0" ripplerFill="#016b46" style="-fx-background-radius: 15; -fx-background-color: #8affdb;" styleClass="button2" stylesheets="@homepage.css" AnchorPane.topAnchor="0.0">
+         <graphic>
+            <FontAwesomeIconView fx:id="menu_icon" fill="#00906a" glyphName="ARROW_CIRCLE_DOWN" size="16" />
+         </graphic>
+         <tooltip>
+            <Tooltip text="Shortcut Menu" />
+         </tooltip>
+      </JFXButton>
+   </children>
+</AnchorPane>

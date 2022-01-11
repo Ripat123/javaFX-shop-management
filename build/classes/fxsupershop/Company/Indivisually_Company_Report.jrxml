@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="280" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="a509a9cc-0176-44d0-aa7d-fbdae9f7088e">
+	<property name="ireport.zoom" value="1.210000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     company_info.`id` AS id,
+     company_info.`company_name` AS company_name,
+     company_info.`status` AS status
+FROM
+     `company_info` company_info]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="575" height="100" backcolor="#FFFFFF" uuid="f004249c-2635-4e7f-bd61-30f2f1f0e104"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="5" width="556" height="33" forecolor="#000000" uuid="c27893de-e665-41e6-9426-22cf78d13acf"/>
+				<textElement>
+					<font fontName="Serif" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[                             Digital Shop's Software Demo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="33" width="512" height="20" forecolor="#000000" uuid="3039822d-da31-4bae-8803-1f5f9ff1d985"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Hazi Fazal Master Lane, Yusuf Tower, 1st Floor, Mizan Road, Feni Sadar, Feni.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="58" y="52" width="492" height="20" forecolor="#000000" uuid="6bc8ff36-8576-4ab8-be87-33563440c26c"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Mobile : 01840-241895,  01676-363680   E-mail :  moreinfo.sbit@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="191" y="72" width="217" height="18" forecolor="#000000" uuid="3129e954-220b-44d1-8e23-4e394af42fad"/>
+				<textElement>
+					<font size="14" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[ Indivisually Company Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="133" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="14" width="98" height="20" uuid="4ad87a01-2ed8-492b-a1c8-6bc7c1bcd272"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Company ID       :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="40" width="98" height="20" uuid="2b40e1da-6bd1-45df-8146-df6bdf5efa45"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Company Name :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="66" width="98" height="20" uuid="8a601449-7545-4bb0-99b5-6a78a5e752af"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Status                 :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="129" y="14" width="198" height="20" uuid="184a1398-2e06-45ff-b040-20e83cffbcf7"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="40" width="198" height="20" uuid="5448e0e2-db1d-48ea-9dd0-104d4fefc652"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="66" width="198" height="20" uuid="aea8e53f-9973-483f-9154-2d8ef33c2ddd"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="27" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="575" height="27" backcolor="#FFFFFF" uuid="f35f49ca-842d-4be2-9028-e40c059f2c97"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="243" y="4" width="121" height="18" forecolor="#000000" uuid="ff8116ae-eb45-4039-a4cf-b983f5e534a5"/>
+				<textElement>
+					<font size="14" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[www.sbit.com.bd]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

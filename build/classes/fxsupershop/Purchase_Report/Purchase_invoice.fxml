@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXDialogLayout?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="main_stack" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1035.0" style="-fx-background-color: #e4f4df;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxsupershop.Purchase_Report.Purchase_invoiceController">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="itempane" prefHeight="675.0" prefWidth="1021.0" style="-fx-background-color: #e4f4df;" styleClass="mainFxmlClass" stylesheets="@../Stock/Stock_Info.css">
+         <children>
+            <AnchorPane fx:id="stackcard" layoutX="29.0" layoutY="31.0" prefHeight="613.0" prefWidth="964.0" style="-fx-background-color: white; -fx-background-radius: 10;" styleClass="pane" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="31.0">
+               <children>
+                  <TableView fx:id="tableview" fixedCellSize="-8.0" layoutX="21.0" layoutY="120.0" onMouseClicked="#Clicked" prefHeight="418.0" prefWidth="936.0" stylesheets="@Puchase_invoice.css" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="120.0">
+                     <columns>
+                        <TableColumn fx:id="invoice_col" prefWidth="162.0" text="INVOICE NO" />
+                        <TableColumn fx:id="date_col" prefWidth="145.0" text="DATE" />
+                        <TableColumn fx:id="suplier_col" prefWidth="245.0" text="SUPLIER" />
+                        <TableColumn fx:id="net_col" prefWidth="109.0" text="NET TOTAL" />
+                        <TableColumn fx:id="paid_col" prefWidth="127.0" text="PAID" />
+                        <TableColumn fx:id="due_col" prefWidth="127.0" text="DUE" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <JFXTextField fx:id="search_filed" labelFloat="true" layoutX="665.0" layoutY="56.0" onKeyReleased="#search_keyAction" prefHeight="34.0" prefWidth="285.0" promptText="Search" style="-fx-prompt-text-fill: #939393; -fx-border-color: #BFBFBF; -fx-border-radius: 200; -fx-border-width: 2;" styleClass="textfield" stylesheets="@Puchase_invoice.css" unFocusColor="#6b6666" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="56.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <FontAwesomeIconView fill="#007ff5" glyphName="SEARCH" layoutX="924.0" layoutY="78.0" size="18" AnchorPane.rightAnchor="37.285715103149414" AnchorPane.topAnchor="62.571428298950195" />
+                  <JFXComboBox fx:id="category_view" layoutX="58.0" layoutY="55.0" maxWidth="200.0" minWidth="80.0" onAction="#Filter" prefHeight="37.0" prefWidth="157.0" styleClass="combobox" stylesheets="@Puchase_invoice.css" />
+                  <JFXDatePicker fx:id="date1" layoutX="247.0" layoutY="55.0" prefHeight="37.0" prefWidth="103.0" styleClass="combobox" stylesheets="@Puchase_invoice.css" />
+                  <JFXDatePicker fx:id="date2" layoutX="375.0" layoutY="55.0" prefHeight="37.0" prefWidth="103.0" styleClass="combobox" stylesheets="@Puchase_invoice.css" />
+                  <JFXButton fx:id="refbtn" contentDisplay="GRAPHIC_ONLY" layoutX="547.0" layoutY="55.0" onAction="#Refresh" prefHeight="37.0" prefWidth="46.0" ripplerFill="BLACK" style="-fx-background-color: WHITE; -fx-background-radius: 5; -fx-border-color: #BFBFBF; -fx-border-radius: 5; -fx-border-width: 2;" text="Refresh">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="#0062da" glyphName="REFRESH" size="20" />
+                     </graphic>
+                  </JFXButton>
+                  <FontAwesomeIconView fill="#a4a2a2" glyphName="ANGLE_DOUBLE_RIGHT" layoutX="357.0" layoutY="80.0" size="23" />
+                  <JFXButton fx:id="search_btn" contentDisplay="GRAPHIC_ONLY" layoutX="489.0" layoutY="55.0" onAction="#Search" prefHeight="37.0" prefWidth="46.0" ripplerFill="WHITE" style="-fx-background-color: #4397f1; -fx-background-radius: 8;" text="Refresh" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_search_20px_1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXTextField fx:id="due_field" editable="false" labelFloat="true" layoutX="742.0" layoutY="565.0" prefHeight="32.0" prefWidth="208.0" promptText="Due Amount" style="-fx-prompt-text-fill: #7f7d7d; -fx-background-radius: 6; -fx-background-color: #ADD8E6;" styleClass="textfield" stylesheets="@Puchase_invoice.css" unFocusColor="#807e7e" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="28.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="paid_field" editable="false" labelFloat="true" layoutX="526.0" layoutY="565.0" prefHeight="32.0" prefWidth="208.0" promptText="Paid Amount" style="-fx-prompt-text-fill: #7f7d7d; -fx-background-radius: 6; -fx-background-color: #ADD8E6;" styleClass="textfield" stylesheets="@Puchase_invoice.css" unFocusColor="#807e7e" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="244.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="netTotal_field" editable="false" labelFloat="true" layoutX="310.0" layoutY="565.0" prefHeight="32.0" prefWidth="208.0" promptText="Total Amount" style="-fx-prompt-text-fill: #7f7d7d; -fx-background-color: #ADD8E6; -fx-background-radius: 6;" styleClass="textfield" stylesheets="@Puchase_invoice.css" unFocusColor="#6b6666" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="460.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+               </children>
+               <effect>
+                  <DropShadow blurType="TWO_PASS_BOX" color="#949494" />
+               </effect>
+            </AnchorPane>
+         </children>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
+      </AnchorPane>
+      <JFXDialogLayout fx:id="dialogpane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="84.0" prefWidth="708.0" style="-fx-background-color: #4397f1; -fx-background-radius: 10;" visible="false" StackPane.alignment="CENTER">
+         <children>
+            <JFXDialog fx:id="dialog" prefWidth="510.0" style="-fx-background-radius: 20;" transitionType="LEFT" />
+         </children>
+      </JFXDialogLayout>
+      <Label fx:id="msg" prefHeight="57.0" prefWidth="694.0" text="You will get Report when click on 'INVOICE NO' column if stays checked on the 'Click with Invoice' checkbox" textFill="WHITE" visible="false">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</StackPane>

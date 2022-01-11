@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXDialogLayout?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1035.0" style="-fx-background-color: #e4f4df;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxsupershop.Admin.User_adminController">
+   <children>
+      <Pane fx:id="controlPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="265.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+         <children>
+            <JFXButton fx:id="subid" layoutX="49.0" layoutY="31.0" onAction="#subAction" prefHeight="33.0" prefWidth="167.0" style="-fx-background-color: lightblue; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 5;" text="Change to Subadmin" textFill="#514f4f">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="mainid" layoutX="49.0" layoutY="75.0" onAction="#mainAction" prefHeight="33.0" prefWidth="167.0" style="-fx-background-color: lightblue; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 5;" text="Change to Mainadmin " textFill="#514f4f">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="activeid" layoutX="38.0" layoutY="138.0" onAction="#activeAction" prefHeight="33.0" prefWidth="85.0" style="-fx-background-color: skyblue; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 5;" text="Active">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="deactiveid" layoutX="142.0" layoutY="138.0" onAction="#deactiveAction" prefHeight="33.0" prefWidth="85.0" style="-fx-background-color: skyblue; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 5;" text="Deactive">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <AnchorPane id="AnchorPane" fx:id="itempane" prefHeight="634.0" prefWidth="1003.0" style="-fx-background-color: #e4f4df;" styleClass="mainFxmlClass">
+         <stylesheets>
+            <URL value="@../Admin/user_admin.css" />
+         </stylesheets>
+         <children>
+            <AnchorPane layoutX="23.0" layoutY="57.0" prefHeight="530.0" prefWidth="347.0" style="-fx-background-color: white; -fx-background-radius: 8;" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="665.0">
+               <children>
+                  <JFXTextField fx:id="username" focusColor="#3672ff" labelFloat="true" layoutX="33.0" layoutY="77.0" prefHeight="33.0" prefWidth="281.0" promptText="User Name" style="-fx-background-color: #d9dbe0; -fx-background-radius: 10 10 0 0;" styleClass="textfield1" stylesheets="@../Product/category_info.css" unFocusColor="#939393" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="33.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="fullname" focusColor="#3672ff" labelFloat="true" layoutX="33.0" layoutY="137.0" prefHeight="33.0" prefWidth="281.0" promptText="Full Name" style="-fx-background-color: #d9dbe0;" styleClass="textfield1" stylesheets="@../Product/category_info.css" unFocusColor="#939393" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="33.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="email" focusColor="#3672ff" labelFloat="true" layoutX="33.0" layoutY="321.0" prefHeight="33.0" prefWidth="281.0" promptText="Email" style="-fx-background-color: #d9dbe0;" styleClass="textfield1" stylesheets="@../Product/category_info.css" unFocusColor="#939393" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="33.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="phone" focusColor="#3672ff" labelFloat="true" layoutX="33.0" layoutY="385.0" prefHeight="33.0" prefWidth="281.0" promptText="Phone" style="-fx-background-color: #d9dbe0;" styleClass="textfield1" stylesheets="@../Product/category_info.css" unFocusColor="#939393" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="33.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXPasswordField fx:id="password" labelFloat="true" layoutX="33.0" layoutY="198.0" prefHeight="33.0" prefWidth="281.0" promptText="Password" style="-fx-background-color: #d9dbe0;" styleClass="textfield1" stylesheets="@../Product/category_info.css" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="33.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXPasswordField>
+                  <JFXPasswordField fx:id="conpassword" labelFloat="true" layoutX="33.0" layoutY="261.0" prefHeight="33.0" prefWidth="281.0" promptText="Confirm Password" style="-fx-background-color: #d9dbe0;" styleClass="textfield1" stylesheets="@../Product/category_info.css" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="33.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXPasswordField>
+                  <JFXComboBox fx:id="admintype" labelFloat="true" layoutX="33.0" layoutY="446.0" prefHeight="33.0" prefWidth="281.0" promptText="Admin Type" styleClass="combobox" stylesheets="@../Product/category_info.css" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="33.0" />
+                  <AnchorPane layoutX="33.0" layoutY="-31.0" opacity="0.71" prefHeight="63.0" prefWidth="187.0" style="-fx-background-color: #3672ff; -fx-background-radius: 8;">
+                     <children>
+                        <Label layoutX="43.0" layoutY="23.0" opacity="0.91" text="Admin Details" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+               <effect>
+                  <DropShadow color="#979797" height="12.1" radius="5.55" width="12.1" />
+               </effect>
+            </AnchorPane>
+            <AnchorPane fx:id="Bstage" layoutX="386.0" layoutY="57.0" prefHeight="530.0" prefWidth="347.0" style="-fx-background-color: white; -fx-background-radius: 8;" AnchorPane.rightAnchor="302.0">
+               <children>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" graphicTextGap="15.0" layoutX="181.0" layoutY="402.0" onAction="#Deletebtn" prefHeight="38.0" prefWidth="133.0" style="-fx-background-color: #ff4343;" text="Delete" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_trash_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" graphicTextGap="15.0" layoutX="33.0" layoutY="402.0" onAction="#valueAdd" prefHeight="38.0" prefWidth="133.0" style="-fx-background-color: #00cc44;" text="Add" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_add_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_CENTER" buttonType="RAISED" graphicTextGap="10.0" layoutX="180.0" layoutY="456.0" onAction="#Cleanbtn" prefHeight="38.0" prefWidth="133.0" style="-fx-background-color: #78c200;" text="Clean" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_erase_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" graphicTextGap="15.0" layoutX="33.0" layoutY="456.0" onAction="#onViiew" prefHeight="38.0" prefWidth="133.0" style="-fx-background-color: #00cc44;" text="View" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_view_details_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXTextField fx:id="answer" focusColor="#3672ff" labelFloat="true" layoutX="33.0" layoutY="199.0" prefHeight="33.0" prefWidth="281.0" promptText="Answer" style="-fx-background-color: #d9dbe0;" styleClass="textfield1" stylesheets="@../Product/category_info.css" unFocusColor="#939393">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <Label layoutX="35.0" layoutY="343.0" text="Gender" textFill="#726f6f">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <JFXRadioButton fx:id="male" layoutX="97.0" layoutY="343.0" text="Male">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="gender" />
+                     </toggleGroup>
+                  </JFXRadioButton>
+                  <JFXRadioButton fx:id="female" layoutX="174.0" layoutY="343.0" text="Female" toggleGroup="$gender" />
+                  <JFXComboBox fx:id="userstatus" labelFloat="true" layoutX="34.0" layoutY="75.0" prefHeight="33.0" prefWidth="281.0" promptText="User Status" styleClass="combobox" stylesheets="@../Product/category_info.css" />
+                  <JFXComboBox fx:id="securityqes" labelFloat="true" layoutX="33.0" layoutY="135.0" prefHeight="33.0" prefWidth="281.0" promptText="Security Question" styleClass="combobox" stylesheets="@../Product/category_info.css" />
+                  <JFXTextArea fx:id="address" labelFloat="true" layoutX="33.0" layoutY="260.0" prefHeight="57.0" prefWidth="281.0" promptText="Address" style="-fx-background-color: #d9dbe0;" styleClass="textfield1" stylesheets="@../Product/category_info.css">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXTextArea>
+               </children>
+               <effect>
+                  <DropShadow color="#979797" height="12.1" radius="5.55" width="12.1" />
+               </effect>
+            </AnchorPane>
+            <AnchorPane layoutX="748.0" layoutY="57.0" prefHeight="280.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 8;" AnchorPane.rightAnchor="37.0">
+               <children>
+                  <AnchorPane layoutX="32.0" layoutY="-31.0" opacity="0.71" prefHeight="63.0" prefWidth="187.0" style="-fx-background-color: #3672ff; -fx-background-radius: 8;">
+                     <children>
+                        <Label layoutX="43.0" layoutY="23.0" opacity="0.91" text="Image Upload" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <ImageView fx:id="imageview" fitHeight="167.0" fitWidth="196.0" layoutX="42.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/images%20(5).png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton alignment="BASELINE_CENTER" buttonType="RAISED" graphicTextGap="10.0" layoutX="66.0" layoutY="225.0" onAction="#upload" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: orange; -fx-background-radius: 5;" text="Upload" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_upload_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+               <effect>
+                  <DropShadow color="#979797" height="12.1" radius="5.55" width="12.1" />
+               </effect>
+            </AnchorPane>
+            <Pane layoutX="748.0" layoutY="356.0" prefHeight="231.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 10;" AnchorPane.rightAnchor="37.0">
+               <effect>
+                  <DropShadow color="#979797" height="12.1" radius="5.55" width="12.1" />
+               </effect>
+               <children>
+                  <Label layoutX="37.0" layoutY="69.0" text="Manage Security Question" textFill="#807979" underline="true">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <JFXButton buttonType="RAISED" layoutX="55.0" layoutY="99.0" onAction="#security" prefHeight="33.0" prefWidth="140.0" style="-fx-background-color: orange; -fx-background-radius: 5;" text="Security Question" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <Label layoutX="64.0" layoutY="146.0" text="Show User Report" textFill="#807979" underline="true">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <JFXButton buttonType="RAISED" layoutX="55.0" layoutY="174.0" onAction="#report" prefHeight="33.0" prefWidth="140.0" style="-fx-background-color: orange; -fx-background-radius: 5;" text="User Report" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="controlID" buttonType="RAISED" layoutX="55.0" layoutY="20.0" onAction="#controlPopUp" prefHeight="33.0" prefWidth="140.0" style="-fx-background-color: orange; -fx-background-radius: 5;" text="Admin Control" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/icons8_user_settings_45px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </Pane>
+            <StackPane fx:id="stackpane" layoutX="386.0" layoutY="40.0" onMouseClicked="#closestack" prefHeight="563.0" prefWidth="635.0" visible="false">
+               <children>
+                  <JFXDialogLayout fx:id="dialogLayout" visible="false">
+                     <children>
+                        <JFXDialog fx:id="dialog" prefWidth="635.0" />
+                        <Pane prefHeight="200.0" prefWidth="635.0">
+                           <children>
+                              <AnchorPane layoutX="11.0" prefHeight="61.0" prefWidth="614.0" style="-fx-background-color: #0083ff;" styleClass="pane" stylesheets="@../Product/item_info.css">
+                                 <effect>
+                                    <DropShadow color="#726c6c" height="15.06" radius="7.03" width="15.06" />
+                                 </effect>
+                                 <children>
+                                    <Label layoutX="108.0" layoutY="23.0" opacity="0.91" text="Filter by :" textFill="WHITE">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXRadioButton layoutX="201.0" layoutY="23.0" selected="true" style="-jfx-unselected-color: white; -jfx-selected-color: yellow;" text="ID" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="search" />
+                                       </toggleGroup>
+                                    </JFXRadioButton>
+                                    <JFXRadioButton layoutX="269.0" layoutY="23.0" style="-jfx-unselected-color: white; -jfx-selected-color: yellow;" text="Name" textFill="WHITE" toggleGroup="$search">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </JFXRadioButton>
+                                    <JFXTextField focusColor="YELLOW" labelFloat="true" layoutX="361.0" layoutY="20.0" promptText="Search" styleClass="textfield" stylesheets="@user_admin.css" unFocusColor="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </JFXTextField>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="524.0" prefWidth="635.0">
+                           <children>
+                              <TableView fx:id="tableView" layoutX="11.0" onMouseClicked="#clicked" prefHeight="356.0" prefWidth="614.0" tableMenuButtonVisible="true">
+                                 <columns>
+                                    <TableColumn fx:id="name_col" prefWidth="75.0" text="Name" />
+                                    <TableColumn fx:id="email_col" prefWidth="75.0" text="Email" />
+                                    <TableColumn fx:id="phone_col" prefWidth="75.0" text="Phone" />
+                                    <TableColumn fx:id="status_col" prefWidth="75.0" text="Status" />
+                                    <TableColumn fx:id="adminType_col" prefWidth="82.0" text="Admin Type" />
+                                    <TableColumn fx:id="gender_col" prefWidth="79.0" text="Gender" />
+                                    <TableColumn fx:id="address_col" prefWidth="152.0" text="Address" />
+                                 </columns>
+                              </TableView>
+                              <JFXButton fx:id="closebtn" buttonType="RAISED" layoutX="268.0" layoutY="357.0" prefHeight="29.0" prefWidth="99.0" style="-fx-background-color: red;" text="Close" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </Pane>
+                     </children>
+                  </JFXDialogLayout>
+                  <JFXDialogLayout fx:id="dialogLayout1" visible="false">
+                     <children>
+                        <JFXDialog fx:id="dialog1" />
+                        <Pane prefHeight="189.0" prefWidth="635.0">
+                           <children>
+                              <Pane layoutX="11.0" prefHeight="189.0" prefWidth="614.0" style="-fx-background-radius: 15; -fx-background-color: white;">
+                                 <effect>
+                                    <DropShadow color="#6f6b6b" height="12.1" radius="5.55" width="12.1" />
+                                 </effect>
+                                 <children>
+                                    <Label layoutX="224.0" layoutY="6.0" text="Security Question's Information" textFill="#797474" underline="true">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXTextField fx:id="id" layoutX="177.0" layoutY="39.0" prefHeight="29.0" prefWidth="274.0" promptText="ID">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="question" layoutX="177.0" layoutY="88.0" prefHeight="29.0" prefWidth="274.0" promptText="Make your own question...">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXButton buttonType="RAISED" layoutX="175.0" layoutY="144.0" onAction="#securityaddbtn" prefHeight="33.0" prefWidth="85.0" style="-fx-background-color: #00cc44;" text="Add" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton buttonType="RAISED" layoutX="272.0" layoutY="144.0" onAction="#securitycleanbtn" prefHeight="33.0" prefWidth="85.0" style="-fx-background-color: #00cc44;" text="Clean" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton buttonType="RAISED" layoutX="368.0" layoutY="144.0" onAction="#securitydeletebtn" prefHeight="33.0" prefWidth="85.0" style="-fx-background-color: #ff4343;" text="Delete" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="66.0" prefWidth="635.0">
+                           <children>
+                              <AnchorPane layoutX="11.0" layoutY="4.0" prefHeight="61.0" prefWidth="614.0" style="-fx-background-color: #0083ff;" styleClass="pane" stylesheets="@../Product/item_info.css">
+                                 <effect>
+                                    <DropShadow color="#726c6c" height="15.06" radius="7.03" width="15.06" />
+                                 </effect>
+                                 <children>
+                                    <Label layoutX="108.0" layoutY="23.0" opacity="0.91" text="Filter by :" textFill="WHITE">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXRadioButton layoutX="201.0" layoutY="23.0" selected="true" style="-jfx-unselected-color: white; -jfx-selected-color: yellow;" text="ID" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="search1" />
+                                       </toggleGroup>
+                                    </JFXRadioButton>
+                                    <JFXRadioButton layoutX="269.0" layoutY="23.0" style="-jfx-unselected-color: white; -jfx-selected-color: yellow;" text="Name" textFill="WHITE" toggleGroup="$search1">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </JFXRadioButton>
+                                    <JFXTextField focusColor="YELLOW" labelFloat="true" layoutX="361.0" layoutY="20.0" promptText="Search" styleClass="textfield" stylesheets="@user_admin.css" unFocusColor="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </JFXTextField>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="215.0" prefWidth="635.0">
+                           <children>
+                              <TableView fx:id="tableview2" layoutX="11.0" prefHeight="185.0" prefWidth="614.0" tableMenuButtonVisible="true">
+                                 <columns>
+                                    <TableColumn fx:id="id_col" prefWidth="102.0" text="ID" />
+                                    <TableColumn fx:id="question_col" prefWidth="511.0" text="Question" />
+                                 </columns>
+                              </TableView>
+                              <JFXButton fx:id="closebtn1" buttonType="RAISED" layoutX="269.0" layoutY="187.0" prefHeight="29.0" prefWidth="99.0" style="-fx-background-color: red;" text="Close" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </Pane>
+                     </children>
+                  </JFXDialogLayout>
+               </children>
+            </StackPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

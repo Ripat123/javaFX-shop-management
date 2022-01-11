@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8cd370ee-8a3a-49db-8b89-a066c4c7fd6e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     product_measurement_subunit.`id`,
+     product_measurement_subunit.`sub_unit_name`,
+     product_measurement_subunit.`sub_unit_data`
+FROM
+     `product_measurement_subunit` product_measurement_subunit]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sub_unit_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sub_unit_data" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="91" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="89" backcolor="#FFFFFF" uuid="899887ac-3ea8-495f-a9c7-ae1c5629bf29"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="56" y="49" width="472" height="20" forecolor="#000000" uuid="dd50e94c-6a1f-46be-b913-f865db272ed3"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Mobile : 01840-241895,  01676-363680   E-mail :  moreinfo.sbit@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="69" width="172" height="18" forecolor="#000000" uuid="8bcf96ac-c49c-469c-8338-d87d45d0b3bf"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Measurement Subunit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2" width="555" height="33" forecolor="#000000" uuid="1fb6287c-7f1d-4761-90de-cfe2da9ad935"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Digital Shop's Software Demo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="29" width="492" height="20" forecolor="#000000" uuid="a71e0662-8912-43a3-9377-8f9bcb2a8c53"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Hazi Fazal Master Lane, Yusuf Tower, 1st Floor, Mizan Road, Feni Sadar, Feni.]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="6" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="22" uuid="792b289f-130b-4fe9-9aaf-e9a134a9dd85"/>
+				<box>
+					<pen lineWidth="1.2" lineStyle="Double" lineColor="#2C2B2B"/>
+					<topPen lineWidth="1.2" lineStyle="Double" lineColor="#2C2B2B"/>
+					<leftPen lineWidth="1.2" lineStyle="Double" lineColor="#2C2B2B"/>
+					<bottomPen lineWidth="1.2" lineStyle="Double" lineColor="#2C2B2B"/>
+					<rightPen lineWidth="1.2" lineStyle="Double" lineColor="#2C2B2B"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Subunit ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="248" height="22" uuid="b55ae254-727b-4d8a-8ba3-4377ffdd422a"/>
+				<box>
+					<pen lineWidth="1.2" lineStyle="Double" lineColor="#2C2B2B"/>
+					<topPen lineWidth="1.2" lineStyle="Double" lineColor="#2C2B2B"/>
+					<leftPen lineWidth="1.2" lineStyle="Double" lineColor="#2C2B2B"/>
+					<bottomPen lineWidth="1.2" lineStyle="Double" lineColor="#2C2B2B"/>
+					<rightPen lineWidth="1.2" lineStyle="Double" lineColor="#2C2B2B"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Subunit Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="0" width="207" height="22" uuid="62df7d2c-fa67-4d7c-9dd9-6b014eff3384"/>
+				<box>
+					<pen lineWidth="1.2" lineStyle="Double" lineColor="#2C2B2B"/>
+					<topPen lineWidth="1.2" lineStyle="Double" lineColor="#2C2B2B"/>
+					<leftPen lineWidth="1.2" lineStyle="Double" lineColor="#2C2B2B"/>
+					<bottomPen lineWidth="1.2" lineStyle="Double" lineColor="#2C2B2B"/>
+					<rightPen lineWidth="1.2" lineStyle="Double" lineColor="#2C2B2B"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Subunit Data]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="22" uuid="9104491d-02bf-4512-9d92-cd596b3bb1f2"/>
+				<box>
+					<pen lineWidth="1.0" lineColor="#302F2F"/>
+					<topPen lineWidth="1.0" lineColor="#302F2F"/>
+					<leftPen lineWidth="1.0" lineColor="#302F2F"/>
+					<bottomPen lineWidth="1.0" lineColor="#302F2F"/>
+					<rightPen lineWidth="1.0" lineColor="#302F2F"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="248" height="22" uuid="f8b91375-82a3-4efe-9587-6c55706af004"/>
+				<box>
+					<pen lineWidth="1.0" lineColor="#302F2F"/>
+					<topPen lineWidth="1.0" lineColor="#302F2F"/>
+					<leftPen lineWidth="1.0" lineColor="#302F2F"/>
+					<bottomPen lineWidth="1.0" lineColor="#302F2F"/>
+					<rightPen lineWidth="1.0" lineColor="#302F2F"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sub_unit_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="348" y="0" width="207" height="22" uuid="cb845c6c-97a3-41b6-bd4a-135e55bc8723"/>
+				<box>
+					<pen lineWidth="1.0" lineColor="#302F2F"/>
+					<topPen lineWidth="1.0" lineColor="#302F2F"/>
+					<leftPen lineWidth="1.0" lineColor="#302F2F"/>
+					<bottomPen lineWidth="1.0" lineColor="#302F2F"/>
+					<rightPen lineWidth="1.0" lineColor="#302F2F"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sub_unit_data}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="13" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="12" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="30" splitType="Stretch"/>
+	</summary>
+</jasperReport>

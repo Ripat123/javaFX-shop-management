@@ -1,0 +1,13 @@
+
+.mainFxmlClass {
+
+}
+
+.table-view .table-cell {
+    
+    -fx-alignment: center;
+}
+.table-view {
+    
+    -fx-alignment: center;
+}
