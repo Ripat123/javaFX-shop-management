@@ -9,7 +9,6 @@ import java.io.*;
 import java.net.URL;
 import java.sql.*;
 import java.util.*;
-import javafx.animation.*;
 import javafx.collections.*;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
@@ -22,7 +21,6 @@ import javafx.scene.image.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.*;
-import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -539,7 +537,7 @@ public class User_adminController implements Initializable {
     private void closestack(MouseEvent event) {
         stackpane.setVisible(false);
     }
-
+    @FXML
     private void report(ActionEvent event) {
         report();
     }

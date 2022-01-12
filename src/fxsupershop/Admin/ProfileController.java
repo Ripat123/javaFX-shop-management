@@ -32,8 +32,8 @@ public class ProfileController implements Initializable {
 
     @FXML
     private Label name_lavel;
-    @FXML
-    private ImageView profile_img;
+//    @FXML
+//    private ImageView profile_img;
     @FXML
     private Circle c;
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
