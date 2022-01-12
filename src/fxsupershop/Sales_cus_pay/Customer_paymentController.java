@@ -6,8 +6,7 @@ import fxsupershop.Services.PrepareQueryFunction;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -36,22 +35,22 @@ public class Customer_paymentController implements Initializable {
     private JFXTextField pay_amount;
     @FXML
     private JFXTextField dueID;
-    @FXML
-    private JFXToggleButton toggleID;
-    @FXML
-    private TableView<?> tableview;
-    @FXML
-    private TableColumn<?, ?> TInvoiceNo;
-    @FXML
-    private TableColumn<?, ?> TDate;
-    @FXML
-    private TableColumn<?, ?> T_TotalAmount;
-    @FXML
-    private TableColumn<?, ?> T_paymentDate;
-    @FXML
-    private TableColumn<?, ?> TpaidAmount;
-    @FXML
-    private TableColumn<?, ?> T_dueAmount;
+//    @FXML
+//    private JFXToggleButton toggleID;
+//    @FXML
+//    private TableView<?> tableview;
+//    @FXML
+//    private TableColumn<?, ?> TInvoiceNo;
+//    @FXML
+//    private TableColumn<?, ?> TDate;
+//    @FXML
+//    private TableColumn<?, ?> T_TotalAmount;
+//    @FXML
+//    private TableColumn<?, ?> T_paymentDate;
+//    @FXML
+//    private TableColumn<?, ?> TpaidAmount;
+//    @FXML
+//    private TableColumn<?, ?> T_dueAmount;
     ObservableList CustomerList = FXCollections.observableArrayList();
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
     ResultSet rs,rss;

@@ -12,6 +12,8 @@ import java.time.LocalDate;
 import java.util.*;
 import javafx.animation.*;
 import javafx.collections.*;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -29,14 +31,14 @@ public class Sales_InfoController implements Initializable {
 
     @FXML
     private TableView<SalesView> tableView;
-    @FXML
-    private AnchorPane salesancorpane;
+//    @FXML
+//    private AnchorPane salesancorpane;
     ObservableList<SalesView> data = FXCollections.observableArrayList();
     Connection con;
     PreparedStatement post, post1, post2, post3;
     ResultSet rs, rs1, rs2;
-    @FXML
-    private AnchorPane sale_pane;
+//    @FXML
+//    private AnchorPane sale_pane;
     @FXML
     private TextField text_invoice_id;
     @FXML
@@ -75,14 +77,14 @@ public class Sales_InfoController implements Initializable {
     private TextField text_paid_amount;
     @FXML
     private TextField text_due_amount;
-    @FXML
-    private Label text_total;
+//    @FXML
+//    private Label text_total;
     @FXML
     private TextField text_total_sale_price;
     @FXML
     private TextField text_total_discount;
 
-    private TableColumn<SalesView, String> TPurchase_Price;
+//    private TableColumn<SalesView, String> TPurchase_Price;
     @FXML
     private TableColumn<SalesView, String> TSale_Price;
     @FXML
@@ -135,8 +137,8 @@ public class Sales_InfoController implements Initializable {
     private TableColumn<?, ?> col_id;
     @FXML
     private ScrollPane scroll;
-    @FXML
-    private Button clearcart_id;
+//    @FXML
+//    private Button clearcart_id;
     @FXML
     private Label stock_hint;
     Sales_Presenter presenter = new Sales_Presenter();
@@ -151,15 +153,24 @@ public class Sales_InfoController implements Initializable {
 //        initable();
 //       loaddata();
 //        BrandView();
-        test.play();
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
-    Timeline test = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+    Service service = new Service() {
         @Override
-        public void handle(ActionEvent event) {
-            initSource();
+        protected Task createTask() {
+            return new Task() {
+                @Override
+                protected Void call() {
+                    initSource();
+                    return null;
+                }
+            };
         }
-    }));
+    };
 
     public void initSource() {
         con = connection_Sql.ConnectDb();
@@ -695,33 +706,33 @@ public class Sales_InfoController implements Initializable {
         S_invoice_check.setSelected(false);
         text_invoice_id.requestFocus();
     }
-    
-    public void PosReport(String invoice){
+
+    public void PosReport(String invoice) {
         String path = "/fxsupershop/Sales/";
-                String sql = "SELECT sale_entry.*,vat_entry.total_vat,"
-                        + "customer_info.*,project_info.*,"
-                        + "sale_ledger.*,product_productinfo.product_name "
-                        + "FROM vat_entry,sale_entry,sale_ledger,product_productinfo,customer_info,project_info WHERE sale_ledger.customer_id"
-                        + " = customer_info.id AND "
-                        + "sale_entry.product_id = product_productinfo.id "
-                        + "AND sale_entry.invoice_id = sale_ledger.invoice_id AND "
-                        + "sale_ledger.invoice_id = '"+invoice+"' AND vat_entry.invoice_no = '"+invoice+"'";
-                queryFunction.getImagePath(sql, "image");
-                queryFunction.report.getReport(path, "SalesPOSReport.jrxml", sql);
+        String sql = "SELECT sale_entry.*,vat_entry.total_vat,"
+                + "customer_info.*,project_info.*,"
+                + "sale_ledger.*,product_productinfo.product_name "
+                + "FROM vat_entry,sale_entry,sale_ledger,product_productinfo,customer_info,project_info WHERE sale_ledger.customer_id"
+                + " = customer_info.id AND "
+                + "sale_entry.product_id = product_productinfo.id "
+                + "AND sale_entry.invoice_id = sale_ledger.invoice_id AND "
+                + "sale_ledger.invoice_id = '" + invoice + "' AND vat_entry.invoice_no = '" + invoice + "'";
+        queryFunction.getImagePath(sql, "image");
+        queryFunction.report.getReport(path, "SalesPOSReport.jrxml", sql);
     }
 
     public void report(String invoice) {
         String path = "/fxsupershop/SalesReport/";
-                String sql = "SELECT sale_entry.*,vat_entry.total_vat,"
-                        + "customer_info.*,project_info.*,"
-                        + "sale_ledger.*,product_productinfo.product_name "
-                        + "FROM vat_entry,sale_entry,sale_ledger,product_productinfo,customer_info,project_info WHERE sale_ledger.customer_id"
-                        + " = customer_info.id AND "
-                        + "sale_entry.product_id = product_productinfo.id "
-                        + "AND sale_entry.invoice_id = sale_ledger.invoice_id AND "
-                        + "sale_ledger.invoice_id = '"+invoice+"' AND vat_entry.invoice_no = '"+invoice+"'";
-                queryFunction.getImagePath(sql, "image");
-                queryFunction.report.getReport(path, "SalesReport.jrxml", sql);
+        String sql = "SELECT sale_entry.*,vat_entry.total_vat,"
+                + "customer_info.*,project_info.*,"
+                + "sale_ledger.*,product_productinfo.product_name "
+                + "FROM vat_entry,sale_entry,sale_ledger,product_productinfo,customer_info,project_info WHERE sale_ledger.customer_id"
+                + " = customer_info.id AND "
+                + "sale_entry.product_id = product_productinfo.id "
+                + "AND sale_entry.invoice_id = sale_ledger.invoice_id AND "
+                + "sale_ledger.invoice_id = '" + invoice + "' AND vat_entry.invoice_no = '" + invoice + "'";
+        queryFunction.getImagePath(sql, "image");
+        queryFunction.report.getReport(path, "SalesReport.jrxml", sql);
     }
 
     private void productAction(String query) {
@@ -834,8 +845,8 @@ public class Sales_InfoController implements Initializable {
             SalesEntry();
             substraction_product();
             peymentStatement();
-            presenter.vatEntry(text_invoice_date.getValue().toString(), text_invoice_id.getText()
-                    , "0", text_vat.getText(), String.valueOf(Uid));
+            presenter.vatEntry(text_invoice_date.getValue().toString(), text_invoice_id.getText(),
+                     "0", text_vat.getText(), String.valueOf(Uid));
             if (S_invoice_check.isSelected()) {
                 report(text_invoice_id.getText());
             }

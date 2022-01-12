@@ -19,10 +19,10 @@ import javafx.util.Duration;
  */
 public class SalesInvoiceController implements Initializable {
 
-    @FXML
-    private AnchorPane itempane;
-    @FXML
-    private AnchorPane stackcard;
+//    @FXML
+//    private AnchorPane itempane;
+//    @FXML
+//    private AnchorPane stackcard;
     @FXML
     private TableView<?> tableview;
     @FXML
@@ -43,10 +43,10 @@ public class SalesInvoiceController implements Initializable {
     private JFXDatePicker date1;
     @FXML
     private JFXDatePicker date2;
-    @FXML
-    private JFXButton refbtn;
-    @FXML
-    private JFXButton search_btn;
+//    @FXML
+//    private JFXButton refbtn;
+//    @FXML
+//    private JFXButton search_btn;
     @FXML
     private TableColumn<?, ?> company_col;
     Sales_invoice_Presenter sip = new Sales_invoice_Presenter();
@@ -57,8 +57,8 @@ public class SalesInvoiceController implements Initializable {
     @FXML
     private JFXTextField netTotal_field;
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
-    @FXML
-    private JFXButton refbtn1;
+//    @FXML
+//    private JFXButton refbtn1;
     @FXML
     private JFXTextField profit;
     @FXML

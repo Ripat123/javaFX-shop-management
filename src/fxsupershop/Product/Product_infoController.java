@@ -10,6 +10,8 @@ import java.sql.*;
 import java.util.*;
 import javafx.animation.*;
 import javafx.collections.*;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.Node;
@@ -30,8 +32,8 @@ import javafx.util.Duration;
  */
 public class Product_infoController implements Initializable {
 
-    @FXML
-    private AnchorPane itempane;
+//    @FXML
+//    private AnchorPane itempane;
     @FXML
     private JFXTextField proName;
     @FXML
@@ -44,20 +46,20 @@ public class Product_infoController implements Initializable {
     private JFXTextField barcode;
     @FXML
     private JFXRadioButton id_filter;
-    @FXML
-    private ToggleGroup search;
+//    @FXML
+//    private ToggleGroup search;
     @FXML
     private JFXRadioButton name_filter;
     @FXML
     private JFXTextField search_filed;
     @FXML
     private TableView<ProductView> tableview;
-    private TableColumn<ProductView, String> itemname;
+//    private TableColumn<ProductView, String> itemname;
     @FXML
     private JFXDialogLayout dialogpane;
     @FXML
     private JFXDialog dialog;
-    private StackPane stackpane;
+//    private StackPane stackpane;
     @FXML
     private JFXButton closedialog;
     @FXML
@@ -91,12 +93,12 @@ public class Product_infoController implements Initializable {
     GeneralService generalService = new GeneralService();
     @FXML
     private JFXButton new_item_btn;
-    @FXML
-    private JFXButton new_category_btn;
-    @FXML
-    private JFXButton new_brand_btn;
-    @FXML
-    private JFXButton new_measurement_btn;
+//    @FXML
+//    private JFXButton new_category_btn;
+//    @FXML
+//    private JFXButton new_brand_btn;
+//    @FXML
+//    private JFXButton new_measurement_btn;
     @FXML
     private Pane imagePane;
     @FXML
@@ -110,7 +112,7 @@ public class Product_infoController implements Initializable {
     private ImageView image;
     @FXML
     private TableColumn<?, ?> image_col;
-    private Image imagex = null;
+//    private Image imagex = null;
     ProductPresenter pp = new ProductPresenter();
     LoginMultiFormController lmfc = new LoginMultiFormController();
     private int userid;
@@ -126,7 +128,7 @@ public class Product_infoController implements Initializable {
     @FXML
     private Rectangle img_shape;
     private ImagePattern pattern;
-    private Image image1;
+//    private Image image1;
     @FXML
     private JFXButton search_btn;
     @FXML
@@ -134,7 +136,7 @@ public class Product_infoController implements Initializable {
     @FXML
     private JFXComboBox search_combo;
     ProductPresenter p = new ProductPresenter();
-    private String itemID, brandID, categoryID, meseasurementID, image_name,suspensionID;
+    private String itemID, brandID, categoryID, meseasurementID, image_name, suspensionID;
     @FXML
     private JFXButton Exbtn;
     @FXML
@@ -171,15 +173,24 @@ public class Product_infoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        test.play();
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
-    Timeline test = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+    Service service = new Service() {
         @Override
-        public void handle(ActionEvent event) {
-            initSource();
+        protected Task createTask() {
+            return new Task() {
+                @Override
+                protected Void call() {
+                    initSource();
+                    return null;
+                }
+            };
         }
-    }));
+    };
 
     public void initSource() {
         con = prepareQueryFunction.getConnect();
@@ -333,7 +344,7 @@ public class Product_infoController implements Initializable {
             if (over.getText().equals("") || over.getText() == null) {
                 over.setText("100");
             }
-            
+
             if (barcode.getText() == null && barcode.getText().equals("")) {
                 barcode.setText(autoID);
             }
@@ -375,7 +386,8 @@ public class Product_infoController implements Initializable {
             msg.InformationMessage("Successful", "Information", "Insert Successful");
             clean();
         } catch (Exception e) {
-            msg.WarningMessage("Unsuccessful", "Warning", "Insert Unsuccessful\n" + e);e.printStackTrace();
+            msg.WarningMessage("Unsuccessful", "Warning", "Insert Unsuccessful\n" + e);
+            e.printStackTrace();
 
         } finally {
             try {

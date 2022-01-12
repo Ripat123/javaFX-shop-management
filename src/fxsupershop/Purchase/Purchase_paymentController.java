@@ -34,8 +34,8 @@ public class Purchase_paymentController implements Initializable {
     private JFXTextField pay_amount;
     @FXML
     private JFXTextField dueID;
-    @FXML
-    private JFXToggleButton toggleID;
+//    @FXML
+//    private JFXToggleButton toggleID;
     @FXML
     private TableView tableview;
     @FXML

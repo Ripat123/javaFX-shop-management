@@ -21,11 +21,11 @@ import javafx.scene.layout.*;
  */
 public class Brance_InfoController implements Initializable {
 
-    @FXML
-    private AnchorPane itempane;
-
-    @FXML
-    private ToggleGroup search;
+//    @FXML
+//    private AnchorPane itempane;
+//
+//    @FXML
+//    private ToggleGroup search;
     @FXML
     private TableView<BranchView> tableview;
     Connection con = null;
@@ -64,8 +64,8 @@ public class Brance_InfoController implements Initializable {
     private JFXTextField text_email;
     @FXML
     private JFXTextField text_official_no;
-    @FXML
-    private JFXComboBox<?> selectReport;
+//    @FXML
+//    private JFXComboBox<?> selectReport;
     @FXML
     private TableColumn<BranchView, Integer> Tid;
     @FXML

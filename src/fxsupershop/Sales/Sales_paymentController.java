@@ -37,8 +37,8 @@ public class Sales_paymentController implements Initializable {
     private JFXTextField pay_amount;
     @FXML
     private JFXTextField dueID;
-    @FXML
-    private JFXToggleButton toggleID;
+//    @FXML
+//    private JFXToggleButton toggleID;
     @FXML
     private TableView<SalePaymentView> tableview;
     @FXML

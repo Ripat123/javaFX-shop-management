@@ -40,10 +40,10 @@ public class PurchaseReturnController implements Initializable {
     private JFXTextField discountID;
     @FXML
     private JFXTextField net_totalID;
-    @FXML
-    private JFXButton submitbtn;
-    @FXML
-    private JFXButton cartbtn;
+//    @FXML
+//    private JFXButton submitbtn;
+//    @FXML
+//    private JFXButton cartbtn;
     @FXML
     private ScrollPane scrollID;
     @FXML
@@ -66,8 +66,8 @@ public class PurchaseReturnController implements Initializable {
     private TableColumn<?, ?> col_proName;
     @FXML
     private TableColumn<?, ?> col_quantity;
-    @FXML
-    private TableColumn<?, ?> col_total;
+//    @FXML
+//    private TableColumn<?, ?> col_total;
     @FXML
     private TableColumn<?, ?> col_type;
     @FXML

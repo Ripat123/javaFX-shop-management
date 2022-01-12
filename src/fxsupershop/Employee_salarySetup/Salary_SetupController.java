@@ -29,8 +29,8 @@ public class Salary_SetupController implements Initializable {
     private JFXComboBox<?> employee_name;
     @FXML
     private JFXComboBox status;
-    @FXML
-    private ToggleGroup search;
+//    @FXML
+//    private ToggleGroup search;
     @FXML
     private JFXRadioButton name_filter;
     @FXML

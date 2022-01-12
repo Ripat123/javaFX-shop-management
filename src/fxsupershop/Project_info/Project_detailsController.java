@@ -22,8 +22,8 @@ import javafx.scene.shape.Rectangle;
  */
 public class Project_detailsController implements Initializable {
 
-    @FXML
-    private AnchorPane itempane;
+//    @FXML
+//    private AnchorPane itempane;
     @FXML
     private JFXTextArea add;
     @FXML

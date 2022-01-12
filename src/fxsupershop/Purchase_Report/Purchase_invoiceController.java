@@ -19,12 +19,12 @@ import javafx.util.Duration;
  */
 public class Purchase_invoiceController implements Initializable {
 
-    @FXML
-    private AnchorPane itempane;
-    @FXML
-    private AnchorPane stackcard;
-    @FXML
-    private JFXButton refbtn;
+//    @FXML
+//    private AnchorPane itempane;
+//    @FXML
+//    private AnchorPane stackcard;
+//    @FXML
+//    private JFXButton refbtn;
     @FXML
     private TableView<?> tableview;
     @FXML
@@ -48,8 +48,8 @@ public class Purchase_invoiceController implements Initializable {
     private JFXDatePicker date1;
     @FXML
     private JFXDatePicker date2;
-    @FXML
-    private JFXButton search_btn;
+//    @FXML
+//    private JFXButton search_btn;
     @FXML
     private JFXTextField due_field;
     @FXML

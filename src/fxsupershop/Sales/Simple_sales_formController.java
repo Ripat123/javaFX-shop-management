@@ -25,12 +25,12 @@ import javafx.scene.layout.AnchorPane;
  */
 public class Simple_sales_formController implements Initializable {
 
-    @FXML
-    private JFXScrollPane scroll;
+//    @FXML
+//    private JFXScrollPane scroll;
     @FXML
     private ScrollPane scrollpane;
-    @FXML
-    private AnchorPane p1;
+//    @FXML
+//    private AnchorPane p1;
     @FXML
     private TableView<SalesView> tableView;
     @FXML
@@ -59,8 +59,8 @@ public class Simple_sales_formController implements Initializable {
     private JFXTextField net_rate;
     @FXML
     private JFXTextField totalPrice;
-    @FXML
-    private JFXButton addbtn;
+//    @FXML
+//    private JFXButton addbtn;
     @FXML
     private JFXCheckBox new_customer_check;
     @FXML
@@ -73,12 +73,12 @@ public class Simple_sales_formController implements Initializable {
     private JFXTextField paidAmount;
     @FXML
     private JFXTextField Due;
-    @FXML
-    private JFXButton submitbtn;
-    @FXML
-    private JFXButton clearbtn;
-    @FXML
-    private JFXButton cartbtn;
+//    @FXML
+//    private JFXButton submitbtn;
+//    @FXML
+//    private JFXButton clearbtn;
+//    @FXML
+//    private JFXButton cartbtn;
     @FXML
     private JFXCheckBox check_invoice;
     SimpleSalesModel salesModel;
@@ -87,7 +87,7 @@ public class Simple_sales_formController implements Initializable {
     @FXML
     private Label stock_hint;
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
-    String invoice,stock_id;
+    String invoice, stock_id;
     ResultSet rs, rs1;
     Sales_Presenter presenter = new Sales_Presenter();
     @FXML
@@ -117,15 +117,15 @@ public class Simple_sales_formController implements Initializable {
     ObservableList list = FXCollections.observableArrayList();
     ObservableList Unitlist = FXCollections.observableArrayList();
     ObservableList customerlist = FXCollections.observableArrayList();
-    @FXML
-    private Label stock_date1;
+//    @FXML
+//    private Label stock_date1;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -144,7 +144,11 @@ public class Simple_sales_formController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     private void customerview() {
@@ -224,14 +228,14 @@ public class Simple_sales_formController implements Initializable {
             int auto_id = ssp.totalitem();
             double due_quantity;
             String sql1 = "SELECT quantity FROM stock_product WHERE id = '" + stock_id + "'";
-            
+
             rs1 = queryFunction.getResult(sql1);
             if (rs1.next()) {
                 double quan = Double.parseDouble(rs1.getString("quantity")), sale_quan = 0;
                 double text_quan = Double.parseDouble(quantity.getText());
 
                 String sql2 = "SELECT product_id,sub_unit_id,product_quantity FROM sale_currentsale "
-                        + "WHERE product_id='" + proID + "' AND expired_date = '"+stock_date.getText()+"'";
+                        + "WHERE product_id='" + proID + "' AND expired_date = '" + stock_date.getText() + "'";
                 rs = queryFunction.getResult(sql2);
                 while (rs.next()) {
                     sale_quan = sale_quan + Double.parseDouble(rs.getString("product_quantity"));
@@ -241,7 +245,7 @@ public class Simple_sales_formController implements Initializable {
                 if (text_quan <= quan) {
                     if (currentSale_id == 0) {
                         String sql3 = "SELECT * FROM sale_currentsale WHERE product_id= "
-                                + "'" + proID + "' AND expired_date = '"+stock_date.getText()+"'";
+                                + "'" + proID + "' AND expired_date = '" + stock_date.getText() + "'";
                         rs = queryFunction.getResult(sql3);
                         if (rs.next()) {
                             double saleP = Double.parseDouble(rs.getString("product_totalsaleprice"));
@@ -263,8 +267,8 @@ public class Simple_sales_formController implements Initializable {
                             String sql = "INSERT INTO `sale_currentsale`(`id`,`sub_unit_id`,`product_id`,`product_purchaseprice`,`product_saleprice`,"
                                     + "`product_quantity`,`product_discount`,`product_totalsaleprice`,expired_date,`session_id`)VALUES('" + auto_id + "','" + unitID + "','" + proID + "',"
                                     + "'" + purchase_label.getText() + "','" + SalePrice.getText() + "','" + quantity.getText() + "',"
-                                    + "'" + Discount_T.getText() + "','" + totalPrice.getText() + "','"+stock_date.getText()+"','" + invoice + "')";
-                            
+                                    + "'" + Discount_T.getText() + "','" + totalPrice.getText() + "','" + stock_date.getText() + "','" + invoice + "')";
+
                             queryFunction.Insert(sql);
                             view();
                             totalPrice();
@@ -320,7 +324,7 @@ public class Simple_sales_formController implements Initializable {
                                 String sql = "INSERT INTO `sale_currentsale`(`id`,`sub_unit_id`,`product_id`,`product_purchaseprice`,`product_saleprice`,"
                                         + "`product_quantity`,`product_discount`,`product_totalsaleprice`,expired_date,`session_id`)VALUES('" + auto_id + "','" + unitID + "','" + proID + "',"
                                         + "'" + purchase_label.getText() + "','" + SalePrice.getText() + "','" + quantity.getText() + "',"
-                                        + "'" + Discount_T.getText() + "','" + totalPrice.getText() + "','"+stock_date.getText()+"','" + invoice + "')";
+                                        + "'" + Discount_T.getText() + "','" + totalPrice.getText() + "','" + stock_date.getText() + "','" + invoice + "')";
                                 queryFunction.Insert(sql);
                                 view();
                                 totalPrice();
@@ -353,7 +357,7 @@ public class Simple_sales_formController implements Initializable {
                 String sql1 = "INSERT INTO sale_entry (invoice_id,expired_date,product_id,sub_unit_id,"
                         + "product_quantity,product_purchaseprice,product_saleprice,product_discount,"
                         + "product_totalsaleprice) VALUES "
-                        + "('" + rs.getString("session_id") + "','"+rs.getString("expired_date")+"','" + rs.getString("product_id") + "',"
+                        + "('" + rs.getString("session_id") + "','" + rs.getString("expired_date") + "','" + rs.getString("product_id") + "',"
                         + "'" + rs.getString("sub_unit_id") + "','" + rs.getString("product_quantity") + "',"
                         + "'" + rs.getString("product_purchaseprice") + "','" + rs.getString("product_saleprice") + "'"
                         + ",'" + rs.getString("product_discount") + "','" + rs.getString("product_totalsaleprice") + "')";
@@ -378,7 +382,7 @@ public class Simple_sales_formController implements Initializable {
 //        double total_discount = ssp.totaldiscount();
         double total_discount = Double.parseDouble(net_dis.getText());
         customerID = ssp.customerAction(Selectcus.getValue().toString(), SelectPhone, new_customer_check);
-        if(customerID == null){
+        if (customerID == null) {
             customerID = cusID;
         }
         String sql = "INSERT INTO `sale_ledger`(`invoice_id`,`invoice_date`,`customer_id`,`total_item`,"
@@ -407,7 +411,7 @@ public class Simple_sales_formController implements Initializable {
             while (rs.next()) {
                 String sql1 = "SELECT stock_product.quantity FROM stock_product WHERE "
                         + "stock_product.product_id = '" + rs.getString("product_id") + "' "
-                        + "AND stock_product.expired_date = '"+rs.getString("expired_date")+"'";
+                        + "AND stock_product.expired_date = '" + rs.getString("expired_date") + "'";
                 rs1 = queryFunction.getResult(sql1);
                 if (rs1.next()) {
                     double quan = Double.parseDouble(rs1.getString("quantity"));
@@ -415,11 +419,11 @@ public class Simple_sales_formController implements Initializable {
                     if (text_quan < quan) {
                         String sql3 = "UPDATE stock_product SET quantity = quantity - '" + rs.getString(""
                                 + "product_quantity") + "' WHERE product_id = '" + rs.getString("product_id") + "' "
-                                + "AND expired_date = '"+rs.getString("expired_date")+"'";
+                                + "AND expired_date = '" + rs.getString("expired_date") + "'";
                         queryFunction.UpdateMessageLess(sql3);
                     } else if (text_quan == quan) {
                         String sql4 = "UPDATE stock_product SET quantity = '0' WHERE product_id = "
-                                + "'" + rs.getString("product_id") + "' AND expired_date = '"+rs.getString("expired_date")+"'";
+                                + "'" + rs.getString("product_id") + "' AND expired_date = '" + rs.getString("expired_date") + "'";
                         queryFunction.UpdateMessageLess(sql4);
                     } else {
                         queryFunction.service.msg.WarningMessage("Unsuccessful", "Problem in Stock", "You haven't enough Product");
@@ -442,7 +446,7 @@ public class Simple_sales_formController implements Initializable {
     private void CusotmerTransaction(String cusID) {
         try {
             double balance = 0, netbalance = 0;
-            if(customerID == null){
+            if (customerID == null) {
                 customerID = cusID;
             }
             String sql = "SELECT * FROM customer_transaction WHERE customer_id = '" + customerID + "' ORDER BY id DESC";
@@ -668,7 +672,7 @@ public class Simple_sales_formController implements Initializable {
 
     @FXML
     private void getTableValue(MouseEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -711,13 +715,17 @@ public class Simple_sales_formController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
 
     }
 
     @FXML
     private void clicked_supplier(MouseEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -730,7 +738,11 @@ public class Simple_sales_formController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     @FXML
@@ -744,7 +756,7 @@ public class Simple_sales_formController implements Initializable {
 
     @FXML
     private void showpress_supplier(KeyEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -757,7 +769,11 @@ public class Simple_sales_formController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     @FXML
@@ -897,9 +913,9 @@ public class Simple_sales_formController implements Initializable {
         try {
             double price = Double.parseDouble(SalePrice.getText());
             double percent;
-            if(Discount_p.getText() == null || Discount_p.getText().equals("")){
+            if (Discount_p.getText() == null || Discount_p.getText().equals("")) {
                 percent = 0;
-            }else{
+            } else {
                 percent = Double.parseDouble(Discount_p.getText());
             }
             double sum = price / 100;
@@ -918,9 +934,9 @@ public class Simple_sales_formController implements Initializable {
         try {
             double price = Double.parseDouble(SalePrice.getText());
             double taka;
-            if(Discount_T.getText() == null || Discount_T.getText().equals("")){
+            if (Discount_T.getText() == null || Discount_T.getText().equals("")) {
                 taka = 0;
-            }else{
+            } else {
                 taka = Double.parseDouble(Discount_T.getText());
             }
             double sum = price / 100;
@@ -956,9 +972,9 @@ public class Simple_sales_formController implements Initializable {
     private void paidAmountSum(KeyEvent event) {
         try {
             double paidamount;
-            if(paidAmount.getText() == null || paidAmount.getText().equals("")){
+            if (paidAmount.getText() == null || paidAmount.getText().equals("")) {
                 paidamount = 0;
-            }else{
+            } else {
                 paidamount = Double.parseDouble(paidAmount.getText());
             }
             double total = 0;
@@ -980,9 +996,9 @@ public class Simple_sales_formController implements Initializable {
                     protected Void call() {
                         Platform.runLater(() -> {
                             try {
-                                if(net_dis.getText() == null || paidAmount.getText() == null
+                                if (net_dis.getText() == null || paidAmount.getText() == null
                                         || Due.getText() == null || netTotal.getText() == null
-                                        || totalAmount.getText() == null || vat.getText() == null){
+                                        || totalAmount.getText() == null || vat.getText() == null) {
                                     queryFunction.service.msg.WarningMessage("Unsuccessful", "Warning", "Empty value");
                                     return;
                                 }
@@ -991,7 +1007,7 @@ public class Simple_sales_formController implements Initializable {
                                             + ")VALUES('" + Selectcus.getValue() + "','" + SelectPhone.getText() + "')";
                                     queryFunction.InsertCustomise(sql, "Have a Problem in customer insert");
                                     customerID = queryFunction.getDataInSVeriable("SELECT MAX(id) AS 'id' FROM customer_info", "id");
-                                    
+
                                 } else if (walking_customer.isSelected()) {
                                     customerID = ssp.customer_gen("General Customer", SelectPhone, new_customer_check);
                                     if (customerID == null) {
@@ -1088,12 +1104,12 @@ public class Simple_sales_formController implements Initializable {
 
             double totalamount = Double.parseDouble(netTotal.getText());
             double dis_amount;
-            if(net_dis.getText() == null || net_dis.getText().equals("")){
+            if (net_dis.getText() == null || net_dis.getText().equals("")) {
                 dis_amount = 0;
-            }else{
+            } else {
                 dis_amount = Double.parseDouble(net_dis.getText());
             }
-            
+
             net_amount = totalamount - dis_amount;
             paidAmount.setText("0");
             Due.setText(String.valueOf(net_amount));

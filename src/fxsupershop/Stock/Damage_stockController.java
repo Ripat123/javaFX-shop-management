@@ -2,14 +2,12 @@
 package fxsupershop.Stock;
 
 import com.jfoenix.controls.*;
-import fxsupershop.Services.Message;
-import fxsupershop.Services.PrepareQueryFunction;
+import fxsupershop.Services.*;
 import fxsupershop.TableView.CurrentStockView;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -24,14 +22,14 @@ import javafx.scene.layout.AnchorPane;
  */
 public class Damage_stockController implements Initializable {
 
-    @FXML
-    private AnchorPane itempane;
-    @FXML
-    private AnchorPane stackcard;
+//    @FXML
+//    private AnchorPane itempane;
+//    @FXML
+//    private AnchorPane stackcard;
     @FXML
     private JFXRadioButton id_filter;
-    @FXML
-    private ToggleGroup search;
+//    @FXML
+//    private ToggleGroup search;
     @FXML
     private JFXRadioButton name_filter;
     @FXML
@@ -46,8 +44,8 @@ public class Damage_stockController implements Initializable {
     private TableColumn<?, ?> unit_col;
     @FXML
     private TableColumn<?, ?> cus_col;
-    @FXML
-    private JFXButton refbtn;
+//    @FXML
+//    private JFXButton refbtn;
     ResultSet rs;
     ObservableList data = FXCollections.observableArrayList();
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();

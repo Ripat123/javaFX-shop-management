@@ -1,29 +1,16 @@
 package fxsupershop.Measurment;
 
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXRadioButton;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import fxsupershop.TableView.MesurementView;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Optional;
-import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import java.sql.*;
+import java.util.*;
+import javafx.collections.*;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TablePosition;
-import javafx.scene.control.TableView;
-import javafx.scene.control.ToggleGroup;
+import javafx.fxml.*;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -33,17 +20,17 @@ import javafx.scene.layout.AnchorPane;
  */
 public class Mesurement_InfoController implements Initializable {
 
-    @FXML
-    private AnchorPane itempane;
-
-    @FXML
-    private ToggleGroup search;
+//    @FXML
+//    private AnchorPane itempane;
+//
+//    @FXML
+//    private ToggleGroup search;
     @FXML
     private TableView tableview;
     Connection con = null;
     PreparedStatement post = null;
     ResultSet rs;
-    private JFXComboBox ItemName_cat;
+//    private JFXComboBox ItemName_cat;
     ObservableList data = FXCollections.observableArrayList();
     @FXML
     private TableColumn Tid;

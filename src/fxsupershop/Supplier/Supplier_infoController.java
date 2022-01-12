@@ -67,8 +67,8 @@ public class Supplier_infoController implements Initializable {
     private ScrollPane scrollpane1;
     @FXML
     private JFXTextField open_bal;
-    @FXML
-    private ToggleGroup search1;
+//    @FXML
+//    private ToggleGroup search1;
     int presentID;
     ObservableList rep_supplierList = FXCollections.observableArrayList();
     String supID;

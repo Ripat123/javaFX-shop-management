@@ -22,8 +22,8 @@ import javafx.scene.layout.AnchorPane;
  */
 public class Income_expenseController implements Initializable {
 
-    @FXML
-    private AnchorPane itempane;
+//    @FXML
+//    private AnchorPane itempane;
     @FXML
     private JFXTextField text_source_id;
     @FXML
@@ -32,8 +32,8 @@ public class Income_expenseController implements Initializable {
     private JFXComboBox combo_source_type;
     @FXML
     private JFXRadioButton id_filter;
-    @FXML
-    private ToggleGroup search;
+//    @FXML
+//    private ToggleGroup search;
     @FXML
     private JFXRadioButton name_filter;
     @FXML

@@ -20,10 +20,10 @@ import javafx.stage.Stage;
  */
 public class Connection_setupController implements Initializable {
 
-    @FXML
-    private ImageView image_back;
-    @FXML
-    private ImageView logo;
+//    @FXML
+//    private ImageView image_back;
+//    @FXML
+//    private ImageView logo;
     @FXML
     private JFXTextField database_name;
     @FXML

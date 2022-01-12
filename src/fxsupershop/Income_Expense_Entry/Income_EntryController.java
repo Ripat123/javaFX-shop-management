@@ -6,8 +6,7 @@ import fxsupershop.Services.PrepareQueryFunction;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -28,16 +27,16 @@ public class Income_EntryController implements Initializable {
     private JFXComboBox<?> type;
     @FXML
     private JFXTextArea desc;
-    @FXML
-    private JFXRadioButton id_filter;
-    @FXML
-    private ToggleGroup search;
-    @FXML
-    private JFXRadioButton name_filter;
+//    @FXML
+//    private JFXRadioButton id_filter;
+//    @FXML
+//    private ToggleGroup search;
+//    @FXML
+//    private JFXRadioButton name_filter;
     @FXML
     private JFXTextField search_filed;
-    @FXML
-    private JFXButton reportbtn;
+//    @FXML
+//    private JFXButton reportbtn;
     @FXML
     private TableView<?> tableview;
     @FXML
@@ -62,8 +61,8 @@ public class Income_EntryController implements Initializable {
     ObservableList sourceType = FXCollections.observableArrayList();
     @FXML
     private JFXRadioButton income_id;
-    @FXML
-    private ToggleGroup view;
+//    @FXML
+//    private ToggleGroup view;
     @FXML
     private JFXRadioButton expense_id;
 

@@ -16,8 +16,8 @@ import javafx.scene.layout.Pane;
  */
 public class View_by_dateController implements Initializable {
 
-    @FXML
-    private Pane date_search_pane;
+//    @FXML
+//    private Pane date_search_pane;
     @FXML
     private JFXDatePicker date1;
     @FXML

@@ -1,9 +1,6 @@
 package fxsupershop.Company;
 
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXRadioButton;
-import com.jfoenix.controls.JFXTextField;
-import fxsupershop.Connection.connection_Sql;
+import com.jfoenix.controls.*;
 import fxsupershop.Services.PrepareQueryFunction;
 import fxsupershop.TableView.CompanyView;
 
@@ -30,8 +27,8 @@ public class CompanyController implements Initializable {
     ResultSet rs;
     ObservableList data = FXCollections.observableArrayList();
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
-    @FXML
-    private AnchorPane itempane;
+//    @FXML
+//    private AnchorPane itempane;
     @FXML
     private JFXTextField text_company_id;
     @FXML
@@ -40,8 +37,8 @@ public class CompanyController implements Initializable {
     private JFXComboBox text_status;
     @FXML
     private JFXRadioButton id_filter;
-    @FXML
-    private ToggleGroup search;
+//    @FXML
+//    private ToggleGroup search;
     @FXML
     private JFXRadioButton name_filter;
     @FXML

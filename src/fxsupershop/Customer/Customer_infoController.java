@@ -26,8 +26,8 @@ public class Customer_infoController implements Initializable {
     ResultSet rs;
     ObservableList data = FXCollections.observableArrayList();
 
-    @FXML
-    private AnchorPane Customer_Pane;
+//    @FXML
+//    private AnchorPane Customer_Pane;
     @FXML
     private JFXTextField text_customerID;
     @FXML
@@ -40,8 +40,8 @@ public class Customer_infoController implements Initializable {
     private JFXTextArea text_customeraddress;
     @FXML
     private JFXRadioButton id_filter;
-    @FXML
-    private ToggleGroup search;
+//    @FXML
+//    private ToggleGroup search;
     @FXML
     private JFXRadioButton name_filter;
     @FXML

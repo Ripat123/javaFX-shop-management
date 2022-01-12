@@ -1,19 +1,12 @@
 
 package fxsupershop.Report;
 
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXPopup;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.print.PageLayout;
-import javafx.print.PageOrientation;
-import javafx.print.Paper;
-import javafx.print.Printer;
-import javafx.print.PrinterJob;
+import javafx.fxml.*;
+import javafx.print.*;
 
 /**
  * FXML Controller class

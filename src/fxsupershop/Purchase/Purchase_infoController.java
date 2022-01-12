@@ -12,8 +12,7 @@ import java.sql.*;
 import java.util.*;
 import javafx.application.Platform;
 import javafx.collections.*;
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
+import javafx.concurrent.*;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -70,20 +69,20 @@ public class Purchase_infoController implements Initializable {
     private JFXButton closebtn;
     Connection con;
     PreparedStatement post, post1;
-    ResultSet rs, rs1, rss,set;
+    ResultSet rs, rs1, rss, set;
     String Product_hiddenID;
     ObservableList<PurchaseView> data = FXCollections.observableArrayList();
-    @FXML
-    private JFXButton addbtn;
-
-    @FXML
-    private JFXButton viewbtn;
-    @FXML
-    private JFXButton submitbtn;
-    @FXML
-    private JFXButton clearbtn;
-    @FXML
-    private JFXButton cartbtn;
+//    @FXML
+//    private JFXButton addbtn;
+//
+//    @FXML
+//    private JFXButton viewbtn;
+//    @FXML
+//    private JFXButton submitbtn;
+//    @FXML
+//    private JFXButton clearbtn;
+//    @FXML
+//    private JFXButton cartbtn;
     @FXML
     public TableView<PurchaseView> tableView;
     @FXML
@@ -105,8 +104,8 @@ public class Purchase_infoController implements Initializable {
     private JFXButton btn;
     @FXML
     private Pane multiple_pane;
-    @FXML
-    private JFXButton addMulti_btn;
+//    @FXML
+//    private JFXButton addMulti_btn;
     @FXML
     private TableView<PurchaseView> dropdown_tableview;
     @FXML
@@ -153,14 +152,14 @@ public class Purchase_infoController implements Initializable {
     @FXML
     private JFXTextField netTotal;
     private int ID;
-    @FXML
-    private JFXScrollPane scroll;
+//    @FXML
+//    private JFXScrollPane scroll;
     @FXML
     private ScrollPane scrollpane;
     @FXML
     private JFXComboBox unit;
-    @FXML
-    private AnchorPane p1;
+//    @FXML
+//    private AnchorPane p1;
     private int auto_id;
     @FXML
     private JFXCheckBox check_invoice;
@@ -174,10 +173,10 @@ public class Purchase_infoController implements Initializable {
     private TableColumn<?, ?> price_col1;
     @FXML
     private TableColumn<?, ?> totalPrice_col1;
-    @FXML
-    private TableColumn<?, ?> sale_col1;
-    @FXML
-    private TableColumn<?, ?> action_col1;
+//    @FXML
+//    private TableColumn<?, ?> sale_col1;
+//    @FXML
+//    private TableColumn<?, ?> action_col1;
     double amount, Sdata;
     double total, sum_price, sum_salePrice;
     @FXML
@@ -193,7 +192,7 @@ public class Purchase_infoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -204,7 +203,10 @@ public class Purchase_infoController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((event) -> {
+        });
     }
 
     public void initSource() {
@@ -278,7 +280,6 @@ public class Purchase_infoController implements Initializable {
 //                + "measurement_unit_id='" + measurID + "'";
 //        unitlist = queryFunction.ViewArrayJFXComboBox(sql, "sub_unit_name", "id", unit, unitlist);
 //    }
-
     private void totalPrice() {
         String sql = "SELECT SUM(`product_totalpurchaseprice`) AS 'total' FROM `purchase_currentpurchase`";
         String total_purchase;
@@ -440,31 +441,32 @@ public class Purchase_infoController implements Initializable {
 
     private void product_update(String id, String Pprice, String Sprice) {
         try {
-            String sql = "UPDATE `product_productinfo` SET purchase_price = '"+Pprice+"', sale_price = '"+Sprice+"' WHERE id = '"+id+"'";
+            String sql = "UPDATE `product_productinfo` SET purchase_price = '" + Pprice + "', sale_price = '" + Sprice + "' WHERE id = '" + id + "'";
             queryFunction.UpdateMessageLess(sql);
-        } catch (Exception e) {e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    private void purchaseEnty(ResultSet rs,String stid) {
+    private void purchaseEnty(ResultSet rs, String stid) {
         try {
 
 //            String sql = "SELECT * FROM purchase_currentpurchase WHERE "
 //                    + "purchase_currentpurchase.`session_id`='" + invoiceNo.getText() + "'";
 //            rs = queryFunction.getResult(sql);
 //            while (rs.next()) {
-                String sqll = "INSERT INTO `purchase_entry`(`invoice_no`,"
-                        + "`product_id`,sub_unit_id,`product_quantity`,`product_purchaseprice`,"
-                        + "`product_totalpurchaseprice`,`product_unitsaleprice`,"
-                        + "`expired_date`,exp_date,`product_discount_money`,`Session_ID`,stock_id,`admin`) VALUES "
-                        + "('" + invoiceNo.getText() + "','" + rs.getString("product_id") + "'"
-                        + ",'" + rs.getString("sub_unit_id") + "','" + rs.getString("product_quantity") + "',"
-                        + "'" + rs.getString("product_purchaseprice") + "',"
-                        + "'" + rs.getString("product_totalpurchaseprice") + "',"
-                        + "'" + rs.getString("product_unitsaleprice") + "',"
-                        + "'" + rs.getString("expired_date") + "','" + rs.getString("exp_date") + "','" + rs.getString("product_discount_money") + ""
-                        + "','" + invoiceNo.getText() + "','" + stid + "','" + ID + "')";
-                queryFunction.InsertCustomise(sqll, "Have a Problem in Entry.");
+            String sqll = "INSERT INTO `purchase_entry`(`invoice_no`,"
+                    + "`product_id`,sub_unit_id,`product_quantity`,`product_purchaseprice`,"
+                    + "`product_totalpurchaseprice`,`product_unitsaleprice`,"
+                    + "`expired_date`,exp_date,`product_discount_money`,`Session_ID`,stock_id,`admin`) VALUES "
+                    + "('" + invoiceNo.getText() + "','" + rs.getString("product_id") + "'"
+                    + ",'" + rs.getString("sub_unit_id") + "','" + rs.getString("product_quantity") + "',"
+                    + "'" + rs.getString("product_purchaseprice") + "',"
+                    + "'" + rs.getString("product_totalpurchaseprice") + "',"
+                    + "'" + rs.getString("product_unitsaleprice") + "',"
+                    + "'" + rs.getString("expired_date") + "','" + rs.getString("exp_date") + "','" + rs.getString("product_discount_money") + ""
+                    + "','" + invoiceNo.getText() + "','" + stid + "','" + ID + "')";
+            queryFunction.InsertCustomise(sqll, "Have a Problem in Entry.");
 
 //            }
         } catch (SQLException | HeadlessException e) {
@@ -541,7 +543,7 @@ public class Purchase_infoController implements Initializable {
     }
 
     private void stockInsert(ResultSet rs) {
-        
+
         try {
             String query = "INSERT INTO `stock_product`(`stock_product`.`product_id`,`stock_product`.`quantity`,"
                     + "`stock_product`.`purchase_price`,`stock_product`.`sale_price`,`stock_product`."
@@ -550,10 +552,10 @@ public class Purchase_infoController implements Initializable {
                     + "product_purchaseprice") + "','" + rs.getString("purchase_currentpurchase.product_unitsaleprice") + "',"
                     + "'" + rs.getString("purchase_currentpurchase.product_purchaseprice") + "','" + rs.getString("expired_date") + "')";
             queryFunction.InsertCustomise(query, "Have a Problem in stock else.");
-            String sql ="SELECT MAX(id) AS 'id' FROM `stock_product`";
+            String sql = "SELECT MAX(id) AS 'id' FROM `stock_product`";
             set = queryFunction.getResult(sql);
-            if(set.next()){
-                purchaseEnty(rs,set.getString("id"));
+            if (set.next()) {
+                purchaseEnty(rs, set.getString("id"));
             }
         } catch (Exception e) {
         }
@@ -1123,7 +1125,7 @@ public class Purchase_infoController implements Initializable {
 //                totalPrice.setText(String.valueOf(purchase));
 //                double sale = Sdata * sum_salePrice;
 //                SalePrice.setText(String.valueOf(sale));
-                
+
                 double purchase = 1 * sum_price;
                 price.setText(String.valueOf(purchase));
                 totalPrice.setText(String.valueOf(purchase));
@@ -1165,7 +1167,7 @@ public class Purchase_infoController implements Initializable {
 
     @FXML
     private void SelectSuppAction(ActionEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -1196,13 +1198,16 @@ public class Purchase_infoController implements Initializable {
                     }
                 };
             }
-        }.start();
-
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     @FXML
     private void selectProAction(ActionEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -1222,7 +1227,11 @@ public class Purchase_infoController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
 
     }
 
@@ -1247,9 +1256,9 @@ public class Purchase_infoController implements Initializable {
     private void disSum(KeyEvent event) {
         try {
             double disc;
-            if(Discount.getText() == null || Discount.getText().equals("")){
+            if (Discount.getText() == null || Discount.getText().equals("")) {
                 disc = 0;
-            }else{
+            } else {
                 disc = Double.parseDouble(Discount.getText());
             }
             double unitprice = Double.parseDouble(price.getText());
@@ -1270,7 +1279,7 @@ public class Purchase_infoController implements Initializable {
 
     @FXML
     private void Viewbtn(ActionEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -1284,7 +1293,11 @@ public class Purchase_infoController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     @FXML
@@ -1294,9 +1307,9 @@ public class Purchase_infoController implements Initializable {
             double totalamount = Double.parseDouble(totalAmount.getText());
 
             double discountmoney;
-            if(discount.getText() == null || discount.getText().equals("")){
+            if (discount.getText() == null || discount.getText().equals("")) {
                 discountmoney = 0;
-            }else{
+            } else {
                 discountmoney = Double.parseDouble(discount.getText());
             }
             total = 0;
@@ -1314,9 +1327,9 @@ public class Purchase_infoController implements Initializable {
         try {
 
             double paidamount;
-            if(paidAmount.getText() == null || paidAmount.getText().equals("")){
+            if (paidAmount.getText() == null || paidAmount.getText().equals("")) {
                 paidamount = 0;
-            }else{
+            } else {
                 paidamount = Double.parseDouble(paidAmount.getText());
             }
             double nettotal = Double.parseDouble(netTotal.getText());
@@ -1331,7 +1344,7 @@ public class Purchase_infoController implements Initializable {
 
     @FXML
     private void Submitbtn(ActionEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -1357,8 +1370,9 @@ public class Purchase_infoController implements Initializable {
                                     msg.ConditionalMessage("Empty Value");
                                     return;
                                 }
-                                if(discount.getText().equals(""))
+                                if (discount.getText().equals("")) {
                                     discount.setText("0");
+                                }
                                 totalitem();
 //                                purchaseEnty();
                                 stockProduct();
@@ -1380,7 +1394,11 @@ public class Purchase_infoController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     @FXML
@@ -1392,7 +1410,7 @@ public class Purchase_infoController implements Initializable {
 
     @FXML
     private void clearShopCardbtn(ActionEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -1408,7 +1426,11 @@ public class Purchase_infoController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
 
     }
 
@@ -1419,7 +1441,7 @@ public class Purchase_infoController implements Initializable {
 
     @FXML
     private void showpress_supplier(KeyEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -1433,13 +1455,17 @@ public class Purchase_infoController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
 
     }
 
     @FXML
     private void showpress_pro(KeyEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -1452,7 +1478,11 @@ public class Purchase_infoController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     @FXML
@@ -1463,7 +1493,7 @@ public class Purchase_infoController implements Initializable {
 
     @FXML
     private void clicked_product(MouseEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -1477,7 +1507,11 @@ public class Purchase_infoController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     @FXML
@@ -1487,7 +1521,7 @@ public class Purchase_infoController implements Initializable {
 
     @FXML
     private void OpenMultipanebtn(ActionEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -1503,7 +1537,11 @@ public class Purchase_infoController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     @FXML
@@ -1563,7 +1601,7 @@ public class Purchase_infoController implements Initializable {
 
     @FXML
     private void dropviewbtn(ActionEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -1577,7 +1615,11 @@ public class Purchase_infoController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     @FXML
@@ -1614,7 +1656,7 @@ public class Purchase_infoController implements Initializable {
 
     @FXML
     private void barcodeAction(KeyEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -1631,7 +1673,11 @@ public class Purchase_infoController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     @FXML
@@ -1661,7 +1707,7 @@ public class Purchase_infoController implements Initializable {
 
     @FXML
     private void barcodeClick(MouseEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -1675,7 +1721,10 @@ public class Purchase_infoController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
-
 }

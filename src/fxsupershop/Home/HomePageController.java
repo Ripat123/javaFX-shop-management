@@ -14,9 +14,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.collections.*;
-import javafx.concurrent.ScheduledService;
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
+import javafx.concurrent.*;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.Node;
@@ -25,10 +23,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.*;
-import javafx.util.Duration;
 
 /**
  * FXML Controller class

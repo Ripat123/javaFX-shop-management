@@ -2,21 +2,15 @@ package fxsupershop.Login;
 
 import animatefx.animation.BounceIn;
 import com.jfoenix.controls.*;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import fxsupershop.Connection.connection_Sql;
 import fxsupershop.Services.*;
-import java.awt.SystemTray;
-import java.awt.TrayIcon;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.collections.*;
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
+import javafx.concurrent.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.*;
@@ -27,7 +21,6 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import javax.imageio.ImageIO;
 
 /**
  * FXML Controller class

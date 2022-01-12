@@ -22,17 +22,17 @@ import javafx.scene.layout.Pane;
  */
 public class Bank_TransactionController implements Initializable {
 
-    @FXML
-    private ToggleGroup search;
-    private TableView tableview;
+//    @FXML
+//    private ToggleGroup search;
+//    private TableView tableview;
     ResultSet rs;
     ObservableList data = FXCollections.observableArrayList();
-    @FXML
-    private JFXRadioButton id_filter;
-    @FXML
-    private JFXRadioButton name_filter;
-    @FXML
-    private JFXTextField search_filed;
+//    @FXML
+//    private JFXRadioButton id_filter;
+//    @FXML
+//    private JFXRadioButton name_filter;
+//    @FXML
+//    private JFXTextField search_filed;
     @FXML
     private JFXTextField text_ac_no;
     @FXML
@@ -64,8 +64,8 @@ public class Bank_TransactionController implements Initializable {
     @FXML
     private TableColumn<?, ?> date;
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
-    @FXML
-    private JFXDatePicker date_field1;
+//    @FXML
+//    private JFXDatePicker date_field1;
     @FXML
     private Pane veiwPnae;
     @FXML
@@ -164,9 +164,9 @@ public class Bank_TransactionController implements Initializable {
         queryFunction.Insert(sql);
     }
 
-    private void SaveandReport() {
-
-    }
+//    private void SaveandReport() {
+//
+//    }
 
     private void BalanceSubmit() {
         try {
@@ -227,9 +227,9 @@ public class Bank_TransactionController implements Initializable {
             initView(sql);
     }
 
-    private void search() {
-
-    }
+//    private void search() {
+//
+//    }
     
     private void DateSearch(){
         String sql = "SELECT * FROM bank_management WHERE date BETWEEN '"

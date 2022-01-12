@@ -17,10 +17,10 @@ import org.controlsfx.control.NotificationPane;
  */
 public class ExpenseController implements Initializable {
 
-    @FXML
-    private AnchorPane itempane;
-    @FXML
-    private AnchorPane stackcard;
+//    @FXML
+//    private AnchorPane itempane;
+//    @FXML
+//    private AnchorPane stackcard;
     @FXML
     private TableView<?> tableview;
     @FXML
@@ -41,18 +41,18 @@ public class ExpenseController implements Initializable {
     private JFXDatePicker date1;
     @FXML
     private JFXDatePicker date2;
-    @FXML
-    private JFXButton refbtn;
-    @FXML
-    private JFXButton search_btn;
+//    @FXML
+//    private JFXButton refbtn;
+//    @FXML
+//    private JFXButton search_btn;
     @FXML
     private JFXTextField netTotal_field;
     Expense_presenter ep = new Expense_presenter();
-    @FXML
-    private JFXButton printbtn;
+//    @FXML
+//    private JFXButton printbtn;
     String sql;
-    @FXML
-    private NotificationPane noti;
+//    @FXML
+//    private NotificationPane noti;
 
     /**
      * Initializes the controller class.
@@ -182,5 +182,4 @@ public class ExpenseController implements Initializable {
             ep.Report(ep.repQuery(sql));
         }
     }
-
 }

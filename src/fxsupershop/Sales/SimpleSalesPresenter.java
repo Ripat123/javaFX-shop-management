@@ -4,8 +4,7 @@ package fxsupershop.Sales;
 import com.jfoenix.controls.*;
 import fxsupershop.Services.PrepareQueryFunction;
 import java.sql.ResultSet;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.*;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
 

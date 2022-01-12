@@ -2,20 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/PC/Documents/SuperShop%20Project/fxSuperShop/src/fxsupershop/Home/Presenter.java</file>
-            <file>file:/C:/Users/PC/Documents/SuperShop%20Project/fxSuperShop/src/fxsupershop/Sales/Simple_sales_formController.java</file>
-            <file>file:/C:/Users/PC/Documents/SuperShop%20Project/fxSuperShop/src/fxsupershop/Sales/Sales_paymentController.java</file>
-            <file>file:/C:/Users/PC/Documents/SuperShop%20Project/fxSuperShop/src/fxsupershop/Product/Product_infoController.java</file>
-            <file>file:/C:/Users/PC/Documents/SuperShop%20Project/fxSuperShop/src/fxsupershop/Stock/Stock_InfoController.java</file>
-            <file>file:/C:/Users/PC/Documents/SuperShop%20Project/fxSuperShop/src/fxsupershop/Employee_Salary/Employee_SalaryController.java</file>
-            <file>file:/C:/Users/PC/Documents/SuperShop%20Project/fxSuperShop/src/fxsupershop/Sales_cus_pay/Customer_paymentController.java</file>
-            <file>file:/C:/Users/PC/Documents/SuperShop%20Project/fxSuperShop/src/fxsupershop/Purchase_Report/Purchase_invoiceController.java</file>
-            <file>file:/C:/Users/PC/Documents/SuperShop%20Project/fxSuperShop/src/fxsupershop/Project_info/Project_detailsController.java</file>
-            <file>file:/C:/Users/PC/Documents/SuperShop%20Project/fxSuperShop/src/fxsupershop/Product/ProductPresenter.java</file>
-            <file>file:/C:/Users/PC/Documents/SuperShop%20Project/fxSuperShop/src/fxsupershop/Home/HomePageController.java</file>
-            <file>file:/C:/Users/PC/Documents/SuperShop%20Project/fxSuperShop/src/fxsupershop/Sales/SimpleSalesPresenter.java</file>
-            <file>file:/C:/Users/PC/Documents/SuperShop%20Project/fxSuperShop/src/fxsupershop/FxSuperShop.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

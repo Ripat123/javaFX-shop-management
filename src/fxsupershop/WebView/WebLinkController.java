@@ -4,20 +4,12 @@ package fxsupershop.WebView;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.print.PageLayout;
-import javafx.print.PageOrientation;
-import javafx.print.Paper;
-import javafx.print.Printer;
-import javafx.print.PrinterJob;
+import javafx.fxml.*;
+import javafx.print.*;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.transform.Scale;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
-import javafx.stage.Stage;
-import win.zqxu.jrviewer.JRViewerFX;
+import javafx.scene.web.*;
 
 /**
  * FXML Controller class
@@ -28,8 +20,8 @@ public class WebLinkController implements Initializable {
 
     @FXML
     private WebView webid;
-    @FXML
-    private Button webload;
+//    @FXML
+//    private Button webload;
 
     /**
      * Initializes the controller class.
@@ -37,7 +29,7 @@ public class WebLinkController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         final WebEngine webEngine = webid.getEngine();
-         webEngine.load("http://www.google.com");
+         webEngine.load("https://www.google.com");
          webEngine.setJavaScriptEnabled(true);
          
     }    

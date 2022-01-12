@@ -22,18 +22,18 @@ import javafx.scene.layout.AnchorPane;
  */
 public class SuspensionController implements Initializable {
 
-    @FXML
-    private AnchorPane itempane;
+//    @FXML
+//    private AnchorPane itempane;
     @FXML
     private JFXTextField susID;
     @FXML
     private JFXTextField susName;
-    @FXML
-    private AnchorPane table_top_pane;
+//    @FXML
+//    private AnchorPane table_top_pane;
     @FXML
     private JFXRadioButton id_filter;
-    @FXML
-    private ToggleGroup search;
+//    @FXML
+//    private ToggleGroup search;
     @FXML
     private JFXRadioButton name_filter;
     @FXML

@@ -44,10 +44,10 @@ public class SalesReturnController implements Initializable {
     private JFXTextField discountID;
     @FXML
     private JFXTextField net_totalID;
-    @FXML
-    private JFXButton submitbtn;
-    @FXML
-    private JFXButton cartbtn;
+//    @FXML
+//    private JFXButton submitbtn;
+//    @FXML
+//    private JFXButton cartbtn;
     @FXML
     private TableView<SalesReturnView> tableview;
     @FXML

@@ -4,8 +4,7 @@ import com.jfoenix.controls.*;
 import fxsupershop.Login.LoginMultiFormController;
 import fxsupershop.Services.*;
 import fxsupershop.TableView.ItemView;
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.*;
 import java.net.URL;
 import java.sql.*;
 import java.util.*;
@@ -15,8 +14,7 @@ import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.*;
@@ -28,10 +26,10 @@ import org.apache.poi.xssf.usermodel.*;
  */
 public class Item_infoController implements Initializable {
 
-    @FXML
-    private ToggleGroup search;
-    @FXML
-    private AnchorPane itempane;
+//    @FXML
+//    private ToggleGroup search;
+//    @FXML
+//    private AnchorPane itempane;
     ResultSet rs;
     @FXML
     private TableView<ItemView> tableview;
@@ -54,8 +52,8 @@ public class Item_infoController implements Initializable {
     PrepareQueryFunction prepareQueryFunction = new PrepareQueryFunction();
     Report report = new Report();
     GeneralService gs = new GeneralService();
-    @FXML
-    private AnchorPane table_top_pane;
+//    @FXML
+//    private AnchorPane table_top_pane;
     int user;
     LoginMultiFormController lmfc = new LoginMultiFormController();
     int presentID;

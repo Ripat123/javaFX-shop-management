@@ -3,8 +3,7 @@ package fxsupershop.Employee_info;
 import com.jfoenix.controls.*;
 import fxsupershop.Connection.connection_Sql;
 import fxsupershop.Product.ProductPresenter;
-import fxsupershop.Services.GeneralService;
-import fxsupershop.Services.PrepareQueryFunction;
+import fxsupershop.Services.*;
 import fxsupershop.TableView.EmployeeView;
 import java.io.File;
 import java.io.FileInputStream;
@@ -21,13 +20,8 @@ import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.design.JRDesignQuery;
-import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.*;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import win.zqxu.jrviewer.JRViewerFX;
 
@@ -43,8 +37,8 @@ public class Employee_InfoController implements Initializable {
     ResultSet rs;
 
     ObservableList data = FXCollections.observableArrayList();
-    @FXML
-    private AnchorPane employeepane;
+//    @FXML
+//    private AnchorPane employeepane;
     @FXML
     private JFXTextField text_employeeID;
     @FXML
@@ -69,8 +63,8 @@ public class Employee_InfoController implements Initializable {
     private JFXDialogLayout dialoglayout;
     @FXML
     private JFXRadioButton id_filter;
-    @FXML
-    private ToggleGroup search;
+//    @FXML
+//    private ToggleGroup search;
     @FXML
     private JFXRadioButton name_filter;
     @FXML
@@ -91,8 +85,8 @@ public class Employee_InfoController implements Initializable {
     private TableColumn<?, ?> TEmail;
     @FXML
     private TableColumn<?, ?> TStatus;
-    @FXML
-    private JFXComboBox<?> combo_SReport;
+//    @FXML
+//    private JFXComboBox<?> combo_SReport;
     @FXML
     private Pane repID;
     @FXML

@@ -20,22 +20,22 @@ import javafx.scene.layout.AnchorPane;
  */
 public class Expense_EntryController implements Initializable {
 
-    @FXML
-    private AnchorPane itempane;
+//    @FXML
+//    private AnchorPane itempane;
     @FXML
     private JFXDatePicker date;
     @FXML
     private JFXComboBox type;
-    @FXML
-    private JFXRadioButton id_filter;
-    @FXML
-    private ToggleGroup search;
-    @FXML
-    private JFXRadioButton name_filter;
+//    @FXML
+//    private JFXRadioButton id_filter;
+//    @FXML
+//    private ToggleGroup search;
+//    @FXML
+//    private JFXRadioButton name_filter;
     @FXML
     private JFXTextField search_filed;
-    @FXML
-    private JFXButton reportbtn;
+//    @FXML
+//    private JFXButton reportbtn;
     @FXML
     private TableView tableview;
     @FXML

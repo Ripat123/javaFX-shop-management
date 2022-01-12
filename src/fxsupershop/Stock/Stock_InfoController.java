@@ -23,8 +23,8 @@ import javafx.scene.layout.AnchorPane;
 public class Stock_InfoController implements Initializable {
 
     
-    @FXML
-    private ToggleGroup search;
+//    @FXML
+//    private ToggleGroup search;
     @FXML
     private TableView tableview;
     ResultSet rs;
@@ -44,12 +44,12 @@ public class Stock_InfoController implements Initializable {
     @FXML
     private TableColumn<?, ?> salePrice_col;
     Message msg = new Message();
-    @FXML
-    private AnchorPane itempane;
-    @FXML
-    private AnchorPane stackcard;
-    @FXML
-    private JFXButton refbtn;
+//    @FXML
+//    private AnchorPane itempane;
+//    @FXML
+//    private AnchorPane stackcard;
+//    @FXML
+//    private JFXButton refbtn;
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
     
     /**

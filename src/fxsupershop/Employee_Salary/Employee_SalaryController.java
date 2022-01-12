@@ -42,9 +42,9 @@ public class Employee_SalaryController implements Initializable {
     private JFXComboBox combo_employee_name;
     @FXML
     private JFXTextArea textarea_comment;
-    private JFXRadioButton id_filter;
-    private JFXRadioButton name_filter;
-    private JFXTextField search_filed;
+//    private JFXRadioButton id_filter;
+//    private JFXRadioButton name_filter;
+//    private JFXTextField search_filed;
     @FXML
     private TableView<?> tableview;
     @FXML
@@ -61,11 +61,11 @@ public class Employee_SalaryController implements Initializable {
     private TableColumn<?, ?> TEmployee_Name;
     @FXML
     private TableColumn<?, ?> TPhone;
-    private TableColumn<?, ?> TComments;
+//    private TableColumn<?, ?> TComments;
     @FXML
     private JFXDatePicker text_dates;
-    @FXML
-    private AnchorPane Employee_Pane;
+//    @FXML
+//    private AnchorPane Employee_Pane;
     @FXML
     private JFXTextField text_total_amount;
     @FXML

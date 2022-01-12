@@ -1,26 +1,18 @@
 package fxsupershop.Notification;
 
-import animatefx.animation.SlideInLeft;
-import animatefx.animation.SlideInRight;
-import animatefx.animation.SlideOutLeft;
-import animatefx.animation.SlideOutRight;
-import com.jfoenix.controls.JFXButton;
+import animatefx.animation.*;
 import fxsupershop.Services.PrepareQueryFunction;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
-import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
+import javafx.collections.*;
+import javafx.concurrent.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.*;
 
 /**
  * FXML Controller class
@@ -29,12 +21,12 @@ import javafx.scene.layout.BorderPane;
  */
 public class NotificationController implements Initializable {
 
-    @FXML
-    private AnchorPane itempane;
-    @FXML
-    private JFXButton shortID;
-    @FXML
-    private JFXButton overID;
+//    @FXML
+//    private AnchorPane itempane;
+//    @FXML
+//    private JFXButton shortID;
+//    @FXML
+//    private JFXButton overID;
     @FXML
     private AnchorPane short_card;
     @FXML
@@ -43,12 +35,12 @@ public class NotificationController implements Initializable {
     private TableColumn<?, ?> PRO_COL;
     @FXML
     private TableColumn<?, ?> QUAN_COL;
-    @FXML
-    private JFXButton refbtn;
-    @FXML
-    private JFXButton printbtn;
-    @FXML
-    private JFXButton back_short_btn;
+//    @FXML
+//    private JFXButton refbtn;
+//    @FXML
+//    private JFXButton printbtn;
+//    @FXML
+//    private JFXButton back_short_btn;
     @FXML
     private AnchorPane over_card;
     @FXML
@@ -57,14 +49,14 @@ public class NotificationController implements Initializable {
     private TableColumn<?, ?> PRO_COL1;
     @FXML
     private TableColumn<?, ?> QUAN_COL1;
-    @FXML
-    private JFXButton refbtn1;
-    @FXML
-    private JFXButton printbtn1;
-    @FXML
-    private JFXButton back_over_btn;
-    @FXML
-    private BorderPane mainID;
+//    @FXML
+//    private JFXButton refbtn1;
+//    @FXML
+//    private JFXButton printbtn1;
+//    @FXML
+//    private JFXButton back_over_btn;
+//    @FXML
+//    private BorderPane mainID;
     ObservableList shortdata = FXCollections.observableArrayList();
     ObservableList overdata = FXCollections.observableArrayList();
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
@@ -158,7 +150,7 @@ public class NotificationController implements Initializable {
 
     @FXML
     private void Refresh(ActionEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -169,7 +161,11 @@ public class NotificationController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     @FXML
@@ -179,7 +175,7 @@ public class NotificationController implements Initializable {
 
     @FXML
     private void ShortAction(ActionEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -195,12 +191,16 @@ public class NotificationController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     @FXML
     private void OverAction(ActionEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -216,12 +216,16 @@ public class NotificationController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     @FXML
     private void BackShortAction(ActionEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -238,12 +242,16 @@ public class NotificationController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     @FXML
     private void BackOverAction(ActionEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -260,12 +268,16 @@ public class NotificationController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     @FXML
     private void RefreshOver(ActionEvent event) {
-        new Service() {
+        Service service = new Service() {
             @Override
             protected Task createTask() {
                 return new Task() {
@@ -276,7 +288,11 @@ public class NotificationController implements Initializable {
                     }
                 };
             }
-        }.start();
+        };
+        service.start();
+        service.setOnSucceeded((e) -> {
+            service.cancel();
+        });
     }
 
     @FXML

@@ -6,13 +6,13 @@ import fxsupershop.Login.LoginMultiFormController;
 import fxsupershop.Services.*;
 import fxsupershop.TableView.BrandView;
 import java.awt.HeadlessException;
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.*;
 import java.net.URL;
 import java.sql.*;
 import java.util.*;
-import javafx.animation.*;
 import javafx.collections.*;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -20,10 +20,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
-import javafx.util.Duration;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.*;
 
 /**
  * FXML Controller class
@@ -32,8 +30,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class Brand_infoController implements Initializable {
 
-    @FXML
-    private ToggleGroup search;
+//    @FXML
+//    private ToggleGroup search;
     @FXML
     private TableView<BrandView> tableview;
     @FXML
@@ -61,8 +59,8 @@ public class Brand_infoController implements Initializable {
     @FXML
     private JFXButton reportbtn;
     Product_infoController product_infoController = new Product_infoController();
-    @FXML
-    private AnchorPane itempane;
+//    @FXML
+//    private AnchorPane itempane;
     int presentID;
     @FXML
     private Pane action_pane;
@@ -74,15 +72,25 @@ public class Brand_infoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        test.play();
+        service1.start();
+        service1.setOnSucceeded((event) -> {
+          service1.cancel();
+        });
     }
     
-    Timeline test = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
-        @Override
-        public void handle(ActionEvent event) {
-            initSource();
-        }
-    }));
+    
+    Service service1 = new Service() {
+            @Override
+            protected Task createTask() {
+                return new Task() {
+                    @Override
+                    protected Void call() {
+                        initSource();
+                        return null;
+                    }
+                };
+            }
+        };
 
     public void initSource() {
         con = connection_Sql.ConnectDb();

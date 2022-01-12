@@ -34,22 +34,22 @@ public class Supplier_wise_paymentController implements Initializable {
     private JFXTextField pay_amount;
     @FXML
     private JFXTextField dueID;
-    @FXML
-    private JFXToggleButton toggleID;
-    @FXML
-    private TableView<?> tableview;
-    @FXML
-    private TableColumn<?, ?> TInvoiceNo;
-    @FXML
-    private TableColumn<?, ?> TDate;
-    @FXML
-    private TableColumn<?, ?> T_TotalAmount;
-    @FXML
-    private TableColumn<?, ?> T_paymentDate;
-    @FXML
-    private TableColumn<?, ?> TpaidAmount;
-    @FXML
-    private TableColumn<?, ?> T_dueAmount;
+//    @FXML
+//    private JFXToggleButton toggleID;
+//    @FXML
+//    private TableView<?> tableview;
+//    @FXML
+//    private TableColumn<?, ?> TInvoiceNo;
+//    @FXML
+//    private TableColumn<?, ?> TDate;
+//    @FXML
+//    private TableColumn<?, ?> T_TotalAmount;
+//    @FXML
+//    private TableColumn<?, ?> T_paymentDate;
+//    @FXML
+//    private TableColumn<?, ?> TpaidAmount;
+//    @FXML
+//    private TableColumn<?, ?> T_dueAmount;
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
     String supplierID;
     ObservableList supplierlist = FXCollections.observableArrayList();

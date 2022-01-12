@@ -30,8 +30,8 @@ public class Mesurement_subunitController implements Initializable {
     private JFXTextField subDID;
     @FXML
     private JFXRadioButton id_filter;
-    @FXML
-    private ToggleGroup search;
+//    @FXML
+//    private ToggleGroup search;
     @FXML
     private JFXRadioButton name_filter;
     @FXML

@@ -6,11 +6,9 @@ import fxsupershop.Login.LoginMultiFormController;
 import fxsupershop.Services.PrepareQueryFunction;
 import java.awt.HeadlessException;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -25,22 +23,22 @@ import javafx.scene.layout.AnchorPane;
  */
 public class VatController implements Initializable {
 
-    @FXML
-    private AnchorPane itempane;
+//    @FXML
+//    private AnchorPane itempane;
     @FXML
     private JFXDatePicker date;
     @FXML
     private JFXTextField percent;
-    @FXML
-    private JFXRadioButton id_filter;
-    @FXML
-    private ToggleGroup search;
-    @FXML
-    private JFXRadioButton name_filter;
-    @FXML
-    private JFXTextField search_filed;
-    @FXML
-    private JFXButton reportbtn;
+//    @FXML
+//    private JFXRadioButton id_filter;
+//    @FXML
+//    private ToggleGroup search;
+//    @FXML
+//    private JFXRadioButton name_filter;
+//    @FXML
+//    private JFXTextField search_filed;
+//    @FXML
+//    private JFXButton reportbtn;
     @FXML
     private TableView tableview;
     @FXML

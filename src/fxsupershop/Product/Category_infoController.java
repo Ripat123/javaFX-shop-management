@@ -26,14 +26,14 @@ import org.apache.poi.xssf.usermodel.*;
  */
 public class Category_infoController implements Initializable {
 
-    @FXML
-    private AnchorPane itempane;
+//    @FXML
+//    private AnchorPane itempane;
     @FXML
     private JFXTextField categoryID;
     @FXML
     private JFXTextField categoryName;
-    @FXML
-    private ToggleGroup search;
+//    @FXML
+//    private ToggleGroup search;
     @FXML
     private TableView<CategoryView> tableview;
     ResultSet rs;
