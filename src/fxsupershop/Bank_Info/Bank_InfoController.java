@@ -182,12 +182,10 @@ public class Bank_InfoController implements Initializable {
     private void search() {
             if (id_filter.isSelected()) {
                 data.clear();
-
                 String sql = "SELECT bank_info.brance_name,bank_info.bank_name,bank_info.ac_no,bank_info.type,bank_info.add,bank_info.mbl_no FROM bank_info WHERE `bank_name` LIKE '%" + search_filed.getText() + "%' or `ac_no` like '%" + search_filed.getText() + "%' or `mbl_no` like '%" + search_filed.getText() + "%'";
                 initview(sql);
             } else if (name_filter.isSelected()) {
                 data.clear();
-
                 String sql = "SELECT bank_info.brance_name,bank_info.bank_name,bank_info.ac_no,bank_info.type,bank_info.add,bank_info.mbl_no FROM bank_info WHERE `bank_name` LIKE '%" + search_filed.getText() + "%' or `ac_no` like '%" + search_filed.getText() + "%' or `mbl_no` like '%" + search_filed.getText() + "%'";
                 initview(sql);
             }
