@@ -10,8 +10,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.*;
 import javafx.collections.*;
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
+import javafx.concurrent.*;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.Node;
@@ -151,11 +150,16 @@ public class User_adminController implements Initializable {
 //           
 //        }
 //    }));
-    Service<Void> service = new Service<Void>() {
+    Service service = new Service() {
         @Override
-        protected Task<Void> createTask() {
-             initSource();
-             return null;
+        protected Task createTask() {
+            return new Task() {
+                @Override
+                protected Void call() {
+                    initSource();
+                    return null;
+                }
+            };
         }
     };
 
@@ -255,7 +259,7 @@ public class User_adminController implements Initializable {
             }
             String sql = "INSERT INTO createadmin(`id`,`name`,`company_name`,`Password`,"
                     + "`email`,`phone`,`Admin_Type`,`Address`,`Security_question`,"
-                    + "`Answer`,`Status`,`Gender`,image) VALUES('"+adminID+"','" + username.getText().trim() + "',"
+                    + "`Answer`,`Status`,`Gender`,image) VALUES('" + adminID + "','" + username.getText().trim() + "',"
                     + "'" + fullname.getText().trim() + "','" + password.getText() + "','" + email.getText().trim() + "'"
                     + ",'" + phone.getText() + "','" + type + "',"
                     + "'" + address.getText() + "','" + securityqes.getValue() + "',"
@@ -306,22 +310,23 @@ public class User_adminController implements Initializable {
         String sql = "DELETE FROM createadmin WHERE name='" + username.getText() + "'";
         queryFunction.Delete(sql);
         try {
-            String Uid=null;
+            String Uid = null;
             String sql2 = "SELECT id FROM createadmin WHERE name='" + username.getText() + "'";
             rs = queryFunction.getResult(sql2);
-            if(rs.next())
+            if (rs.next()) {
                 Uid = rs.getString("id");
-            String sql1 = "DELETE FROM access_priority WHERE admin_id = '"+Uid+"'";
+            }
+            String sql1 = "DELETE FROM access_priority WHERE admin_id = '" + Uid + "'";
             queryFunction.DeleteConditionLess(sql1);
         } catch (Exception e) {
-        }finally{
+        } finally {
             try {
                 rs.close();
                 queryFunction.post.close();
             } catch (Exception e) {
             }
         }
-        
+
     }
 
     private void view() {
@@ -537,6 +542,7 @@ public class User_adminController implements Initializable {
     private void closestack(MouseEvent event) {
         stackpane.setVisible(false);
     }
+
     @FXML
     private void report(ActionEvent event) {
         report();
@@ -650,6 +656,5 @@ public class User_adminController implements Initializable {
             }
         }
     }
-
 
 }

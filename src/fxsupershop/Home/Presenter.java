@@ -83,6 +83,7 @@ public class Presenter {
                                     try {
 //                    RefreshSource();
                                     } catch (Exception e) {
+e.printStackTrace();
                                         service.msg.WarningMessage("Uncompleted", "Warning", "Have a Problem.\n" + e);
                                     }
                                 });
@@ -93,6 +94,7 @@ public class Presenter {
                                 });
 
                             } catch (Exception e) {
+e.printStackTrace();
                                 service.msg.WarningMessage("Uncompleted", "Warning", "Have a Problem.\n" + e);
                             }
                         });

@@ -16,7 +16,6 @@ import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.image.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.ImagePattern;
@@ -110,12 +109,16 @@ public class ProfileController implements Initializable {
 //    Timeline test = new Timeline(new KeyFrame(Duration.seconds(0.5), (ActionEvent event) -> {
 //        initSource();
 //    }));
-    
-    Service<Void> service = new Service<Void>() {
+    Service service = new Service() {
         @Override
-        protected Task<Void> createTask() {
-            initSource();
-            return null;
+        protected Task createTask() {
+            return new Task() {
+                @Override
+                protected Void call() {
+                    initSource();
+                    return null;
+                }
+            };
         }
     };
 
