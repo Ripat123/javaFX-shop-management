@@ -17,6 +17,9 @@ public class LoadWorker extends Service<Void> {
 
     @Override
     protected void succeeded() {
+        cancel();
+        System.gc();
+        System.runFinalization();
     }
 
     @Override

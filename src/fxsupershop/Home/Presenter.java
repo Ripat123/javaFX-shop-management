@@ -83,18 +83,20 @@ public class Presenter {
                                     try {
 //                    RefreshSource();
                                     } catch (Exception e) {
-e.printStackTrace();
+                                        e.printStackTrace();
                                         service.msg.WarningMessage("Uncompleted", "Warning", "Have a Problem.\n" + e);
                                     }
                                 });
                                 t.setOnClosed((event) -> {
                                     if (tabpane.getTabs().isEmpty()) {
                                         tabpane.setVisible(false);
+                                        System.gc();
+                                        System.runFinalization();
                                     }
                                 });
 
                             } catch (Exception e) {
-e.printStackTrace();
+                                e.printStackTrace();
                                 service.msg.WarningMessage("Uncompleted", "Warning", "Have a Problem.\n" + e);
                             }
                         });

@@ -13,7 +13,6 @@ import java.sql.*;
 import java.util.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.concurrent.*;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.Node;
@@ -525,5 +524,13 @@ public class ProfileController implements Initializable {
         } catch (Exception e) {
         }
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 
 }

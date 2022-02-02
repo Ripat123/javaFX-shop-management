@@ -33,7 +33,7 @@ public class FxSuperShop extends Application {
         try {
             loading.start(new Stage());
 //            loadWorker.start();
-lmfc.initview(con);
+            lmfc.initview(con);
             Start(primaryStage);
 //            test.play();
         } catch (Exception e) {
@@ -147,6 +147,13 @@ lmfc.initview(con);
      */
     public static void main(String[] args) {
         Application.launch(args);
+    }
+
+    @Override
+    public void stop() throws Exception {
+        System.gc();
+        System.runFinalization();
+        super.stop();
     }
 
 }

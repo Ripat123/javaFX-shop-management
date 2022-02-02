@@ -75,6 +75,13 @@ public void handleApplicationNotification(PreloaderNotification pn){
         }
     } 
 
+    @Override
+    public void stop() throws Exception {
+        System.gc();
+        System.runFinalization();
+        super.stop(); 
+    }
+    
     
 }
     
