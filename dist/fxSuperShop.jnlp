@@ -8,9 +8,8 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="fxSuperShop.jar" size="1381388" download="eager" />
+    <jar href="fxSuperShop.jar" size="1376157" download="eager" />
     <jar href="lib\AnimateFX-1.2.1.jar" size="94267" download="eager" />
-    <jar href="lib\all-themes-1.0.10.jar" size="1366791" download="eager" />
     <jar href="lib\ant-1.7.1.jar" size="1323005" download="eager" />
     <jar href="lib\antlr-2.7.5.jar" size="435563" download="eager" />
     <jar href="lib\barbecue-1.5-beta1.jar" size="91079" download="eager" />
@@ -65,7 +64,7 @@
     <jar href="lib\javax.persistence_2.1.0.v201304241213.jar" size="160564" download="eager" />
     <jar href="lib\jaxen-1.1.1.jar" size="226915" download="eager" />
     <jar href="lib\jdt-compiler-3.1.1.jar" size="1212369" download="eager" />
-    <jar href="lib\jfoenix-8.0.8.jar" size="2708772" download="eager" />
+    <jar href="lib\jfoenix-8.0.10.jar" size="2710207" download="eager" />
     <jar href="lib\jfxanimation-2.0.0.jar" size="44720" download="eager" />
     <jar href="lib\jpa.jar" size="48045" download="eager" />
     <jar href="lib\jrviewer-fx-0.1.1.jar" size="34441" download="eager" />
