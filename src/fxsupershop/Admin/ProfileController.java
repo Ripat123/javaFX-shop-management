@@ -11,6 +11,8 @@ import java.io.*;
 import java.net.URL;
 import java.sql.*;
 import java.util.*;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.concurrent.*;
 import javafx.event.*;
 import javafx.fxml.*;
@@ -21,6 +23,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -99,28 +102,31 @@ public class ProfileController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-//        test.play();
-        service.start();
-        service.setOnSucceeded((event) -> {
-            service.cancel();
+        test.play();
+        test.setOnFinished((event) -> {
+        test.stop();
         });
+//        service.start();
+//        service.setOnSucceeded((event) -> {
+//            service.cancel();
+//        });
     }
 
-//    Timeline test = new Timeline(new KeyFrame(Duration.seconds(0.5), (ActionEvent event) -> {
-//        initSource();
-//    }));
-    Service service = new Service() {
-        @Override
-        protected Task createTask() {
-            return new Task() {
-                @Override
-                protected Void call() {
-                    initSource();
-                    return null;
-                }
-            };
-        }
-    };
+    Timeline test = new Timeline(new KeyFrame(Duration.seconds(0.5), (ActionEvent event) -> {
+        initSource();
+    }));
+//    Service service = new Service() {
+//        @Override
+//        protected Task createTask() {
+//            return new Task() {
+//                @Override
+//                protected Void call() {
+//                    initSource();
+//                    return null;
+//                }
+//            };
+//        }
+//    };
 
     private void initSource() {
         try {
