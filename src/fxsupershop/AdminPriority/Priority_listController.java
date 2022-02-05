@@ -47,7 +47,7 @@ public class Priority_listController implements Initializable {
     JFXButton button = new JFXButton();
     private int userID;
     JFXToggleButton btn = new JFXToggleButton();
-    private int index,user_id;
+    private int index, user_id;
     private String user;
 
     /**
@@ -56,26 +56,27 @@ public class Priority_listController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        service.start();
-        service.setOnSucceeded((event) -> {
-            service.cancel();
-        });
+        initview();
+//        service.start();
+//        service.setOnSucceeded((event) -> {
+//            service.cancel();
+//        });
     }
-    
-    Service<Void> service = new Service<Void>() {
-        @Override
-        protected Task<Void> createTask() {
-            return new Task<Void>() {
-                @Override
-                protected Void call() {
-                    initview();
-                    return null;
-                }
-            };
-        }
-    };
-    
-    private void initview(){
+
+//    Service<Void> service = new Service<Void>() {
+//        @Override
+//        protected Task<Void> createTask() {
+//            return new Task<Void>() {
+//                @Override
+//                protected Void call() {
+//                    initview();
+//                    return null;
+//                }
+//            };
+//        }
+//    };
+
+    private void initview() {
         listView();
         scroll.setContent(table);
         JFXScrollPane.smoothScrolling((ScrollPane) scroll.getChildren().get(0));
@@ -89,15 +90,15 @@ public class Priority_listController implements Initializable {
         AnchorPane p = new AnchorPane();
         title.setPadding(new Insets(0, 120, 0, 0));
         p.setRightAnchor(title, Double.MIN_NORMAL);
-        p.getChildren().addAll(button,title);
+        p.getChildren().addAll(button, title);
         title.setStyle("-fx-text-fill:WHITE; -fx-font-size: 35;");
         scroll.getBottomBar().getChildren().add(p);
         StackPane.setAlignment(p, Pos.CENTER_LEFT);
-        
+
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                ZoomOut zoom =new ZoomOut(prio_pane);
+                ZoomOut zoom = new ZoomOut(prio_pane);
                 zoom.setOnFinished((e) -> {
                     prio_pane.setVisible(false);
                 });
@@ -105,7 +106,7 @@ public class Priority_listController implements Initializable {
             }
         });
     }
-    
+
     private void listView() {
         try {
             String sql = "SELECT name FROM createadmin WHERE Admin_Type = '0'";
@@ -127,74 +128,75 @@ public class Priority_listController implements Initializable {
         }
 
     }
-    
-    private void AccesControlView(){
-        try {
-                data1.clear();
-                name_id.setCellValueFactory(new PropertyValueFactory<>("formName"));
-                action_id.setCellValueFactory(new PropertyValueFactory<>("button"));
 
-                String sql = "SELECT * FROM access_priority WHERE admin_id = (SELECT "
-                        + "id FROM createadmin WHERE name = '"+user+"')";
-                rs = queryFunction.getResult(sql);
-                while(rs.next()){
-                    user_id = Integer.parseInt(rs.getString("admin_id"));
-                    int sw = Integer.parseInt(rs.getString("switch"));
-                    btn = new JFXToggleButton();
-                    btn.setId(String.valueOf(index));
-                    if(sw == 1)
-                        btn.setSelected(true);
-                    else if(sw == 0)
-                        btn.setSelected(false);
-                    data1.add(new PriorityView(rs.getString("form_name"), btn));
-                    btn.setOnAction((ActionEvent event) -> {
-                        SwitchAction(event);
-                    });
-                    index++;
+    private void AccesControlView() {
+        try {
+            data1.clear();
+            name_id.setCellValueFactory(new PropertyValueFactory<>("formName"));
+            action_id.setCellValueFactory(new PropertyValueFactory<>("button"));
+
+            String sql = "SELECT * FROM access_priority WHERE admin_id = (SELECT "
+                    + "id FROM createadmin WHERE name = '" + user + "')";
+            rs = queryFunction.getResult(sql);
+            while (rs.next()) {
+                user_id = Integer.parseInt(rs.getString("admin_id"));
+                int sw = Integer.parseInt(rs.getString("switch"));
+                btn = new JFXToggleButton();
+                btn.setId(String.valueOf(index));
+                if (sw == 1) {
+                    btn.setSelected(true);
+                } else if (sw == 0) {
+                    btn.setSelected(false);
                 }
-                table.setItems(data1);
-                index = 0;
-                        } catch (SQLException ex) {
-                msg.WarningMessage("Unsuccessful", "Warning", "Have a Problem.\n"+ex);
+                data1.add(new PriorityView(rs.getString("form_name"), btn));
+                btn.setOnAction((ActionEvent event) -> {
+                    SwitchAction(event);
+                });
+                index++;
             }
-            finally{
-                try {
-                    rs.close();
-                    queryFunction.post.close();
-                } catch (Exception e) {
-                }
+            table.setItems(data1);
+            index = 0;
+        } catch (SQLException ex) {
+            msg.WarningMessage("Unsuccessful", "Warning", "Have a Problem.\n" + ex);
+        } finally {
+            try {
+                rs.close();
+                queryFunction.post.close();
+            } catch (Exception e) {
             }
+        }
     }
-    
-    private void SwitchAction(ActionEvent event){
+
+    private void SwitchAction(ActionEvent event) {
         try {
             String source = event.getSource().toString();
             int row = Integer.parseInt(source.substring(19, source.indexOf(",")));
             PriorityView pv = (PriorityView) table.getItems().get(row);
             int swh = 0;
-            if(pv.getButton().isSelected() == false)
+            if (pv.getButton().isSelected() == false) {
                 swh = 0;
-            else if(pv.getButton().isSelected())
+            } else if (pv.getButton().isSelected()) {
                 swh = 1;
+            }
             String sql = "UPDATE access_priority SET switch "
-                    + "= '"+swh+"' WHERE form_name = '"+pv.getFormName()+"' AND admin_id = '"+user_id+"'";
+                    + "= '" + swh + "' WHERE form_name = '" + pv.getFormName() + "' AND admin_id = '" + user_id + "'";
             queryFunction.UpdateMessageLess(sql);
-              AccesControlView();
+            AccesControlView();
         } catch (Exception e) {
-            msg.WarningMessage("Unsuccessful", "Warning", "Have a Problem.\n"+e);
-        }
-        finally{
+            msg.WarningMessage("Unsuccessful", "Warning", "Have a Problem.\n" + e);
+        } finally {
             try {
                 queryFunction.post.close();
             } catch (Exception e) {
             }
         }
     }
+
     @Override
     protected void finalize() throws Throwable {
         System.gc();
         System.runFinalization();
-        super.finalize(); 
+        super.finalize();
     }
 
 }

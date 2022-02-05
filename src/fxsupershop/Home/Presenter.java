@@ -90,8 +90,8 @@ public class Presenter {
                                 t.setOnClosed((event) -> {
                                     if (tabpane.getTabs().isEmpty()) {
                                         tabpane.setVisible(false);
-                                        System.gc();
-                                        System.runFinalization();
+//                                        System.gc();
+//                                        System.runFinalization();
                                     }
                                 });
 
