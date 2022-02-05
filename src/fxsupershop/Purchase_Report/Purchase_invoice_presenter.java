@@ -152,4 +152,11 @@ public class Purchase_invoice_presenter {
             }
         }
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
+    }
 }

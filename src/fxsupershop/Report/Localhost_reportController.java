@@ -102,4 +102,11 @@ public class Localhost_reportController implements Initializable {
 
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
+    }
+
 }

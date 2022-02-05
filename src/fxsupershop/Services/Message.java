@@ -16,7 +16,7 @@ public class Message {
         alert.setContentText(content);
         alert.show();
     }
-    
+
     public void WarningMessage(String title, String header, String content) {
         Alert alert = new Alert(Alert.AlertType.WARNING, "", ButtonType.CANCEL);
         alert.setTitle(title);
@@ -24,7 +24,7 @@ public class Message {
         alert.setContentText(content);
         alert.show();
     }
-    
+
     public void ErrorMessage(String title, String header, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR, "", ButtonType.CLOSE);
         alert.setTitle(title);
@@ -32,7 +32,7 @@ public class Message {
         alert.setContentText(content);
         alert.show();
     }
-    
+
     public Optional<ButtonType> ConfirmationMessage(String title, String header, String content) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "", ButtonType.YES, ButtonType.NO);
         alert.setTitle(title);
@@ -40,9 +40,9 @@ public class Message {
         alert.setContentText(content);
         Optional<ButtonType> result = alert.showAndWait();
         alert.show();
-         return result;
+        return result;
     }
-    
+
     public void NoneMessage(String title, String header, String content) {
         Alert alert = new Alert(Alert.AlertType.NONE, "", ButtonType.OK);
         alert.setTitle(title);
@@ -50,9 +50,16 @@ public class Message {
         alert.setContentText(content);
         alert.show();
     }
-    
-    public void ConditionalMessage(String message){
+
+    public void ConditionalMessage(String message) {
         Optional<ButtonType> alert = new Alert(Alert.AlertType.WARNING, message, ButtonType.OK).showAndWait();
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

@@ -1,4 +1,3 @@
-
 package fxsupershop.Most_saleProduct;
 
 import fxsupershop.Services.*;
@@ -25,7 +24,7 @@ public class Most_productListController implements Initializable {
     @FXML
     private TableColumn<?, ?> count_col;
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
-    ResultSet rs,rss;
+    ResultSet rs, rss;
     ObservableList data = FXCollections.observableArrayList();
 
     /**
@@ -34,27 +33,27 @@ public class Most_productListController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         view();
-    } 
-    
-    private void view(){
+    }
+
+    private void view() {
         try {
             data.clear();
             pro_col.setCellValueFactory(new PropertyValueFactory<>("name"));
             count_col.setCellValueFactory(new PropertyValueFactory<>("count"));
-            
+
             String sql = "SELECT COUNT(`product_id`) AS 'count',`product_id` FROM sale_entry "
                     + "GROUP BY `product_id` ORDER BY COUNT(`product_id`) DESC";
             rs = queryFunction.getResult(sql);
-            while(rs.next()){
-                String sql1 = "SELECT * FROM product_productinfo WHERE id = '"+rs.getString("product_id")+"'";
+            while (rs.next()) {
+                String sql1 = "SELECT * FROM product_productinfo WHERE id = '" + rs.getString("product_id") + "'";
                 rss = queryFunction.getResult(sql1);
-                if(rss.next()){
+                if (rss.next()) {
                     data.addAll(new Model(rss.getString("product_name"), rs.getString("count")));
                 }
             }
             tableview.setItems(data);
         } catch (Exception e) {
-        }finally{
+        } finally {
             try {
                 rs.close();
                 rss.close();
@@ -67,5 +66,11 @@ public class Most_productListController implements Initializable {
     @FXML
     private void Clicked(MouseEvent event) {
     }
-    
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
+    }
 }

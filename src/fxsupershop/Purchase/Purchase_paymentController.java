@@ -71,28 +71,28 @@ public class Purchase_paymentController implements Initializable {
         showSupplier();
         view();
     }
-    
+
     private void showSupplier() {
         String sql = "SELECT company_name,id FROM suplier_info";
-        supplierlist = queryFunction.ViewArrayJFXComboBox(sql, "company_name","id", sup_id,supplierlist);
+        supplierlist = queryFunction.ViewArrayJFXComboBox(sql, "company_name", "id", sup_id, supplierlist);
     }
-    
+
     private void supplier_released(KeyEvent event) {
         try {
             String sql = "SELECT company_name,id FROM suplier_info WHERE "
-                + "company_name LIKE '%" + sup_id.getValue() + "%'";
-        supplierlist = queryFunction.ShowArrayItemKeyReleased(sql, "company_name","id", sup_id, event,supplierlist);
+                    + "company_name LIKE '%" + sup_id.getValue() + "%'";
+            supplierlist = queryFunction.ShowArrayItemKeyReleased(sql, "company_name", "id", sup_id, event, supplierlist);
         } catch (Exception e) {
         }
     }
-    
-    private void supplier_action(){
+
+    private void supplier_action() {
         try {
             supplierID = supplierlist.get(sup_id.getSelectionModel().getSelectedIndex()).toString();
             String sql = "SELECT * FROM purchase_ledger WHERE suplier_id = '" + supplierID + "'";
             queryFunction.ViewItemOnJFXComboBox(sql, "invoice_no", invoice_id);
         } catch (Exception e) {
-        }    
+        }
     }
 
     private void invoiceAction() {
@@ -106,8 +106,7 @@ public class Purchase_paymentController implements Initializable {
             }
         } catch (Exception e) {
             msg.WarningMessage("Unsuccessful", "Warning", "Have a Problem.\n" + e);
-        }
-        finally{
+        } finally {
             try {
                 rs.close();
                 queryFunction.post.close();
@@ -118,11 +117,11 @@ public class Purchase_paymentController implements Initializable {
 
     private void invoiceReleased(KeyEvent event) {
         String sql = "SELECT invoice_no FROM purchase_ledger WHERE "
-                + "invoice_no LIKE '%" + invoice_id.getValue() + "%' AND suplier_id = '"+supplierID+"'";
+                + "invoice_no LIKE '%" + invoice_id.getValue() + "%' AND suplier_id = '" + supplierID + "'";
         queryFunction.ShowJFXItemOnkeyReleased(sql, "invoice_no", invoice_id, event);
     }
-    
-    private void clear(){
+
+    private void clear() {
         invoice_id.setValue(null);
         entryDate.setValue(null);
         totalID.setText(null);
@@ -133,32 +132,31 @@ public class Purchase_paymentController implements Initializable {
         sup_id.setValue(null);
         sup_id.requestFocus();
     }
-    
-    private void submit(){
+
+    private void submit() {
         try {
             String sql1 = "UPDATE purchase_payment_statement SET payment = payment + "
-                    + "'"+pay_amount.getText()+"', due = '"+dueID.getText()+"' "
-                    + "WHERE invoice_no = '"+invoice_id.getValue()+"'";
+                    + "'" + pay_amount.getText() + "', due = '" + dueID.getText() + "' "
+                    + "WHERE invoice_no = '" + invoice_id.getValue() + "'";
             queryFunction.UpdateMessageLess(sql1);
-            
-            double balance = 0,netbalance = 0;
-            String sql = "SELECT * FROM suplier_transaction WHERE suplier_id = '"+supplierID+"' ORDER BY id DESC";
+
+            double balance = 0, netbalance = 0;
+            String sql = "SELECT * FROM suplier_transaction WHERE suplier_id = '" + supplierID + "' ORDER BY id DESC";
             rs = queryFunction.getResult(sql);
-            if(rs.next()){
+            if (rs.next()) {
                 balance = Double.parseDouble(rs.getString("balance"));
             }
             netbalance = balance;
             double totalDue = netbalance - Double.parseDouble(pay_amount.getText());
             String sql2 = "INSERT INTO suplier_transaction (suplier_id,transaction_date,"
                     + "invoice_id,voucher_no,transaction_type,debit,credit,balance)VALUES ("
-                    + "'"+supplierID+"','"+paymentDate.getValue()+"',"
-                    + "'"+invoice_id.getValue()+"','Paid','Cash','0',"
-                    + "'"+pay_amount.getText()+"','"+totalDue+"')";
+                    + "'" + supplierID + "','" + paymentDate.getValue() + "',"
+                    + "'" + invoice_id.getValue() + "','Paid','Cash','0',"
+                    + "'" + pay_amount.getText() + "','" + totalDue + "')";
             queryFunction.InsertCustomise(sql2, "Have a Problem in Supplier Transaction");
         } catch (Exception e) {
-            msg.WarningMessage("Unsuccessful", "Warning", "Have a problem.\n"+e);
-        }
-        finally{
+            msg.WarningMessage("Unsuccessful", "Warning", "Have a problem.\n" + e);
+        } finally {
             try {
                 rs.close();
                 queryFunction.post.close();
@@ -166,8 +164,8 @@ public class Purchase_paymentController implements Initializable {
             }
         }
     }
-    
-    private void view(){
+
+    private void view() {
         try {
             data.clear();
             TInvoiceNo.setCellValueFactory(new PropertyValueFactory<>("invoice"));
@@ -175,10 +173,10 @@ public class Purchase_paymentController implements Initializable {
             T_TotalAmount.setCellValueFactory(new PropertyValueFactory<>("total_amount"));
             TpaidAmount.setCellValueFactory(new PropertyValueFactory<>("paid_amount"));
             T_dueAmount.setCellValueFactory(new PropertyValueFactory<>("due"));
-            
+
             String sql = "SELECT * FROM purchase_payment_statement";
             rs = queryFunction.getResult(sql);
-            while(rs.next()){
+            while (rs.next()) {
                 data.add(new PurchasePaymentView(rs.getString("invoice_no"),
                         rs.getString("entry_date"),
                         rs.getString("total_ammount"),
@@ -187,7 +185,7 @@ public class Purchase_paymentController implements Initializable {
             }
             tableview.setItems(data);
         } catch (Exception e) {
-            msg.WarningMessage("Unsuccessful", "Warning", "Have a Problem.\n"+e);
+            msg.WarningMessage("Unsuccessful", "Warning", "Have a Problem.\n" + e);
         }
     }
 
@@ -215,16 +213,19 @@ public class Purchase_paymentController implements Initializable {
     @FXML
     private void Submit_btn(ActionEvent event) {
         try {
-            if(sup_id.getValue() == null){
+            if (sup_id.getValue() == null) {
                 queryFunction.service.msg.ConditionalMessage("Empty Supplier");
                 return;
-            }if(invoice_id.getValue() == null){
+            }
+            if (invoice_id.getValue() == null) {
                 queryFunction.service.msg.ConditionalMessage("Empty Invoice");
                 return;
-            }if(paymentDate.getValue() == null){
+            }
+            if (paymentDate.getValue() == null) {
                 queryFunction.service.msg.ConditionalMessage("Empty Payment Date");
                 return;
-            }if(pay_amount.getText().equals("") || pay_amount.getText().equals("0")){
+            }
+            if (pay_amount.getText().equals("") || pay_amount.getText().equals("0")) {
                 queryFunction.service.msg.ConditionalMessage("Enter Pay amount");
                 return;
             }
@@ -257,6 +258,13 @@ public class Purchase_paymentController implements Initializable {
     @FXML
     private void SuppReleased(KeyEvent event) {
         supplier_released(event);
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

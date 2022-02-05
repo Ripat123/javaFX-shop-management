@@ -73,10 +73,10 @@ public class Purchase_invoiceController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         t.play();
         view();
-        category_view.getItems().addAll("This month","This Year", "All Invoice");
+        category_view.getItems().addAll("This month", "This Year", "All Invoice");
         category_view.setValue("This month");
     }
-    
+
     Timeline t = new Timeline(new KeyFrame(Duration.seconds(0.8), new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent event) {
@@ -98,7 +98,7 @@ public class Purchase_invoiceController implements Initializable {
             test.play();
         }
     }));
-    
+
     private void total() {
         String sql = "SELECT SUM(purchase_payment_statement.`total_ammount`) AS 'total',purchase_payment_statement.* FROM `purchase_ledger` "
                 + "INNER JOIN purchase_payment_statement ON purchase_ledger.invoice_no = purchase_payment_statement.invoice_no "
@@ -106,7 +106,7 @@ public class Purchase_invoiceController implements Initializable {
                 + "AND '" + queryFunction.service.getYearMonth() + "-31'";
         pip.sumFunction(sql, netTotal_field, "total");
     }
-    
+
     private void totalYear() {
         String sql = "SELECT SUM(purchase_payment_statement.`total_ammount`) AS 'total',purchase_payment_statement.* FROM `purchase_ledger` "
                 + "INNER JOIN purchase_payment_statement ON purchase_ledger.invoice_no = purchase_payment_statement.invoice_no "
@@ -114,13 +114,13 @@ public class Purchase_invoiceController implements Initializable {
                 + "AND '" + queryFunction.service.getYear() + "-12-31'";
         pip.sumFunction(sql, netTotal_field, "total");
     }
-    
-    private void allTotal(){
+
+    private void allTotal() {
         String sql = "SELECT SUM(purchase_payment_statement.`total_ammount`) AS 'alltotal',purchase_payment_statement.* FROM `purchase_ledger` "
                 + "INNER JOIN purchase_payment_statement ON purchase_ledger.invoice_no = purchase_payment_statement.invoice_no ";
         pip.sumFunction(sql, netTotal_field, "alltotal");
     }
-    
+
     private void paid() {
         String sql = "SELECT SUM(purchase_payment_statement.`payment`) AS 'total',purchase_payment_statement.* FROM `purchase_ledger` "
                 + "INNER JOIN purchase_payment_statement ON purchase_ledger.invoice_no = purchase_payment_statement.invoice_no "
@@ -128,7 +128,7 @@ public class Purchase_invoiceController implements Initializable {
                 + "AND '" + queryFunction.service.getYearMonth() + "-31'";
         pip.sumFunction(sql, paid_field, "total");
     }
-    
+
     private void paidYear() {
         String sql = "SELECT SUM(purchase_payment_statement.`payment`) AS 'total',purchase_payment_statement.* FROM `purchase_ledger` "
                 + "INNER JOIN purchase_payment_statement ON purchase_ledger.invoice_no = purchase_payment_statement.invoice_no "
@@ -136,13 +136,13 @@ public class Purchase_invoiceController implements Initializable {
                 + "AND '" + queryFunction.service.getYear() + "-12-31'";
         pip.sumFunction(sql, paid_field, "total");
     }
-    
-    private void allPaid(){
+
+    private void allPaid() {
         String sql = "SELECT SUM(purchase_payment_statement.`payment`) AS 'allpaid',purchase_payment_statement.* FROM `purchase_ledger` "
                 + "INNER JOIN purchase_payment_statement ON purchase_ledger.invoice_no = purchase_payment_statement.invoice_no ";
         pip.sumFunction(sql, paid_field, "allpaid");
     }
-    
+
     private void due() {
         String sql = "SELECT SUM(purchase_payment_statement.`due`) AS 'total',purchase_payment_statement.* FROM `purchase_ledger` "
                 + "INNER JOIN purchase_payment_statement ON purchase_ledger.invoice_no = purchase_payment_statement.invoice_no "
@@ -150,7 +150,7 @@ public class Purchase_invoiceController implements Initializable {
                 + "AND '" + queryFunction.service.getYearMonth() + "-31'";
         pip.sumFunction(sql, due_field, "total");
     }
-    
+
     private void Yeardue() {
         String sql = "SELECT SUM(purchase_payment_statement.`due`) AS 'total',purchase_payment_statement.* FROM `purchase_ledger` "
                 + "INNER JOIN purchase_payment_statement ON purchase_ledger.invoice_no = purchase_payment_statement.invoice_no "
@@ -158,13 +158,13 @@ public class Purchase_invoiceController implements Initializable {
                 + "AND '" + queryFunction.service.getYear() + "-12-31'";
         pip.sumFunction(sql, due_field, "total");
     }
-    
-    private void alldue(){
+
+    private void alldue() {
         String sql = "SELECT SUM(purchase_payment_statement.`due`) AS 'alldue',purchase_payment_statement.* FROM `purchase_ledger` "
                 + "INNER JOIN purchase_payment_statement ON purchase_ledger.invoice_no = purchase_payment_statement.invoice_no ";
         pip.sumFunction(sql, due_field, "alldue");
     }
-    
+
     private void view() {
         String sql = "SELECT purchase_ledger.*,suplier_info.*,purchase_payment_statement.* FROM purchase_ledger "
                 + "INNER JOIN suplier_info ON purchase_ledger.suplier_id = suplier_info.id "
@@ -176,7 +176,7 @@ public class Purchase_invoiceController implements Initializable {
         paid();
         due();
     }
-    
+
     private void YearView() {
         String sql = "SELECT purchase_ledger.*,suplier_info.*,purchase_payment_statement.* FROM purchase_ledger "
                 + "INNER JOIN purchase_payment_statement ON purchase_ledger.invoice_no = purchase_payment_statement.invoice_no "
@@ -208,8 +208,9 @@ public class Purchase_invoiceController implements Initializable {
             view();
         } else if (category_view.getValue().equals("All Invoice")) {
             AllView();
-        }else if (category_view.getValue().equals("This Year"))
+        } else if (category_view.getValue().equals("This Year")) {
             YearView();
+        }
     }
 
     @FXML
@@ -226,7 +227,7 @@ public class Purchase_invoiceController implements Initializable {
 //            pip.allSearch(query, tableview);
 //        }
 
-if (category_view.getValue().equals("This month")) {
+        if (category_view.getValue().equals("This month")) {
             String query = "SELECT purchase_ledger.*,suplier_info.*,purchase_payment_statement.* FROM purchase_ledger "
                     + "INNER JOIN suplier_info ON purchase_ledger.suplier_id = suplier_info.id "
                     + "INNER JOIN purchase_payment_statement ON purchase_ledger.invoice_no = purchase_payment_statement.invoice_no "
@@ -262,13 +263,21 @@ if (category_view.getValue().equals("This month")) {
             view();
         } else if (category_view.getValue().equals("All Invoice")) {
             AllView();
-        } else if (category_view.getValue().equals(("This Year")))
+        } else if (category_view.getValue().equals(("This Year"))) {
             YearView();
+        }
     }
 
     @FXML
     private void Search(ActionEvent event) {
         pip.DateSearch(date1, date2, tableview);
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

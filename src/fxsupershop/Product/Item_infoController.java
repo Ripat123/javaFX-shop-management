@@ -289,14 +289,14 @@ public class Item_infoController implements Initializable {
                     row = sheet.getRow(i);
                     try {
                         presentID = prepareQueryFunction.AutoJFXID("product_item");
-                            name = prefareData(row);
-                            if(!name.equals("") && !name.equals(" ")){
+                        name = prefareData(row);
+                        if (!name.equals("") && !name.equals(" ")) {
                             post.setString(1, String.valueOf(presentID));
                             post.setString(2, name);
                             post.setString(3, String.valueOf(user));
                             post.setString(4, prepareQueryFunction.service.getDateTime());
                             post.execute();
-                            }
+                        }
                     } catch (Exception e) {
                     }
                 }
@@ -309,8 +309,8 @@ public class Item_infoController implements Initializable {
             }
         }
     }
-    
-    private String prefareData(Row row){
+
+    private String prefareData(Row row) {
         String name;
         try {
             name = row.getCell(0).getStringCellValue();
@@ -333,4 +333,10 @@ public class Item_infoController implements Initializable {
         report.ExportReport("/fxsupershop/Product/Report/", "item_format.jrxml", sql);
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
+    }
 }

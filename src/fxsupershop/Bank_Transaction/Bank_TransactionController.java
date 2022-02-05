@@ -375,5 +375,11 @@ public class Bank_TransactionController implements Initializable {
     private void DateSearch(ActionEvent event) {
         DateSearch();
     }
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize(); 
+    }
 
 }

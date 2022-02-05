@@ -11,7 +11,6 @@ import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.*;
-import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -310,6 +309,13 @@ public class Mesurement_InfoController implements Initializable {
     @FXML
     private void TableClick(MouseEvent event) {
         Click(event);
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

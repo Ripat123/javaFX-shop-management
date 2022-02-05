@@ -26,7 +26,7 @@ public class connection_Sql {
     public static Connection newConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+dbName, dbUser, dbPass);
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dbName, dbUser, dbPass);
 
             return con;
         } catch (Exception e) {
@@ -54,7 +54,7 @@ public class connection_Sql {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+dbName, dbUser, dbPass);
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dbName, dbUser, dbPass);
             return con;
 
 //            con = DriverManager.getConnection("jdbc:mysql://www.sbit.com.bd:3306/"+dbName, dbUser, dbPass);
@@ -82,15 +82,22 @@ public class connection_Sql {
     private static Connection connectFromFile() {
         try {
             dbname = read("dbName.txt");
-            if(check != 1){
-            user = read("UInfo.txt");
-            password = read("PInfo.txt");
-            con = DynamicConnection(dbname, user, password);
+            if (check != 1) {
+                user = read("UInfo.txt");
+                password = read("PInfo.txt");
+                con = DynamicConnection(dbname, user, password);
             }
             return con;
         } catch (Exception e) {
             cp.setupConnection(e);
             return con;
         }
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 }

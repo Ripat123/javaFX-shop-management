@@ -86,9 +86,9 @@ public class Supplier_infoController implements Initializable {
     }
 
     public void showSupplier() {
-            String sql = "SELECT * FROM `suplier_info`";
-            rep_supplierList = queryFunction.ViewArrayJFXComboBox(sql, "company_name", "id", sup_report_fieldID, rep_supplierList);
-            
+        String sql = "SELECT * FROM `suplier_info`";
+        rep_supplierList = queryFunction.ViewArrayJFXComboBox(sql, "company_name", "id", sup_report_fieldID, rep_supplierList);
+
     }
 
     private void autoID() {
@@ -147,24 +147,24 @@ public class Supplier_infoController implements Initializable {
                 String sql1 = "SELECT * FROM suplier_transaction WHERE suplier_id = '" + text_id.getText() + ""
                         + "' AND transaction_type = 'Opening'";
                 rs = queryFunction.getResult(sql1);
-                if(rs.next()){
+                if (rs.next()) {
                     queryFunction.service.msg.WarningMessage("Unsuccessful", "Opening balance already created", "You can't open balance again");
                     return;
-                }else{
-                    double balance=0;
+                } else {
+                    double balance = 0;
                     String sql3 = "SELECT balance FROM suplier_transaction WHERE suplier_id = '" + text_id.getText() + "' order by id desc";
                     rs = queryFunction.getResult(sql3);
-                    if(rs.next()){
+                    if (rs.next()) {
                         balance = Double.parseDouble(rs.getString("balance"));
                     }
                     double net_balance = balance + Double.parseDouble(open_bal.getText());
                     String sql2 = "INSERT INTO suplier_transaction (suplier_id,transaction_date,"
-                        + "transaction_type,debit,credit,balance) VALUES ('" + text_id.getText() + "',"
-                        + "'" + queryFunction.service.getnonFormatCurrentDate() + "','Opening',"
-                        + "'" + open_bal.getText() + "','0','" + net_balance + "')";
-                queryFunction.InsertCustomise(sql2, "Supplier Transaction Insert Unsuccessful");
+                            + "transaction_type,debit,credit,balance) VALUES ('" + text_id.getText() + "',"
+                            + "'" + queryFunction.service.getnonFormatCurrentDate() + "','Opening',"
+                            + "'" + open_bal.getText() + "','0','" + net_balance + "')";
+                    queryFunction.InsertCustomise(sql2, "Supplier Transaction Insert Unsuccessful");
                 }
-            } 
+            }
             queryFunction.service.msg.InformationMessage("Successful", "Information", "Update Successful");
             clean();
 
@@ -181,9 +181,9 @@ public class Supplier_infoController implements Initializable {
     }
 
     void delete() {
-            String sql = "delete from suplier_info WHERE id= '" + text_id.getText() + "'";
-            queryFunction.Delete(sql);
-            clean();
+        String sql = "delete from suplier_info WHERE id= '" + text_id.getText() + "'";
+        queryFunction.Delete(sql);
+        clean();
     }
 
     public void view() {
@@ -209,7 +209,7 @@ public class Supplier_infoController implements Initializable {
             }
             tableview.setItems(data);
         } catch (Exception e) {
-           queryFunction.service.msg.WarningMessage("Unsuccessful", "Warning", "View Unsuccessful" + e);
+            queryFunction.service.msg.WarningMessage("Unsuccessful", "Warning", "View Unsuccessful" + e);
 
         } finally {
             try {
@@ -309,7 +309,7 @@ public class Supplier_infoController implements Initializable {
     public void Indivisually_Report() {
         String path = "/fxsupershop/Supplier/";
         String report = "Indivisually_Supplier_Report.jrxml";
-        String sql = "SELECT * FROM `suplier_info` WHERE id = '"+supID+"'";
+        String sql = "SELECT * FROM `suplier_info` WHERE id = '" + supID + "'";
         queryFunction.report.getReport(path, report, sql);
     }
 
@@ -410,6 +410,13 @@ public class Supplier_infoController implements Initializable {
     private void Report(ActionEvent event) {
         JFXPopup popup = new JFXPopup();
         queryFunction.service.PopUPRight(repPane, reportbtn, popup, 0, 0);
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

@@ -74,23 +74,22 @@ public class Brand_infoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         service1.start();
         service1.setOnSucceeded((event) -> {
-          service1.cancel();
+            service1.cancel();
         });
     }
-    
-    
+
     Service service1 = new Service() {
-            @Override
-            protected Task createTask() {
-                return new Task() {
-                    @Override
-                    protected Void call() {
-                        initSource();
-                        return null;
-                    }
-                };
-            }
-        };
+        @Override
+        protected Task createTask() {
+            return new Task() {
+                @Override
+                protected Void call() {
+                    initSource();
+                    return null;
+                }
+            };
+        }
+    };
 
     public void initSource() {
         con = connection_Sql.ConnectDb();
@@ -98,38 +97,38 @@ public class Brand_infoController implements Initializable {
         autoID();
         user = lmfc.User();
     }
-    
-    private void autoID(){
+
+    private void autoID() {
         presentID = prepareQueryFunction.AutoJFXID("product_brand");
         brand_ID.setText(String.valueOf(presentID));
     }
 
     private void insert() {
-            if (brandName.getText().equals("")) {
-                msg.ConditionalMessage("Enter Brand Name");
-                return;
-            }
-            if (brand_ID.getText().equals("")) {
-                msg.ConditionalMessage("Empty Brand ID");
-                return;
-            }
+        if (brandName.getText().equals("")) {
+            msg.ConditionalMessage("Enter Brand Name");
+            return;
+        }
+        if (brand_ID.getText().equals("")) {
+            msg.ConditionalMessage("Empty Brand ID");
+            return;
+        }
 
-            String sql = "INSERT INTO `product_brand` (`brand_name`,"
-                    + "`id`)VALUES('"+brandName.getText().trim()+"','"+brand_ID.getText()+"')";
-            prepareQueryFunction.Insert(sql);
-            clean();
-            
+        String sql = "INSERT INTO `product_brand` (`brand_name`,"
+                + "`id`)VALUES('" + brandName.getText().trim() + "','" + brand_ID.getText() + "')";
+        prepareQueryFunction.Insert(sql);
+        clean();
+
     }
 
     private void update() {
         if (brandName.getText().equals("")) {
-                msg.ConditionalMessage("Enter Brand Name");
-                return;
-            }
-            if (brand_ID.getText().equals("")) {
-                msg.ConditionalMessage("Empty Brand ID");
-                return;
-            }
+            msg.ConditionalMessage("Enter Brand Name");
+            return;
+        }
+        if (brand_ID.getText().equals("")) {
+            msg.ConditionalMessage("Empty Brand ID");
+            return;
+        }
 
         String sql = "UPDATE product_brand SET brand_name='"
                 + "" + brandName.getText().trim() + "' WHERE id= '" + brand_ID.getText() + "'";
@@ -170,7 +169,7 @@ public class Brand_infoController implements Initializable {
 
     private void view() {
         data.clear();
-        
+
         col_brandname.setCellValueFactory(new PropertyValueFactory<>("brandname"));
         col_brandid.setCellValueFactory(new PropertyValueFactory<>("id"));
 
@@ -201,8 +200,8 @@ public class Brand_infoController implements Initializable {
         brandName.requestFocus();
         autoID();
     }
-    
-    private String prefareData(Row row){
+
+    private String prefareData(Row row) {
         String name;
         try {
             name = row.getCell(0).getStringCellValue();
@@ -291,7 +290,6 @@ public class Brand_infoController implements Initializable {
                 rs.close();
             } catch (Exception e) {
 
-                
             }
         }
 
@@ -328,14 +326,14 @@ public class Brand_infoController implements Initializable {
                     row = sheet.getRow(i);
                     try {
                         presentID = prepareQueryFunction.AutoJFXID("product_brand");
-                            name = prefareData(row);
-                            if(!name.equals("") && !name.equals(" ")){
+                        name = prefareData(row);
+                        if (!name.equals("") && !name.equals(" ")) {
                             post.setString(1, String.valueOf(presentID));
                             post.setString(2, name);
                             post.setString(3, String.valueOf(user));
                             post.setString(4, prepareQueryFunction.service.getDateTime());
                             post.execute();
-                            }
+                        }
                     } catch (Exception e) {
                     }
                 }
@@ -366,4 +364,10 @@ public class Brand_infoController implements Initializable {
         prepareQueryFunction.service.PopUPRight(action_pane, reportbtn, popup, 0, 0);
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
+    }
 }

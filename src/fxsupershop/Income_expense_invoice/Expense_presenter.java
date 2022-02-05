@@ -1,4 +1,3 @@
-
 package fxsupershop.Income_expense_invoice;
 
 import com.jfoenix.controls.*;
@@ -13,12 +12,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author Rifat Rabbi
  */
 public class Expense_presenter {
+
     ResultSet rs;
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
     ObservableList data = FXCollections.observableArrayList();
     String date_sql;
-    
-    private void ThisInitview(String query, TableView tableView){
+
+    private void ThisInitview(String query, TableView tableView) {
         try {
             rs = queryFunction.getResult(query);
             while (rs.next()) {
@@ -40,7 +40,7 @@ public class Expense_presenter {
             }
         }
     }
-    
+
     public void view(String query, TableView tableView, TableColumn invoice_col, TableColumn date_col,
             TableColumn title_col, TableColumn amount_col, TableColumn comment_col) {
         data.clear();
@@ -51,15 +51,15 @@ public class Expense_presenter {
         comment_col.setCellValueFactory(new PropertyValueFactory<>("comment"));
         ThisInitview(query, tableView);
     }
-    
-    public void DateSearch(JFXDatePicker date1, JFXDatePicker date2, TableView tableView){
+
+    public void DateSearch(JFXDatePicker date1, JFXDatePicker date2, TableView tableView) {
         data.clear();
         date_sql = "SELECT income_expense_source.source_title,expenseinfo.* FROM expenseinfo "
                 + "INNER JOIN income_expense_source ON expenseinfo.fk_title_id = "
-                + "income_expense_source.id WHERE expenseinfo.date BETWEEN '"+date1.getValue()+"' AND '"+date2.getValue()+"'";
+                + "income_expense_source.id WHERE expenseinfo.date BETWEEN '" + date1.getValue() + "' AND '" + date2.getValue() + "'";
         ThisInitview(date_sql, tableView);
     }
-    
+
     public void sumFunction(String query, JFXTextField field, String clmn) {
         try {
             rs = queryFunction.getResult(query);
@@ -77,7 +77,7 @@ public class Expense_presenter {
             }
         }
     }
-    
+
     public void Report(String sql) {
         if (sql == null) {
             reportGenerator(repQuery(date_sql));
@@ -95,5 +95,12 @@ public class Expense_presenter {
         String repQuery = sql.substring(sql.indexOf("SELECT"), sql.indexOf(" FROM expenseinfo")) + ",project_info.* FROM project_info,";
         String query = sql.replace(sql.substring(sql.indexOf("SELECT"), sql.indexOf("expenseinfo INNER ")), repQuery);
         return query;
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 }

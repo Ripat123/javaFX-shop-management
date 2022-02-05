@@ -12,7 +12,7 @@ import javafx.stage.Stage;
  * @author Rifat Rabbi
  */
 public class ConnectionPresenter {
-    
+
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
 
     public void setupConnection(Exception e) {
@@ -33,16 +33,16 @@ public class ConnectionPresenter {
             b.setOnAction((event) -> {
                 try {
                     Parent anchorPane = FXMLLoader.load(getClass().getResource("/fxsupershop/Connection/Connection_setup.fxml"));
-                Scene s = new Scene(anchorPane);
-                Stage stage = new Stage();
-                stage.setScene(s);
-                stage.setResizable(false);
-                stage.setTitle("Database Setup");
-                stage.show();
-                s1.close();
+                    Scene s = new Scene(anchorPane);
+                    Stage stage = new Stage();
+                    stage.setScene(s);
+                    stage.setResizable(false);
+                    stage.setTitle("Database Setup");
+                    stage.show();
+                    s1.close();
                 } catch (Exception e1) {
                 }
-                
+
             });
 //            ap.getChildren().addAll(b,b2);
             ap.setCenter(bp);
@@ -59,7 +59,14 @@ public class ConnectionPresenter {
 //                
 //            }
         } catch (Exception ex) {
-            queryFunction.service.msg.WarningMessage("Unsuccessful", "Warning", "Have a Problem\n"+ex);
+            queryFunction.service.msg.WarningMessage("Unsuccessful", "Warning", "Have a Problem\n" + ex);
         }
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 }

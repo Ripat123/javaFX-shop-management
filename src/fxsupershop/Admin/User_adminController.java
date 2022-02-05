@@ -656,5 +656,11 @@ public class User_adminController implements Initializable {
             }
         }
     }
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize(); 
+    }
 
 }

@@ -10,7 +10,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.Node;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -31,7 +30,7 @@ public class Connection_setupController implements Initializable {
     @FXML
     private JFXPasswordField u_pass;
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
-    Connection con=null;
+    Connection con = null;
 
     /**
      * Initializes the controller class.
@@ -87,6 +86,13 @@ public class Connection_setupController implements Initializable {
     @FXML
     private void submit(ActionEvent event) {
         Restore(event);
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

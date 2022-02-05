@@ -1053,4 +1053,10 @@ public class Product_infoController implements Initializable {
         p.DataImport();
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
+    }
 }

@@ -323,7 +323,7 @@ public class Employee_InfoController implements Initializable {
         combo_employeeStatus.getEditor().setText("");
         text_employeeID.requestFocus();
     }
-    
+
     private void ImageUpload() {
         try {
             File file = service.ImageUpload();
@@ -450,6 +450,13 @@ public class Employee_InfoController implements Initializable {
 
     @FXML
     private void OpenPopupImage(MouseEvent event) {
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

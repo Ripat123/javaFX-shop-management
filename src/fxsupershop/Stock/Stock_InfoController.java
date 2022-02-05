@@ -12,8 +12,6 @@ import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
-
 
 /**
  * FXML Controller class
@@ -22,7 +20,6 @@ import javafx.scene.layout.AnchorPane;
  */
 public class Stock_InfoController implements Initializable {
 
-    
 //    @FXML
 //    private ToggleGroup search;
     @FXML
@@ -51,7 +48,7 @@ public class Stock_InfoController implements Initializable {
 //    @FXML
 //    private JFXButton refbtn;
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
-    
+
     /**
      * Initializes the controller class.
      */
@@ -60,8 +57,8 @@ public class Stock_InfoController implements Initializable {
         // TODO
         view();
     }
-    
-    private void initview(String query){
+
+    private void initview(String query) {
         try {
             String sql = query;
             rs = queryFunction.getResult(sql);
@@ -87,35 +84,35 @@ public class Stock_InfoController implements Initializable {
 
     private void view() {
         data.clear();
-        
+
         proname_col.setCellValueFactory(new PropertyValueFactory<>("proName"));
         quanName_col.setCellValueFactory(new PropertyValueFactory<>("quan"));
         purchesPrice_col.setCellValueFactory(new PropertyValueFactory<>("purch_price"));
         salePrice_col.setCellValueFactory(new PropertyValueFactory<>("sale_price"));
-       
-            String sql = "SELECT stock_product.id,stock_product.quantity,stock_product.purchase_price,stock_product.sale_price,product_productinfo.product_name FROM stock_product\n"
-                    + "INNER JOIN product_productinfo ON stock_product.product_id=product_productinfo.id order by stock_product.id asc";
-            initview(sql);
+
+        String sql = "SELECT stock_product.id,stock_product.quantity,stock_product.purchase_price,stock_product.sale_price,product_productinfo.product_name FROM stock_product\n"
+                + "INNER JOIN product_productinfo ON stock_product.product_id=product_productinfo.id order by stock_product.id asc";
+        initview(sql);
     }
 
     private void search() {
-            if (id_filter.isSelected()) {
-                data.clear();
+        if (id_filter.isSelected()) {
+            data.clear();
 
-                String sql = "SELECT stock_product.id,stock_product.quantity,stock_product.purchase_price,stock_product.sale_price,product_productinfo.product_name FROM stock_product\n"
-                        + "INNER JOIN product_productinfo ON stock_product.product_id=product_productinfo.id WHERE "
-                        + "stock_product.id LIKE '%" + search_filed.getText() + "%' OR product_productinfo.product_name LIKE '%" + search_filed.getText() + "%' order by stock_product.id asc";
-                
-                initview(sql);
-            } else if (name_filter.isSelected()) {
-                data.clear();
+            String sql = "SELECT stock_product.id,stock_product.quantity,stock_product.purchase_price,stock_product.sale_price,product_productinfo.product_name FROM stock_product\n"
+                    + "INNER JOIN product_productinfo ON stock_product.product_id=product_productinfo.id WHERE "
+                    + "stock_product.id LIKE '%" + search_filed.getText() + "%' OR product_productinfo.product_name LIKE '%" + search_filed.getText() + "%' order by stock_product.id asc";
 
-                String sql = "SELECT stock_product.id,stock_product.quantity,stock_product.purchase_price,stock_product.sale_price,product_productinfo.product_name FROM stock_product\n"
-                        + "INNER JOIN product_productinfo ON stock_product.product_id=product_productinfo.id WHERE "
-                        + "stock_product.id LIKE '%" + search_filed.getText() + "%' OR product_productinfo.product_name LIKE '%" + search_filed.getText() + "%' order by stock_product.id asc";
-                initview(sql);
-            }
-        
+            initview(sql);
+        } else if (name_filter.isSelected()) {
+            data.clear();
+
+            String sql = "SELECT stock_product.id,stock_product.quantity,stock_product.purchase_price,stock_product.sale_price,product_productinfo.product_name FROM stock_product\n"
+                    + "INNER JOIN product_productinfo ON stock_product.product_id=product_productinfo.id WHERE "
+                    + "stock_product.id LIKE '%" + search_filed.getText() + "%' OR product_productinfo.product_name LIKE '%" + search_filed.getText() + "%' order by stock_product.id asc";
+            initview(sql);
+        }
+
     }
 
     @FXML
@@ -126,6 +123,13 @@ public class Stock_InfoController implements Initializable {
     @FXML
     private void viewallbtn(ActionEvent event) {
         view();
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

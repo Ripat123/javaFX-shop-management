@@ -13,7 +13,6 @@ import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.*;
-import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -49,7 +48,7 @@ public class Income_expenseController implements Initializable {
     ObservableList data = FXCollections.observableArrayList();
     ResultSet rs;
     LoginMultiFormController lmfc = new LoginMultiFormController();
-    int uid,autoid;
+    int uid, autoid;
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
 
     /**
@@ -63,8 +62,8 @@ public class Income_expenseController implements Initializable {
         uid = lmfc.User();
         autoID();
     }
-    
-    private void autoID(){
+
+    private void autoID() {
         autoid = queryFunction.AutoJFXID("income_expense_source");
         text_source_id.setText(String.valueOf(autoid));
     }
@@ -176,7 +175,7 @@ public class Income_expenseController implements Initializable {
 
     private void Full_Report() {
         String path = "/fxsupershop/Income_Expense/";
-        String report ="Income_Expense_Report.jrxml";
+        String report = "Income_Expense_Report.jrxml";
         String sql = "SELECT * FROM `income_expense_source`";
         queryFunction.report.getReport(path, report, sql);
     }
@@ -256,17 +255,22 @@ public class Income_expenseController implements Initializable {
             }
         } catch (Exception e) {
 
-        }
-        finally{
-            try{
+        } finally {
+            try {
                 rs.close();
                 queryFunction.post.close();
-            }
-            catch(Exception e){
-                
+            } catch (Exception e) {
+
             }
         }
 
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

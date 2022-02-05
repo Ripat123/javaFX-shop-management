@@ -172,22 +172,22 @@ public class SalesInvoiceController implements Initializable {
                 + "INNER JOIN sale_payment_statement ON sale_ledger.invoice_id = sale_payment_statement.invoice_no ";
         sip.sumFunction(sql, due_field, "total");
     }
-    
-    private void profit(){
+
+    private void profit() {
         String sql = "SELECT invoice_id FROM sale_ledger WHERE invoice_date "
                 + "BETWEEN '" + queryFunction.service.getYearMonth() + "-01' "
                 + "AND '" + queryFunction.service.getYearMonth() + "-31'";
         sip.profitGenerator(sql, profit);
     }
-    
-    private void yearProfit(){
+
+    private void yearProfit() {
         String sql = "SELECT invoice_id FROM sale_ledger WHERE invoice_date "
                 + "BETWEEN '" + queryFunction.service.getYear() + "-01-01' "
                 + "AND '" + queryFunction.service.getYear() + "-12-31'";
         sip.profitGenerator(sql, profit);
     }
-    
-    private void AllProfit(){
+
+    private void AllProfit() {
         String sql = "SELECT invoice_id FROM sale_ledger";
         sip.profitGenerator(sql, profit);
     }
@@ -228,7 +228,7 @@ public class SalesInvoiceController implements Initializable {
 
     @FXML
     private void Clicked(MouseEvent event) {
-        sip.clicked(tableview, event, check,check1, profit);
+        sip.clicked(tableview, event, check, check1, profit);
     }
 
     @FXML
@@ -308,6 +308,13 @@ public class SalesInvoiceController implements Initializable {
     @FXML
     private void Check1Action(ActionEvent event) {
         check.setSelected(false);
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

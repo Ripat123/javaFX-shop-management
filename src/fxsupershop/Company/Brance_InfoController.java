@@ -392,5 +392,11 @@ public class Brance_InfoController implements Initializable {
     private void SelectedReport(ActionEvent event) {
 
     }
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize(); 
+    }
 
 }

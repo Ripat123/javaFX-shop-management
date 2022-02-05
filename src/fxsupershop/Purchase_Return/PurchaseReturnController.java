@@ -529,4 +529,11 @@ public class PurchaseReturnController implements Initializable {
         supplier_Rel(event);
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
+    }
+
 }

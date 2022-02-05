@@ -141,34 +141,36 @@ public class Supplier_wise_paymentController implements Initializable {
             rs = queryFunction.getResult(sql);
             while (rs.next()) {
                 if (payAmount > 0) {
-                    
+
                     String sql1 = "SELECT * FROM purchase_payment_statement WHERE invoice_no = '" + rs.getString("invoice_no") + "' AND due != '0'";
                     rss = queryFunction.getResult(sql1);
                     if (rss.next()) {
                         double due = Double.parseDouble(rss.getString("due"));
                         double netDue = due - payAmount;
-                        
+
                         if (String.valueOf(netDue).contains("-")) {
-                            
+
                             String p = String.valueOf(netDue).replace("-", "");
                             double pay = payAmount - Double.parseDouble(p);
                             payAmount = Double.parseDouble(p);
-                            
+
                             String sql2 = "UPDATE purchase_payment_statement SET payment = payment + '" + pay + "',"
                                     + "due = '0' WHERE invoice_no = '" + rss.getString("invoice_no") + "'";
                             queryFunction.UpdateMessageLess(sql2);
-                            
+
                         } else if (!String.valueOf(netDue).contains("-") && netDue != 0) {
                             String sql3 = "UPDATE purchase_payment_statement SET payment = payment + '" + payAmount + "',"
                                     + "due = '" + netDue + "' WHERE invoice_no = '" + rss.getString("invoice_no") + "'";
                             queryFunction.UpdateMessageLess(sql3);
                             break;
-                            
-                        } else if (netDue == 0) 
+
+                        } else if (netDue == 0) {
                             break;
+                        }
                     }
-                }else
+                } else {
                     break;
+                }
             }
         } catch (Exception e) {
         }
@@ -213,6 +215,13 @@ public class Supplier_wise_paymentController implements Initializable {
 
     @FXML
     private void Table_Click(MouseEvent event) {
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

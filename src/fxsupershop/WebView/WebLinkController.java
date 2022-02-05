@@ -7,7 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.print.*;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.transform.Scale;
 import javafx.scene.web.*;
 
@@ -56,5 +55,10 @@ public void print(final Node node) {
     private void loadaction(ActionEvent event) {
         print(webid);
     }
-    
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize(); 
+    }
 }

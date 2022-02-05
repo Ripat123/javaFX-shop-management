@@ -96,4 +96,11 @@ public class Income_Presenter {
         String query = sql.replace(sql.substring(sql.indexOf("SELECT"), sql.indexOf("incomeinfo INNER ")), repQuery);
         return query;
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
+    }
 }

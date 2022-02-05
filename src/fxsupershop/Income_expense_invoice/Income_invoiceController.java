@@ -7,7 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
-import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -63,10 +62,10 @@ public class Income_invoiceController implements Initializable {
 
     private void view() {
         sql = "SELECT income_expense_source.source_title,incomeinfo.* FROM incomeinfo "
-                    + "INNER JOIN income_expense_source ON incomeinfo.fk_title_id = "
-                    + "income_expense_source.id WHERE incomeinfo.date"
-                    + " BETWEEN '" + ip.queryFunction.service.getYearMonth() + "-01' "
-                    + "AND '" + ip.queryFunction.service.getYearMonth() + "-31'";
+                + "INNER JOIN income_expense_source ON incomeinfo.fk_title_id = "
+                + "income_expense_source.id WHERE incomeinfo.date"
+                + " BETWEEN '" + ip.queryFunction.service.getYearMonth() + "-01' "
+                + "AND '" + ip.queryFunction.service.getYearMonth() + "-31'";
         ip.view(sql, tableview, invoice_col, date_col, title_col, amount_col, com_col);
         yearMonthTotal();
     }
@@ -81,26 +80,26 @@ public class Income_invoiceController implements Initializable {
 
     private void yearView() {
         sql = "SELECT income_expense_source.source_title,incomeinfo.* FROM incomeinfo "
-                    + "INNER JOIN income_expense_source ON incomeinfo.fk_title_id = "
-                    + "income_expense_source.id WHERE incomeinfo.date BETWEEN '" + ip.queryFunction.service.getYear() + "-01-01' "
-                    + "AND '" + ip.queryFunction.service.getYear() + "-12-31'";
+                + "INNER JOIN income_expense_source ON incomeinfo.fk_title_id = "
+                + "income_expense_source.id WHERE incomeinfo.date BETWEEN '" + ip.queryFunction.service.getYear() + "-01-01' "
+                + "AND '" + ip.queryFunction.service.getYear() + "-12-31'";
         ip.view(sql, tableview, invoice_col, date_col, title_col, amount_col, com_col);
         yearTotal();
     }
-    
-    private void total(){
+
+    private void total() {
         String query = "SELECT SUM(`ammount`) AS 'total' FROM `incomeinfo`";
         ip.sumFunction(query, netTotal_field, "total");
     }
-    
-    private void yearTotal(){
+
+    private void yearTotal() {
         String query = "SELECT SUM(`ammount`) AS 'total' FROM `incomeinfo` "
                 + "WHERE incomeinfo.date BETWEEN '" + ip.queryFunction.service.getYear() + "-01-01' "
                 + "AND '" + ip.queryFunction.service.getYear() + "-12-31'";
         ip.sumFunction(query, netTotal_field, "total");
     }
-    
-    private void yearMonthTotal(){
+
+    private void yearMonthTotal() {
         String query = "SELECT SUM(`ammount`) AS 'total' FROM `incomeinfo` WHERE incomeinfo.date"
                 + " BETWEEN '" + ip.queryFunction.service.getYearMonth() + "-01' "
                 + "AND '" + ip.queryFunction.service.getYearMonth() + "-31'";
@@ -121,7 +120,7 @@ public class Income_invoiceController implements Initializable {
                     + "AND '" + ip.queryFunction.service.getYearMonth() + "-31'"
                     + " AND incomeinfo.id LIKE '%" + search_filed.getText() + "%'";
             ip.view(sql, tableview, invoice_col, date_col, title_col, amount_col, com_col);
-            
+
         } else if (category_view.getValue().equals("This Year")) {
             String sql = "SELECT income_expense_source.source_title,incomeinfo.* FROM incomeinfo "
                     + "INNER JOIN income_expense_source ON incomeinfo.fk_title_id = "
@@ -129,13 +128,13 @@ public class Income_invoiceController implements Initializable {
                     + "AND '" + ip.queryFunction.service.getYear() + "-12-31'"
                     + " AND incomeinfo.id LIKE '%" + search_filed.getText() + "%'";
             ip.view(sql, tableview, invoice_col, date_col, title_col, amount_col, com_col);
-            
+
         } else if (category_view.getValue().equals("All Invoice")) {
             String sql = "SELECT income_expense_source.source_title,incomeinfo.* FROM incomeinfo "
-                + "INNER JOIN income_expense_source ON incomeinfo.fk_title_id = "
-                + "income_expense_source.id WHERE incomeinfo.id LIKE '%" + search_filed.getText() + "%'";
+                    + "INNER JOIN income_expense_source ON incomeinfo.fk_title_id = "
+                    + "income_expense_source.id WHERE incomeinfo.id LIKE '%" + search_filed.getText() + "%'";
             ip.view(sql, tableview, invoice_col, date_col, title_col, amount_col, com_col);
-    }
+        }
     }
 
     @FXML
@@ -164,12 +163,18 @@ public class Income_invoiceController implements Initializable {
 
     @FXML
     private void Print(ActionEvent event) {
-        if(date1.getValue() != null){
+        if (date1.getValue() != null) {
             ip.Report(null);
-        }
-        else{
+        } else {
             ip.Report(ip.repQuery(sql));
         }
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

@@ -84,7 +84,7 @@ public class Category_infoController implements Initializable {
 
     private void veiwItem() {
         String sql = "SELECT * FROM `product_item`";
-        itemlist = prepareQueryFunction.ViewArrayJFXComboBox(sql, "item_name", "id", ItemName_cat,itemlist);
+        itemlist = prepareQueryFunction.ViewArrayJFXComboBox(sql, "item_name", "id", ItemName_cat, itemlist);
 
     }
 
@@ -265,7 +265,7 @@ public class Category_infoController implements Initializable {
     private void ShowPressItem(KeyEvent event) {
         try {
             String sql = "SELECT * FROM `product_item` WHERE `item_name` LIKE '%" + ItemName_cat.getEditor().getText() + "%'";
-            itemlist = prepareQueryFunction.ShowArrayItemKeyReleased(sql, "item_name", "id", ItemName_cat, event,itemlist);
+            itemlist = prepareQueryFunction.ShowArrayItemKeyReleased(sql, "item_name", "id", ItemName_cat, event, itemlist);
         } catch (Exception e) {
         }
 
@@ -392,4 +392,10 @@ public class Category_infoController implements Initializable {
         prepareQueryFunction.service.PopUPRight(action_pane, morebtn, popup, 0, 0);
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
+    }
 }

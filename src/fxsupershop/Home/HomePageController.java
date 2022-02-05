@@ -354,9 +354,9 @@ public class HomePageController implements Initializable {
 //        });
 //    }
 //});
-    public void showAvatar() {
+//    public void showAvatar() {
 //        Tab.ShowAvatar(pattern, circle);
-    }
+//    }
 
     private void initview(String query) {
         Tab.initview(query, tableview, data);
@@ -581,6 +581,8 @@ public class HomePageController implements Initializable {
         tb11.getTabs().clear();
         tb11.setVisible(false);
         viewallbtn(event);
+        System.gc();
+        System.runFinalization();
     }
 
     @FXML
@@ -644,7 +646,7 @@ public class HomePageController implements Initializable {
     private void viewallbtn(ActionEvent event) {
         view();
         todaySales();
-        showAvatar();
+//        showAvatar();
     }
 
     @FXML
@@ -709,10 +711,14 @@ public class HomePageController implements Initializable {
     @FXML
     private void QuitYesAction(ActionEvent event) {
         if (check == 1) {
+            System.gc();
+            System.runFinalization();
             Platform.exit();
         }
         if (check == 2) {
             try {
+                System.gc();
+                System.runFinalization();
                 Stage window1 = (Stage) ((Node) e.getSource()).getScene().getWindow();
                 window1.close();
                 FxSuperShop b = new FxSuperShop();
@@ -796,14 +802,12 @@ public class HomePageController implements Initializable {
 
     @FXML
     private void Profile(ActionEvent event) {
-        String path = "/fxsupershop/Admin/Profile.fxml";
-        Tab.getTab(path, "My Information", "31", tb11);
+        openProfile();
     }
 
     @FXML
     private void ProfilebtnAction(ActionEvent event) {
-        String path = "/fxsupershop/Admin/Profile.fxml";
-        Tab.getTab(path, "My Information", "31", tb11);
+        openProfile();
     }
 
     @FXML
@@ -912,6 +916,17 @@ public class HomePageController implements Initializable {
 
     @FXML
     private void purchaseLadger(ActionEvent event) {
+    }
+
+    private void openProfile() {
+        String path = "/fxsupershop/Admin/Profile.fxml";
+        Tab.getTab(path, "My Information", "31", tb11);
+    }
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize(); 
     }
 
 }

@@ -1,4 +1,3 @@
-
 package fxsupershop.Report;
 
 import com.jfoenix.controls.*;
@@ -27,12 +26,12 @@ public class Page_setupController implements Initializable {
     private JFXTextField M_right;
     @FXML
     private JFXTextField M_bottom;
-    private Paper paper=Paper.A4;
-    private PageOrientation paper_orientaion=PageOrientation.PORTRAIT;
-    private double margin_left=0.5;
-    private double margin_right=0.5;
-    private double margin_top=0.75;
-    private double margin_bottom=0.75;
+    private Paper paper = Paper.A4;
+    private PageOrientation paper_orientaion = PageOrientation.PORTRAIT;
+    private double margin_left = 0.5;
+    private double margin_right = 0.5;
+    private double margin_top = 0.75;
+    private double margin_bottom = 0.75;
     Localhost_reportController controller;
 
     /**
@@ -41,38 +40,37 @@ public class Page_setupController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        p_size.getItems().addAll("A0","A1","A2","A3","A4","A5","A6","C","DESIGNATED_LONG",
-                "EXECUTIVE","JAPANESE_POSTCARD","JIS_B4","JIS_B5","JIS_B6","LEGAL",
-                "MONARCH_ENVELOPE","NA_8X10","NA_LETTER","NA_NUMBER_10_ENVELOPE",
+        p_size.getItems().addAll("A0", "A1", "A2", "A3", "A4", "A5", "A6", "C", "DESIGNATED_LONG",
+                "EXECUTIVE", "JAPANESE_POSTCARD", "JIS_B4", "JIS_B5", "JIS_B6", "LEGAL",
+                "MONARCH_ENVELOPE", "NA_8X10", "NA_LETTER", "NA_NUMBER_10_ENVELOPE",
                 "TABLOID");
         p_size.setValue("A4");
-        p_orien.getItems().addAll("PORTRAIT","LANDSCAPE","REVERSE_LANDSCAPE","REVERSE_PORTRAIT");
+        p_orien.getItems().addAll("PORTRAIT", "LANDSCAPE", "REVERSE_LANDSCAPE", "REVERSE_PORTRAIT");
         p_orien.setValue("PORTRAIT");
         M_left.setText("0.5");
         M_right.setText("0.5");
         M_top.setText("0.75");
         M_bottom.setText("0.75");
-        
-    }  
-    
-    
-    public PageLayout PageSetup(PrinterJob job, Paper p, PageOrientation pg, double ml, double mr, double mt, double mb){
+
+    }
+
+    public PageLayout PageSetup(PrinterJob job, Paper p, PageOrientation pg, double ml, double mr, double mt, double mb) {
 //        setup();
-        ml =ml * 72;
+        ml = ml * 72;
         mr = mr * 72;
         mt = mt * 72;
         mb = mb * 72;
-        Printer printer = job.getPrinter(); 
-        PageLayout pageLayout = printer.createPageLayout(p, pg, 
+        Printer printer = job.getPrinter();
+        PageLayout pageLayout = printer.createPageLayout(p, pg,
                 ml, mr, mt, mb);
         return pageLayout;
-        
+
     }
-    
-    public void setup(){
+
+    public void setup() {
         String size = p_size.getValue().toString();
         String orien = p_orien.getValue().toString();
-        switch(size){
+        switch (size) {
             case "A0":
                 paper = Paper.A0;
                 break;
@@ -134,17 +132,17 @@ public class Page_setupController implements Initializable {
                 paper = Paper.TABLOID;
                 break;
         }
-        switch(orien){
-            case "PORTRAIT": 
+        switch (orien) {
+            case "PORTRAIT":
                 paper_orientaion = PageOrientation.PORTRAIT;
                 break;
-            case "LANDSCAPE": 
+            case "LANDSCAPE":
                 paper_orientaion = PageOrientation.LANDSCAPE;
                 break;
-            case "REVERSE_LANDSCAPE": 
+            case "REVERSE_LANDSCAPE":
                 paper_orientaion = PageOrientation.REVERSE_LANDSCAPE;
                 break;
-            case "REVERSE_PORTRAIT": 
+            case "REVERSE_PORTRAIT":
                 paper_orientaion = PageOrientation.REVERSE_PORTRAIT;
                 break;
         }
@@ -153,23 +151,28 @@ public class Page_setupController implements Initializable {
         margin_top = Double.parseDouble(M_top.getText());
         margin_bottom = Double.parseDouble(M_bottom.getText());
     }
-    
-    
 
     @FXML
     private void okAction(ActionEvent event) {
         setup();
         Localhost_reportController lc = new Localhost_reportController();
-        lc.paper(paper, paper_orientaion, margin_left,margin_right,margin_top,margin_bottom);
-                
-      JFXPopup p =controller.hide();
-      p.hide();
+        lc.paper(paper, paper_orientaion, margin_left, margin_right, margin_top, margin_bottom);
+
+        JFXPopup p = controller.hide();
+        p.hide();
     }
 
     @FXML
     private void cancelAction(ActionEvent event) {
-        JFXPopup p =controller.hide();
+        JFXPopup p = controller.hide();
         p.hide();
     }
-    
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
+    }
+
 }

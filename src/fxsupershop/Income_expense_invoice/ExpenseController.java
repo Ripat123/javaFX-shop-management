@@ -7,8 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
-import javafx.scene.layout.AnchorPane;
-import org.controlsfx.control.NotificationPane;
 
 /**
  * FXML Controller class
@@ -124,7 +122,7 @@ public class ExpenseController implements Initializable {
                     + "AND '" + ep.queryFunction.service.getYearMonth() + "-31'"
                     + " AND expenseinfo.id LIKE '%" + search_filed.getText() + "%'";
             ep.view(sql, tableview, invoice_col, date_col, title_col, amount_col, com_col);
-            
+
         } else if (category_view.getValue().equals("This Year")) {
             String sql = "SELECT income_expense_source.source_title,expenseinfo.* FROM expenseinfo "
                     + "INNER JOIN income_expense_source ON expenseinfo.fk_title_id = "
@@ -132,13 +130,13 @@ public class ExpenseController implements Initializable {
                     + "AND '" + ep.queryFunction.service.getYear() + "-12-31'"
                     + " AND expenseinfo.id LIKE '%" + search_filed.getText() + "%'";
             ep.view(sql, tableview, invoice_col, date_col, title_col, amount_col, com_col);
-            
+
         } else if (category_view.getValue().equals("All Invoice")) {
             String sql = "SELECT income_expense_source.source_title,expenseinfo.* FROM expenseinfo "
-                + "INNER JOIN income_expense_source ON expenseinfo.fk_title_id = "
-                + "income_expense_source.id WHERE expenseinfo.id LIKE '%" + search_filed.getText() + "%'";
+                    + "INNER JOIN income_expense_source ON expenseinfo.fk_title_id = "
+                    + "income_expense_source.id WHERE expenseinfo.id LIKE '%" + search_filed.getText() + "%'";
             ep.view(sql, tableview, invoice_col, date_col, title_col, amount_col, com_col);
-            
+
         }
     }
 
@@ -170,16 +168,22 @@ public class ExpenseController implements Initializable {
 //}else{
 //    noti.show();
 //}
-        
+
     }
 
     @FXML
     private void Print(ActionEvent event) {
-        if(date1.getValue() != null){
+        if (date1.getValue() != null) {
             ep.Report(null);
-        }
-        else{
+        } else {
             ep.Report(ep.repQuery(sql));
         }
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 }

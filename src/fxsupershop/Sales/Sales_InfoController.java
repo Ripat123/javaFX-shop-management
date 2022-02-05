@@ -10,7 +10,6 @@ import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.*;
-import javafx.animation.*;
 import javafx.collections.*;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
@@ -20,7 +19,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
-import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -846,7 +844,7 @@ public class Sales_InfoController implements Initializable {
             substraction_product();
             peymentStatement();
             presenter.vatEntry(text_invoice_date.getValue().toString(), text_invoice_id.getText(),
-                     "0", text_vat.getText(), String.valueOf(Uid));
+                    "0", text_vat.getText(), String.valueOf(Uid));
             if (S_invoice_check.isSelected()) {
                 report(text_invoice_id.getText());
             }
@@ -1093,6 +1091,12 @@ public class Sales_InfoController implements Initializable {
                 + "measurement_type =product_measurement_subunit.id WHERE product_productinfo.id="
                 + "'" + text_barcoad.getText() + "'";
         productAction(sql);
+    }
 
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 }

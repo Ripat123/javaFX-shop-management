@@ -60,8 +60,7 @@ public class Sales_invoice_Presenter {
         initview(query, tableView);
     }
 
-    public void clicked(TableView tableView, MouseEvent event, JFXCheckBox 
-            checkBox,JFXCheckBox checkBox1, JFXTextField field) {
+    public void clicked(TableView tableView, MouseEvent event, JFXCheckBox checkBox, JFXCheckBox checkBox1, JFXTextField field) {
         try {
             if (event.getClickCount() == 1) {
                 @SuppressWarnings("rawtypes")
@@ -85,7 +84,7 @@ public class Sales_invoice_Presenter {
                         queryFunction.getImagePath(sql, "image");
                         queryFunction.report.getReport(path, "SalesReport.jrxml", sql);
                     }
-                    if(checkBox1.isSelected()){
+                    if (checkBox1.isSelected()) {
                         String path = "/fxsupershop/Sales/";
                         String sql = "SELECT sale_entry.*,vat_entry.total_vat,"
                                 + "customer_info.*,project_info.*,"
@@ -121,7 +120,7 @@ public class Sales_invoice_Presenter {
             }
             String sql1 = "SELECT * FROM sale_ledger WHERE sale_ledger.invoice_id = '" + val + "'";
             rs = queryFunction.getResult(sql1);
-            if(rs.next()){
+            if (rs.next()) {
                 double discount = Double.parseDouble(rs.getString("totaldiscount"));
                 profit = profit - discount;
             }
@@ -138,7 +137,7 @@ public class Sales_invoice_Presenter {
 
     public void profitGenerator(String query, JFXTextField field) {
         String val;
-        ResultSet rss=null;
+        ResultSet rss = null;
         double singleProfit, totalProfit = 0;
         try {
             rss = queryFunction.getResult(query);
@@ -190,8 +189,14 @@ public class Sales_invoice_Presenter {
                 queryFunction.post.close();
                 rs.close();
             } catch (Exception e) {
-
             }
         }
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 }

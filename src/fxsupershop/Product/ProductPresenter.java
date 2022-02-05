@@ -73,14 +73,15 @@ public class ProductPresenter {
             } else if (id <= 9999) {
                 autoID = (prefix + "" + "" + Integer.toString(id));
                 return autoID;
-            }else {
+            } else {
                 autoID = (prefix + id);
             }
 
             if (autoID == null && autoID.equals("")) {
                 autoID = (prefix + "0001");
             }
-        } catch (Exception e) {e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             queryFunction.service.msg.WarningMessage("Unsuccessful", "Warning", "Have a Problem\n" + e);
         }
         return autoID;
@@ -145,22 +146,25 @@ public class ProductPresenter {
     private void DataPrepare(Row row) {
         try {
             itemID = String.valueOf(row.getCell(0).getNumericCellValue());
-            if(itemID.equals("") || itemID.equals(" "))
+            if (itemID.equals("") || itemID.equals(" ")) {
                 itemID = "0";
+            }
         } catch (Exception e) {
             itemID = "0";
         }
         try {
             brandID = String.valueOf(row.getCell(1).getNumericCellValue());
-            if(brandID.equals("") || brandID.equals(" "))
+            if (brandID.equals("") || brandID.equals(" ")) {
                 brandID = "0";
+            }
         } catch (Exception e) {
             brandID = "0";
         }
         try {
             categoryID = String.valueOf(row.getCell(2).getNumericCellValue());
-            if(categoryID.equals("") || categoryID.equals(" "))
+            if (categoryID.equals("") || categoryID.equals(" ")) {
                 categoryID = "0";
+            }
         } catch (Exception e) {
             categoryID = "0";
         }
@@ -222,5 +226,12 @@ public class ProductPresenter {
         } catch (Exception e) {
             over = "100";
         }
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 }

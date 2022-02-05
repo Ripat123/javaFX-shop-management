@@ -39,74 +39,74 @@ public class LoginMultiFormController implements Initializable, Runnable {
     private Button Login;
     @FXML
     private CheckBox show_pass1;
-    @FXML
-    private Hyperlink forgot_pass;
-    @FXML
-    private Hyperlink sign_up1;
+//    @FXML
+//    private Hyperlink forgot_pass;
+//    @FXML
+//    private Hyperlink sign_up1;
     @FXML
     private Pane get_pass_form;
     @FXML
     private TextField user2;
-    @FXML
-    private Button get_pass;
-    @FXML
-    private Hyperlink sign_up2;
+//    @FXML
+//    private Button get_pass;
+//    @FXML
+//    private Hyperlink sign_up2;
     @FXML
     private TextField email_or_phone1;
     @FXML
     private PasswordField pass2;
     @FXML
     private CheckBox show_pass;
-    @FXML
-    private ImageView submit1;
-    @FXML
-    private ImageView submit2;
-    @FXML
-    private Hyperlink go_login;
-    @FXML
-    private AnchorPane main_form;
-    @FXML
-    private Label close1;
-    @FXML
-    private Label close2;
-    @FXML
-    private TextField create_fullname;
-    @FXML
-    private Button signup_btn;
-    @FXML
-    private TextArea create_address;
-    @FXML
-    private RadioButton male;
-    @FXML
-    private RadioButton female;
-    @FXML
-    private PasswordField create_con_pass;
-    @FXML
-    private CheckBox show_pass_con;
-    @FXML
-    private TextField create_phon;
-    @FXML
-    private TextField create_email;
-    @FXML
-    private TextField create_user;
-    @FXML
-    private PasswordField create_pass;
-    @FXML
-    private CheckBox show_pass11;
-    @FXML
-    private Label close11;
-    @FXML
-    private Hyperlink go_login1;
+//    @FXML
+//    private ImageView submit1;
+//    @FXML
+//    private ImageView submit2;
+//    @FXML
+//    private Hyperlink go_login;
+//    @FXML
+//    private AnchorPane main_form;
+//    @FXML
+//    private Label close1;
+//    @FXML
+//    private Label close2;
+//    @FXML
+//    private TextField create_fullname;
+//    @FXML
+//    private Button signup_btn;
+//    @FXML
+//    private TextArea create_address;
+//    @FXML
+//    private RadioButton male;
+//    @FXML
+//    private RadioButton female;
+//    @FXML
+//    private PasswordField create_con_pass;
+//    @FXML
+//    private CheckBox show_pass_con;
+//    @FXML
+//    private TextField create_phon;
+//    @FXML
+//    private TextField create_email;
+//    @FXML
+//    private TextField create_user;
+//    @FXML
+//    private PasswordField create_pass;
+//    @FXML
+//    private CheckBox show_pass11;
+//    @FXML
+//    private Label close11;
+//    @FXML
+//    private Hyperlink go_login1;
     @FXML
     private Pane create_form;
-    @FXML
-    private ToggleGroup gender;
+//    @FXML
+//    private ToggleGroup gender;
     ResultSet rs = (null);
     Thread th;
     @FXML
     private Pane proccessing;
-    @FXML
-    private Label close12;
+//    @FXML
+//    private Label close12;
     private ActionEvent e1;
     public String user_p;
     Message msg = new Message();
@@ -126,8 +126,8 @@ public class LoginMultiFormController implements Initializable, Runnable {
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
     @FXML
     private ImageView logo;
-    @FXML
-    private Label desc;
+//    @FXML
+//    private Label desc;
     Connection c = null;
     Process process;
 
@@ -478,6 +478,13 @@ public class LoginMultiFormController implements Initializable, Runnable {
     @FXML
     private void ShowGetPassword(ActionEvent event) {
         presen.ShowPassToPasswordField(pass2, show_pass);
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize(); 
     }
 
 }

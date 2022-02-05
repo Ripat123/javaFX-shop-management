@@ -67,13 +67,13 @@ public class Salary_SetupController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 //        con = connection_Sql.ConnectDb();
         status.getItems().addAll("Active", "Inactive");
-       initSource();
+        initSource();
     }
-    
-    public void initSource(){
+
+    public void initSource() {
         con = connection_Sql.ConnectDb();
-         view();
-         EmployeeView();
+        view();
+        EmployeeView();
     }
 
     private void EmployeeView() {
@@ -352,6 +352,13 @@ public class Salary_SetupController implements Initializable {
 
             }
         }
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

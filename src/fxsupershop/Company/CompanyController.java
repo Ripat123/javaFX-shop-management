@@ -3,7 +3,6 @@ package fxsupershop.Company;
 import com.jfoenix.controls.*;
 import fxsupershop.Services.PrepareQueryFunction;
 import fxsupershop.TableView.CompanyView;
-
 import java.net.URL;
 import java.sql.*;
 import java.util.*;
@@ -13,7 +12,6 @@ import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.*;
-import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -382,6 +380,13 @@ public class CompanyController implements Initializable {
     @FXML
     private void Indivisually_Report_Button(ActionEvent event) {
         Indivisually_Report();
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize(); 
     }
 
 }

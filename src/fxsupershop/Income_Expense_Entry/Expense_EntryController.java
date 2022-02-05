@@ -11,7 +11,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
-import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -167,6 +166,13 @@ public class Expense_EntryController implements Initializable {
     private void TypeAction(ActionEvent event) {
         String sql = "SELECT id FROM income_expense_source WHERE source_title = '" + type.getValue() + "'";
         titleID = queryFunction.getDataInSVeriable(sql, "id");
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

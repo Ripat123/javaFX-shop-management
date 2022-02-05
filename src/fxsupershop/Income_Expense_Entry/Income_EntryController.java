@@ -254,4 +254,11 @@ public class Income_EntryController implements Initializable {
         expenseView();
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize(); 
+    }
+
 }

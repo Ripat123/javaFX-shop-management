@@ -8,7 +8,6 @@ import fxsupershop.TableView.PriorityView;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
-import javafx.animation.*;
 import javafx.collections.*;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
@@ -20,7 +19,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
-import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -67,8 +65,13 @@ public class Priority_listController implements Initializable {
     Service<Void> service = new Service<Void>() {
         @Override
         protected Task<Void> createTask() {
-            initview();
-            return null;
+            return new Task<Void>() {
+                @Override
+                protected Void call() {
+                    initview();
+                    return null;
+                }
+            };
         }
     };
     
@@ -187,6 +190,11 @@ public class Priority_listController implements Initializable {
             }
         }
     }
-    
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize(); 
+    }
 
 }

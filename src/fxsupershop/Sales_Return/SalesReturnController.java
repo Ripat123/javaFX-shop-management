@@ -379,11 +379,11 @@ public class SalesReturnController implements Initializable {
                         double pay = returnAmount - Double.parseDouble(p);
                         returnAmount = Double.parseDouble(p);
 
-                        String sql2 = "UPDATE sale_payment_statement SET total_ammount = total_ammount - '"+ret_am+"', payment = payment - '" + returnAmount + "',"
+                        String sql2 = "UPDATE sale_payment_statement SET total_ammount = total_ammount - '" + ret_am + "', payment = payment - '" + returnAmount + "',"
                                 + "due = '0' WHERE invoice_no = '" + rs.getString("invoice_no") + "'";
                         queryFunction.UpdateMessageLess(sql2);
                     } else {
-                        String sql2 = "UPDATE sale_payment_statement SET total_ammount = total_ammount - '"+ret_am+"', "
+                        String sql2 = "UPDATE sale_payment_statement SET total_ammount = total_ammount - '" + ret_am + "', "
                                 + "due = '" + netDue + "' WHERE invoice_no = '" + rs.getString("invoice_no") + "'";
                         queryFunction.UpdateMessageLess(sql2);
                     }
@@ -394,17 +394,17 @@ public class SalesReturnController implements Initializable {
                 if (rs.next()) {
                     double bal = Double.parseDouble(rs.getString("balance"));
                     if (bal > 0) {
-                        
+
                         if (bal <= ret_am) {
                             String sql2 = "INSERT INTO customer_transaction (customer_id,"
-                                    + "transaction_date,transaction_type,balance)VALUES('"+customerID+"',"
-                                    + "'"+queryFunction.service.getnonFormatCurrentDate()+"','Return','0')";
+                                    + "transaction_date,transaction_type,balance)VALUES('" + customerID + "',"
+                                    + "'" + queryFunction.service.getnonFormatCurrentDate() + "','Return','0')";
                             queryFunction.InsertCustomise(sql2, "Have a Problem in Transaction");
-                        }else{
+                        } else {
                             double due = bal - ret_am;
                             String sql2 = "INSERT INTO customer_transaction (customer_id,"
-                                    + "transaction_date,transaction_type,balance)VALUES('"+customerID+"',"
-                                    + "'"+queryFunction.service.getnonFormatCurrentDate()+"','Return','"+due+"')";
+                                    + "transaction_date,transaction_type,balance)VALUES('" + customerID + "',"
+                                    + "'" + queryFunction.service.getnonFormatCurrentDate() + "','Return','" + due + "')";
                             queryFunction.InsertCustomise(sql2, "Have a Problem in Transaction");
                         }
                     }
@@ -412,8 +412,8 @@ public class SalesReturnController implements Initializable {
                 String sql3 = "SELECT sale_payment_statement.* FROM sale_payment_statement "
                         + "WHERE invoice_no = '" + text_invoice_id.getValue() + "' AND payment = '0' AND due = '0'";
                 rs = queryFunction.getResult(sql3);
-                if(rs.next()){
-                    String sql4 = "DELETE FROM sale_payment_statement WHERE invoice_no = '"+rs.getString("invoice_no")+"'";
+                if (rs.next()) {
+                    String sql4 = "DELETE FROM sale_payment_statement WHERE invoice_no = '" + rs.getString("invoice_no") + "'";
                     queryFunction.DeleteConditionLess(sql4);
                 }
             }
@@ -569,4 +569,10 @@ public class SalesReturnController implements Initializable {
         customer_Rel(event);
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
+    }
 }

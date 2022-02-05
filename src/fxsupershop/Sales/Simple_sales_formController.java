@@ -16,7 +16,6 @@ import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.*;
-import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -1146,8 +1145,13 @@ public class Simple_sales_formController implements Initializable {
             net_rate.setText(String.valueOf(unitprice));
 
         } catch (Exception e) {
-
         }
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
+    }
 }

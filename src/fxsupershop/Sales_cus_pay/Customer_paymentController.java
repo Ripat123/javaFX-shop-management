@@ -1,4 +1,3 @@
-
 package fxsupershop.Sales_cus_pay;
 
 import com.jfoenix.controls.*;
@@ -53,7 +52,7 @@ public class Customer_paymentController implements Initializable {
 //    private TableColumn<?, ?> T_dueAmount;
     ObservableList CustomerList = FXCollections.observableArrayList();
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
-    ResultSet rs,rss;
+    ResultSet rs, rss;
     String customerID;
 
     /**
@@ -63,13 +62,13 @@ public class Customer_paymentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         JFXScrollPane.smoothScrolling(scroll);
         showCustomer();
-    }    
-    
+    }
+
     private void showCustomer() {
         String sql = "SELECT customer_name,id FROM customer_info";
         CustomerList = queryFunction.ViewArrayJFXComboBox(sql, "customer_name", "id", cus_id, CustomerList);
     }
-    
+
     private void Customer_action() {
         try {
             customerID = CustomerList.get(cus_id.getSelectionModel().getSelectedIndex()).toString();
@@ -89,13 +88,13 @@ public class Customer_paymentController implements Initializable {
             }
         }
     }
-    
+
     private void Customer_released(KeyEvent event) {
         String sql = "SELECT customer_name,id FROM customer_info WHERE "
                 + "customer_name LIKE '%" + cus_id.getValue() + "%'";
         CustomerList = queryFunction.ShowArrayItemKeyReleased(sql, "customer_name", "id", cus_id, event, CustomerList);
     }
-    
+
     private void clear() {
         cus_id.setValue(null);
         entryDate.setValue(null);
@@ -106,7 +105,7 @@ public class Customer_paymentController implements Initializable {
         dueID.setText(null);
         cus_id.requestFocus();
     }
-    
+
     private void submit() {
 
         double balance = 0, netbalance = 0;
@@ -134,7 +133,7 @@ public class Customer_paymentController implements Initializable {
             }
         }
     }
-    
+
     private void submitPayment() {
         double payAmount = Double.parseDouble(pay_amount.getText());
         try {
@@ -142,38 +141,40 @@ public class Customer_paymentController implements Initializable {
             rs = queryFunction.getResult(sql);
             while (rs.next()) {
                 if (payAmount > 0) {
-                    
+
                     String sql1 = "SELECT * FROM sale_payment_statement WHERE invoice_no = '" + rs.getString("invoice_id") + "' AND due != '0'";
                     rss = queryFunction.getResult(sql1);
                     if (rss.next()) {
                         double due = Double.parseDouble(rss.getString("due"));
                         double netDue = due - payAmount;
-                        
+
                         if (String.valueOf(netDue).contains("-")) {
-                            
+
                             String p = String.valueOf(netDue).replace("-", "");
                             double pay = payAmount - Double.parseDouble(p);
                             payAmount = Double.parseDouble(p);
-                            
+
                             String sql2 = "UPDATE sale_payment_statement SET payment = payment + '" + pay + "',"
                                     + "due = '0' WHERE invoice_no = '" + rss.getString("invoice_no") + "'";
                             queryFunction.UpdateMessageLess(sql2);
-                            
+
                         } else if (!String.valueOf(netDue).contains("-") && netDue != 0) {
                             String sql3 = "UPDATE sale_payment_statement SET payment = payment + '" + payAmount + "',"
                                     + "due = '" + netDue + "' WHERE invoice_no = '" + rss.getString("invoice_no") + "'";
                             queryFunction.UpdateMessageLess(sql3);
                             break;
-                            
-                        } else if (netDue == 0) 
+
+                        } else if (netDue == 0) {
                             break;
+                        }
                     }
-                }else
+                } else {
                     break;
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             try {
                 rs.close();
                 rss.close();
@@ -182,7 +183,6 @@ public class Customer_paymentController implements Initializable {
             }
         }
     }
-
 
     @FXML
     private void paidRelesed(KeyEvent event) {
@@ -224,5 +224,12 @@ public class Customer_paymentController implements Initializable {
     private void customerReleased(KeyEvent event) {
         Customer_released(event);
     }
-    
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
+    }
+
 }

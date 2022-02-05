@@ -170,7 +170,7 @@ public class NotificationController implements Initializable {
 
     @FXML
     private void Print(ActionEvent event) {
-        
+
     }
 
     @FXML
@@ -297,6 +297,13 @@ public class NotificationController implements Initializable {
 
     @FXML
     private void PrintOver(ActionEvent event) {
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

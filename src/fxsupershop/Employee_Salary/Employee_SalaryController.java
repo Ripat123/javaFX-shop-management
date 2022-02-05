@@ -120,9 +120,9 @@ public class Employee_SalaryController implements Initializable {
 
                 if (id <= 9) {
                     text_InvoiceNo.setText("Invoice-" + "00" + "" + Integer.toString(id));
-                } else if(id <= 99){
+                } else if (id <= 99) {
                     text_InvoiceNo.setText("Invoice-" + "0" + "" + Integer.toString(id));
-                }else{
+                } else {
                     text_InvoiceNo.setText("Invoice-" + "" + Integer.toString(id));
                 }
 
@@ -425,9 +425,9 @@ public class Employee_SalaryController implements Initializable {
 
     @FXML
     private void Report_Button(ActionEvent event) {
-         String sql2 = "SELECT * FROM employee_salary";
-                String path = "/fxsupershop/Employee_Salary/";
-                report.ExportReport(path, "salaryreportView.jrxml", sql2);
+        String sql2 = "SELECT * FROM employee_salary";
+        String path = "/fxsupershop/Employee_Salary/";
+        report.ExportReport(path, "salaryreportView.jrxml", sql2);
     }
 
     @FXML
@@ -473,7 +473,6 @@ public class Employee_SalaryController implements Initializable {
 
     }
 
-
     @FXML
     private void MoreAction(ActionEvent event) {
         JFXPopup pop = new JFXPopup();
@@ -484,6 +483,13 @@ public class Employee_SalaryController implements Initializable {
     @FXML
     private void paidKeyreleasd(KeyEvent event) {
         total_minus();
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

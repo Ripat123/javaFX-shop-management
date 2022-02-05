@@ -109,6 +109,12 @@ public class Report {
 
             }
         });
+    }
 
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 }

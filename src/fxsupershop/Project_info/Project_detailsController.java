@@ -11,7 +11,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
@@ -68,24 +67,24 @@ public class Project_detailsController implements Initializable {
     private void insert() {
         try {
             String sql = "INSERT INTO project_info (Shop_name,address,phone,email,owner_name,"
-                + "owner_phone,delivery_date,service_charge,expired_date,image,created_at) VALUES ("
-                + "'" + shop_n.getText().trim() + "','" + add.getText().trim() + "','" + phone.getText().trim() + "'"
-                + ",'" + email.getText().trim() + "','" + owner.getText().trim() + "','" + ow_phone.getText().trim() + "'"
-                + ",'" + delivery_date.getValue() + "','" + service.getText().trim() + "'"
-                + ",'" + expired_date.getValue() + "',?,'" + queryFunction.service.getDateTime() + "')";
-        post = con.prepareStatement(sql);
-        post.setBinaryStream(1, fin, len);
-        post.execute();
-        queryFunction.service.msg.InformationMessage("Successful", "Information", "Insert Successful");
-        clean();
-        view();
+                    + "owner_phone,delivery_date,service_charge,expired_date,image,created_at) VALUES ("
+                    + "'" + shop_n.getText().trim() + "','" + add.getText().trim() + "','" + phone.getText().trim() + "'"
+                    + ",'" + email.getText().trim() + "','" + owner.getText().trim() + "','" + ow_phone.getText().trim() + "'"
+                    + ",'" + delivery_date.getValue() + "','" + service.getText().trim() + "'"
+                    + ",'" + expired_date.getValue() + "',?,'" + queryFunction.service.getDateTime() + "')";
+            post = con.prepareStatement(sql);
+            post.setBinaryStream(1, fin, len);
+            post.execute();
+            queryFunction.service.msg.InformationMessage("Successful", "Information", "Insert Successful");
+            clean();
+            view();
         } catch (Exception e) {
-            queryFunction.service.msg.WarningMessage("Unsuccessful", "Warning", "Insert Unsuccessful\n"+e);
+            queryFunction.service.msg.WarningMessage("Unsuccessful", "Warning", "Insert Unsuccessful\n" + e);
         }
-        
+
     }
-    
-    private void update(){
+
+    private void update() {
         String sql = "UPDATE project_info SET Shop_name = '" + shop_n.getText().trim() + "',"
                 + "address='" + add.getText().trim() + "',phone='" + phone.getText().trim() + "',"
                 + "email='" + email.getText().trim() + "',owner_name='" + owner.getText().trim() + "',"
@@ -117,12 +116,11 @@ public class Project_detailsController implements Initializable {
 //                            pattern = new ImagePattern(image1);
 //                            img_shape.setFill(pattern);
 //                        }
-            }
-            else{
+            } else {
                 addbtn.setDisable(false);
             }
         } catch (Exception e) {
-            queryFunction.service.msg.ErrorMessage("Unsuccessful", "Error", "Have a Problem"+e);
+            queryFunction.service.msg.ErrorMessage("Unsuccessful", "Error", "Have a Problem" + e);
 
         }
     }
@@ -132,7 +130,7 @@ public class Project_detailsController implements Initializable {
         queryFunction.Delete(sql);
         clean();
     }
-    
+
     private void ImageUpload() {
         try {
             File file = queryFunction.service.ImageUpload();
@@ -141,9 +139,9 @@ public class Project_detailsController implements Initializable {
             img_shape.setFill(queryFunction.service.getImagepattern(file));
             String sql = "UPDATE project_info SET image = ?";
             post = con.prepareStatement(sql);
-        post.setBinaryStream(1, fin, len);
-        post.execute();
-        queryFunction.service.msg.InformationMessage("Successful", "Information", "Update Successful");
+            post.setBinaryStream(1, fin, len);
+            post.execute();
+            queryFunction.service.msg.InformationMessage("Successful", "Information", "Update Successful");
         } catch (Exception e) {
             queryFunction.service.msg.WarningMessage("Unsuccessful", "Warning", "Have a Problem" + e);
         }
@@ -196,6 +194,13 @@ public class Project_detailsController implements Initializable {
 
     @FXML
     private void OpenPopupImage(MouseEvent event) {
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
     }
 
 }

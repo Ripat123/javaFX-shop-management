@@ -529,7 +529,7 @@ public class ProfileController implements Initializable {
     protected void finalize() throws Throwable {
         System.gc();
         System.runFinalization();
-        super.finalize(); //To change body of generated methods, choose Tools | Templates.
+        super.finalize(); 
     }
     
 

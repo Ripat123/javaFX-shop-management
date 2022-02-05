@@ -188,21 +188,21 @@ public class GeneralService {
         String Date = formatter.format(date);
         return Date;
     }
-    
+
     public String getnonFormatCurrentDate() {
         LocalDate date = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String Date = formatter.format(date);
         return Date;
     }
-    
-    public String getYearMonth(){
+
+    public String getYearMonth() {
         String Cdate = LocalDate.now().toString();
         String date = Cdate.substring(0, 7);
         return date;
     }
-    
-    public String getYear(){
+
+    public String getYear() {
         String Cdate = LocalDate.now().toString();
         String date = Cdate.substring(0, 4);
         return date;
@@ -228,7 +228,7 @@ public class GeneralService {
         String jdate = formatter.format(date);
         return jdate;
     }
-    
+
     public String encrypt(String value) {
         try {
             String key, initVector;
@@ -247,7 +247,7 @@ public class GeneralService {
         }
         return null;
     }
-    
+
     public String decrypt(String encrypted) {
         try {
             String key, initVector;
@@ -265,6 +265,11 @@ public class GeneralService {
         }
         return null;
     }
-    
 
+    @Override
+    protected void finalize() throws Throwable {
+        System.gc();
+        System.runFinalization();
+        super.finalize();
+    }
 }
