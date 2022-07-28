@@ -148,7 +148,7 @@ public class Item_infoController implements Initializable {
     private void view() {
         itemid.setCellValueFactory(new PropertyValueFactory<>("id"));
         itemname.setCellValueFactory(new PropertyValueFactory<>("itemname"));
-        String sql = "SELECT `id`,`item_name` FROM `product_item`";
+        String sql = "SELECT `id`,`item_name` FROM `product_item` LIMIT 100";
         initview(sql);
     }
 

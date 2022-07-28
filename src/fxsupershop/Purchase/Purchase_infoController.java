@@ -205,7 +205,7 @@ public class Purchase_infoController implements Initializable {
             }
         };
         service.start();
-        service.setOnSucceeded((event) -> {
+        service.setOnSucceeded((event) -> {service.cancel();
         });
     }
 
@@ -260,7 +260,7 @@ public class Purchase_infoController implements Initializable {
     }
 
     private void product() {
-        String sql = "SELECT * FROM `product_productinfo`";
+        String sql = "SELECT * FROM `product_productinfo` LIMIT 100";
         productlist = queryFunction.ViewArrayJFXComboBox(sql, "product_name", "id", selectProduct, productlist);
     }
 
@@ -270,7 +270,7 @@ public class Purchase_infoController implements Initializable {
     }
 
     private void press_product(KeyEvent event) {
-        String sql = "SELECT * FROM `product_productinfo` WHERE `product_name` LIKE '%" + selectProduct.getEditor().getText() + "%'";
+        String sql = "SELECT * FROM `product_productinfo` WHERE `product_name` LIKE '%" + selectProduct.getEditor().getText() + "%' LIMIT 100";
         productlist = queryFunction.ShowArrayItemKeyReleased(sql, "product_name", "id", selectProduct, event, productlist);
     }
 
@@ -973,14 +973,14 @@ public class Purchase_infoController implements Initializable {
         purchasepriceid.setCellValueFactory(new PropertyValueFactory<>("purchasePrice_multi"));
         discountid.setCellValueFactory(new PropertyValueFactory<>("discount_multi"));
 
-        String sql = "SELECT * FROM product_productinfo";
+        String sql = "SELECT * FROM product_productinfo LIMIT 100";
         initmultiselection(sql);
     }
 
     private void search() {
 
         data1.clear();
-        String sql = "SELECT * FROM product_productinfo WHERE product_name LIKE '%" + multisearchfield.getText() + "%'";
+        String sql = "SELECT * FROM product_productinfo WHERE product_name LIKE '%" + multisearchfield.getText() + "%' LIMIT 100";
         initmultiselection(sql);
     }
 

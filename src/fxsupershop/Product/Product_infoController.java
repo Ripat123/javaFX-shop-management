@@ -206,34 +206,34 @@ public class Product_infoController implements Initializable {
     }
 
     private void searchview() {
-        String sql = "SELECT * FROM product_productinfo";
+        String sql = "SELECT * FROM product_productinfo LIMIT 100";
         searchlist = prepareQueryFunction.ViewArrayJFXComboBox(sql, "product_name", "id", search_combo, searchlist);
     }
 
     private void itemview() {
 
-        String sql = "SELECT * FROM `product_item`";
+        String sql = "SELECT * FROM `product_item` LIMIT 100";
         itemlist = prepareQueryFunction.ViewArrayJFXComboBox(sql, "item_name", "id", textitemcomboname, itemlist);
 
     }
 
     private void categoryview() {
 
-        String sql = "SELECT * FROM `product_category`";
+        String sql = "SELECT * FROM `product_category` LIMIT 100";
         categorylist = prepareQueryFunction.ViewArrayJFXComboBox(sql, "category_name", "id", textcategorycomboname, categorylist);
 
     }
 
     private void brandveiw() {
 
-        String sql = "SELECT * FROM `product_brand`";
+        String sql = "SELECT * FROM `product_brand` LIMIT 100";
         brandlist = prepareQueryFunction.ViewArrayJFXComboBox(sql, "brand_name", "id", textbrandcomboname, brandlist);
 
     }
 
     private void measurmentview() {
 
-        String sql = "SELECT * FROM `product_measurement`";
+        String sql = "SELECT * FROM `product_measurement` LIMIT 100";
         measurementlist = prepareQueryFunction.ViewArrayJFXComboBox(sql, "measurement_type", "id", textcombomeasurment, measurementlist);
 
     }
@@ -480,7 +480,7 @@ public class Product_infoController implements Initializable {
         String sql = "SELECT product_productinfo.image_name,product_productinfo.id,product_productinfo.product_name,"
                 + "product_productinfo.purchase_price,product_productinfo.image,product_productinfo.sale_price,"
                 + "product_item.item_name FROM product_productinfo "
-                + "INNER JOIN product_item ON product_productinfo.item_id=product_item.id ORDER BY product_productinfo.id DESC";
+                + "INNER JOIN product_item ON product_productinfo.item_id=product_item.id ORDER BY product_productinfo.id DESC LIMIT 100";
         initveiw(sql);
 
     }
@@ -494,7 +494,7 @@ public class Product_infoController implements Initializable {
                         + "product_productinfo.purchase_price,product_productinfo.sale_price,product_productinfo.image,"
                         + "product_item.item_name FROM product_productinfo "
                         + "INNER JOIN product_item ON product_productinfo.item_id=product_item.id "
-                        + "WHERE product_productinfo.id LIKE '%" + search_filed.getText() + "%'";
+                        + "WHERE product_productinfo.id LIKE '%" + search_filed.getText() + "%' LIMIT 100";
 
                 initveiw(sql);
             } else if (name_filter.isSelected()) {
@@ -505,7 +505,7 @@ public class Product_infoController implements Initializable {
                         + "product_item.item_name FROM product_productinfo "
                         + "INNER JOIN product_item ON product_productinfo.item_id=product_item."
                         + "id WHERE product_productinfo.id LIKE '%" + search_filed.getText() + "%' "
-                        + "OR product_productinfo.product_name LIKE '%" + search_filed.getText() + "%'";
+                        + "OR product_productinfo.product_name LIKE '%" + search_filed.getText() + "%' LIMIT 100";
 
                 initveiw(sql);
             }
@@ -594,7 +594,7 @@ public class Product_infoController implements Initializable {
     }
 
     private void suspensionView() {
-        String sql = "SELECT * FROM `suspension`";
+        String sql = "SELECT * FROM `suspension` LIMIT 100";
         suspensionList = prepareQueryFunction.ViewArrayJFXComboBox(sql, "sus_name", "id", suspension, suspensionList);
     }
 
@@ -919,25 +919,25 @@ public class Product_infoController implements Initializable {
 
     @FXML
     private void searchReleased(KeyEvent event) {
-        String sql = "SELECT * FROM `product_productinfo` WHERE `product_name` LIKE '%" + search_combo.getValue() + "%'";
+        String sql = "SELECT * FROM `product_productinfo` WHERE `product_name` LIKE '%" + search_combo.getValue() + "%' LIMIT 100";
         searchlist = prepareQueryFunction.ShowArrayItemKeyReleased(sql, "product_name", "id", search_combo, event, searchlist);
     }
 
     @FXML
     private void ItemKeyReleased(KeyEvent event) {
-        String sql = "SELECT * FROM product_item WHERE item_name LIKE '%" + textitemcomboname.getValue() + "%'";
+        String sql = "SELECT * FROM product_item WHERE item_name LIKE '%" + textitemcomboname.getValue() + "%' LIMIT 100";
         itemlist = prepareQueryFunction.ShowArrayItemKeyReleased(sql, "item_name", "id", textitemcomboname, event, itemlist);
     }
 
     @FXML
     private void CategoryKeyReleased(KeyEvent event) {
-        String sql = "SELECT * FROM product_category WHERE category_name LIKE '%" + textcategorycomboname.getValue() + "%'";
+        String sql = "SELECT * FROM product_category WHERE category_name LIKE '%" + textcategorycomboname.getValue() + "%' LIMIT 100";
         categorylist = prepareQueryFunction.ShowArrayItemKeyReleased(sql, "category_name", "id", textcategorycomboname, event, categorylist);
     }
 
     @FXML
     private void BrandKeyReleased(KeyEvent event) {
-        String sql = "SELECT * FROM product_brand WHERE brand_name LIKE '%" + textbrandcomboname.getValue() + "%'";
+        String sql = "SELECT * FROM product_brand WHERE brand_name LIKE '%" + textbrandcomboname.getValue() + "%' LIMIT 100";
         brandlist = prepareQueryFunction.ShowArrayItemKeyReleased(sql, "brand_name", "id", textbrandcomboname, event, brandlist);
     }
 

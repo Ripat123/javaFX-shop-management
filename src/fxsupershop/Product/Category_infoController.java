@@ -83,7 +83,7 @@ public class Category_infoController implements Initializable {
     }
 
     private void veiwItem() {
-        String sql = "SELECT * FROM `product_item`";
+        String sql = "SELECT * FROM `product_item` LIMIT 100";
         itemlist = prepareQueryFunction.ViewArrayJFXComboBox(sql, "item_name", "id", ItemName_cat, itemlist);
 
     }
@@ -165,7 +165,7 @@ public class Category_infoController implements Initializable {
         Tcategoryname.setCellValueFactory(new PropertyValueFactory<>("catagoryname"));
 
         String sql = "SELECT product_category.id,product_category.category_name,product_item.item_name FROM product_category\n"
-                + "INNER JOIN product_item  ON product_category.item_id=product_item.id   order by id asc";
+                + "INNER JOIN product_item  ON product_category.item_id=product_item.id order by id asc LIMIT 100";
         initview(sql);
     }
 
@@ -264,7 +264,7 @@ public class Category_infoController implements Initializable {
     @FXML
     private void ShowPressItem(KeyEvent event) {
         try {
-            String sql = "SELECT * FROM `product_item` WHERE `item_name` LIKE '%" + ItemName_cat.getEditor().getText() + "%'";
+            String sql = "SELECT * FROM `product_item` WHERE `item_name` LIKE '%" + ItemName_cat.getEditor().getText() + "%' LIMIT 100";
             itemlist = prepareQueryFunction.ShowArrayItemKeyReleased(sql, "item_name", "id", ItemName_cat, event, itemlist);
         } catch (Exception e) {
         }

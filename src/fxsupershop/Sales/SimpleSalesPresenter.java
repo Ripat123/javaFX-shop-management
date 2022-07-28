@@ -144,7 +144,7 @@ public class SimpleSalesPresenter {
             list.clear();
             box.getItems().clear();
             String sql = "SELECT product_productinfo.product_name,stock_product.* FROM "
-                    + "stock_product INNER JOIN product_productinfo ON stock_product.product_id = product_productinfo.id";
+                    + "stock_product INNER JOIN product_productinfo ON stock_product.product_id = product_productinfo.id LIMIT 100";
             rs = queryFunction.getResult(sql);
             while (rs.next()) {
                 list.addAll(rs.getString("stock_product.id"));

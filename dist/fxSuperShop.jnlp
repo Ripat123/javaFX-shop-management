@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="fxSuperShop.jar" size="1383288" download="eager" />
+    <jar href="fxSuperShop.jar" size="1381624" download="eager" />
     <jar href="lib\AnimateFX-1.2.1.jar" size="94267" download="eager" />
     <jar href="lib\ant-1.7.1.jar" size="1323005" download="eager" />
     <jar href="lib\antlr-2.7.5.jar" size="435563" download="eager" />
@@ -94,9 +94,6 @@
     <jar href="lib\xml-apis-ext.jar" size="85686" download="eager" />
     <jar href="lib\xml-apis.jar" size="220536" download="eager" />
   </resources>
-  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="fxSuperShop" >
-    <param name="requiredFXVersion" value="8.0+"/>
-  </applet-desc>
   <jfx:javafx-desc  width="800" height="600" main-class="fxsupershop.FxSuperShop"  name="fxSuperShop" />
   <update check="always"/>
 </jnlp>

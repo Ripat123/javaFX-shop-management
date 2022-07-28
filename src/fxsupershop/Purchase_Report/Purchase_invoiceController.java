@@ -170,7 +170,7 @@ public class Purchase_invoiceController implements Initializable {
                 + "INNER JOIN suplier_info ON purchase_ledger.suplier_id = suplier_info.id "
                 + "INNER JOIN purchase_payment_statement ON purchase_ledger.invoice_no = purchase_payment_statement.invoice_no "
                 + "WHERE purchase_ledger.invoice_date BETWEEN '" + queryFunction.service.getYearMonth() + "-01' "
-                + "AND '" + queryFunction.service.getYearMonth() + "-31'";
+                + "AND '" + queryFunction.service.getYearMonth() + "-31' LIMIT 100";
         pip.view(sql, tableview, invoice_col, date_col, suplier_col, net_col, paid_col, due_col);
         total();
         paid();
@@ -182,7 +182,7 @@ public class Purchase_invoiceController implements Initializable {
                 + "INNER JOIN purchase_payment_statement ON purchase_ledger.invoice_no = purchase_payment_statement.invoice_no "
                 + "INNER JOIN suplier_info ON purchase_ledger.suplier_id = suplier_info.id"
                 + " WHERE purchase_ledger.invoice_date BETWEEN '" + queryFunction.service.getYear() + "-01-01' "
-                + "AND '" + queryFunction.service.getYear() + "-12-31'";
+                + "AND '" + queryFunction.service.getYear() + "-12-31' LIMIT 100";
         pip.Allview(sql, tableview);
         totalYear();
         paidYear();
@@ -192,7 +192,7 @@ public class Purchase_invoiceController implements Initializable {
     private void AllView() {
         String sql = "SELECT purchase_ledger.*,suplier_info.*,purchase_payment_statement.* FROM purchase_ledger "
                 + "INNER JOIN suplier_info ON purchase_ledger.suplier_id = suplier_info.id "
-                + "INNER JOIN purchase_payment_statement ON purchase_ledger.invoice_no = purchase_payment_statement.invoice_no ";
+                + "INNER JOIN purchase_payment_statement ON purchase_ledger.invoice_no = purchase_payment_statement.invoice_no LIMIT 100";
         pip.Allview(sql, tableview);
         allTotal();
         allPaid();

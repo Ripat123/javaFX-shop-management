@@ -173,7 +173,7 @@ public class Brand_infoController implements Initializable {
         col_brandname.setCellValueFactory(new PropertyValueFactory<>("brandname"));
         col_brandid.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-        String sql = "SELECT * FROM product_brand order by id asc";
+        String sql = "SELECT * FROM product_brand order by id asc LIMIT 100";
         initView(sql);
     }
 

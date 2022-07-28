@@ -664,7 +664,7 @@ public class Simple_sales_formController implements Initializable {
     private void Release_product(KeyEvent event) {
         String sql = "SELECT product_productinfo.product_name,stock_product.* FROM "
                 + "stock_product INNER JOIN product_productinfo ON stock_product.product_id = "
-                + "product_productinfo.id WHERE product_productinfo.product_name LIKE '%" + selectProduct.getValue() + "%'";
+                + "product_productinfo.id WHERE product_productinfo.product_name LIKE '%" + selectProduct.getValue() + "%' LIMIT 100";
         list = ssp.ShowArrayItemKeyReleased(sql, "product_name", "stock_product.id",
                 "stock_product.expired_date", selectProduct, event, list);
     }
