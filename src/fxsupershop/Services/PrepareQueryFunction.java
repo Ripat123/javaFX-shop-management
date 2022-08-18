@@ -30,10 +30,10 @@ public class PrepareQueryFunction {
         return con;
     }
 
-    public int AutoJFXID(String table_name) {
+    public int AutoJFXID(String table_name,String Id) {
         int ID = 0;
         try {
-            String sql = "SELECT MAX(id) AS 'id' FROM " + table_name;
+            String sql = "SELECT MAX("+Id+") AS 'id' FROM " + table_name;
             rs = getResult(sql);
             if (rs.next()) {
                 int id = Integer.parseInt(rs.getString("id"));

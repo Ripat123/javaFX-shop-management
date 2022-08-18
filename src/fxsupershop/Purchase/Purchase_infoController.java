@@ -224,7 +224,7 @@ public class Purchase_infoController implements Initializable {
     }
 
     private void autoId() {
-        int id = queryFunction.AutoJFXID("purchase_ledger");
+        int id = queryFunction.AutoJFXID("purchase_ledger","id");
         String prefix = "PI-";
         if (id <= 9) {
             invoiceNo.setText(prefix + "000000" + "" + Integer.toString(id));

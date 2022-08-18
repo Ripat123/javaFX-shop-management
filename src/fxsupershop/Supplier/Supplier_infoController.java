@@ -92,7 +92,7 @@ public class Supplier_infoController implements Initializable {
     }
 
     private void autoID() {
-        presentID = queryFunction.AutoJFXID("suplier_info");
+        presentID = queryFunction.AutoJFXID("suplier_info","id");
     }
 
     public void insert() {

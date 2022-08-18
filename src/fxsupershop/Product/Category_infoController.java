@@ -78,13 +78,13 @@ public class Category_infoController implements Initializable {
     }
 
     private void autoID() {
-        presentID = prepareQueryFunction.AutoJFXID("product_category");
+        presentID = prepareQueryFunction.AutoJFXID("pdt_category","cat_id");
         categoryID.setText(String.valueOf(presentID));
     }
 
     private void veiwItem() {
-        String sql = "SELECT * FROM `product_item` LIMIT 100";
-        itemlist = prepareQueryFunction.ViewArrayJFXComboBox(sql, "item_name", "id", ItemName_cat, itemlist);
+        String sql = "SELECT * FROM `pdt_item` LIMIT 100";
+        itemlist = prepareQueryFunction.ViewArrayJFXComboBox(sql, "item_name_en", "item_id", ItemName_cat, itemlist);
 
     }
 
@@ -101,8 +101,8 @@ public class Category_infoController implements Initializable {
             msg.ConditionalMessage("Enter Category Name");
             return;
         }
-        presentID = prepareQueryFunction.AutoJFXID("product_category");
-        String sql = "INSERT INTO `product_category` (`id`,`item_id`,`category_name`"
+        presentID = prepareQueryFunction.AutoJFXID("pdt_category","cat_id");
+        String sql = "INSERT INTO `pdt_category` (`cat_id`,`cat_item_id`,`cat_name_en`"
                 + ")VALUES('" + presentID + "','" + itemID + "','" + categoryName.getText().trim() + "')";
         prepareQueryFunction.Insert(sql);
         clean();
@@ -123,13 +123,13 @@ public class Category_infoController implements Initializable {
             return;
         }
 
-        String sql = "update product_category set item_id='" + itemID + "',category_Name='" + categoryName.getText().trim() + "'  WHERE id= '" + categoryID.getText() + "'";
+        String sql = "update pdt_category set cat_item_id='" + itemID + "',cat_name_en='" + categoryName.getText().trim() + "'  WHERE cat_id= '" + categoryID.getText() + "'";
         prepareQueryFunction.Update(sql);
         clean();
     }
 
     private void delete() {
-        String sql = "delete from  product_category WHERE id= '" + categoryID.getText() + "'";
+        String sql = "delete from  pdt_category WHERE cat_id= '" + categoryID.getText() + "'";
         prepareQueryFunction.Delete(sql);
         clean();
     }
@@ -140,8 +140,8 @@ public class Category_infoController implements Initializable {
             rs = prepareQueryFunction.getResult(sql);
             while (rs.next()) {
 
-                data.add(new CategoryView(rs.getString("id"),
-                        rs.getString("item_name"), rs.getString("category_name")
+                data.add(new CategoryView(rs.getString("cat_id"),
+                        rs.getString("item_name_en"), rs.getString("cat_name_en")
                 ));
             }
             tableview.setItems(data);
@@ -164,8 +164,8 @@ public class Category_infoController implements Initializable {
         Titemname.setCellValueFactory(new PropertyValueFactory<>("itemname"));
         Tcategoryname.setCellValueFactory(new PropertyValueFactory<>("catagoryname"));
 
-        String sql = "SELECT product_category.id,product_category.category_name,product_item.item_name FROM product_category\n"
-                + "INNER JOIN product_item  ON product_category.item_id=product_item.id order by id asc LIMIT 100";
+        String sql = "SELECT pdt_category.cat_id,pdt_category.cat_name_en,pdt_item.item_name_en FROM pdt_category\n"
+                + "INNER JOIN pdt_item  ON pdt_category.cat_item_id=pdt_item.item_id order by cat_id desc LIMIT 100";
         initview(sql);
     }
 
@@ -173,12 +173,17 @@ public class Category_infoController implements Initializable {
         if (id_filter.isSelected()) {
             data.clear();
 
-            String sql = "SELECT product_category.id,product_category.category_name,product_item.item_name FROM product_category INNER JOIN product_item ON product_category.item_id=product_item.id WHERE product_category.id='" + search_filed.getText() + "'";
+            String sql = "SELECT pdt_category.cat_id,pdt_category.cat_name_en,pdt_item"
+                    + ".item_name_en FROM pdt_category INNER JOIN pdt_item ON pdt_category"
+                    + ".cat_item_id=pdt_item.item_id WHERE pdt_category.cat_id='" + search_filed.getText() + "' LIMIT 100";
             initview(sql);
         } else if (name_filter.isSelected()) {
             data.clear();
 
-            String sql = "SELECT product_category.id,product_category.category_name,product_item.item_name FROM product_category INNER JOIN product_item ON product_category.item_id=product_item.id WHERE product_category.category_name LIKE '%" + search_filed.getText() + "%' or product_category.id LIKE '%" + search_filed.getText() + "%'";
+            String sql = "SELECT pdt_category.cat_id,pdt_category.cat_name_en,pdt_item"
+                    + ".item_name_en FROM pdt_category INNER JOIN pdt_item ON pdt_category"
+                    + ".cat_item_id=pdt_item.item_id WHERE pdt_category.cat_name_en LIKE "
+                    + "'%" + search_filed.getText() + "%' or pdt_category.cat_id LIKE '%" + search_filed.getText() + "%' LIMIT 100";
             initview(sql);
         }
 
@@ -264,8 +269,8 @@ public class Category_infoController implements Initializable {
     @FXML
     private void ShowPressItem(KeyEvent event) {
         try {
-            String sql = "SELECT * FROM `product_item` WHERE `item_name` LIKE '%" + ItemName_cat.getEditor().getText() + "%' LIMIT 100";
-            itemlist = prepareQueryFunction.ShowArrayItemKeyReleased(sql, "item_name", "id", ItemName_cat, event, itemlist);
+            String sql = "SELECT * FROM `pdt_item` WHERE `item_name_en` LIKE '%" + ItemName_cat.getEditor().getText() + "%' LIMIT 100";
+            itemlist = prepareQueryFunction.ShowArrayItemKeyReleased(sql, "item_name_en", "item_id", ItemName_cat, event, itemlist);
         } catch (Exception e) {
         }
 
@@ -296,12 +301,16 @@ public class Category_infoController implements Initializable {
                 String val = column.getCellData(row).toString();
 
                 if (col == 0 || col == 1 || col == 2) {
-                    String sql = "SELECT product_category.id,product_category.category_name,product_item.item_name FROM product_category INNER JOIN product_item ON product_category.item_id=product_item.id WHERE product_category.id = '" + val + "' OR product_item.item_name = '" + val + "' OR product_category.category_name = '" + val + "'";
+                    String sql = "SELECT pdt_category.cat_id,pdt_category.cat_name_en,"
+                            + "pdt_item.item_name_en FROM pdt_category INNER JOIN "
+                            + "pdt_item ON pdt_category.cat_item_id=pdt_item.item_id "
+                            + "WHERE pdt_category.cat_id = '" + val + "' OR pdt_item."
+                            + "item_name_en = '" + val + "' OR pdt_category.cat_name_en = '" + val + "'";
                     rs = prepareQueryFunction.getResult(sql);
                     if (rs.next()) {
-                        categoryID.setText(rs.getString("id"));
-                        ItemName_cat.getEditor().setText(rs.getString("item_name"));
-                        categoryName.setText(rs.getString("category_name"));
+                        categoryID.setText(rs.getString("cat_id"));
+                        ItemName_cat.getEditor().setText(rs.getString("item_name_en"));
+                        categoryName.setText(rs.getString("cat_name_en"));
                     }
                 }
             }
@@ -320,10 +329,10 @@ public class Category_infoController implements Initializable {
 
     @FXML
     private void ReportAction(ActionEvent event) {
-        String sql = "SELECT project_info.*,product_item.item_name,product_category.id,"
-                + "product_category.category_name,product_category."
-                + "category_name_bangla FROM product_category,project_info,product_item"
-                + " WHERE product_category.item_id = product_item.id order by product_category.id asc";
+        String sql = "SELECT project_info.*,pdt_item.item_name_en,pdt_category.cat_id,"
+                + "pdt_category.cat_name_en,pdt_category."
+                + "cat_name_bn FROM pdt_category,project_info,pdt_item"
+                + " WHERE pdt_category.cat_item_id = pdt_item.item_id order by pdt_category.cat_id asc";
         prepareQueryFunction.getImagePath(sql, "image");
         report.getReport("/fxsupershop/Product/Report/", ""
                 + "Category_Report.jrxml", sql);
@@ -340,7 +349,7 @@ public class Category_infoController implements Initializable {
         String Path = prepareQueryFunction.service.getOpenDialogPath(fc);
         if (Path != null) {
             try {
-                String sql = "INSERT INTO `product_category`(`id`,`item_id`,category_name,admin_id,created_at) VALUES(?,?,?,?,?)";
+                String sql = "INSERT INTO `pdt_category`(`cat_id`,`cat_item_id`,cat_name_en,cat_admin_id,created_at) VALUES(?,?,?,?,?)";
                 post = con.prepareStatement(sql);
 
                 FileInputStream fileIn = new FileInputStream(new File(Path));
@@ -351,7 +360,7 @@ public class Category_infoController implements Initializable {
                 for (int i = 1; i <= sheet.getLastRowNum(); i++) {
                     row = sheet.getRow(i);
                     try {
-                        presentID = prepareQueryFunction.AutoJFXID("product_category");
+                        presentID = prepareQueryFunction.AutoJFXID("pdt_category","cat_id");
                         category_Name = prefareData(row);
                         if (!category_Name.equals("") && !category_Name.equals(" ")
                                 && !itemID.equals("0")) {
@@ -376,13 +385,13 @@ public class Category_infoController implements Initializable {
 
     @FXML
     private void exportAction(ActionEvent event) {
-        String sql = "SELECT * FROM `product_category`";
+        String sql = "SELECT * FROM `pdt_category`";
         report.ExportReport("/fxsupershop/Product/Report/", "category_format_data.jrxml", sql);
     }
 
     @FXML
     private void exportFormat(ActionEvent event) {
-        String sql = "SELECT * FROM `product_category`";
+        String sql = "SELECT * FROM `pdt_category`";
         report.ExportReport("/fxsupershop/Product/Report/", "category_format.jrxml", sql);
     }
 
@@ -395,7 +404,5 @@ public class Category_infoController implements Initializable {
     @Override
     protected void finalize() throws Throwable {
         System.gc();
-        System.runFinalization();
-        super.finalize();
     }
 }

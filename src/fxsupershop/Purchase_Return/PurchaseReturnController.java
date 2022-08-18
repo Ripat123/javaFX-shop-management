@@ -137,7 +137,7 @@ public class PurchaseReturnController implements Initializable {
     }
 
     private void autoid() {
-        int id = queryFunction.AutoJFXID("purchase_return_entry");
+        int id = queryFunction.AutoJFXID("purchase_return_entry","id");
         String front_tag_ofID = "PR-";
         if (id == 0) {
             id++;

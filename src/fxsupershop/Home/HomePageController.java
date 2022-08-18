@@ -262,6 +262,10 @@ public class HomePageController implements Initializable {
         scheduledService.setOnSucceeded((event) -> {
             scheduledService.cancel();
         });
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            System.gc();
+            System.out.println("closed");
+        }));
     }
 
     Service<Void> scheduledService = new Service<Void>() {
@@ -582,7 +586,7 @@ public class HomePageController implements Initializable {
         tb11.setVisible(false);
         viewallbtn(event);
         System.gc();
-        System.runFinalization();
+       // System.runFinalization();
     }
 
     @FXML
@@ -712,13 +716,13 @@ public class HomePageController implements Initializable {
     private void QuitYesAction(ActionEvent event) {
         if (check == 1) {
             System.gc();
-            System.runFinalization();
+            //System.runFinalization();
             Platform.exit();
         }
         if (check == 2) {
             try {
                 System.gc();
-                System.runFinalization();
+                //System.runFinalization();
                 Stage window1 = (Stage) ((Node) e.getSource()).getScene().getWindow();
                 window1.close();
                 FxSuperShop b = new FxSuperShop();
@@ -925,8 +929,8 @@ public class HomePageController implements Initializable {
     @Override
     protected void finalize() throws Throwable {
         System.gc();
-        System.runFinalization();
-        super.finalize(); 
+        //System.runFinalization();
     }
+    
 
 }

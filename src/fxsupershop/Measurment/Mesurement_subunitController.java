@@ -64,7 +64,7 @@ public class Mesurement_subunitController implements Initializable {
     }
 
     private void autoid() {
-        id = queryFunction.AutoJFXID("product_measurement_subunit");
+        id = queryFunction.AutoJFXID("product_measurement_subunit","id");
         subID.setText(String.valueOf(id));
     }
 

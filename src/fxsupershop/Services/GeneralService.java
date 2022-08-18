@@ -177,7 +177,7 @@ public class GeneralService {
 
     public String getDateTime() {
         LocalDateTime date = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm a");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String Date = formatter.format(date);
         return Date;
     }
@@ -269,7 +269,5 @@ public class GeneralService {
     @Override
     protected void finalize() throws Throwable {
         System.gc();
-        System.runFinalization();
-        super.finalize();
     }
 }

@@ -348,6 +348,7 @@ public class LoginMultiFormController implements Initializable, Runnable {
 
     @FXML
     private void CloseOp(MouseEvent event) {
+        System.gc();
         System.exit(0);
     }
 
@@ -483,8 +484,7 @@ public class LoginMultiFormController implements Initializable, Runnable {
     @Override
     protected void finalize() throws Throwable {
         System.gc();
-        System.runFinalization();
-        super.finalize(); 
+       // System.runFinalization();
     }
 
 }

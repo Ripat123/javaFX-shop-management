@@ -64,7 +64,7 @@ public class Income_expenseController implements Initializable {
     }
 
     private void autoID() {
-        autoid = queryFunction.AutoJFXID("income_expense_source");
+        autoid = queryFunction.AutoJFXID("income_expense_source","id");
         text_source_id.setText(String.valueOf(autoid));
     }
 

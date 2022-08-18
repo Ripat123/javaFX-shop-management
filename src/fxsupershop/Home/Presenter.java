@@ -79,14 +79,14 @@ public class Presenter {
                                         }
                                     }
                                 }
-                                t.setOnSelectionChanged((event) -> {
-                                    try {
-//                    RefreshSource();
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                        service.msg.WarningMessage("Uncompleted", "Warning", "Have a Problem.\n" + e);
-                                    }
-                                });
+//                                t.setOnSelectionChanged((event) -> {
+//                                    try {
+////                    RefreshSource();
+//                                    } catch (Exception e) {
+//                                        e.printStackTrace();
+//                                        service.msg.WarningMessage("Uncompleted", "Warning", "Have a Problem.\n" + e);
+//                                    }
+//                                });
                                 t.setOnClosed((event) -> {
                                     if (tabpane.getTabs().isEmpty()) {
                                         tabpane.setVisible(false);
@@ -620,8 +620,7 @@ public class Presenter {
     @Override
     protected void finalize() throws Throwable {
         System.gc();
-        System.runFinalization();
-        super.finalize();
+        //System.runFinalization();
     }
 
 }

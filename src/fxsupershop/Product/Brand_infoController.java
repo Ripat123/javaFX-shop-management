@@ -11,7 +11,6 @@ import java.net.URL;
 import java.sql.*;
 import java.util.*;
 import javafx.collections.*;
-import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.*;
 import javafx.fxml.*;
@@ -72,22 +71,17 @@ public class Brand_infoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        service1.start();
-        service1.setOnSucceeded((event) -> {
-            service1.cancel();
+        task.run();
+        task.setOnSucceeded((event) -> {
+            task.cancel();
         });
     }
-
-    Service service1 = new Service() {
+    
+    Task<Void> task = new Task<Void>() {
         @Override
-        protected Task createTask() {
-            return new Task() {
-                @Override
-                protected Void call() {
-                    initSource();
-                    return null;
-                }
-            };
+        protected Void call() throws Exception {
+            initSource();
+            return null;
         }
     };
 
@@ -99,7 +93,7 @@ public class Brand_infoController implements Initializable {
     }
 
     private void autoID() {
-        presentID = prepareQueryFunction.AutoJFXID("product_brand");
+        presentID = prepareQueryFunction.AutoJFXID("pdt_brand","brand_id");
         brand_ID.setText(String.valueOf(presentID));
     }
 
@@ -113,8 +107,8 @@ public class Brand_infoController implements Initializable {
             return;
         }
 
-        String sql = "INSERT INTO `product_brand` (`brand_name`,"
-                + "`id`)VALUES('" + brandName.getText().trim() + "','" + brand_ID.getText() + "')";
+        String sql = "INSERT INTO `pdt_brand` (`brand_name_en`,"
+                + "`brand_id`)VALUES('" + brandName.getText().trim() + "','" + brand_ID.getText() + "')";
         prepareQueryFunction.Insert(sql);
         clean();
 
@@ -130,15 +124,15 @@ public class Brand_infoController implements Initializable {
             return;
         }
 
-        String sql = "UPDATE product_brand SET brand_name='"
-                + "" + brandName.getText().trim() + "' WHERE id= '" + brand_ID.getText() + "'";
+        String sql = "UPDATE pdt_brand SET brand_name_en='"
+                + "" + brandName.getText().trim() + "' WHERE brand_id= '" + brand_ID.getText() + "'";
         prepareQueryFunction.Update(sql);
         clean();
     }
 
     private void delete() {
 
-        String sql = "delete from  product_brand WHERE id= '" + brand_ID.getText() + "'";
+        String sql = "delete from  pdt_brand WHERE brand_id= '" + brand_ID.getText() + "'";
         prepareQueryFunction.Delete(sql);
         clean();
     }
@@ -149,7 +143,7 @@ public class Brand_infoController implements Initializable {
             rs = prepareQueryFunction.getResult(sql);
             while (rs.next()) {
 
-                data.add(new BrandView(rs.getString("brand_name"), rs.getString("id")
+                data.add(new BrandView(rs.getString("brand_name_en"), rs.getString("brand_id")
                 ));
 
             }
@@ -173,7 +167,7 @@ public class Brand_infoController implements Initializable {
         col_brandname.setCellValueFactory(new PropertyValueFactory<>("brandname"));
         col_brandid.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-        String sql = "SELECT * FROM product_brand order by id asc LIMIT 100";
+        String sql = "SELECT * FROM pdt_brand order by brand_id desc LIMIT 100";
         initView(sql);
     }
 
@@ -181,15 +175,16 @@ public class Brand_infoController implements Initializable {
         if (id_filter.isSelected()) {
             data.clear();
 
-            String sql = "SELECT product_brand."
-                    + "brand_name,product_brand.id FROM product_brand WHERE product_brand.id='" + search_filed.getText() + "' order by id asc";
+            String sql = "SELECT pdt_brand."
+                    + "brand_name_en,pdt_brand.brand_id FROM pdt_brand WHERE pdt_brand"
+                    + ".brand_id='" + search_filed.getText() + "' order by brand_id asc LIMIT 100";
             initView(sql);
         } else if (name_filter.isSelected()) {
             data.clear();
 
-            String sql = "SELECT product_brand.brand_name,product_brand.id FROM product_brand "
-                    + "WHERE product_brand.brand_name LIKE '%" + search_filed.getText() + "%' "
-                    + "OR product_brand.id LIKE '%" + search_filed.getText() + "%'";
+            String sql = "SELECT pdt_brand.brand_name_en,pdt_brand.brand_id FROM pdt_brand "
+                    + "WHERE pdt_brand.brand_name_en LIKE '%" + search_filed.getText() + "%' "
+                    + "OR pdt_brand.brand_id LIKE '%" + search_filed.getText() + "%' LIMIT 100";
             initView(sql);
         }
     }
@@ -273,12 +268,12 @@ public class Brand_infoController implements Initializable {
                 String val = column.getCellData(row).toString();
 
                 if (col == 0 || col == 1 || col == 2 || col == 3) {
-                    String sql = "SELECT * FROM product_brand WHERE product_brand.id = '" + val + "'";
+                    String sql = "SELECT * FROM pdt_brand WHERE pdt_brand.brand_id = '" + val + "'";
 
                     rs = prepareQueryFunction.getResult(sql);
                     if (rs.next()) {
-                        brand_ID.setText(rs.getString("id"));
-                        brandName.setText(rs.getString("brand_name"));
+                        brand_ID.setText(rs.getString("brand_id"));
+                        brandName.setText(rs.getString("brand_name_en"));
                     }
                 }
             }
@@ -297,7 +292,7 @@ public class Brand_infoController implements Initializable {
 
     @FXML
     private void ReportAction(ActionEvent event) {
-        String sql = "SELECT * FROM product_brand,project_info";
+        String sql = "SELECT * FROM pdt_brand,project_info";
         prepareQueryFunction.getImagePath(sql, "image");
         report.getReport("/fxsupershop/Product/Report/", "Brand_Report.jrxml", sql);
     }
@@ -313,7 +308,7 @@ public class Brand_infoController implements Initializable {
         String Path = prepareQueryFunction.service.getOpenDialogPath(fc);
         if (Path != null) {
             try {
-                String sql = "INSERT INTO `product_brand`(`id`,`brand_name`,admin_id,created_at) VALUES(?,?,?,?)";
+                String sql = "INSERT INTO `pdt_brand`(`brand_id`,`brand_name_en`,brand_admin_id,created_at) VALUES(?,?,?,?)";
                 post = con.prepareStatement(sql);
 
                 FileInputStream fileIn = new FileInputStream(new File(Path));
@@ -325,7 +320,7 @@ public class Brand_infoController implements Initializable {
                 for (int i = 1; i <= sheet.getLastRowNum(); i++) {
                     row = sheet.getRow(i);
                     try {
-                        presentID = prepareQueryFunction.AutoJFXID("product_brand");
+                        presentID = prepareQueryFunction.AutoJFXID("pdt_brand","brand_id");
                         name = prefareData(row);
                         if (!name.equals("") && !name.equals(" ")) {
                             post.setString(1, String.valueOf(presentID));
@@ -348,13 +343,13 @@ public class Brand_infoController implements Initializable {
 
     @FXML
     private void exportAction(ActionEvent event) {
-        String sql = "SELECT * FROM `product_brand` order by product_brand.id asc";
+        String sql = "SELECT * FROM `pdt_brand` order by pdt_brand.brand_id asc";
         report.ExportReport("/fxsupershop/Product/Report/", "brand_format_data.jrxml", sql);
     }
 
     @FXML
     private void exportFormat(ActionEvent event) {
-        String sql = "SELECT * FROM `product_brand`";
+        String sql = "SELECT * FROM `pdt_brand`";
         report.ExportReport("/fxsupershop/Product/Report/", "brand_format.jrxml", sql);
     }
 
@@ -367,7 +362,5 @@ public class Brand_infoController implements Initializable {
     @Override
     protected void finalize() throws Throwable {
         System.gc();
-        System.runFinalization();
-        super.finalize();
     }
 }

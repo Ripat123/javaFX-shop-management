@@ -19,7 +19,7 @@ public class connection_Sql {
 //    public static String dbName = "sbitcom_medicine";
 //    public static String dbUser = "sbitcom_medicine_admin"; 
 //    public static String dbPass = "UNxd-Yepgi2&";
-    public static String dbName = "medicine";
+    public static String dbName = "pos";
     public static String dbUser = "root";
     public static String dbPass = "12345";
 
@@ -97,7 +97,6 @@ public class connection_Sql {
     @Override
     protected void finalize() throws Throwable {
         System.gc();
-        System.runFinalization();
-        super.finalize();
+        //System.runFinalization();
     }
 }

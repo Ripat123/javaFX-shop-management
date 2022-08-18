@@ -5,6 +5,8 @@ import fxsupershop.Services.PrepareQueryFunction;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.*;
 import javafx.application.*;
 import javafx.event.*;
@@ -27,24 +29,39 @@ public class FxSuperShop extends Application {
     PrepareQueryFunction queryFunction = new PrepareQueryFunction();
     LoginMultiFormController lmfc = new LoginMultiFormController();
     static Loading loading = new Loading();
+    private Stage stage;
 
     @Override
     public void start(Stage primaryStage) {
         try {
+            stage = primaryStage;
             loading.start(new Stage());
-//            loadWorker.start();
+            loadWorker.start();
             lmfc.initview(con);
-            Start(primaryStage);
+//            Start(primaryStage);
 //            test.play();
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                System.gc();
+                System.out.println("closed");
+            }));
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public Timeline test = new Timeline(new KeyFrame(Duration.seconds(0.5), new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent event) {
-            lmfc.initview(con);
-            startApp(new Stage());
+            try {
+                if (con == null) {
+                    lmfc.initview(con);
+                }
+                // temporary
+                Start(stage);
+                //startApp(new Stage());
+            } catch (IOException ex) {
+                Logger.getLogger(FxSuperShop.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }));
     LoadWorker loadWorker = new LoadWorker(test);
@@ -75,25 +92,26 @@ public class FxSuperShop extends Application {
     }
 
     public void Start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxsupershop/Login/LoginMultiForm.fxml"));
-        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        //Parent root = FXMLLoader.load(getClass().getResource("/fxsupershop/Login/LoginMultiForm.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxsupershop/Home/homePage.fxml"));
+        //primaryStage.initStyle(StageStyle.TRANSPARENT);
 
         Scene scene = new Scene(root);
-        scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
+        //scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
 
         primaryStage.setScene(scene);
         loading.handleStateChangeNotification(new Preloader.StateChangeNotification(Preloader.StateChangeNotification.Type.BEFORE_START));
 
         primaryStage.show();
 
-        root.setOnMousePressed((MouseEvent event) -> {
-            xdragset = event.getSceneX();
-            ydragset = event.getSceneY();
-        });
-        root.setOnMouseDragged((MouseEvent event) -> {
-            primaryStage.setX(event.getScreenX() - xdragset);
-            primaryStage.setY(event.getScreenY() - ydragset);
-        });
+//        root.setOnMousePressed((MouseEvent event) -> {
+//            xdragset = event.getSceneX();
+//            ydragset = event.getSceneY();
+//        });
+//        root.setOnMouseDragged((MouseEvent event) -> {
+//            primaryStage.setX(event.getScreenX() - xdragset);
+//            primaryStage.setY(event.getScreenY() - ydragset);
+//        });
     }
 
     private void trial(Stage primaryStage) {
@@ -152,7 +170,7 @@ public class FxSuperShop extends Application {
     @Override
     public void stop() throws Exception {
         System.gc();
-        System.runFinalization();
+        //System.runFinalization();
         super.stop();
     }
 

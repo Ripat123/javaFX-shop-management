@@ -76,7 +76,7 @@ public class Customer_infoController implements Initializable {
     }
 
     private void autoID() {
-        presentID = queryFunction.AutoJFXID("customer_info");
+        presentID = queryFunction.AutoJFXID("customer_info","id");
     }
 
     public void insert() {

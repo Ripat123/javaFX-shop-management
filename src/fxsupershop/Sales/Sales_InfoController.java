@@ -186,7 +186,7 @@ public class Sales_InfoController implements Initializable {
     }
 
     private void autoId() {
-        int id = queryFunction.AutoJFXID("sale_ledger");
+        int id = queryFunction.AutoJFXID("sale_ledger","id");
         String front_tag_ofID = "SI-";
         if (id <= 9) {
             text_invoice_id.setText(front_tag_ofID + "000000" + "" + Integer.toString(id));

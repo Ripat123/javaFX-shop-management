@@ -33,7 +33,7 @@ public class Sales_Presenter {
     }
 
     public void autoId() {
-        int id = queryFunction.AutoJFXID("purchase_ledger");
+        int id = queryFunction.AutoJFXID("purchase_ledger","id");
         String prefix = "PI-";
         if (id <= 9) {
             invoice_id = prefix + "000000" + "" + Integer.toString(id);

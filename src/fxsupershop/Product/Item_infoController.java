@@ -9,6 +9,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.*;
 import javafx.collections.*;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -64,13 +65,24 @@ public class Item_infoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        view();
-        user = lmfc.User();
-        autoID();
+        task.run();
+        task.setOnSucceeded((event) -> {
+            task.cancel();
+        });
     }
 
+    Task<Void> task = new Task<Void>() {
+        @Override
+        protected Void call() throws Exception {
+            view();
+            //user = lmfc.User();
+            autoID();
+            return null;
+        }
+    };
+
     private void autoID() {
-        presentID = prepareQueryFunction.AutoJFXID("product_item");
+        presentID = prepareQueryFunction.AutoJFXID("pdt_item","item_id");
         itemId.setText(String.valueOf(presentID));
     }
 
@@ -84,24 +96,24 @@ public class Item_infoController implements Initializable {
             Optional<ButtonType> alert = new Alert(Alert.AlertType.WARNING, "Enter Item Name", ButtonType.OK).showAndWait();
             return;
         }
-        String sql = "INSERT INTO `product_item` (`id`,`item_name`,admin_id,created_at)VALUES"
+        String sql = "INSERT INTO `pdt_item` (`item_id`,`item_name_en`,item_admin_id,created_at)VALUES"
                 + "('" + itemId.getText().trim() + "','" + itemName.getText().trim() + "',"
-                + "'" + user + "','" + prepareQueryFunction.service.getDateTime() + "')";
+                + "'','" + prepareQueryFunction.service.getDateTime() + "')";
         prepareQueryFunction.Insert(sql);
 
     }
 
     private void update() {
 
-        String sql = "UPDATE product_item SET`item_name`='" + itemName.getText().trim() + "' "
-                + "WHERE `id`='" + itemId.getText() + "'";
+        String sql = "UPDATE pdt_item SET`item_name_en`='" + itemName.getText().trim() + "' "
+                + "WHERE `item_id`='" + itemId.getText() + "'";
         prepareQueryFunction.Update(sql);
 
     }
 
     private void delete() {
 
-        String sql = "DELETE FROM product_item WHERE `id`='" + itemId.getText() + "'";
+        String sql = "DELETE FROM pdt_item WHERE `item_id`='" + itemId.getText() + "'";
         prepareQueryFunction.Delete(sql);
 
     }
@@ -113,8 +125,8 @@ public class Item_infoController implements Initializable {
             rs = prepareQueryFunction.getResult(sql);
             while (rs.next()) {
 
-                data.add(new ItemView(rs.getString("id"),
-                        rs.getString("item_name")
+                data.add(new ItemView(rs.getString("item_id"),
+                        rs.getString("item_name_en")
                 ));
 
             }
@@ -136,11 +148,11 @@ public class Item_infoController implements Initializable {
     private void search() {
         if (id_filter.isSelected()) {
 
-            String sql = "SELECT `id`,`item_name` FROM `product_item` WHERE `id`='" + search_filed.getText() + "'";
+            String sql = "SELECT `item_id`,`item_name_en` FROM `pdt_item` WHERE `item_id`='" + search_filed.getText() + "'";
             initview(sql);
         } else if (name_filter.isSelected()) {
 
-            String sql = "SELECT `id`,`item_name` FROM `product_item` WHERE `item_name` LIKE '%" + search_filed.getText() + "%' or `id` like '%" + search_filed.getText() + "%'";
+            String sql = "SELECT `item_id`,`item_name_en` FROM `pdt_item` WHERE `item_name_en` LIKE '%" + search_filed.getText() + "%' or `item_id` like '%" + search_filed.getText() + "%'";
             initview(sql);
         }
     }
@@ -148,7 +160,7 @@ public class Item_infoController implements Initializable {
     private void view() {
         itemid.setCellValueFactory(new PropertyValueFactory<>("id"));
         itemname.setCellValueFactory(new PropertyValueFactory<>("itemname"));
-        String sql = "SELECT `id`,`item_name` FROM `product_item` LIMIT 100";
+        String sql = "SELECT item_id,`item_name_en` FROM `pdt_item` LIMIT 100";
         initview(sql);
     }
 
@@ -160,7 +172,7 @@ public class Item_infoController implements Initializable {
     }
 
     public void Report() {
-        String sql = "SELECT * FROM `product_item`,project_info order by product_item.id asc";
+        String sql = "SELECT * FROM `pdt_item`,project_info order by pdt_item.item_id asc";
         prepareQueryFunction.getImagePath(sql, "image");
         report.getReport("/fxsupershop/Product/Report/", "Item_Report.jrxml", sql);
 
@@ -227,11 +239,11 @@ public class Item_infoController implements Initializable {
                 String val = column.getCellData(row).toString();
 
                 if (col == 0 || col == 1) {
-                    String sql = "SELECT * FROM `product_item` WHERE `id` = '" + val + "' OR `item_name` = '" + val + "'";
+                    String sql = "SELECT * FROM `pdt_item` WHERE item_id = '" + val + "' OR `item_name_en` = '" + val + "'";
                     rs = prepareQueryFunction.getResult(sql);
                     if (rs.next()) {
-                        itemId.setText(rs.getString("id"));
-                        itemName.setText(rs.getString("item_name"));
+                        itemId.setText(rs.getString("item_id"));
+                        itemName.setText(rs.getString("item_name_en"));
                     }
                 }
             }
@@ -276,7 +288,7 @@ public class Item_infoController implements Initializable {
         String Path = prepareQueryFunction.service.getOpenDialogPath(fc);
         if (Path != null) {
             try {
-                String sql = "INSERT INTO `product_item`(`id`,`item_name`,admin_id,created_at) VALUES(?,?,?,?)";
+                String sql = "INSERT INTO `pdt_item`(`item_id`,`item_name_en`,item_admin_id,created_at) VALUES(?,?,?,?)";
                 post = con.prepareStatement(sql);
 
                 FileInputStream fileIn = new FileInputStream(new File(Path));
@@ -288,12 +300,12 @@ public class Item_infoController implements Initializable {
                 for (int i = 1; i <= sheet.getLastRowNum(); i++) {
                     row = sheet.getRow(i);
                     try {
-                        presentID = prepareQueryFunction.AutoJFXID("product_item");
+                        presentID = prepareQueryFunction.AutoJFXID("pdt_item","item_id");
                         name = prefareData(row);
                         if (!name.equals("") && !name.equals(" ")) {
                             post.setString(1, String.valueOf(presentID));
                             post.setString(2, name);
-                            post.setString(3, String.valueOf(user));
+                            post.setString(3, String.valueOf(""));
                             post.setString(4, prepareQueryFunction.service.getDateTime());
                             post.execute();
                         }
@@ -322,21 +334,20 @@ public class Item_infoController implements Initializable {
 
     @FXML
     private void exportAction(ActionEvent event) {
-        String sql = "SELECT * FROM `product_item`,project_info order by product_item.id asc";
+        String sql = "SELECT * FROM `pdt_item`,project_info order by pdt_item.item_id asc";
         prepareQueryFunction.getImagePath(sql, "image");
         report.ExportReport("/fxsupershop/Product/Report/", "item_format_data.jrxml", sql);
     }
 
     @FXML
     private void exportFormat(ActionEvent event) {
-        String sql = "SELECT * FROM `product_item`";
+        String sql = "SELECT * FROM `pdt_item`";
         report.ExportReport("/fxsupershop/Product/Report/", "item_format.jrxml", sql);
     }
 
     @Override
     protected void finalize() throws Throwable {
         System.gc();
-        System.runFinalization();
-        super.finalize();
+        //System.runFinalization();
     }
 }

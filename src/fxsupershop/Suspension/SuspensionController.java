@@ -60,7 +60,7 @@ public class SuspensionController implements Initializable {
         view();    }   
     
     private void autoID(){
-        presentID = queryFunction.AutoJFXID("suspension");
+        presentID = queryFunction.AutoJFXID("suspension","id");
         susID.setText(String.valueOf(presentID));
     }
     

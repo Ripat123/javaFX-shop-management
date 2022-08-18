@@ -141,7 +141,7 @@ public class SalesReturnController implements Initializable {
     }
 
     private void autoid() {
-        int id = queryFunction.AutoJFXID("sale_return");
+        int id = queryFunction.AutoJFXID("sale_return","id");
         String front_tag_ofID = "SR-";
         if (id == 0) {
             id++;

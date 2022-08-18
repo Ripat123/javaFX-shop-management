@@ -68,7 +68,8 @@ public class Mesurement_InfoController implements Initializable {
                 Optional<ButtonType> alert = new Alert(Alert.AlertType.WARNING, "Enter Measurement Type", ButtonType.OK).showAndWait();
                 return;
             } else if (text_mesure_id.getText() != null && text_mesure_type.getText() != null) {
-                String sql = "INSERT INTO `product_measurement` (`id`,`measurement_type`)VALUES('" + text_mesure_id.getText() + "','" + text_mesure_type.getText() + "')";
+                String sql = "INSERT INTO `measurement_unit` (`measurement_id`,`measurement_unit`"
+                        + ",measurement_sl)VALUES('" + text_mesure_id.getText() + "','" + text_mesure_type.getText() + "','" + text_mesure_id.getText() + "')";
                 post = con.prepareStatement(sql);
                 post.execute();
                 Alert alert1 = new Alert(Alert.AlertType.INFORMATION, "", ButtonType.OK);
@@ -103,7 +104,7 @@ public class Mesurement_InfoController implements Initializable {
                 Optional<ButtonType> alert = new Alert(Alert.AlertType.WARNING, "Enter Measurement Type", ButtonType.OK).showAndWait();
                 return;
             } else if (text_mesure_id.getText() != null && text_mesure_type.getText() != null) {
-                String sql = "update  product_measurement set measurement_type='" + text_mesure_type.getText() + "'  WHERE id= '" + text_mesure_id.getText() + "'";
+                String sql = "update measurement_unit set measurement_unit='" + text_mesure_type.getText() + "'  WHERE measurement_id= '" + text_mesure_id.getText() + "'";
                 post = con.prepareStatement(sql);
                 post.execute();
                 Alert alert1 = new Alert(Alert.AlertType.INFORMATION, "", ButtonType.OK);
@@ -130,7 +131,7 @@ public class Mesurement_InfoController implements Initializable {
 
     void delete() {
         try {
-            String sql = "delete from  product_measurement WHERE id= '" + text_mesure_id.getText() + "'";
+            String sql = "delete from measurement_unit WHERE measurement_id= '" + text_mesure_id.getText() + "'";
             post = con.prepareStatement(sql);
             post.execute();
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION, "", ButtonType.OK);
@@ -159,13 +160,13 @@ public class Mesurement_InfoController implements Initializable {
         TmeasurementType.setCellValueFactory(new PropertyValueFactory<>("mesurement_type"));
 
         try {
-            String sql = "SELECT * FROM product_measurement order by id asc";
+            String sql = "SELECT * FROM measurement_unit order by measurement_id asc";
             post = con.prepareStatement(sql);
             rs = post.executeQuery();
             while (rs.next()) {
 
-                data.add(new MesurementView(rs.getString("id"),
-                        rs.getString("measurement_type")
+                data.add(new MesurementView(rs.getString("measurement_id"),
+                        rs.getString("measurement_unit")
                 ));
 
             }
@@ -191,13 +192,13 @@ public class Mesurement_InfoController implements Initializable {
             if (id_filter.isSelected()) {
                 data.clear();
 
-                String sql = "SELECT * FROM product_measurement WHERE id LIKE '%" + search_filed.getText() + "%' order by id asc";
+                String sql = "SELECT * FROM measurement_unit WHERE measurement_id LIKE '%" + search_filed.getText() + "%' order by measurement_id asc";
                 post = con.prepareStatement(sql);
                 rs = post.executeQuery();
                 while (rs.next()) {
 
-                    data.add(new MesurementView(rs.getString("id"),
-                            rs.getString("measurement_type")
+                    data.add(new MesurementView(rs.getString("measurement_id"),
+                            rs.getString("measurement_unit")
                     ));
 
                 }
@@ -205,14 +206,14 @@ public class Mesurement_InfoController implements Initializable {
             } else if (name_filter.isSelected()) {
                 data.clear();
 
-                String sql = "SELECT * FROM product_measurement WHERE id LIKE '%" + search_filed.getText() + "%' "
-                        + "OR measurement_type LIKE '%" + search_filed.getText() + "%' order by id asc";
+                String sql = "SELECT * FROM measurement_unit WHERE measurement_id LIKE '%" + search_filed.getText() + "%' "
+                        + "OR measurement_unit LIKE '%" + search_filed.getText() + "%' order by measurement_id asc";
                 post = con.prepareStatement(sql);
                 rs = post.executeQuery();
                 while (rs.next()) {
 
-                    data.add(new MesurementView(rs.getString("id"),
-                            rs.getString("measurement_type")
+                    data.add(new MesurementView(rs.getString("measurement_id"),
+                            rs.getString("measurement_unit")
                     ));
 
                 }
@@ -247,13 +248,13 @@ public class Mesurement_InfoController implements Initializable {
                 String val = column.getCellData(row).toString();
 
                 if (col == 0 || col == 1) {
-                    String sql = "SELECT * FROM product_measurement WHERE id = '" + val + "' "
-                            + "OR measurement_type = '" + val + "'";
+                    String sql = "SELECT * FROM measurement_unit WHERE measurement_id = '" + val + "' "
+                            + "OR measurement_unit = '" + val + "'";
                     post = con.prepareStatement(sql);
                     rs = post.executeQuery();
                     if (rs.next()) {
-                        text_mesure_id.setText(rs.getString("id"));
-                        text_mesure_type.setText(rs.getString("measurement_type"));
+                        text_mesure_id.setText(rs.getString("measurement_id"));
+                        text_mesure_type.setText(rs.getString("measurement_unit"));
 
                     }
                 }
@@ -314,8 +315,6 @@ public class Mesurement_InfoController implements Initializable {
     @Override
     protected void finalize() throws Throwable {
         System.gc();
-        System.runFinalization();
-        super.finalize();
     }
 
 }
