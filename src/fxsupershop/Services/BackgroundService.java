@@ -23,6 +23,7 @@ public class BackgroundService extends Service<Void> {
 
     @Override
     protected void failed() {
+        System.out.println("service failed");
     }
 
     @Override
@@ -36,7 +37,7 @@ public class BackgroundService extends Service<Void> {
             protected Void call() {
                 try {
                     ob.getClass().getMethod(methodName, null).invoke(ob);
-                } catch (Exception e) {
+                } catch (Exception e) {e.printStackTrace();
                 }
                 return null;
             }

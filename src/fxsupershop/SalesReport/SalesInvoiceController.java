@@ -92,15 +92,12 @@ public class SalesInvoiceController implements Initializable {
             msg.setVisible(true);
             dialogpane.setBody(msg);
             dialog = new JFXDialog(main_stack, dialogpane, JFXDialog.DialogTransition.RIGHT);
-            Timeline test = new Timeline(new KeyFrame(Duration.seconds(3), new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    dialog.close();
-                    dialog.setOnDialogClosed((e) -> {
-                        dialogpane.setVisible(false);
-                        msg.setVisible(false);
-                    });
-                }
+            Timeline test = new Timeline(new KeyFrame(Duration.seconds(3), (ActionEvent event1) -> {
+                dialog.close();
+                dialog.setOnDialogClosed((e) -> {
+                    dialogpane.setVisible(false);
+                    msg.setVisible(false);
+                });
             }));
             dialog.show();
             test.play();

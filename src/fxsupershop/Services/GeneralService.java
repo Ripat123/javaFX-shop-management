@@ -97,16 +97,21 @@ public class GeneralService {
     }
 
     public String getActualPath(String path) {
-        String actualPath = null;
+        String actualPath = null,removeSpace;
         try {
             String Tpath = (getClass().getResource(path).getPath());
-            String str[] = Tpath.split("file:/");
-            String reduce = (str[1]);
-            String deletePart = reduce.substring(reduce.indexOf("dist"), reduce.indexOf("/fxsupershop"));
-            String removeSpace = reduce.replace(deletePart, "src");
+            if (System.getProperty("os.name").equals("Windows 11")) {
+                removeSpace = Tpath.substring(1);
+            }else{
+                String str[] = Tpath.split("file:/");
+                String reduce = (str[1]);
+                String deletePart = reduce.substring(reduce.indexOf("dist"), reduce.indexOf("/fxsupershop"));
+                removeSpace = reduce.replace(deletePart, "src");
+            }
             actualPath = removeSpace.replace("%20", " ");
         } catch (Exception e) {
-            msg.WarningMessage("Unsuccessful", "Warning", "Not found" + e);
+            e.printStackTrace();
+            // msg.WarningMessage("Unsuccessful", "Warning", "Not found" + e);
         }
         return actualPath;
     }

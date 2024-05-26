@@ -198,7 +198,7 @@ public class Product_infoController implements Initializable {
     }
 
     private void searchview() {
-        String sql = "SELECT * FROM pdt_productinfo LIMIT 100";
+        String sql = "SELECT * FROM product_productinfo LIMIT 100";
         searchlist = prepareQueryFunction.ViewArrayJFXComboBox(sql, "pdt_name_en", "pdt_id", search_combo, searchlist);
     }
 
@@ -340,7 +340,7 @@ public class Product_infoController implements Initializable {
                 barcode.setText(autoID);
             }
             
-            String sql = "INSERT INTO pdt_productinfo (`pdt_id`,`pdt_item_id`,`pdt_cat_id`,`pdt_brand_id`,"
+            String sql = "INSERT INTO product_productinfo (`pdt_id`,`pdt_item_id`,`pdt_cat_id`,`pdt_brand_id`,"
                     + "`pdt_name_en`,`pdt_measurement`,`pdt_purchase_price`,`pdt_sale_price`,`pdt_details`,"
                     + "`pdt_barcode`,pdt_admin_id,created_at,pdt_shelf_no,pdt_shortage,pdt_over_stock,pdt_suspension) "
                     + "VALUES (?,'" + itemID + "','" + categoryID + "','" + brandID + "',?,'" + meseasurementID + "',?,?,?,?,?,?,?,?,?,?)";
@@ -397,7 +397,7 @@ public class Product_infoController implements Initializable {
             if (barcode.getText().equals("")) {
                 barcode.setText(autoID);
             }
-            String sql = "update pdt_productinfo set pdt_item_id='" + itemID + "',pdt_cat_id='" + categoryID + "',"
+            String sql = "update product_productinfo set pdt_item_id='" + itemID + "',pdt_cat_id='" + categoryID + "',"
                     + "pdt_brand_id='" + brandID + "',"
                     + "pdt_name_en='" + proName.getText().trim() + "',pdt_measurement='" + meseasurementID + "',pdt_purchase_price='" + purches_price.getText().trim() + "',"
                     + "pdt_sale_price='" + Sale_price.getText().trim() + "',pdt_details="
@@ -424,7 +424,7 @@ public class Product_infoController implements Initializable {
 
     private void delete() {
 
-        String sql = "delete from  pdt_productinfo WHERE pdt_id= '" + autoID + "'";
+        String sql = "delete from  product_productinfo WHERE pdt_id= '" + autoID + "'";
         prepareQueryFunction.Delete(sql);
         cleanAll();
     }
@@ -469,10 +469,10 @@ public class Product_infoController implements Initializable {
         sale_price.setCellValueFactory(new PropertyValueFactory<>("sale_price"));
         image_col.setCellValueFactory(new PropertyValueFactory<>("image"));
 
-        String sql = "SELECT pdt_productinfo.pdt_image,pdt_productinfo.pdt_id,pdt_productinfo.pdt_name_en,"
-                + "pdt_productinfo.pdt_purchase_price,pdt_productinfo.pdt_image,pdt_productinfo.pdt_sale_price,"
-                + "pdt_item.item_name_en FROM pdt_productinfo "
-                + "INNER JOIN pdt_item ON pdt_productinfo.pdt_item_id=pdt_item.item_id ORDER BY pdt_productinfo.pdt_id DESC LIMIT 100";
+        String sql = "SELECT product_productinfo.pdt_image,product_productinfo.pdt_id,product_productinfo.pdt_name_en,"
+                + "product_productinfo.pdt_purchase_price,product_productinfo.pdt_image,product_productinfo.pdt_sale_price,"
+                + "pdt_item.item_name_en FROM product_productinfo "
+                + "INNER JOIN pdt_item ON product_productinfo.pdt_item_id=pdt_item.item_id ORDER BY product_productinfo.pdt_id DESC LIMIT 100";
         initveiw(sql);
 
     }
@@ -482,22 +482,22 @@ public class Product_infoController implements Initializable {
             if (id_filter.isSelected()) {
                 data.clear();
 
-                String sql = "SELECT pdt_productinfo.pdt_image,pdt_productinfo.pdt_id,pdt_productinfo.pdt_name_en,"
-                        + "pdt_productinfo.pdt_purchase_price,pdt_productinfo.pdt_sale_price,pdt_productinfo.pdt_image,"
-                        + "pdt_item.item_name_en FROM pdt_productinfo "
-                        + "INNER JOIN pdt_item ON pdt_productinfo.pdt_item_id=pdt_item.item_id "
-                        + "WHERE pdt_productinfo.pdt_id LIKE '%" + search_filed.getText() + "%' LIMIT 100";
+                String sql = "SELECT product_productinfo.pdt_image,product_productinfo.pdt_id,product_productinfo.pdt_name_en,"
+                        + "product_productinfo.pdt_purchase_price,product_productinfo.pdt_sale_price,product_productinfo.pdt_image,"
+                        + "pdt_item.item_name_en FROM product_productinfo "
+                        + "INNER JOIN pdt_item ON product_productinfo.pdt_item_id=pdt_item.item_id "
+                        + "WHERE product_productinfo.pdt_id LIKE '%" + search_filed.getText() + "%' LIMIT 100";
 
                 initveiw(sql);
             } else if (name_filter.isSelected()) {
                 data.clear();
 
-                String sql = "SELECT pdt_productinfo.pdt_image,pdt_productinfo.pdt_id,pdt_productinfo.pdt_name_en,"
-                        + "pdt_productinfo.pdt_purchase_price,pdt_productinfo.pdt_sale_price,pdt_productinfo.pdt_image,"
-                        + "pdt_item.item_name_en FROM pdt_productinfo "
-                        + "INNER JOIN pdt_item ON pdt_productinfo.pdt_item_id=pdt_item.item_id "
-                        + " WHERE pdt_productinfo.pdt_id LIKE '%" + search_filed.getText() + "%' "
-                        + "OR pdt_productinfo.pdt_name_en LIKE '%" + search_filed.getText() + "%' LIMIT 100";
+                String sql = "SELECT product_productinfo.pdt_image,product_productinfo.pdt_id,product_productinfo.pdt_name_en,"
+                        + "product_productinfo.pdt_purchase_price,product_productinfo.pdt_sale_price,product_productinfo.pdt_image,"
+                        + "pdt_item.item_name_en FROM product_productinfo "
+                        + "INNER JOIN pdt_item ON product_productinfo.pdt_item_id=pdt_item.item_id "
+                        + " WHERE product_productinfo.pdt_id LIKE '%" + search_filed.getText() + "%' "
+                        + "OR product_productinfo.pdt_name_en LIKE '%" + search_filed.getText() + "%' LIMIT 100";
 
                 initveiw(sql);
             }
@@ -641,21 +641,21 @@ public class Product_infoController implements Initializable {
 
     @FXML
     private void prolistbtn(ActionEvent event) {
-        String sql = "SELECT pdt_productinfo.`pdt_id`,"
-                + "pdt_productinfo.`pdt_name_en`,"
-                + "pdt_productinfo.`product_name_bangla`,"
-                + "pdt_productinfo.`pdt_measurement`,"
-                + "pdt_productinfo.`pdt_purchase_price`,"
-                + "pdt_productinfo.`pdt_sale_price`,"
-                + "pdt_productinfo.`pdt_details`,"
+        String sql = "SELECT product_productinfo.`pdt_id`,"
+                + "product_productinfo.`pdt_name_en`,"
+                + "product_productinfo.`product_name_bangla`,"
+                + "product_productinfo.`pdt_measurement`,"
+                + "product_productinfo.`pdt_purchase_price`,"
+                + "product_productinfo.`pdt_sale_price`,"
+                + "product_productinfo.`pdt_details`,"
                 + "pdt_brand.`brand_name_en`,project_info.`Shop_name`,"
                 + "project_info.`address`,"
                 + "project_info.`phone`,"
                 + "project_info.`email`,"
                 + "project_info.`logo_path`,project_info.`image`"
-                + " FROM project_info,pdt_productinfo INNER JOIN "
-                + "pdt_brand ON pdt_productinfo.pdt_brand_id = pdt_brand.brand_id "
-                + "order by pdt_productinfo.pdt_id asc";
+                + " FROM project_info,product_productinfo INNER JOIN "
+                + "pdt_brand ON product_productinfo.pdt_brand_id = pdt_brand.brand_id "
+                + "order by product_productinfo.pdt_id asc";
         prepareQueryFunction.getImagePath(sql, "image");
         report.getReport("/fxsupershop/Product/Report/", "Product_Report.jrxml", sql);
 
@@ -681,18 +681,18 @@ public class Product_infoController implements Initializable {
                 if (col == 0 || col == 1) {
 //`pdt_id`, `pdt_item_id`, `pdt_cat_id`, `pdt_brand_id`, `pdt_name_en`,pdt_image, `pdt_measurement`,pdt_barcode 
 //    `pdt_purchase_price`, `pdt_sale_price`,pdt_details, `pdt_suspension`, `pdt_shelf_no`, `pdt_shortage`,
-//    `pdt_over_stock`, `pdt_admin_id`, `created_at `pdt_productinfo`
-                    String sql = "SELECT pdt_productinfo.pdt_image,pdt_productinfo.pdt_id,pdt_productinfo.pdt_name_en,pdt_productinfo."
-                            + "pdt_shelf_no,pdt_productinfo.pdt_shortage,pdt_productinfo.pdt_over_stock,"
-                            + "pdt_productinfo.pdt_purchase_price,pdt_productinfo.pdt_sale_price,pdt_productinfo.pdt_image,suspension.sus_name,"
-                            + "pdt_productinfo.product_details,pdt_productinfo.barcode,product_measurement.measurement_type, "
-                            + "product_item.item_name,product_brand.brand_name,product_category.category_name FROM pdt_productinfo "
-                            + "INNER JOIN suspension ON pdt_productinfo.suspension=suspension.id "
-                            + "INNER JOIN product_item ON pdt_productinfo.item_id=product_item.id "
-                            + "INNER JOIN product_brand ON pdt_productinfo.brand_id=product_brand.id "
-                            + "INNER JOIN product_category ON pdt_productinfo.category_id=product_category."
-                            + "id INNER JOIN product_measurement ON pdt_productinfo.measurement_type=product_measurement.id"
-                            + " WHERE pdt_productinfo.id = '" + val + "' OR pdt_productinfo.product_name = '" + val + "'";
+//    `pdt_over_stock`, `pdt_admin_id`, `created_at `product_productinfo`
+                    String sql = "SELECT product_productinfo.pdt_image,product_productinfo.pdt_id,product_productinfo.pdt_name_en,product_productinfo."
+                            + "pdt_shelf_no,product_productinfo.pdt_shortage,product_productinfo.pdt_over_stock,"
+                            + "product_productinfo.pdt_purchase_price,product_productinfo.pdt_sale_price,product_productinfo.pdt_image,suspension.sus_name,"
+                            + "product_productinfo.product_details,product_productinfo.barcode,product_measurement.measurement_type, "
+                            + "product_item.item_name,product_brand.brand_name,product_category.category_name FROM product_productinfo "
+                            + "INNER JOIN suspension ON product_productinfo.suspension=suspension.id "
+                            + "INNER JOIN product_item ON product_productinfo.item_id=product_item.id "
+                            + "INNER JOIN product_brand ON product_productinfo.brand_id=product_brand.id "
+                            + "INNER JOIN product_category ON product_productinfo.category_id=product_category."
+                            + "id INNER JOIN product_measurement ON product_productinfo.measurement_type=product_measurement.id"
+                            + " WHERE product_productinfo.id = '" + val + "' OR report_pathreport_pathreport_pathreport_pathreport_pathproduct_productinfo.product_name = '" + val + "'";
 
                     rs = prepareQueryFunction.getResult(sql);
                     if (rs.next()) {

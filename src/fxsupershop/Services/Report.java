@@ -2,6 +2,8 @@ package fxsupershop.Services;
 
 import java.io.File;
 import java.sql.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.stage.*;
 import net.sf.jasperreports.engine.*;
@@ -36,7 +38,7 @@ public class Report {
             String path = service.getActualPath(report_path);
             String report = path + report_name;
             JasperDesign jd = JRXmlLoader.load(report);
-
+            
             String sql = query;
 
             JRDesignQuery deq = new JRDesignQuery();
@@ -52,9 +54,9 @@ public class Report {
                 JRViewerFX.preview(new Stage(), Modality.APPLICATION_MODAL, pp);
             });
 
-        } catch (Exception ex) {
-            // Logger.getLogger(Report.class.getName()).log(Level.SEVERE, null, ex);
-            service.msg.ErrorMessage("Unsuccessful", "Getting Report", "Have a Problem\n" + ex);
+        } catch (Exception ex) {ex.printStackTrace();
+             Logger.getLogger(Report.class.getName()).log(Level.SEVERE, null, ex);
+            //service.msg.ErrorMessage("Unsuccessful", "Getting Report", "Have a Problem\n" + ex);
 
         }
     }

@@ -81,8 +81,8 @@ public class FxSuperShop extends Application {
                     trial(primaryStage);
                 } else {
                     queryFunction.service.msg.ConditionalMessage("It's not a valid "
-                            + "Computer\nYou haven't purchased this Software\nIf "
-                            + "you want to purchase this\nPlease contact with 01840241895");
+                            + "Computer, You haven't purchased this Software.\nIf "
+                            + "you want to purchase\nPlease contact with 01825909842.");
                     System.exit(1);
                 }
             }
@@ -92,26 +92,26 @@ public class FxSuperShop extends Application {
     }
 
     public void Start(Stage primaryStage) throws IOException {
-        //Parent root = FXMLLoader.load(getClass().getResource("/fxsupershop/Login/LoginMultiForm.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("/fxsupershop/Home/homePage.fxml"));
-        //primaryStage.initStyle(StageStyle.TRANSPARENT);
+        Parent root = FXMLLoader.load(getClass().getResource("/fxsupershop/Login/LoginMultiForm.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("/fxsupershop/Home/homePage.fxml"));
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
 
         Scene scene = new Scene(root);
-        //scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
+        scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
 
         primaryStage.setScene(scene);
         loading.handleStateChangeNotification(new Preloader.StateChangeNotification(Preloader.StateChangeNotification.Type.BEFORE_START));
 
         primaryStage.show();
 
-//        root.setOnMousePressed((MouseEvent event) -> {
-//            xdragset = event.getSceneX();
-//            ydragset = event.getSceneY();
-//        });
-//        root.setOnMouseDragged((MouseEvent event) -> {
-//            primaryStage.setX(event.getScreenX() - xdragset);
-//            primaryStage.setY(event.getScreenY() - ydragset);
-//        });
+        root.setOnMousePressed((MouseEvent event) -> {
+            xdragset = event.getSceneX();
+            ydragset = event.getSceneY();
+        });
+        root.setOnMouseDragged((MouseEvent event) -> {
+            primaryStage.setX(event.getScreenX() - xdragset);
+            primaryStage.setY(event.getScreenY() - ydragset);
+        });
     }
 
     private void trial(Stage primaryStage) {
@@ -126,7 +126,7 @@ public class FxSuperShop extends Application {
                     Start(primaryStage);
                 } else {
                     queryFunction.service.msg.WarningMessage("Warning", "Trial Information", "Your trial has been expired\n"
-                            + "If you want to renew your trial licence, please contact with 01840241895");
+                            + "If you want to renew your trial licence, please contact with 01825909842");
                 }
             } else {
                 String sql1 = "UPDATE tr SET date = '" + date + "', datenumber = datenumber - '1'";
@@ -137,7 +137,7 @@ public class FxSuperShop extends Application {
                     Start(primaryStage);
                 } else {
                     queryFunction.service.msg.ConditionalMessage("Your trial has been expired\n"
-                            + "If you want to renew your trial licence, please contact with 01840241895");
+                            + "If you want to renew your trial licence, please contact with 01825909842");
                     System.exit(1);
                 }
             }

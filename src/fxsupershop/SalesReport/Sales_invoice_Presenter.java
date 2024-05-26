@@ -100,7 +100,7 @@ public class Sales_invoice_Presenter {
                     field.setText(String.valueOf(profit(val)));
                 }
             }
-        } catch (Exception e) {
+        } catch (Exception e) {e.printStackTrace();
         }
 
     }

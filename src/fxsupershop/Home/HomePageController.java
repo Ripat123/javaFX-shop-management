@@ -35,7 +35,7 @@ public class HomePageController implements Initializable {
 
     @FXML
     public JFXTabPane tb11;
-    ResultSet rs;
+    
     @FXML
     private TableColumn<CurrentStockView, String> proname_col;
     @FXML
@@ -51,7 +51,7 @@ public class HomePageController implements Initializable {
     @FXML
     private Label pathselection_msg_print;
     private String Path = null;
-    String filename;
+//    String filename;
 //    @FXML
 //    private Label pathlabel;
 //    @FXML
@@ -170,7 +170,7 @@ public class HomePageController implements Initializable {
     private JFXButton transaction_btn_id;
     @FXML
     private JFXButton daily_btn_id;
-    LoginMultiFormController loginMultiFormController = new LoginMultiFormController();
+//    LoginMultiFormController loginMultiFormController = new LoginMultiFormController();
     @FXML
     private JFXButton log_out_btn_id;
     @FXML
